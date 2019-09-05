@@ -1,8 +1,15 @@
+/* ********************************* */
 pre:after {
   content: attr(data-caption);
   font-weight:bold;
 }
 
+#TOC:before {
+  content: '目次';
+}
+
+
+/* ********************************* */
 body {
   font-family: Helvetica, arial, sans-serif;
   font-size: 14px;

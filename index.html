@@ -4,7 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title></title>
+  <meta name="author" content="社会情報学部" />
+  <title>コンピュータ実習2019</title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
 div.sourceCode { overflow-x: auto; }
@@ -46,50 +47,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <link rel="stylesheet" href="github.css" type="text/css" />
 </head>
 <body>
+<div id="header">
+<h1 class="title">コンピュータ実習2019</h1>
+<h2 class="author">社会情報学部</h2>
+<h3 class="date">2019年9月</h3>
+</div>
 <div id="TOC">
 <ul>
-<li><a href="#初めてのjavascriptタートルプログラミング"><span class="toc-section-number">1</span> 初めてのJavascriptタートルプログラミング</a><ul>
-<li><a href="#学習目標"><span class="toc-section-number">1.1</span> 学習目標</a></li>
-<li><a href="#最初のタートルプログラム"><span class="toc-section-number">1.2</span> 最初のタートルプログラム</a></li>
-<li><a href="#タートルの命令の解説"><span class="toc-section-number">1.3</span> タートルの命令の解説</a><ul>
-<li><a href="#命令の区切り"><span class="toc-section-number">1.3.1</span> 命令の区切り</a></li>
-<li><a href="#コメント"><span class="toc-section-number">1.3.2</span> コメント</a></li>
-</ul></li>
-<li><a href="#プログラムミスと対処"><span class="toc-section-number">1.4</span> プログラムミスと対処</a><ul>
-<li><a href="#コンパイルエラー"><span class="toc-section-number">1.4.1</span> コンパイルエラー</a></li>
-<li><a href="#バグ"><span class="toc-section-number">1.4.2</span> バグ</a></li>
-</ul></li>
-<li><a href="#練習問題"><span class="toc-section-number">1.5</span> 練習問題</a><ul>
-<li><a href="#正五角形描こう"><span class="toc-section-number">1.5.1</span> 正五角形描こう</a></li>
-<li><a href="#星を描こう"><span class="toc-section-number">1.5.2</span> 星を描こう</a></li>
-<li><a href="#こんぺいとうを描こう"><span class="toc-section-number">1.5.3</span> こんぺいとうを描こう</a></li>
-<li><a href="#トライフォースを描こう"><span class="toc-section-number">1.5.4</span> トライフォースを描こう</a></li>
-<li><a href="#好きな図形を描こう"><span class="toc-section-number">1.5.5</span> 好きな図形を描こう</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#コンピュータに情報を記憶させてみよう変数"><span class="toc-section-number">2</span> コンピュータに情報を記憶させてみよう（変数）</a><ul>
-<li><a href="#学習目標-1"><span class="toc-section-number">2.1</span> 学習目標</a></li>
-<li><a href="#変数"><span class="toc-section-number">2.2</span> 変数</a><ul>
-<li><a href="#変数と値"><span class="toc-section-number">2.2.1</span> 変数と値</a></li>
-<li><a href="#変数を使ったプログラムの実行"><span class="toc-section-number">2.2.2</span> 変数を使ったプログラムの実行</a></li>
-<li><a href="#複数の変数と変数名"><span class="toc-section-number">2.2.3</span> 複数の変数と変数名</a></li>
-</ul></li>
-<li><a href="#コンピュータに計算をさせる"><span class="toc-section-number">2.3</span> コンピュータに計算をさせる</a><ul>
-<li><a href="#計算式を使ったプログラム"><span class="toc-section-number">2.3.1</span> 計算式を使ったプログラム</a></li>
-<li><a href="#計算式を使ったプログラムの実行"><span class="toc-section-number">2.3.2</span> 計算式を使ったプログラムの実行</a></li>
-</ul></li>
-<li><a href="#考えてみよう">考えてみよう</a></li>
-<li><a href="#ユーザと対話するインタラクティブなプログラム"><span class="toc-section-number">2.4</span> ユーザと対話する（インタラクティブ）なプログラム</a><ul>
-<li><a href="#入力を受け付ける"><span class="toc-section-number">2.4.1</span> 入力を受け付ける</a></li>
-</ul></li>
-<li><a href="#乱数"><span class="toc-section-number">2.5</span> 乱数</a><ul>
-<li><a href="#命令ごとに毎回変わる値"><span class="toc-section-number">2.5.1</span> 命令ごとに毎回変わる値</a></li>
-</ul></li>
-<li><a href="#練習問題-1"><span class="toc-section-number">2.6</span> 練習問題</a><ul>
-<li><a href="#与えられた大きさの正五角形を描くプログラム"><span class="toc-section-number">2.6.1</span> 与えられた大きさの正五角形を描くプログラム</a></li>
-<li><a href="#乱数を使って星を描くプログラム"><span class="toc-section-number">2.6.2</span> 乱数を使って星を描くプログラム</a></li>
-</ul></li>
-</ul></li>
+<li><a href="#初めてのjavascriptタートルプログラミング"><span class="toc-section-number">1</span> 初めてのJavascriptタートルプログラミング</a></li>
+<li><a href="#コンピュータに情報を記憶させてみよう変数"><span class="toc-section-number">2</span> コンピュータに情報を記憶させてみよう（変数）</a></li>
 </ul>
 </div>
 <h1 id="初めてのjavascriptタートルプログラミング"><span class="header-section-number">1</span> 初めてのJavascriptタートルプログラミング</h1>
