@@ -77,15 +77,44 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#変数のスコープ有効範囲"><span class="toc-section-number">3.4</span> 変数のスコープ（有効範囲）</a></li>
 <li><a href="#練習問題-2"><span class="toc-section-number">3.5</span> 練習問題</a></li>
 </ul></li>
+<li><a href="#コンピュータの得意な仕事繰り返し"><span class="toc-section-number">4</span> コンピュータの得意な仕事(繰り返し)</a><ul>
+<li><a href="#学習目標-3"><span class="toc-section-number">4.1</span> 学習目標</a></li>
+<li><a href="#繰り返し"><span class="toc-section-number">4.2</span> 繰り返し</a></li>
+<li><a href="#応用円を書くプログラム"><span class="toc-section-number">4.3</span> 応用：円を書くプログラム</a></li>
+<li><a href="#for文"><span class="toc-section-number">4.4</span> for文</a></li>
+<li><a href="#練習問題-3"><span class="toc-section-number">4.5</span> 練習問題</a></li>
+</ul></li>
+<li><a href="#ブロックの入れ子構造"><span class="toc-section-number">5</span> ブロックの入れ子構造</a><ul>
+<li><a href="#学習目標-4"><span class="toc-section-number">5.1</span> 学習目標</a></li>
+<li><a href="#繰り返しの入れ子"><span class="toc-section-number">5.2</span> 繰り返しの入れ子</a></li>
+<li><a href="#入れ子と並列の違いの考察花を描くプログラム"><span class="toc-section-number">5.3</span> 入れ子と並列の違いの考察：花を描くプログラム</a></li>
+<li><a href="#繰り返し変数の利用"><span class="toc-section-number">5.4</span> 繰り返し変数の利用</a></li>
+<li><a href="#練習問題-4"><span class="toc-section-number">5.5</span> 練習問題</a></li>
+</ul></li>
+<li><a href="#命令をつくる関数引数付関数"><span class="toc-section-number">6</span> 命令をつくる（１）：関数．引数付関数</a><ul>
+<li><a href="#学習目標-5"><span class="toc-section-number">6.1</span> 学習目標</a></li>
+<li><a href="#関数"><span class="toc-section-number">6.2</span> 関数</a></li>
+<li><a href="#引数付関数"><span class="toc-section-number">6.3</span> 引数付関数</a></li>
+<li><a href="#変数の有効範囲と引数"><span class="toc-section-number">6.4</span> 変数の有効範囲と引数</a></li>
+<li><a href="#関数の設計あるいはプログラムの構造化"><span class="toc-section-number">6.5</span> 関数の設計．あるいはプログラムの構造化</a></li>
+<li><a href="#ライブラリ">ライブラリ</a></li>
+<li><a href="#練習問題-5"><span class="toc-section-number">6.6</span> 練習問題</a></li>
+</ul></li>
+<li><a href="#挑戦再帰プログラム"><span class="toc-section-number">7</span> 挑戦：再帰プログラム</a><ul>
+<li><a href="#学習目標-6"><span class="toc-section-number">7.1</span> 学習目標</a></li>
+<li><a href="#再帰呼び出し"><span class="toc-section-number">7.2</span> 再帰呼び出し</a></li>
+<li><a href="#フラクタル図形"><span class="toc-section-number">7.3</span> フラクタル図形</a></li>
+<li><a href="#練習問題-6"><span class="toc-section-number">7.4</span> 練習問題</a></li>
+</ul></li>
 </ul>
 </div>
 <h1 id="初めてのjavascriptタートルプログラミング"><span class="header-section-number">1</span> 初めてのJavascriptタートルプログラミング</h1>
 <h2 id="学習目標"><span class="header-section-number">1.1</span> 学習目標</h2>
 <ul>
-<li>タートルの基本的な命令を使いこなし、タートルで図形が描けるようになる</li>
+<li>タートルの基本的な命令を使いこなし，タートルで図形が描けるようになる</li>
 </ul>
 <h2 id="最初のタートルプログラム"><span class="header-section-number">1.2</span> 最初のタートルプログラム</h2>
-<p>最初の例題として､「家を描くサンプルプログラム」を解説します。</p>
+<p>最初の例題として､「家を描くサンプルプログラム」を解説します．</p>
 <p>家を書くサンプルプログラム</p>
 <div class="sourceCode" id="lst:1-1" caption="家を書くサンプルプログラム"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
@@ -129,7 +158,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="va">t</span>.<span class="at">fd</span>(<span class="dv">50</span>)<span class="op">;</span></code></pre></td></tr></table></div>
 <h2 id="タートルの命令の解説"><span class="header-section-number">1.3</span> タートルの命令の解説</h2>
 <p><code>var t = createTurtle();</code> （説明を加える）</p>
-<p>t.rt(30)やt.fd(60)がタートルに指示する命令です。 書かれた命令は、 必ず上から順番に実行されます。 以下にタートルに指示できる命令の一覧を示します。</p>
+<p>t.rt(30)やt.fd(60)がタートルに指示する命令です． 書かれた命令は， 必ず上から順番に実行されます． 以下にタートルに指示できる命令の一覧を示します．</p>
 <dl>
 <dt><code>rt([角度の指定])</code></dt>
 <dd>タートルを指定した角度だけ右に回す．
@@ -144,17 +173,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <dd>タートルを指定した長さだけ後ろに進める．
 </dd>
 <dt><code>up()</code></dt>
-<dd>タートルがペンを上げる(軌跡がかかれなくなる)。
+<dd>タートルがペンを上げる(軌跡がかかれなくなる)．
 </dd>
 <dt><code>down()</code></dt>
-<dd>タートルがペンを下げる(軌跡がかかれるようになる)。
+<dd>タートルがペンを下げる(軌跡がかかれるようになる)．
 </dd>
 </dl>
 <!-- color([色の指定])
 ペンの色を変える (1) -->
 <h3 id="命令の区切り"><span class="header-section-number">1.3.1</span> 命令の区切り</h3>
 <h3 id="コメント"><span class="header-section-number">1.3.2</span> コメント</h3>
-<p>コメントはプログラム（命令）としては考慮されず、読み飛ばされます。 しかし、人間が読めないとメンテナンスにこまるためにコメントをつけておきます。ファイルの先頭には、プログラムのタイトル、名前や日付を忘れずに。</p>
+<p>コメントはプログラム（命令）としては考慮されず，読み飛ばされます． しかし，人間が読めないとメンテナンスにこまるためにコメントをつけておきます．ファイルの先頭には，プログラムのタイトル，名前や日付を忘れずに．</p>
 <dl>
 <dt>範囲指定コメント</dt>
 <dd><code>/*</code>から<code>*/</code>までコメントになります
@@ -165,32 +194,32 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </dl>
 <h2 id="プログラムミスと対処"><span class="header-section-number">1.4</span> プログラムミスと対処</h2>
 <h3 id="コンパイルエラー"><span class="header-section-number">1.4.1</span> コンパイルエラー</h3>
-<p>プログラムの書きかたを間違えると、コンパイルしたときにエラーになります。</p>
-<!-- 例えば、コマンドの区切りでセミコロンを忘れると、次のようなエラーがでます。
+<p>プログラムの書きかたを間違えると，コンパイルしたときにエラーになります．</p>
+<!-- 例えば，コマンドの区切りでセミコロンを忘れると，次のようなエラーがでます．
 
 図 2.4.1.1 コンパイルエラー
->javac House.java House.java:13: ';' がありません。 rt(120)
+>javac House.java House.java:13: ';' がありません． rt(120)
 ^ エラー 1 個 > -->
-<p>コンパイルエラーがでたら、実行することはできないので、ソースを直して、再コンパイルするしかありません。 どうしても原因が分からない時は、ＴＡなどに相談してください。</p>
+<p>コンパイルエラーがでたら，実行することはできないので，ソースを直して，再コンパイルするしかありません． どうしても原因が分からない時は，ＴＡなどに相談してください．</p>
 <h3 id="バグ"><span class="header-section-number">1.4.2</span> バグ</h3>
-<p>コンパイルが正常に通っても、プログラムが間違っていて、意図した通りに動作しないことをバグといいます。 コンピュータは、必ず 命令した通りに動作します。</p>
-<p>バグがあったら、修正しましょう。バグを修正することをデバッグといいます。</p>
-<p>プロでも、最初から意図したプログラムを書くのは難しいものです。 プログラム上達の早道は、一発で動かそうとせずに、 早くバグを見つけて、修正できるようになるようになるように心がけることです。</p>
+<p>コンパイルが正常に通っても，プログラムが間違っていて，意図した通りに動作しないことをバグといいます． コンピュータは，必ず 命令した通りに動作します．</p>
+<p>バグがあったら，修正しましょう．バグを修正することをデバッグといいます．</p>
+<p>プロでも，最初から意図したプログラムを書くのは難しいものです． プログラム上達の早道は，一発で動かそうとせずに， 早くバグを見つけて，修正できるようになるようになるように心がけることです．</p>
 <h2 id="練習問題"><span class="header-section-number">1.5</span> 練習問題</h2>
 <h3 id="正五角形描こう"><span class="header-section-number">1.5.1</span> 正五角形描こう</h3>
-<p>進める（fd）命令や、回す（rt）命令を使って、正五角形を描くプログラムを作りましょう。</p>
+<p>進める（fd）命令や，回す（rt）命令を使って，正五角形を描くプログラムを作りましょう．</p>
 <p><img src="img/chapter01/pentagon.png" alt="正五角形" /> ファイル名は「pentagon.js」とすること．</p>
 <h3 id="星を描こう"><span class="header-section-number">1.5.2</span> 星を描こう</h3>
-<p>進める（fd）命令や、回す（rt）命令を使って、星を描くプログラムを作りましょう。</p>
+<p>進める（fd）命令や，回す（rt）命令を使って，星を描くプログラムを作りましょう．</p>
 <p><img src="img/chapter01/star.png" alt="星" /> ファイル名は「star.js」とすること．</p>
 <h3 id="こんぺいとうを描こう"><span class="header-section-number">1.5.3</span> こんぺいとうを描こう</h3>
-<p>進める（fd）命令や、回す（rt）命令を使って、こんぺいとうを描くプログラムを作りましょう。</p>
+<p>進める（fd）命令や，回す（rt）命令を使って，こんぺいとうを描くプログラムを作りましょう．</p>
 <p><img src="img/chapter01/confetti.png" alt="こんぺいとう" /> ファイル名は「confetti.js」とすること．</p>
 <h3 id="トライフォースを描こう"><span class="header-section-number">1.5.4</span> トライフォースを描こう</h3>
-<p>進める（fd）命令や、回す（rt）命令を使って、トライフォースを描くプログラムを作りましょう。</p>
+<p>進める（fd）命令や，回す（rt）命令を使って，トライフォースを描くプログラムを作りましょう．</p>
 <p><img src="img/chapter01/triforce.png" alt="トライフォース" /> ファイル名は「triforce.js」とすること．</p>
 <h3 id="好きな図形を描こう"><span class="header-section-number">1.5.5</span> 好きな図形を描こう</h3>
-<p>タートルを使って、好きな絵を描くプログラムを作りましょう。</p>
+<p>タートルを使って，好きな絵を描くプログラムを作りましょう．</p>
 <p>ファイル名は「myfavorite.js」とすること．</p>
 <h1 id="コンピュータに情報を記憶させてみよう変数"><span class="header-section-number">2</span> コンピュータに情報を記憶させてみよう（変数）</h1>
 <h2 id="学習目標-1"><span class="header-section-number">2.1</span> 学習目標</h2>
@@ -201,9 +230,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>ＣＵＩを使ってユーザ対話をするプログラムが作れるようになる</li>
 </ul>
 <h2 id="変数"><span class="header-section-number">2.2</span> 変数</h2>
-<p>今回新しく&quot;変数&quot;が登場します。家の大きさを変更できる次のプログラムをみてみましょう。</p>
+<p>今回新しく&quot;変数&quot;が登場します．家の大きさを変更できる次のプログラムをみてみましょう．</p>
 <h3 id="変数と値"><span class="header-section-number">2.2.1</span> 変数と値</h3>
-<p>次のプログラムを見てみましょう。</p>
+<p>次のプログラムを見てみましょう．</p>
 <div class="sourceCode" id="lst:2-1" caption="家を書くサンプルプログラム"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
@@ -252,23 +281,23 @@ x <span class="op">=</span> <span class="dv">50</span><span class="op">;</span> 
     <span class="va">t</span>.<span class="at">lt</span>(<span class="dv">90</span>)<span class="op">;</span>
     <span class="va">t</span>.<span class="at">fd</span>(x)<span class="op">;</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
-<p>変数はデータを格納しておく場所のことです。 プログラムでは、「メモリ」の許す限り、データを格納しておくことが出来ます。</p>
-<p>格納する場所を一つにつき、一つの名前をつけることが出来ます。</p>
-<p>実際に格納されるデータのことを「値」といいます。</p>
+<p>変数はデータを格納しておく場所のことです． プログラムでは，「メモリ」の許す限り，データを格納しておくことが出来ます．</p>
+<p>格納する場所を一つにつき，一つの名前をつけることが出来ます．</p>
+<p>実際に格納されるデータのことを「値」といいます．</p>
 <div class="figure">
 <img src="img/chapter02/table_model_value.gif" alt="変数と値" />
 <p class="caption">変数と値</p>
 </div>
 <h3 id="変数を使ったプログラムの実行"><span class="header-section-number">2.2.2</span> 変数を使ったプログラムの実行</h3>
-<p>プログラムの実行過程と変数を見ていきましょう。</p>
+<p>プログラムの実行過程と変数を見ていきましょう．</p>
 <ol style="list-style-type: decimal">
 <li>変数の宣言 <br><img src="img/chapter02/table_model_x_01.gif" alt="変数の宣言" /></li>
 <li>変数へ値を代入する <br><img src="img/chapter02/table_model_x_02.gif" alt="変数へ値を代入する" /></li>
 <li>変数を評価して値にする <br><img src="img/chapter02/table_model_x_03.gif" alt="変数を評価して値にする" /></li>
 </ol>
 <h3 id="複数の変数と変数名"><span class="header-section-number">2.2.3</span> 複数の変数と変数名</h3>
-<p>変数はいくつでも使うことが出来ます。</p>
-<p>区別するために、変数には異なる名前をつけなければなりません。 異なる名前ならば好きな名前をつけることが出来ます。 空白や特殊記号が使えないのはクラス名と同じです。</p>
+<p>変数はいくつでも使うことが出来ます．</p>
+<p>区別するために，変数には異なる名前をつけなければなりません． 異なる名前ならば好きな名前をつけることが出来ます． 空白や特殊記号が使えないのはクラス名と同じです．</p>
 <h4 id="複数の変数と変数名-1"><span class="header-section-number">2.2.3.1</span> 複数の変数と変数名</h4>
 <div class="sourceCode" id="lst:2-1" caption="家を書くサンプルプログラム"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
@@ -325,7 +354,7 @@ rightAngle <span class="op">=</span> <span class="dv">90</span><span class="op">
     <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
 <h4 id="プログラムの実行過程"><span class="header-section-number">2.2.3.2</span> プログラムの実行過程</h4>
-<p>プログラムの実行過程を追ってみましょう。</p>
+<p>プログラムの実行過程を追ってみましょう．</p>
 <ol style="list-style-type: decimal">
 <li>変数の宣言 <br><img src="img/chapter02/table_model_name_01.gif" /></li>
 <li>変数の宣言 <br><img src="img/chapter02/table_model_name_02.gif" /></li>
@@ -447,31 +476,31 @@ smallHouseLength <span class="op">=</span> length / <span class="dv">2</span><sp
     <span class="va">t</span>.<span class="at">lt</span>(rightAngle)<span class="op">;</span>
     <span class="va">t</span>.<span class="at">fd</span>(smallHouseLength)<span class="op">;</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
-<p>コンピュータは計算機ですから、計算をさせることが出来ます。例えば、次のように書くと</p>
+<p>コンピュータは計算機ですから，計算をさせることが出来ます．例えば，次のように書くと</p>
 <p><code>rightAngle * 2</code></p>
-<p>掛け算を行うことが出来ます。</p>
-<p>このような、計算を行う書法のことを「式」といいます。</p>
-<p>Javascriptで使うことが出来る基本的な計算命令を以下に示します。</p>
+<p>掛け算を行うことが出来ます．</p>
+<p>このような，計算を行う書法のことを「式」といいます．</p>
+<p>Javascriptで使うことが出来る基本的な計算命令を以下に示します．</p>
 <p><code>+</code> :足し算をします</p>
 <p><code>-</code> :引き算をします</p>
 <p><code>*</code> :掛け算をします</p>
 <p><code>/</code> :割り算をします</p>
 <p><code>%</code> :割り算の余りを求めます</p>
 <h3 id="計算式を使ったプログラムの実行"><span class="header-section-number">2.3.2</span> 計算式を使ったプログラムの実行</h3>
-<p>次のように評価（計算）されて、具体的な値になり、プログラムが動きます。</p>
+<p>次のように評価（計算）されて，具体的な値になり，プログラムが動きます．</p>
 <h4 id="計算式と代入文を使ったプログラムの実行変数の宣言"><span class="header-section-number">2.3.2.1</span> 計算式と代入文を使ったプログラムの実行変数の宣言</h4>
 <div class="figure">
 <img src="img/chapter02/table_model_expression_01.gif" alt="図. 計算式と代入文を使ったプログラムの実行変数の宣言" />
 <p class="caption">図. 計算式と代入文を使ったプログラムの実行変数の宣言</p>
 </div>
-<p>計算式があっても、右辺から評価されるのは一緒です。</p>
+<p>計算式があっても，右辺から評価されるのは一緒です．</p>
 <h4 id="変数の宣言"><span class="header-section-number">2.3.2.2</span> 変数の宣言</h4>
 <div class="figure">
 <img src="img/chapter02/table_model_expression_02.gif" alt="図. 変数の宣言" />
 <p class="caption">図. 変数の宣言</p>
 </div>
 <h2 id="考えてみよう" class="unnumbered">考えてみよう</h2>
-<p>次のようなプログラムが動かない（コンパイルエラーとなる）のは何故ですか？考えてみましょう。</p>
+<p>次のようなプログラムが動かない（コンパイルエラーとなる）のは何故ですか？考えてみましょう．</p>
 <p><code>length / 2  = smallHouseLength;</code></p>
 <h2 id="ユーザと対話するインタラクティブなプログラム"><span class="header-section-number">2.4</span> ユーザと対話する（インタラクティブ）なプログラム</h2>
 <h3 id="入力を受け付ける"><span class="header-section-number">2.4.1</span> 入力を受け付ける</h3>
@@ -529,8 +558,8 @@ length <span class="op">=</span> <span class="at">input</span>()<span class="op"
 <span class="op">}</span></code></pre></td></tr></table></div>
 <p>ユーザにメッセージを出すには</p>
 <p><code>print(&quot;ここに出したいメッセージを書く&quot;)</code></p>
-<p>命令を使います。</p>
-<p>出したいメッセージを「&quot;」（ダブルクォーテーション）「&quot;」（ダブルクォーテーション）で囲んでください。</p>
+<p>命令を使います．</p>
+<p>出したいメッセージを「&quot;」（ダブルクォーテーション）「&quot;」（ダブルクォーテーション）で囲んでください．</p>
 <h2 id="乱数"><span class="header-section-number">2.5</span> 乱数</h2>
 <h3 id="命令ごとに毎回変わる値"><span class="header-section-number">2.5.1</span> 命令ごとに毎回変わる値</h3>
 <div class="sourceCode" id="lst:2-1" caption="家を書くサンプルプログラム"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -587,29 +616,29 @@ length <span class="op">=</span> <span class="at">random</span>(<span class="dv"
 <span class="op">}</span></code></pre></td></tr></table></div>
 <p>乱数値を（命令毎に毎回変わる値）に取得するには</p>
 <p><code>random(数)</code></p>
-<p>命令を使います。</p>
-<p>実行されるごとに異なる値が自動的に選択されます。</p>
-<p>「０」から「数の所に書いた数」未満のどれかの数字が選択されます。</p>
-<p>（例：random(10)のとき、0から9までの１０種類のどれかの数が選択されます）</p>
+<p>命令を使います．</p>
+<p>実行されるごとに異なる値が自動的に選択されます．</p>
+<p>「０」から「数の所に書いた数」未満のどれかの数字が選択されます．</p>
+<p>（例：random(10)のとき，0から9までの１０種類のどれかの数が選択されます）</p>
 <h2 id="練習問題-1"><span class="header-section-number">2.6</span> 練習問題</h2>
 <h3 id="与えられた大きさの正五角形を描くプログラム"><span class="header-section-number">2.6.1</span> 与えられた大きさの正五角形を描くプログラム</h3>
-<p>ユーザの入力を受け取り、その長さを一辺の長さとして正五角形を描くプログラムを作ってください。</p>
+<p>ユーザの入力を受け取り，その長さを一辺の長さとして正五角形を描くプログラムを作ってください．</p>
 <p>ファイル名は「pentagon2.js」とすること．</p>
 <h3 id="乱数を使って星を描くプログラム"><span class="header-section-number">2.6.2</span> 乱数を使って星を描くプログラム</h3>
-<p>長さに乱数を使い、実行するたびに大きさが変わる星を描くプログラムを作ってください。 乱数は50以上100未満の間になるようにすること。</p>
+<p>長さに乱数を使い，実行するたびに大きさが変わる星を描くプログラムを作ってください． 乱数は50以上100未満の間になるようにすること．</p>
 <p>ファイル名は「star2.js」とすること．</p>
 <h1 id="プログラムに知性を条件分岐"><span class="header-section-number">3</span> プログラムに知性を(条件分岐)</h1>
 <h2 id="学習目標-2"><span class="header-section-number">3.1</span> 学習目標</h2>
 <ul>
-<li>条件分岐のあるプログラムの実行順序を理解し、応用してプログラムが書けるようになる</li>
-<li>比較演算子、論理演算子をつかって条件式を記述することができるようになる</li>
-<li>変数の有効範囲について、ブロックという言葉を用いて説明できるようになる</li>
+<li>条件分岐のあるプログラムの実行順序を理解し，応用してプログラムが書けるようになる</li>
+<li>比較演算子，論理演算子をつかって条件式を記述することができるようになる</li>
+<li>変数の有効範囲について，ブロックという言葉を用いて説明できるようになる</li>
 </ul>
 <h2 id="条件分岐を使う"><span class="header-section-number">3.2</span> 条件分岐を使う</h2>
-<p>今回のテーマは条件に応じて動作が変化するプログラムを書くことです。</p>
-<p>ユーザの入力に応じた絵を書かせてみましょう。</p>
+<p>今回のテーマは条件に応じて動作が変化するプログラムを書くことです．</p>
+<p>ユーザの入力に応じた絵を書かせてみましょう．</p>
 <h3 id="条件分岐"><span class="header-section-number">3.2.1</span> 条件分岐</h3>
-<p>次のプログラムを見てみましょう。</p>
+<p>次のプログラムを見てみましょう．</p>
 <div class="sourceCode" id="lst:3-1" caption="Condition"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
@@ -671,7 +700,7 @@ length <span class="op">=</span> <span class="at">random</span>(<span class="dv"
 <span class="kw">var</span> pictureNumber<span class="op">;</span><span class="co">// 絵の番号</span>
 
 <span class="op">{</span><span class="co">// ユーザから入力を受け取る</span>
-    pictureNumber <span class="op">=</span> <span class="at">input</span>(<span class="st">&quot;書きたい絵の番号を入力してください。(1.家, 2.星)&quot;</span>)<span class="op">;</span>
+    pictureNumber <span class="op">=</span> <span class="at">input</span>(<span class="st">&quot;書きたい絵の番号を入力してください．(1.家, 2.星)&quot;</span>)<span class="op">;</span>
 <span class="op">}</span>
 
 <span class="cf">if</span> (pictureNumber <span class="op">==</span> <span class="dv">1</span>) <span class="op">{</span><span class="co">// 入力された番号が1ならば</span>
@@ -722,38 +751,38 @@ length <span class="op">=</span> <span class="at">random</span>(<span class="dv"
     <span class="op">}</span>
 
 <span class="op">}</span></code></pre></td></tr></table></div>
-<p>いままでのプログラムでは、命令が必ず上から順番に全て実行されていました。 これを順次実行といいます。</p>
-<p>今回登場する&quot;条件分岐&quot;を使うと、命令の実行される順番を変更、制御することができます。</p>
-<p>条件分岐の一般的な形は次のとおりです。</p>
+<p>いままでのプログラムでは，命令が必ず上から順番に全て実行されていました． これを順次実行といいます．</p>
+<p>今回登場する&quot;条件分岐&quot;を使うと，命令の実行される順番を変更，制御することができます．</p>
+<p>条件分岐の一般的な形は次のとおりです．</p>
 <pre><code>if( [条件式] ) {
     処理A
 } else {
     処理B
 }</code></pre>
-<p>条件式が成立(true)のした場合には、処理Aが実行され、処理Bは実行されません。</p>
-<p>逆に条件式が不成立(false)の場合には、処理Bが実行され、処理Aは実行されません。</p>
-<p>これをフローチャートと呼ばれる図を用いて書くと、次のようになります。</p>
+<p>条件式が成立(true)のした場合には，処理Aが実行され，処理Bは実行されません．</p>
+<p>逆に条件式が不成立(false)の場合には，処理Bが実行され，処理Aは実行されません．</p>
+<p>これをフローチャートと呼ばれる図を用いて書くと，次のようになります．</p>
 <div class="figure">
 <img src="img/chapter03/if_flow_chart.gif" alt="条件分岐のフローチャート" />
 <p class="caption">条件分岐のフローチャート</p>
 </div>
-<p>ちなみに、elseブロックは必要が無ければ省略できます。次のような形になります。</p>
+<p>ちなみに，elseブロックは必要が無ければ省略できます．次のような形になります．</p>
 <pre><code>if( [条件式] ) {
     処理A
 }</code></pre>
-<p>このように書くと、条件式が成立した時に処理Aが実行され、不成立の時には処理Aを飛ばします。</p>
+<p>このように書くと，条件式が成立した時に処理Aが実行され，不成立の時には処理Aを飛ばします．</p>
 <h3 id="条件式の評価"><span class="header-section-number">3.2.2</span> 条件式の評価</h3>
-<p>条件式の評価の過程を見ていきましょう。</p>
+<p>条件式の評価の過程を見ていきましょう．</p>
 <ol style="list-style-type: decimal">
 <li><p>成立(true)する場合 <br><img src="img/chapter03/condition_true.gif" /></p></li>
 <li><p>不成立(false)する場合 <br><img src="img/chapter03/condition_false.gif" /></p></li>
-<li><p>注意すること 注意することは、条件式で、同じかどうか調べるには「==」(イコールを2つ)にしなければならないことです。</p></li>
+<li><p>注意すること 注意することは，条件式で，同じかどうか調べるには「==」(イコールを2つ)にしなければならないことです．</p></li>
 </ol>
-<p>これに対して、「=」(イコール1つ)は代入ですので、注意してください。</p>
+<p>これに対して，「=」(イコール1つ)は代入ですので，注意してください．</p>
 <h3 id="複数の分岐"><span class="header-section-number">3.2.3</span> 複数の分岐</h3>
 <h4 id="じゃんけんプログラム"><span class="header-section-number">3.2.3.1</span> じゃんけんプログラム</h4>
-<p>複数に分岐するプログラムを書くこともできます。</p>
-<p>次のじゃんけんプログラムを見てみましょう。</p>
+<p>複数に分岐するプログラムを書くこともできます．</p>
+<p>次のじゃんけんプログラムを見てみましょう．</p>
 <div class="sourceCode" id="lst:3-1" caption="Janken"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
@@ -1075,20 +1104,20 @@ handNumber <span class="op">=</span> <span class="at">random</span>(<span class=
 
 <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span> <span class="co">// 1,2,3以外の場合</span>
 
-    <span class="at">println</span>(<span class="st">&quot;不正な数です。&quot;</span>)<span class="op">;</span>
+    <span class="at">println</span>(<span class="st">&quot;不正な数です．&quot;</span>)<span class="op">;</span>
 
 <span class="op">}</span></code></pre></td></tr></table></div>
 <h4 id="じゃんけんの手のデータの扱いについて"><span class="header-section-number">3.2.3.2</span> じゃんけんの手のデータの扱いについて</h4>
-<p>じゃんけんプログラムのような現実問題を扱うときに問題となるのは、 データ（グー、チョキ、パーの手）をどうコンピュータで扱えるようにするかです。 コンピュータでは、そのままこの概念を表すことができないので、 ここでは、1,2,3の数値で表すという方法で実現することを考えましょう。</p>
+<p>じゃんけんプログラムのような現実問題を扱うときに問題となるのは， データ（グー，チョキ，パーの手）をどうコンピュータで扱えるようにするかです． コンピュータでは，そのままこの概念を表すことができないので， ここでは，1,2,3の数値で表すという方法で実現することを考えましょう．</p>
 <div class="figure">
 <img src="img/chapter03/janken_data_model.gif" alt="じゃんけんのデータの表現" />
 <p class="caption">じゃんけんのデータの表現</p>
 </div>
 <h4 id="じゃんけんの手をどのようにプログラムのデータとして扱うか"><span class="header-section-number">3.2.3.3</span> じゃんけんの手をどのようにプログラムのデータとして扱うか</h4>
-<p>このように、現実に即したプログラムを作成するためには、 データをコンピュータが扱う形式に変換するという作業が必要になります。 この作業のことをデータ構造の設計(モデル化)といいます。</p>
+<p>このように，現実に即したプログラムを作成するためには， データをコンピュータが扱う形式に変換するという作業が必要になります． この作業のことをデータ構造の設計(モデル化)といいます．</p>
 <h3 id="複数の条件分岐"><span class="header-section-number">3.2.4</span> 複数の条件分岐</h3>
-<p>else if 文を使うと、複数にわたる条件分岐を記述することができます。</p>
-<p>記述例(書式)を以下に示します。ちなみに、一つのif文に対して、else if文はいくつでも書くことができます。</p>
+<p>else if 文を使うと，複数にわたる条件分岐を記述することができます．</p>
+<p>記述例(書式)を以下に示します．ちなみに，一つのif文に対して，else if文はいくつでも書くことができます．</p>
 <pre><code>if( [条件式] ) {
     処理A
 } else if( [条件式] ) {
@@ -1096,14 +1125,14 @@ handNumber <span class="op">=</span> <span class="at">random</span>(<span class=
 } else{
     処理C
 }</code></pre>
-<p>この場合のフローチャートは次のようになります。</p>
+<p>この場合のフローチャートは次のようになります．</p>
 <div class="figure">
 <img src="img/chapter03/ifelse_flow_chart.gif" alt="複数にわたる条件分岐のフローチャート" />
 <p class="caption">複数にわたる条件分岐のフローチャート</p>
 </div>
 <h2 id="いろいろな条件式"><span class="header-section-number">3.3</span> いろいろな条件式</h2>
 <h3 id="比較演算子"><span class="header-section-number">3.3.1</span> 比較演算子</h3>
-<p>次のプログラムを見てみましょう。</p>
+<p>次のプログラムを見てみましょう．</p>
 <div class="sourceCode" id="lst:3-1" caption="Rohrer"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
@@ -1142,23 +1171,23 @@ handNumber <span class="op">=</span> <span class="at">random</span>(<span class=
 
 <span class="op">{</span><span class="co">// ローレル指数を求める</span>
     rohrer <span class="op">=</span> weight <span class="op">*</span> <span class="dv">10000000</span> / height / height / height<span class="op">;</span>
-    <span class="at">println</span>(<span class="st">&quot;ローレル指数は&quot;</span> <span class="op">+</span> rohrer <span class="op">+</span> <span class="st">&quot;です。&quot;</span>)<span class="op">;</span>
+    <span class="at">println</span>(<span class="st">&quot;ローレル指数は&quot;</span> <span class="op">+</span> rohrer <span class="op">+</span> <span class="st">&quot;です．&quot;</span>)<span class="op">;</span>
 <span class="op">}</span>
 
 <span class="op">{</span><span class="co">// 体型に対するコメントを提示する</span>
     <span class="cf">if</span> (rohrer <span class="op">&lt;</span> <span class="dv">100</span>) <span class="op">{</span>
-        <span class="at">println</span>(<span class="st">&quot;やせすぎですね。&quot;</span>)<span class="op">;</span>
+        <span class="at">println</span>(<span class="st">&quot;やせすぎですね．&quot;</span>)<span class="op">;</span>
     <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (rohrer <span class="op">&lt;</span> <span class="dv">115</span>) <span class="op">{</span>
-        <span class="at">println</span>(<span class="st">&quot;やせていますね。&quot;</span>)<span class="op">;</span>
+        <span class="at">println</span>(<span class="st">&quot;やせていますね．&quot;</span>)<span class="op">;</span>
     <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (rohrer <span class="op">&lt;</span> <span class="dv">145</span>) <span class="op">{</span>
-        <span class="at">println</span>(<span class="st">&quot;普通ですね。&quot;</span>)<span class="op">;</span>
+        <span class="at">println</span>(<span class="st">&quot;普通ですね．&quot;</span>)<span class="op">;</span>
     <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (rohrer <span class="op">&lt;</span> <span class="dv">160</span>) <span class="op">{</span>
-        <span class="at">println</span>(<span class="st">&quot;太っていますね。&quot;</span>)<span class="op">;</span>
+        <span class="at">println</span>(<span class="st">&quot;太っていますね．&quot;</span>)<span class="op">;</span>
     <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span>
-        <span class="at">println</span>(<span class="st">&quot;太りすぎですね。&quot;</span>)<span class="op">;</span>
+        <span class="at">println</span>(<span class="st">&quot;太りすぎですね．&quot;</span>)<span class="op">;</span>
     <span class="op">}</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
-<p>今度のプログラムでは、ローレル指数の範囲に対応して、メッセージが変わっていますね。 このように、プログラムでは、変数に入っている値が同じかどうかを調べるだけでなく、 大きさの大小を比較して、条件を判定することもできます。</p>
+<p>今度のプログラムでは，ローレル指数の範囲に対応して，メッセージが変わっていますね． このように，プログラムでは，変数に入っている値が同じかどうかを調べるだけでなく， 大きさの大小を比較して，条件を判定することもできます．</p>
 <p>表. Javascriptで使える数値の比較演算子</p>
 <table>
 <thead>
@@ -1198,7 +1227,7 @@ handNumber <span class="op">=</span> <span class="at">random</span>(<span class=
 </tbody>
 </table>
 <h3 id="論理演算子"><span class="header-section-number">3.3.2</span> 論理演算子</h3>
-<p>次のプログラムを見てみましょう。</p>
+<p>次のプログラムを見てみましょう．</p>
 <h4 id="rohrer2"><span class="header-section-number">3.3.2.1</span> Rohrer2</h4>
 <div class="sourceCode" id="lst:3-1" caption="Rohrer2"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
@@ -1242,28 +1271,28 @@ handNumber <span class="op">=</span> <span class="at">random</span>(<span class=
 
 <span class="op">{</span><span class="co">// ローレル指数を求める</span>
     rohrer <span class="op">=</span> weight <span class="op">*</span> <span class="dv">10000000</span> / height / height / height<span class="op">;</span>
-    <span class="at">println</span>(<span class="st">&quot;ローレル指数は&quot;</span> <span class="op">+</span> rohrer <span class="op">+</span> <span class="st">&quot;です。&quot;</span>)<span class="op">;</span>
+    <span class="at">println</span>(<span class="st">&quot;ローレル指数は&quot;</span> <span class="op">+</span> rohrer <span class="op">+</span> <span class="st">&quot;です．&quot;</span>)<span class="op">;</span>
 <span class="op">}</span>
 
 <span class="op">{</span><span class="co">// 体型に対するコメントを提示する</span>
     <span class="cf">if</span> (rohrer <span class="op">&lt;</span> <span class="dv">100</span>) <span class="op">{</span>
-        <span class="at">println</span>(<span class="st">&quot;やせすぎですね。&quot;</span>)<span class="op">;</span>
+        <span class="at">println</span>(<span class="st">&quot;やせすぎですね．&quot;</span>)<span class="op">;</span>
     <span class="op">}</span>
     <span class="cf">if</span> (rohrer <span class="op">&gt;=</span> <span class="dv">100</span> <span class="op">&amp;&amp;</span> rohrer <span class="op">&lt;</span> <span class="dv">115</span>) <span class="op">{</span>
-        <span class="at">println</span>(<span class="st">&quot;やせていますね。&quot;</span>)<span class="op">;</span>
+        <span class="at">println</span>(<span class="st">&quot;やせていますね．&quot;</span>)<span class="op">;</span>
     <span class="op">}</span>
     <span class="cf">if</span> (rohrer <span class="op">&gt;=</span> <span class="dv">115</span> <span class="op">&amp;&amp;</span> rohrer <span class="op">&lt;</span> <span class="dv">145</span>) <span class="op">{</span>
-        <span class="at">println</span>(<span class="st">&quot;普通ですね。&quot;</span>)<span class="op">;</span>
+        <span class="at">println</span>(<span class="st">&quot;普通ですね．&quot;</span>)<span class="op">;</span>
     <span class="op">}</span>
     <span class="cf">if</span> (rohrer <span class="op">&gt;=</span> <span class="dv">145</span> <span class="op">&amp;&amp;</span> rohrer <span class="op">&lt;</span> <span class="dv">160</span>) <span class="op">{</span>
-        <span class="at">println</span>(<span class="st">&quot;太っていますね。&quot;</span>)<span class="op">;</span>
+        <span class="at">println</span>(<span class="st">&quot;太っていますね．&quot;</span>)<span class="op">;</span>
     <span class="op">}</span>
     <span class="cf">if</span> (rohrer <span class="op">&gt;=</span> <span class="dv">160</span>) <span class="op">{</span>
-        <span class="at">println</span>(<span class="st">&quot;太りすぎですね。&quot;</span>)<span class="op">;</span>
+        <span class="at">println</span>(<span class="st">&quot;太りすぎですね．&quot;</span>)<span class="op">;</span>
     <span class="op">}</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
-<p>今度のプログラムも、前例とやっていることは同じなのですが、条件文がちょっと異なっていますね。</p>
-<p>論理演算子を使うと、2つの条件式を使って、それらの条件が両方とも(And)もしくは、 どちらか(Or)が成立した時のように、組み合わされた条件式全体の条件を判定することができます。</p>
+<p>今度のプログラムも，前例とやっていることは同じなのですが，条件文がちょっと異なっていますね．</p>
+<p>論理演算子を使うと，2つの条件式を使って，それらの条件が両方とも(And)もしくは， どちらか(Or)が成立した時のように，組み合わされた条件式全体の条件を判定することができます．</p>
 <p>表 Javascriptで使える論理演算子</p>
 <table>
 <thead>
@@ -1287,14 +1316,14 @@ handNumber <span class="op">=</span> <span class="at">random</span>(<span class=
 </tbody>
 </table>
 <h4 id="論理演算子の評価の過程"><span class="header-section-number">3.3.2.2</span> 論理演算子の評価の過程</h4>
-<p>論理演算子の評価の過程を見ていきましょう。</p>
+<p>論理演算子の評価の過程を見ていきましょう．</p>
 <ol style="list-style-type: decimal">
 <li>And演算子が成立(true)する場合 <br><img src="img/chapter03/condition_logic_and_true.gif" /></li>
 <li>And演算子が不成立(false)する場合 <br><img src="img/chapter03/condition_logic_and_false.gif" /></li>
 </ol>
 <h2 id="変数のスコープ有効範囲"><span class="header-section-number">3.4</span> 変数のスコープ（有効範囲）</h2>
 <p>変数には有効範囲（スコープといいます）があります．Javascriptでは基本的に，宣言した変数のブロック内(「{}」で囲まれた範囲)がスコープになります．</p>
-<p>例えば、次のような例の場合の各変数のスコープは下表のようになります。</p>
+<p>例えば，次のような例の場合の各変数のスコープは下表のようになります．</p>
 <pre><code>var z;
     
 if( [条件式] ) {
@@ -1335,17 +1364,635 @@ if( [条件式] ) {
 </tr>
 </tbody>
 </table>
-<p>スコープ外で変数を呼び出そうとすると、エラーが出ます。</p>
-<p>スコープ外なら同じ変数名を使うことができます。 その場合、それぞれの変数が違う値を持つことになります。</p>
+<p>スコープ外で変数を呼び出そうとすると，エラーが出ます．</p>
+<p>スコープ外なら同じ変数名を使うことができます． その場合，それぞれの変数が違う値を持つことになります．</p>
 <h2 id="練習問題-2"><span class="header-section-number">3.5</span> 練習問題</h2>
 <h3 id="絵の描き分けプログラムを作ろう"><span class="header-section-number">3.5.1</span> 絵の描き分けプログラムを作ろう</h3>
-<p>前回作ったプログラムを改造して、条件式を使って、 ユーザの入力に応じて、タートルの書く絵を変えるプログラムを書いてください。 余裕がある人は、条件文を駆使して実用的なプログラムに挑戦してみてください。</p>
+<p>前回作ったプログラムを改造して，条件式を使って， ユーザの入力に応じて，タートルの書く絵を変えるプログラムを書いてください． 余裕がある人は，条件文を駆使して実用的なプログラムに挑戦してみてください．</p>
 <p>ファイル名は「figureshop.js」とすること．</p>
 <h3 id="おみくじプログラムを作ろう"><span class="header-section-number">3.5.2</span> おみくじプログラムを作ろう</h3>
-<p>乱数と条件分岐を使って、「大吉」「中吉」「小吉」「凶」を表示するプログラムを作りましょう。 大吉のときだけ、タートルの絵（星など）を描くようにしましょう。</p>
+<p>乱数と条件分岐を使って，「大吉」「中吉」「小吉」「凶」を表示するプログラムを作りましょう． 大吉のときだけ，タートルの絵（星など）を描くようにしましょう．</p>
 <p>ファイル名は「omikuji.js」とすること．</p>
 <h3 id="評点グレード変換プログラムを作ろう"><span class="header-section-number">3.5.3</span> 評点グレード変換プログラムを作ろう</h3>
-<p>入力と条件分岐を使って、「秀」「優」「良」「可」「不可」を表示するプログラムを作りましょう。 ユーザが評点を入力すると、それに応じたグレードが表示されるようにプログラムを書いてください。 評点区分とグレードの定義は静大の評価制度を利用すること。</p>
+<p>入力と条件分岐を使って，「秀」「優」「良」「可」「不可」を表示するプログラムを作りましょう． ユーザが評点を入力すると，それに応じたグレードが表示されるようにプログラムを書いてください． 評点区分とグレードの定義は静大の評価制度を利用すること．</p>
 <p>ファイル名は「grade.js」とすること．</p>
+<h1 id="コンピュータの得意な仕事繰り返し"><span class="header-section-number">4</span> コンピュータの得意な仕事(繰り返し)</h1>
+<h2 id="学習目標-3"><span class="header-section-number">4.1</span> 学習目標</h2>
+<ul>
+<li>繰り返しのあるプログラムの実行順序を理解し，応用してプログラムが書けるようになる</li>
+</ul>
+<h2 id="繰り返し"><span class="header-section-number">4.2</span> 繰り返し</h2>
+<p>今回のテーマは同じ命令を何度も書かずに，コンピュータに繰り返しさせることです．</p>
+<p>繰り返しプログラムを見ていく前に，何を繰り返すか考えていきましょう．</p>
+<h3 id="何を繰り返すのか"><span class="header-section-number">4.2.1</span> 何を繰り返すのか</h3>
+<p>何回も出てきた，家のプログラムを見てみましょう．</p>
+<p>リスト 5.2.1.1 House.java</p>
+<p>このプログラム，何度も同じことを書いている個所が2箇所ありますね．どこが同じか考えてみましょう．</p>
+<h3 id="繰り返しを使ったプログラム"><span class="header-section-number">4.2.2</span> 繰り返しを使ったプログラム</h3>
+<p>繰り返しを使って，すっきりとしたプログラムにしてみましょう．</p>
+<p>リスト 5.2.2.1 WhileHouse.java</p>
+<p>今回登場した&quot;繰り返し&quot;を使うと，プログラムを繰り返すことができます．</p>
+<p>繰り返しの一般的な形は次のとおりです．</p>
+<pre><code>while( [条件式] ) {
+    処理
+}</code></pre>
+<p>条件式が成立(true)のした場合には，処理が実行されます．不成立(false)の場合は処理を飛ばします．</p>
+<p>処理が実行し終わると，もう一度条件式を評価します．</p>
+<p>これを，条件式が不成立(false)になるまで繰り返します．</p>
+<p>これをフローチャートと呼ばれる図を用いて書くと，次のようになります．</p>
+<h4 id="プログラムのフローチャート"><span class="header-section-number">4.2.2.1</span> プログラムのフローチャート</h4>
+<div class="figure">
+<img src="img/chapter04/while_flow_chart_concrete.gif" />
+
+</div>
+<h4 id="繰り返しのフローチャート"><span class="header-section-number">4.2.2.2</span> 繰り返しのフローチャート</h4>
+<div class="figure">
+<img src="img/chapter04/while_flow_chart.gif" />
+
+</div>
+<p>条件式は前回の条件分岐によるプログラムで学習した書式と同じ書式が使えます． 繰り返しを止めるために，変数を使います．この変数には，「今何回繰り返したか」といった情報を格納しておきます．</p>
+<h3 id="繰り返しを使ったプログラムの実行過程"><span class="header-section-number">4.2.3</span> 繰り返しを使ったプログラムの実行過程</h3>
+<p>プログラムの実行過程と変数の値の変化を見ていきましょう．</p>
+<ol style="list-style-type: decimal">
+<li><p>変数の宣言 <img src="img/chapter04/table_model_i_01.gif" /></p></li>
+<li><p>変数を初期化する(1を代入) <img src="img/chapter04/table_model_i_02.gif" /></p></li>
+<li><p>変数を評価して条件を判定する <img src="img/chapter04/table_model_i_03.gif" /></p></li>
+<li><p>変数に1を加える <img src="img/chapter04/table_model_i_04.gif" /></p></li>
+</ol>
+<p>変数が，5になったときに条件式が不成立(false)になるので，繰り返しが終ります． これで4回繰り返されるのが分かるでしょうか？</p>
+<h2 id="応用円を書くプログラム"><span class="header-section-number">4.3</span> 応用：円を書くプログラム</h2>
+<p>繰り返しを使うと，円を簡単に書くことができます．次のプログラムを実行してみましょう．</p>
+<h3 id="円を書きつづけるプログラム"><span class="header-section-number">4.3.1</span> 円を書きつづけるプログラム</h3>
+<p>リスト 5.3.1.1 Circle.java</p>
+<h2 id="for文"><span class="header-section-number">4.4</span> for文</h2>
+<p>このプログラムでは，繰り返しをfor文を使って書いています．for文を使うと，while文よりも短く書くことができます．</p>
+<p>for文の()の中の命令は，それぞれwhile文と以下のように対応しています．</p>
+<p>!!!Javascriptバージョンにすること <img src="img/chapter04/while_and_for.png" alt="while文とfor文" /></p>
+<p>i = i + 1 と i++ は，いずれも i に 1 を足す，という意味です．while文で i++ と書くことも，for文で i = i + 1 と書くこともできます．</p>
+<h2 id="練習問題-3"><span class="header-section-number">4.5</span> 練習問題</h2>
+<h3 id="円を描くプログラムを改良しよう"><span class="header-section-number">4.5.1</span> 円を描くプログラムを改良しよう</h3>
+<p>最後に出てきた円を描くプログラムは，条件が無い(常に成立(true))ので止まりません． 変数をつけ，適切な条件式を考えて，一周したらプログラムを止めるように改良して下さい．</p>
+<p>ファイル名は「Circle.java」とすること．</p>
+<h3 id="円の描かれ方について考察しよう"><span class="header-section-number">4.5.2</span> 円の描かれ方について考察しよう</h3>
+<p>一回の繰り返しで動く大きさ(fd(1))と，角度(rt(1))の数字を変更すと，円の大きさを変えることができます． いろいろ数字を変えて，どのようにすると自分の思った円がかけるか，考察してください．</p>
+<p>ヒント: 大きさと角度を入力できるようにすると，数字を変えるたびにコンパイルする必要がないので，いろいろ実験できますよ． そのようなプログラムにしてから，実験することをお奨めします．</p>
+<h3 id="四角形を繰り返しを使って描こう"><span class="header-section-number">4.5.3</span> 四角形を繰り返しを使って描こう</h3>
+<p>四角形を描くプログラムを繰り返しを使って書いてみましょう．</p>
+<p>ファイル名は「Box.java」とすること．</p>
+<h3 id="五角形を繰り返しを使って描こう"><span class="header-section-number">4.5.4</span> 五角形を繰り返しを使って描こう</h3>
+<p>五角形を描くプログラムを繰り返しを使って書き直してみましょう．</p>
+<p>ファイル名は「Pentagon3.java」とすること．</p>
+<h3 id="星を繰り返しを使って描こう"><span class="header-section-number">4.5.5</span> 星を繰り返しを使って描こう</h3>
+<p>星を描くプログラムを繰り返しを使って書き直してみましょう．</p>
+<p>ファイル名は「Star3.java」とすること．</p>
+<h3 id="アスタリスクを繰り返しを使って描こう"><span class="header-section-number">4.5.6</span> アスタリスクを繰り返しを使って描こう</h3>
+<p>アスタリスクを描くプログラムを繰り返しを使って書いてみましょう．</p>
+<div class="figure">
+<img src="img/chapter04/q_asterisk.jpg" alt="アスタリスク" />
+<p class="caption">アスタリスク</p>
+</div>
+<p>ファイル名は「Asterisk.java」とすること．</p>
+<h1 id="ブロックの入れ子構造"><span class="header-section-number">5</span> ブロックの入れ子構造</h1>
+<h2 id="学習目標-4"><span class="header-section-number">5.1</span> 学習目標</h2>
+<ul>
+<li>繰り返しや分岐を入れ子にして，目的のプログラムが書けるようになる</li>
+<li>剰余演算子を使って，一定の周期をもつプログラムが書けるようになる</li>
+</ul>
+<h2 id="繰り返しの入れ子"><span class="header-section-number">5.2</span> 繰り返しの入れ子</h2>
+<p>今回は繰り返しの入れ子（繰り返しの中に繰り返しがあること）に挑戦してみましょう．</p>
+<h3 id="窓を描くつの四角形を描くプログラム"><span class="header-section-number">5.2.1</span> 窓を描く（４つの四角形を描く）プログラム</h3>
+<p>次のプログラムを見てみましょう．</p>
+<p>リスト 6.2.1.1 FourSquares.java</p>
+<div class="figure">
+<img src="img/chapter05/foursquares.jpg" alt="窓を描くプログラム" />
+<p class="caption">窓を描くプログラム</p>
+</div>
+<p>前回，四角形を描くには繰り返しを使うことを習いました．今回は，さらにその四角形を何個も描くために， もう一つ外側に繰り返しを作って，&quot;繰り返しを繰り返す&quot;ということをやっています．</p>
+<p>入れ子の様子はフローチャートで示すとよく分かります．</p>
+<div class="figure">
+<img src="img/chapter05/flowchart.jpg" alt="窓を描くプログラムのフローチャート" />
+<p class="caption">窓を描くプログラムのフローチャート</p>
+</div>
+<h3 id="ブロックの入れ子"><span class="header-section-number">5.2.2</span> ブロックの入れ子</h3>
+<p>ブロックは中括弧({})で囲まれた部分のことを言います．</p>
+<p>下図のように，プログラムのifブロックやwhileブロックはいくつでも入れ子にすることができます．</p>
+<div class="figure">
+<img src="img/chapter05/blocknest.gif" alt="ブロックの入れ子" />
+<p class="caption">ブロックの入れ子</p>
+</div>
+<h3 id="コンパイルエラーに注意" class="nunumbered"><span class="header-section-number">5.2.3</span> コンパイルエラーに注意</h3>
+<p>ブロックを示す中括弧は必ず対応していなくてはなりません． 開き括弧が余ったり，閉じ括弧が余ったりすると，コンパイルエラーとなります．</p>
+<p>括弧違いの場合，コンピュータはブロックを勘違いしてしまうので， よけいなコンパイルエラーが（たくさん）でます． たくさんのコンパイルエラーが一気にでたら，まず括弧の対応関係を確かめましょう．</p>
+<h3 id="インデント"><span class="header-section-number">5.2.4</span> インデント</h3>
+<p>第3回の時にも指摘しましたが，インデントをつけると括弧の対応関係やブロックの範囲が分かりやすくなります． インデントがついていないソースは受理しません．</p>
+<p>見やすいだけでなく，これができていないためにコンパイルエラーで動かない場合が非常に多いので， 注意してください．</p>
+<div class="figure">
+<img src="img/chapter05/indent.gif" alt="インデント" />
+<p class="caption">インデント</p>
+</div>
+<p>論プロエディタでは，フォーマットをするとよいです．</p>
+<h2 id="入れ子と並列の違いの考察花を描くプログラム"><span class="header-section-number">5.3</span> 入れ子と並列の違いの考察：花を描くプログラム</h2>
+<p>入れ子の応用として，花を描くプログラムを考えてみましょう．</p>
+<p>図 6.3.1 花を書くプログラム</p>
+<h3 id="花びらを描く"><span class="header-section-number">5.3.1</span> 花びらを描く</h3>
+<p>花を描くには，まず花びらをかいて，それを繰り返す必要があります．</p>
+<div class="figure">
+<img src="img/chapter05/petal.gif" alt="花びらを書くプログラム" />
+<p class="caption">花びらを書くプログラム</p>
+</div>
+<p>リスト 6.3.1.1 Petal.java</p>
+<p>6.3.2 花を描く 花びらを描くには繰り返しが必要で，花を描くにはさらにそれを繰り返す必要があります． 以下のように，繰り返しの入れ子を使います．</p>
+<p>リスト 6.3.2.1 Flower.java</p>
+<p>ポイントは，花びらを書くループの外側にそれを6回繰り返すループをつくる （つまりループを入れ子にする）ことです． 「繰り返しを繰り返す」ためには，繰り返す繰り返しの外側に繰り返しループ を書く必要がありました．構造は以下のようになります．</p>
+<div class="figure">
+<img src="img/chapter05/flowerblock.gif" alt="花を書くプログラムの構造" />
+<p class="caption">花を書くプログラムの構造</p>
+</div>
+<h3 id="花を描く間違い"><span class="header-section-number">5.3.2</span> 花を描く（間違い）</h3>
+<p>以下に，よくある間違いの例を示します．</p>
+<p>リスト 6.3.3.1 BadFlower.java</p>
+<p>これがうまくいかない理由が説明できるでしょうか？ 以下に，このプログラムの構造を示しますので， うまくいく方と比較してみましょう．</p>
+<div class="figure">
+<img src="img/chapter05/flowerblockinvalid.gif" alt="うまくいかない花を書くプログラムの構造" />
+<p class="caption">うまくいかない花を書くプログラムの構造</p>
+</div>
+<p>このように，入れ子を作る時には，｛｝の位置に注意する必要があります．</p>
+<h2 id="繰り返し変数の利用"><span class="header-section-number">5.4</span> 繰り返し変数の利用</h2>
+<h3 id="目玉を描くプログラム"><span class="header-section-number">5.4.1</span> 目玉を描くプログラム</h3>
+<p>次のプログラムを見てみましょう．</p>
+<p>リスト 6.4.1.1 MultiCircle.java</p>
+<div class="figure">
+<img src="img/chapter05/multicircle.gif" alt="たくさんの円を書くプログラム" />
+<p class="caption">たくさんの円を書くプログラム</p>
+</div>
+<p>「「円を描く繰り返し」を繰り返す」という入れ子のループになっています．ただし，単に10回円を描くのではなく， j回目のループの時にj度だけ回りながら円を作っています．つまり，繰り返しの回数を記憶しておくjという変数を利用して， 繰り返しの回数で円の大きさを変化させようとしているのです．</p>
+<h3 id="奇数と偶数を判定する"><span class="header-section-number">5.4.2</span> 奇数と偶数を判定する</h3>
+<p>剰余演算子(%)を使うと，割り算のあまりを求めることができます． これを使うと，例えば奇数と偶数を判定することができます．</p>
+<p>リスト 6.4.2.1 SquareAndTriangle.java</p>
+<div class="figure">
+<img src="img/chapter05/square_and_griangle.gif" alt="三角形と四角形を交互に書くプログラム" />
+<p class="caption">三角形と四角形を交互に書くプログラム</p>
+</div>
+<p>このプログラムでは，剰余演算子と，先ほど説明した繰り返しの変数を利用して， 繰り返した数が偶数なら四角，奇数なら三角を描くようにプログラムされています．</p>
+<h2 id="練習問題-4"><span class="header-section-number">5.5</span> 練習問題</h2>
+<h3 id="四角形を10個描くプログラムを作ろう"><span class="header-section-number">5.5.1</span> 四角形を10個描くプログラムを作ろう</h3>
+<div class="figure">
+<img src="img/chapter05/q_tenboxes.jpg" alt="10個描くプログラム" />
+<p class="caption">10個描くプログラム</p>
+</div>
+<p>ファイル名は「tenboxes.js」とすること．</p>
+<h3 id="四角形を100個描くプログラムを作ろう"><span class="header-section-number">5.5.2</span> 四角形を100個描くプログラムを作ろう</h3>
+<div class="figure">
+<img src="img/chapter05/q_hundredboxes.jpg" alt="四角形を100個描くプログラム" />
+<p class="caption">四角形を100個描くプログラム</p>
+</div>
+<p>ファイル名は「hundredboxes.js」とすること．</p>
+<h3 id="四角形と三角形を交互に100個描くプログラムを作ろう"><span class="header-section-number">5.5.3</span> 四角形と三角形を交互に100個描くプログラムを作ろう</h3>
+<div class="figure">
+<img src="img/chapter05/q_hundredboxes2.jpg" alt="四角形と三角形を交互に100個描くプログラム" />
+<p class="caption">四角形と三角形を交互に100個描くプログラム</p>
+</div>
+<p>ファイル名は「hundredboxes2.js」とすること．</p>
+<h3 id="貝殻を描くプログラムを作ろう"><span class="header-section-number">5.5.4</span> 貝殻を描くプログラムを作ろう</h3>
+<div class="figure">
+<img src="img/chapter05/q_shell.jpg" alt="貝殻を描くプログラム" />
+<p class="caption">貝殻を描くプログラム</p>
+</div>
+<p>ヒント１：まず以下のプログラムを作ってみよう．</p>
+<div class="figure">
+<img src="img/chapter05/q_shell_hint.jpg" alt="貝殻を描くプログラムのヒント" />
+<p class="caption">貝殻を描くプログラムのヒント</p>
+</div>
+<p>ヒント２：ヒント１が出来たら，四角の大きさを指定するとき，上位ループの繰返しの変数を利用する．</p>
+<p>ファイル名は「shell.js」とすること．</p>
+<h3 id="タイヤを描くプログラムを作ろう"><span class="header-section-number">5.5.5</span> タイヤを描くプログラムを作ろう</h3>
+<div class="figure">
+<img src="img/chapter05/q_tire.jpg" alt="タイヤを描くプログラム" />
+<p class="caption">タイヤを描くプログラム</p>
+</div>
+<p>ヒント：ずらす角度は8度, 四角の１辺は10歩にするとうまくいく． 真ん中の円は多少ずれていても構わない．</p>
+<p>ファイル名は「tire.js」とすること．</p>
+<h3 id="ドラえもんを描くプログラムを作ろう"><span class="header-section-number">5.5.6</span> ドラえもんを描くプログラムを作ろう</h3>
+<div class="figure">
+<img src="img/chapter05/q_doraemon.gif" alt="ドラえもんを描くプログラム" />
+<p class="caption">ドラえもんを描くプログラム</p>
+</div>
+<p>ファイル名は「doraemon.js」とすること．</p>
+<h3 id="キーボードを描くプログラムを作ろう"><span class="header-section-number">5.5.7</span> キーボードを描くプログラムを作ろう</h3>
+<div class="figure">
+<embed src="img/chapter05/keyboard.pngs" />
+<p class="caption">キーボードを描くプログラム</p>
+</div>
+<p>ファイル名は「keyboard.js」とすること．</p>
+<h1 id="命令をつくる関数引数付関数"><span class="header-section-number">6</span> 命令をつくる（１）：関数．引数付関数</h1>
+<h2 id="学習目標-5"><span class="header-section-number">6.1</span> 学習目標</h2>
+<ul>
+<li>関数を使ったプログラムを作れるようになる</li>
+<li>引数付関数を使ったプログラムを作れるようになる</li>
+</ul>
+<h2 id="関数"><span class="header-section-number">6.2</span> 関数</h2>
+<h3 id="関数とその目的"><span class="header-section-number">6.2.1</span> 関数とその目的</h3>
+<p>関数は，複数の命令のまとまりに名前をつけて，一つの命令として扱うことが出来る仕組みです．</p>
+<p>関数を作ることで，</p>
+<ul>
+<li>プログラムを構造化して，全体の複雑度を下げる（人間にとって理解しやすいプログラムにする）</li>
+<li>プログラムを再利用しやすくする</li>
+</ul>
+<p>というメリットがあります．</p>
+<h3 id="関数定義と関数呼び出し"><span class="header-section-number">6.2.2</span> 関数定義と関数呼び出し</h3>
+<p>以下のプログラムは，関数を使って四角形を描くプログラムです．</p>
+<p>リスト 12.2.2.1 DrawRectangleMethod.js</p>
+<p>関数を使うためには，関数を定義し，その関数を呼び出す必要があります．</p>
+<p>関数は一度定義すれば，同じ関数を何度も呼び出して使うことができます．</p>
+<p>このプログラムでは21行目で関数を定義し，17行目で呼び出しています．</p>
+<pre><code>21: function drawRectangle(){
+22:     for (int i = 0; i &lt; 4;i++) {
+23:         fd(50);
+24:         rt(90);
+25:     }
+26: }</code></pre>
+<p>17: drawRectangle();</p>
+<p>引数．戻り値なしの関数定義，関数呼び出しの一般形は以下の通りです</p>
+<pre><code>void [関数名](){
+
+}
+                
+[関数名]();</code></pre>
+<h3 id="関数の処理の順序"><span class="header-section-number">6.2.3</span> 関数の処理の順序</h3>
+<p>以下のプログラムは，四角形を描く関数を使って，四角形を３つ描くプログラムです．</p>
+<p>リスト 12.2.3.1 DrawThreeRectanglesMethod.js</p>
+<p>関数が呼び出されると，プログラムの処理はその関数の処理に飛びます． そして，関数が終了すると，関数呼び出し位置に返ってきます．</p>
+<div class="figure">
+<img src="img/chapter06/functionflow.png" alt="関数の処理の順序" />
+<p class="caption">関数の処理の順序</p>
+</div>
+<p>四角形を３つ描くプログラムでは，まず，四角形を描く関数を呼び， 四角形を描き終わったら，次の描く位置まで移動する関数を呼び， 移動し終わったら，再び四角形を描く関数を呼び…という処理を３回繰り返しています．</p>
+<!-- ### 関数の定義位置の注意点
+次のプログラムは，四角形を描くプログラムを書こうとして，失敗した例です．
+
+リスト 12.2.4.1 DrawRectangleMethodError.js
+
+このプログラムを実行しようとすると，以下のようなエラーが出ます．
+
+DrawRectangleMethodError.js:22: 式の開始が不正です．
+        void drawRectangle(){
+        ^
+DrawRectangleMethodError.js:22: ';' がありません．
+        void drawRectangle(){
+                          ^
+エラー 2 個 
+                    
+これは，関数の中に関数を定義しているためです． このプログラムでは，start関数の中に，drawRectangle関数を定義しています．
+
+図 12.2.4.1 関数定義のミス
+Javaでは，関数の中に関数を定義することはできません．（ 2章「プログラムの要素」参照 ） 関数は，クラスブロックの中に書く必要があります． 正しい関数定義は以下のとおりです．
+
+図 12.2.4.2 正しい関数定義
+
+-->
+<h2 id="引数付関数"><span class="header-section-number">6.3</span> 引数付関数</h2>
+<h3 id="引数とその目的"><span class="header-section-number">6.3.1</span> 引数とその目的</h3>
+<p>関数ブロック内で宣言された変数は，関数ブロック内でしか有効ではありません． しかし，ある関数から他の関数を呼ぶときに，データを受け渡したいことがあります． 引数とは，関数ブロック外と，関数ブロック内でデータをやり取りする仕組みです． 引数を使うことで，関数ブロック外から，関数ブロック内にデータを受け取ることができます．</p>
+<h3 id="引数を用いた四角形を描く関数の抽象化"><span class="header-section-number">6.3.2</span> 引数を用いた，四角形を描く関数の抽象化</h3>
+<p>引数が使えない場合，次のように大きさが違う四角形を書きたい場合も， 2つの関数を作る必要があります．</p>
+<div class="figure">
+<img src="img/chapter06/design1-1.png" alt="関数の設計" />
+<p class="caption">関数の設計</p>
+</div>
+<p>リスト 12.3.2.1 DrawTwoRectangles1.js</p>
+<p>次のプログラムでは，引数を使って大きさを指定し，大きい四角形と小さな四角形を「四角形を描く」という ひとつの関数で描けるようにしています．</p>
+<div class="figure">
+<img src="img/chapter06/design1-2.png" alt="関数の設計" />
+<p class="caption">関数の設計</p>
+</div>
+<p>リスト 12.3.2.2 DrawTwoRectangles2.js</p>
+<p>引数付関数を使うためには，引数付関数を定義し，その関数を引数付で呼び出します． 一般形は以下の通りです．</p>
+<pre><code>function [関数名]([仮引数名]){
+
+}
+                
+[関数名]([実引数]);</code></pre>
+<p>呼び出し部分の引数を実引数，宣言部分の引数を仮引数と呼びます．実引数（関数ブロック外にあるデータ）が， 仮引数（関数ブロック内で使える変数）に代入され，関数ブロック内でその変数の値が使えるようになります．</p>
+<h3 id="引数を用いた多角形を描く関数の抽象化"><span class="header-section-number">6.3.3</span> 引数を用いた，多角形を描く関数の抽象化</h3>
+<p>家を書くプログラムでは，三角形と四角形を書くために， 2つの関数を作る必要があります．</p>
+<div class="figure">
+<img src="img/chapter06/design2-1.png" alt="関数の設計" />
+<p class="caption">関数の設計</p>
+</div>
+<p>リスト 12.3.3.1 NewHouse1.js</p>
+<p>次のプログラムでは「屋根を描く」処理で使っていた三角形と，「壁を描く」処理で使っていた四角形を 「多角形を描く」というひとつの関数で描けるようにしています．</p>
+<div class="figure">
+<img src="img/chapter06/design2-2.png" alt="関数の設計" />
+<p class="caption">関数の設計</p>
+</div>
+<p>リスト 12.3.3.2 NewHouse2.js</p>
+<h2 id="変数の有効範囲と引数"><span class="header-section-number">6.4</span> 変数の有効範囲と引数</h2>
+<h3 id="変数の有効範囲"><span class="header-section-number">6.4.1</span> 変数の有効範囲</h3>
+<p>次のプログラムは，一辺の長さを指定して四角形を描くプログラムを書こうとして，失敗した例です．</p>
+<p>リスト 12.4.1.1 DrawVariableRectangleMethodError.js</p>
+<p>大きさを変えて四角形を描くプログラム（コンパイルエラー）を実行しようとすると，以下のようなエラーが出ます</p>
+<p>DrawRectangleMethodError.js:31: シンボルを見つけられません． シンボル: 変数 length 場所 : DrawRectangleMethodError の クラス fd(length);</p>
+<p>fd(length)のlengthという変数が見つけられないということを意味しています．</p>
+<p>これは，drawRectangle()関数の内部（{と}で囲われた部分）が，lengthという変数の有効範囲外であるためです．</p>
+<div class="figure">
+<img src="img/chapter06/scope.png" alt="変数の有効範囲" />
+<p class="caption">変数の有効範囲</p>
+</div>
+<h3 id="引数付関数定義と関数呼び出し"><span class="header-section-number">6.4.2</span> 引数付関数定義と関数呼び出し</h3>
+<p>以下のプログラムは，引数を使って，関数の有効範囲外から四角形の長さを渡せるようにしたプログラムです．</p>
+<p>入力された長さのlength（実引数）を，関数にlength（仮引数）として渡し，四角形を描いています．</p>
+<p>リスト 12.4.2.1 DrawVariableRectangleMethod.js</p>
+<pre><code>29: void drawRectangle(int length){
+30:     for (int i =0; i &lt; 4; i++) {
+31:         fd(length);
+32:         rt(90);
+33:     }
+34: }</code></pre>
+<pre><code>24: drawRectangle(inputLength);//入力された長さを一辺の長さとして四角形を描く</code></pre>
+<h2 id="関数の設計あるいはプログラムの構造化"><span class="header-section-number">6.5</span> 関数の設計．あるいはプログラムの構造化</h2>
+<p>関数から関数を呼ぶことが出来るため，関数の連鎖を用いてプログラムを作ることができます． これは「構造化プログラミング」という，複雑さを制御するための基本的設計技法です．</p>
+<p>複雑になると，関数の呼び出し関係が混乱してくるので，まず以下のような関数構成図を書き， プログラムを書いていくと良いでしょう．</p>
+<div class="figure">
+<img src="img/chapter06/design3.png" alt="関数の設計" />
+<p class="caption">関数の設計</p>
+</div>
+<p>この設計を実装したものを下に載せます．</p>
+<h3 id="窓付きの家を描くプログラム引数を用いた多角形を描く関数の抽象化"><span class="header-section-number">6.5.1</span> 窓付きの家を描くプログラム（引数を用いた，多角形を描く関数の抽象化）</h3>
+<p>リスト 12.5.1.1 House05.js</p>
+<h2 id="ライブラリ" class="unnumbered">ライブラリ</h2>
+<p>実は今まで使っていたfd，rtという命令は，以下のような関数として定義されていたのでした．</p>
+<ul>
+<li><code>function fd(int length){...省略...}</code></li>
+<li><code>function rt(int angle){...省略...}</code></li>
+</ul>
+<p>ある目的のために使う関数の集まりを作り，関数群を再利用します． この関数の集まりのことを「ライブラリ」といいます． fd, rtなどのタートルに使う命令は「タートルライブラリ」としてどこかに定義されているのです．</p>
+<h2 id="練習問題-5"><span class="header-section-number">6.6</span> 練習問題</h2>
+<h3 id="円を描く関数を作ろう"><span class="header-section-number">6.6.1</span> 円を描く関数を作ろう</h3>
+<p>円を描く関数「void drawCircle()」を作ってください． できたら，start関数から2回以上呼び出して，うまく動作するか確かめてみよう．</p>
+<p>ファイル名は「circle2.js」とすること．</p>
+<h3 id="大きさが変わる家を描く関数を作ろう"><span class="header-section-number">6.6.2</span> 大きさが変わる家を描く関数を作ろう</h3>
+<p>大きさを指定して家を描く関数（窓はなくて良い）「function drawHouse(size)」を作ってください． できたら，start関数から2回以上呼び出して，うまく動作するか確かめてみよう．</p>
+<p>ファイル名は「twohouses.js」とすること．</p>
+<h3 id="中心角を指定して円弧を描く関数を作ろう"><span class="header-section-number">6.6.3</span> 中心角を指定して円弧を描く関数を作ろう</h3>
+<p>中心角を指定して円弧を描く関数「function drawArc(angle)」を作ってください．</p>
+<p>(ヒント：中心角が３６０ならば円に，１８０ならば半円に，１ならば点のようになります．以下に，120度の場合と，300度の場合の例を示します）</p>
+<div class="figure">
+<img src="img/chapter06/q_drawarc.png" alt="円弧を描く関数" />
+<p class="caption">円弧を描く関数</p>
+</div>
+<div class="figure">
+<img src="img/chapter06/q_drawarc2.png" alt="円弧を描く関数2" />
+<p class="caption">円弧を描く関数2</p>
+</div>
+<h3 id="レモン型の図形を描く関数を作ろう"><span class="header-section-number">6.6.4</span> レモン型の図形を描く関数を作ろう</h3>
+<p>drawArc(angle)を利用してレモン型の図形を描く関数「function drawLemon()」を作ってください.</p>
+<div class="figure">
+<img src="img/chapter06/q_drawlemon.png" alt="レモン型の図形を描く関数" />
+<p class="caption">レモン型の図形を描く関数</p>
+</div>
+<h3 id="関数の多段呼び出しの練習をしよう"><span class="header-section-number">6.6.5</span> 関数の多段呼び出しの練習をしよう</h3>
+<p>蝶を描く関数drawButterfly()を作ってください． 関数構造図による設計もすること． （ヒント：円弧を描く関数のほかにも，レモン型を描く関数などを部品として使う）</p>
+<div class="figure">
+<img src="img/chapter06/q_drawbutterfly.png" alt="蝶を描く関数" />
+<p class="caption">蝶を描く関数</p>
+</div>
+<p>ファイル名は「butterfly.js」とすること．</p>
+<h3 id="関数の再利用をしよう"><span class="header-section-number">6.6.6</span> 関数の再利用をしよう</h3>
+<p>drawLemon()を再利用して，drawFlower()のように花を描く関数を作ろう．</p>
+<div class="figure">
+<img src="img/chapter06/q_drawflower.png" alt="花を描く関数" />
+<p class="caption">花を描く関数</p>
+</div>
+<p>ファイル名は「flower.js」とすること．</p>
+<h3 id="マス目"><span class="header-section-number">6.6.7</span> マス目</h3>
+<p>x行y列のマス目を書く関数を作ろう．以下のような定義を持つ</p>
+<p><code>function drawMasume(int row, int col, int size) {．．．なかみ．．．}</code></p>
+<p>出力例を以下に示す．</p>
+<p><code>drawMasume(2, 3, 50);</code></p>
+<div class="figure">
+<img src="img/chapter06/q_masume_23.jpg" />
+
+</div>
+<p><code>drawMasume(5, 7, 20);</code></p>
+<div class="figure">
+<img src="img/chapter06/q_masume_57.jpg" />
+
+</div>
+<p>ファイル名は「masume.js」とすること．</p>
+<h3 id="構造化プログラミングによる自由作品"><span class="header-section-number">6.6.8</span> 構造化プログラミングによる自由作品</h3>
+<p>「１関数１０行以内！」というルールで，図形を書くプログラムを作ろう．</p>
+<p>ファイル名は「structured.js」とすること．</p>
+<h1 id="挑戦再帰プログラム"><span class="header-section-number">7</span> 挑戦：再帰プログラム</h1>
+<h2 id="学習目標-6"><span class="header-section-number">7.1</span> 学習目標</h2>
+<ul>
+<li>関数の再帰呼出しとその実行過程を理解する</li>
+<li>再帰プログラム，再帰構造の美しさを楽しむ</li>
+</ul>
+<h2 id="再帰呼び出し"><span class="header-section-number">7.2</span> 再帰呼び出し</h2>
+<h3 id="あらまし"><span class="header-section-number">7.2.1</span> あらまし</h3>
+<p>関数が自分自身を呼び出す処理を，再帰関数呼び出しと言う・(実は自分自身を呼び出すように見えて，もう一つのコピーを呼び出しているだけなのですがね．)</p>
+<p>関数の再帰呼び出しを使うことで，いろいろな面白いプログラムが書ける．</p>
+<h3 id="階乗計算"><span class="header-section-number">7.2.2</span> 階乗計算</h3>
+<p>数学で使う概念の一つに階乗がある．</p>
+<p>nの階乗は１からnまでの数を掛け合わせたもので，n!と書く．次に例を示す．</p>
+<pre><code>2! = 2 * 1 = 2
+3! = 3 * 2 * 1 = 6
+4! = 4 * 3 * 2 * 1 = 12</code></pre>
+<p>nの階乗は以下の式で求められる．</p>
+<pre><code>n! = n * (n-1)!</code></pre>
+<p>つまり，n-1の階乗が求められれば，それにnをかけることでnの階乗が求められる．</p>
+<p>この式を応用し，再帰を使うことで，階乗を求めるプログラムを次のように書ける．</p>
+<p>リスト 14.2.2.1 Factorial.js</p>
+<h3 id="再帰の終点" class="unnumbered">再帰の終点</h3>
+<p>上記の例ではfactorial()関数からfactorial()関数を呼んでいるので，再帰の終点を作ってやらないと呼出しが無限に続いて，プログラムが止まらなくなる． （実際には，呼び出すごとに関数がスタックと呼ばれるメモリに読み込まれるので，そのメモリがいっぱいになってStackOverFlowErrorというエラーを出して止まる．</p>
+<p>したがって，どこかで止めるプログラムを書かなければならない．上記の例では，</p>
+<p>if (n == 1) { result = 1; }</p>
+<p>の部分がそれにあたる．</p>
+<p>再帰のプログラムは関数の中で自分自身の関数を呼び出しているのが特徴だが，自分自身に見えるけれども実は新たなコピーを作り，呼び出しているだけである．</p>
+<p>このコピーの様子を視覚化して理解するために，呼出し過程を図示してみよう．</p>
+<p>リスト 14.2.2.2 FactorialWithPrint.js</p>
+<pre><code>factorial(5, 0)
+    factorial(4, 1)
+        factorial(3, 2)
+            factorial(2, 3)
+                factorial(1, 4)
+                // return 1
+            // return 2
+        // return 6
+    // return 24
+// return 120           </code></pre>
+<p>異なる引数で関数が呼ばれているだけということが分かったと思う．</p>
+<p>（ちなみに，階乗の計算は総和と同じように繰り返しでも書ける．）</p>
+<h3 id="フィボナッチ数列"><span class="header-section-number">7.2.3</span> フィボナッチ数列</h3>
+<p>フィボナッチ数列という数列がある．これも文系の諸君にはあまりなじみがないかもしれないが， 自然界によくみられる不思議な数列である．（このサイトなどをみてみよう）</p>
+<p>fib(n)は次の式で求められる．</p>
+<pre><code>fib(n) = fib(n-1) + fib(n-2)</code></pre>
+<p>以下が具体例である．</p>
+<pre><code>fib(1) = 1
+fib(2) = 2
+fib(3) = fib(2) + fib(1) = 3
+fib(4) = fib(3) + fib(2) = 5
+fib(5) = fib(4) + fib(3) = 8
+fib(6) = fib(5) + fib(4) = 13</code></pre>
+<p>フィボナッチ数列も再帰の例でよく出てくる例で，再帰を使うことでプログラムを次のように書ける．</p>
+<p>リスト 14.2.3.1 Fibonacci.js</p>
+<p>これも呼出し過程を図示してみよう</p>
+<p>リスト 14.2.3.2 FibonacciWithPrint.js</p>
+<pre><code>fib(5, 0)
+    fib(4, 1)
+        fib(3, 2)
+            fib(2, 3)
+            // return 2
+            fib(1, 3)
+            // return 1
+        // return 3
+        fib(2, 2)
+        // return 2
+    // return 5
+    fib(3, 1)
+        fib(2, 2)
+        // return 2
+        fib(1, 2)
+        // return 1
+    // return 3
+// return 8         </code></pre>
+<h3 id="再帰とプログラムの効率" class="unnumbered">再帰とプログラムの効率</h3>
+<p>最後の例の呼出し過程をよく見るとfib(1)とかfib(2)は何回も呼ばれており，大変効率が悪いプログラムである．</p>
+<p>再帰プログラムでは，プログラムが計算式と似たように，わかりやすく書ける代わりに，効率が悪くなることがある．（絶対にそうなるわけではない）</p>
+<p>上記のフィボナッチ数列のプログラムは，fib(20)くらいまでは動作するが，fib(50)ではコンピュータはお手上げ状態のはず（計算が終わらない）はずである．試してみよう． 実は，現実には，フィボナッチ数列は，「再帰を使ってはいけない例」として有名である．</p>
+<h2 id="フラクタル図形"><span class="header-section-number">7.3</span> フラクタル図形</h2>
+<p>フラクタル図形は簡単に言えば「どんなに拡大しても複雑な図形」のことをさす・(wikipedia 2011)</p>
+<p>フラクタル図形の一種である自己相似図形は，自分自身と同じ形のミニチュアが自分の中に入れ子になっている図形をさす．</p>
+<p>自己相似図形と再帰プログラムには深い関係があり，再帰プログラムを使ってフラクタル図形を書くことができる．</p>
+<div class="figure">
+<img src="img/chapter06/maketree.png" alt="tree" />
+<p class="caption">tree</p>
+</div>
+<p>このような図形を書くには，まず繰り返される基本的な図形と変換ルールを考える．この場合は以下のように「Y」に小さな「Y」を足していく プログラムを考える．</p>
+<p>図 14.3.2 maketree</p>
+<p>まず，「Y」を描くプログラムを書く．ここで一回テストしてみることが重要である． （いきなり再帰のプログラム書こうとした先輩は，ことごとく失敗しています！）</p>
+<p>リスト 14.3.1 DrawY.js</p>
+<p>次に，大きな「Y」の先に小さな「Y」を書くように，再帰呼び出しを行う．再帰の終点も忘れずに！</p>
+<p>リスト 14.3.2 DrawTree.js</p>
+<!-- このプログラムの関数の呼出し過程を表示すると，次のようになる．
+
+リスト 14.3.3 DrawTreeWithPrint.js
+                    
+drawY(50, 0)
+    drawY(25, 1)
+        drawY(12, 2)
+            drawY(6, 3)
+                drawY(3, 4)
+                //
+                drawY(3, 4)
+                //
+            //
+            drawY(6, 3)
+                drawY(3, 4)
+                //
+                drawY(3, 4)
+                //
+            //
+        //
+        drawY(12, 2)
+            drawY(6, 3)
+                drawY(3, 4)
+                //
+                drawY(3, 4)
+                //
+            //
+            drawY(6, 3)
+                drawY(3, 4)
+                //
+                drawY(3, 4)
+                //
+            //
+        //
+    //
+    drawY(25, 1)
+        drawY(12, 2)
+            drawY(6, 3)
+                drawY(3, 4)
+                //
+                drawY(3, 4)
+                //
+            //
+            drawY(6, 3)
+                drawY(3, 4)
+                //
+                drawY(3, 4)
+                //
+            //
+        //
+        drawY(12, 2)
+            drawY(6, 3)
+                drawY(3, 4)
+                //
+                drawY(3, 4)
+                //
+            //
+            drawY(6, 3)
+                drawY(3, 4)
+                //
+                drawY(3, 4)
+                //
+            //
+        //
+    //
+//          
+（呼び出し過程もフラクタル図形になっているところが印象的である．） -->
+<h2 id="練習問題-6"><span class="header-section-number">7.4</span> 練習問題</h2>
+<h3 id="自然な木を描こう"><span class="header-section-number">7.4.1</span> 自然な木を描こう</h3>
+<p>木を描くサンプルプログラムを改造して，自然な木を描くプログラムにしよう・</p>
+<p>【自然な木に見せるためのヒント】</p>
+<ul>
+<li>小さい枝の生える角度と長さを乱数を使って決めるようにする・</li>
+<li>角度は-45度から45度の間にする・</li>
+<li>長さは元の枝の長さの0.6から0.9倍くらいの長さにする・</li>
+<li>枝から生える枝の数を，2本から3本にする．</li>
+</ul>
+<p>ファイル名は「naturaltree.js」とすること．</p>
+<!-- 図 14.4.1.1 cooltree -->
+<div class="figure">
+<img src="img/chapter06/q_cooltree.jpg" alt="NaturalTree" />
+<p class="caption">NaturalTree</p>
+</div>
+<h3 id="トーナメント表を描いてみよう"><span class="header-section-number">7.4.2</span> トーナメント表を描いてみよう</h3>
+<p>関数の再帰呼出しを応用して，下記の図を書いてみましょう．</p>
+<div class="figure">
+<img src="img/chapter07/q_tournament.jpg" alt="tournament" />
+<p class="caption">tournament</p>
+</div>
+<p>ファイル名は「tournament.js」とすること．</p>
+<h3 id="ギャスケットを描いてみよう"><span class="header-section-number">7.4.3</span> ギャスケットを描いてみよう</h3>
+<p>関数の再帰呼出しを応用して，下記の図を書いてみましょう．</p>
+<div class="figure">
+<img src="img/chapter06/q_gasket.jpg" alt="gasket" />
+<p class="caption">gasket</p>
+</div>
+<p>ファイル名は「gasket.js」とすること．</p>
+<h3 id="スーパースターを描いてみよう"><span class="header-section-number">7.4.4</span> スーパースターを描いてみよう</h3>
+<p>関数の再帰呼出しを応用して，下記の図を書いてみましょう．</p>
+<div class="figure">
+<img src="img/chapter06/q.suparstar.jpg" alt="superstar" />
+<p class="caption">superstar</p>
+</div>
+<p>ファイル名は「superstar.js」とすること．</p>
+<h3 id="コッホ曲線を描いてみよう"><span class="header-section-number">7.4.5</span> コッホ曲線を描いてみよう</h3>
+<p>関数の再帰呼出しを応用して，下記の図を書いてみましょう．</p>
+<div class="figure">
+<img src="img/chapter06/q_koch.jpg" alt="koch" />
+<p class="caption">koch</p>
+</div>
+<p>ファイル名は「koch.js」とすること．</p>
+<!-- ### ひまわりの絵を描こう
+このサイトを参考にして，ひまわりの絵を描いてみましょう．
+
+ファイル名は「Sunflower.js」とすること．
+
+### 葉っぱの絵を描こう
+このサイトを参考にして，葉っぱの絵を描いてみましょう．
+
+ファイル名は「Leaf.js」とすること． -->
 </body>
 </html>
