@@ -112,7 +112,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="va">t</span>.<span class="at">lt</span>(<span class="dv">90</span>)<span class="op">;</span>
 <span class="va">t</span>.<span class="at">fd</span>(<span class="dv">50</span>)<span class="op">;</span></code></pre></td></tr></table></div>
 <h2 id="タートルの命令の解説"><span class="header-section-number">1.3</span> タートルの命令の解説</h2>
-<p><code>var t = createTurtle();</code> （説明を加える）</p>
+<h3 id="タートルの生成"><span class="header-section-number">1.3.1</span> タートルの生成</h3>
+<p>コンピュータ実習の授業では，しばらくタートルグラフィックスライブラリを使って演習を行っていきます．タートル（亀）を動かすことでアルゴリズムの基礎とJavascriptを使ったプログラムの基礎を学んでいきましょう．</p>
+<p>タートルグラフィックスライブラリを使うための最初の命令が <code>var t = createTurtle();</code> という行です． 右辺の<code>createTurtle()</code>関数を呼び出してタートルを一つ作成し， <code>var t</code>で，tという名前の変数を一つ作成し，作成したタートルへの参照を代入します．</p>
+<p>と説明しても難しいでしょうから，まずは，これは&quot;おまじない&quot;だと思って，タートルグラフィックスを扱うプログラムでは最初に記述しておいておいてください．</p>
+<h3 id="タートルの命令"><span class="header-section-number">1.3.2</span> タートルの命令</h3>
 <p>t.rt(30)やt.fd(60)がタートルに指示する命令です． 書かれた命令は， 必ず上から順番に実行されます． 以下にタートルに指示できる命令の一覧を示します．</p>
 <dl>
 <dt><code>rt([角度の指定])</code></dt>
@@ -133,12 +137,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <dt><code>down()</code></dt>
 <dd>タートルがペンを下げる(軌跡がかかれるようになる)．
 </dd>
+<dt><code>color([色の指定])</code></dt>
+<dd>タートルがペンの色を変える．（色の指定には'red'や,'blue'などを入れてください）
+</dd>
 </dl>
-<!-- color([色の指定])
-ペンの色を変える (1) -->
-<h3 id="命令の区切り"><span class="header-section-number">1.3.1</span> 命令の区切り</h3>
-<h3 id="コメント"><span class="header-section-number">1.3.2</span> コメント</h3>
-<p>コメントはプログラム（命令）としては考慮されず，読み飛ばされます． しかし，人間が読めないとメンテナンスにこまるためにコメントをつけておきます．ファイルの先頭には，プログラムのタイトル，名前や日付を忘れずに．</p>
+<h3 id="命令の区切り"><span class="header-section-number">1.3.3</span> 命令の区切り</h3>
+<p>Javascriptのプログラムでは命令と命令の区切りに「;」（セミコロン）を入れます．セミコロンが入っていれば，複数の命令を次のように同じ行に書いてもＯＫです．</p>
+<pre><code>t.fd(100); t.rt(90);</code></pre>
+<p>Javascriptのプログラムでは，セミコロンを書かなくても，異なる行に記述すれば，異なる命令として扱われます．</p>
+<pre><code>t.fd(100) 
+t.rt(90)</code></pre>
+<h3 id="コメント"><span class="header-section-number">1.3.4</span> コメント</h3>
+<p>コメントはプログラム（命令）としては考慮されず，読み飛ばされます． しかし，人間が読めないとメンテナンスにこまるためにコメントをつけておきます．ファイルの先頭には，プログラムのタイトル，開発者の氏名や日付を入れておきます．</p>
 <dl>
 <dt>範囲指定コメント</dt>
 <dd><code>/*</code>から<code>*/</code>までコメントになります
@@ -148,14 +158,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </dd>
 </dl>
 <h2 id="プログラムミスと対処"><span class="header-section-number">1.4</span> プログラムミスと対処</h2>
-<h3 id="コンパイルエラー"><span class="header-section-number">1.4.1</span> コンパイルエラー</h3>
-<p>プログラムの書きかたを間違えると，コンパイルしたときにエラーになります．</p>
+<h3 id="構文エラー"><span class="header-section-number">1.4.1</span> 構文エラー</h3>
+<p>プログラムの書きかたを間違えると，実行した時に構文エラーになります．</p>
 <!-- 例えば，コマンドの区切りでセミコロンを忘れると，次のようなエラーがでます．
 
 図 2.4.1.1 コンパイルエラー
 >javac House.java House.java:13: ';' がありません． rt(120)
 ^ エラー 1 個 > -->
-<p>コンパイルエラーがでたら，実行することはできないので，ソースを直して，再コンパイルするしかありません． どうしても原因が分からない時は，ＴＡなどに相談してください．</p>
+<p>構文エラーがでたら，実行することはできないので，ソースを直して，再コンパイルするしかありません． どうしても原因が分からない時は，ＴＡなどに相談してください．</p>
 <h3 id="バグ"><span class="header-section-number">1.4.2</span> バグ</h3>
 <p>コンパイルが正常に通っても，プログラムが間違っていて，意図した通りに動作しないことをバグといいます． コンピュータは，必ず 命令した通りに動作します．</p>
 <p>バグがあったら，修正しましょう．バグを修正することをデバッグといいます．</p>
@@ -185,9 +195,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>ＣＵＩを使ってユーザ対話をするプログラムが作れるようになる</li>
 </ul>
 <h2 id="変数"><span class="header-section-number">2.2</span> 変数</h2>
-<p>今回新しく&quot;変数&quot;が登場します．家の大きさを変更できる次のプログラムをみてみましょう．</p>
-<h3 id="変数と値"><span class="header-section-number">2.2.1</span> 変数と値</h3>
-<p>次のプログラムを見てみましょう．</p>
+<p>今回新しく&quot;変数&quot;が登場します．家の大きさを変更できる次のプログラムをみてみましょう． 次のプログラムを見てみましょう．</p>
 <div class="sourceCode" id="lst:2-1" caption="家を書くサンプルプログラム"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
@@ -236,6 +244,10 @@ x <span class="op">=</span> <span class="dv">50</span><span class="op">;</span> 
     <span class="va">t</span>.<span class="at">lt</span>(<span class="dv">90</span>)<span class="op">;</span>
     <span class="va">t</span>.<span class="at">fd</span>(x)<span class="op">;</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
+<h3 id="ブロック"><span class="header-section-number">2.2.1</span> ブロック</h3>
+<p>「屋根を書く」，「本体を書く」のように，中括弧で囲まれた部分をブロックと呼びます．プログラムは複数のブロックから構成されます．ブロックの中にブロックを入れる（入れ子にする）ことも出来ます．</p>
+<p>上記のプログラムの２つのブロックは，空ブロックといって，プログラムとしては必要はないのですが（実際に取り払ってもプログラムは動きます），人間がプログラムのまとまりを把握しやすいようにブロックを記述しています．カッコの対応があっていないと，構文エラーになりますので注意してください．</p>
+<h3 id="変数と値"><span class="header-section-number">2.2.2</span> 変数と値</h3>
 <p>変数はデータを格納しておく場所のことです． プログラムでは，「メモリ」の許す限り，データを格納しておくことが出来ます．</p>
 <p>格納する場所を一つにつき，一つの名前をつけることが出来ます．</p>
 <p>実際に格納されるデータのことを「値」といいます．</p>
@@ -243,17 +255,17 @@ x <span class="op">=</span> <span class="dv">50</span><span class="op">;</span> 
 <img src="img/chapter02/table_model_value.gif" alt="変数と値" />
 <p class="caption">変数と値</p>
 </div>
-<h3 id="変数を使ったプログラムの実行"><span class="header-section-number">2.2.2</span> 変数を使ったプログラムの実行</h3>
+<h3 id="変数を使ったプログラムの実行"><span class="header-section-number">2.2.3</span> 変数を使ったプログラムの実行</h3>
 <p>プログラムの実行過程と変数を見ていきましょう．</p>
 <ol style="list-style-type: decimal">
-<li>変数の宣言 <br><img src="img/chapter02/table_model_x_01.gif" alt="変数の宣言" /></li>
-<li>変数へ値を代入する <br><img src="img/chapter02/table_model_x_02.gif" alt="変数へ値を代入する" /></li>
-<li>変数を評価して値にする <br><img src="img/chapter02/table_model_x_03.gif" alt="変数を評価して値にする" /></li>
+<li><p>変数の宣言 <br><img src="img/chapter02/table_model_x_01.gif" alt="変数の宣言" /></p></li>
+<li><p>変数へ値を代入する <br><img src="img/chapter02/table_model_x_02.gif" alt="変数へ値を代入する" /></p></li>
+<li><p>変数を評価して値にする <br><img src="img/chapter02/table_model_x_03.gif" alt="変数を評価して値にする" /></p></li>
 </ol>
-<h3 id="複数の変数と変数名"><span class="header-section-number">2.2.3</span> 複数の変数と変数名</h3>
+<h3 id="複数の変数と変数名"><span class="header-section-number">2.2.4</span> 複数の変数と変数名</h3>
 <p>変数はいくつでも使うことが出来ます．</p>
 <p>区別するために，変数には異なる名前をつけなければなりません． 異なる名前ならば好きな名前をつけることが出来ます． 空白や特殊記号が使えないのはクラス名と同じです．</p>
-<h4 id="複数の変数と変数名-1"><span class="header-section-number">2.2.3.1</span> 複数の変数と変数名</h4>
+<h4 id="複数の変数と変数名-1"><span class="header-section-number">2.2.4.1</span> 複数の変数と変数名</h4>
 <div class="sourceCode" id="lst:2-1" caption="家を書くサンプルプログラム"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
@@ -308,14 +320,14 @@ rightAngle <span class="op">=</span> <span class="dv">90</span><span class="op">
     <span class="va">t</span>.<span class="at">lt</span>(rightAngle)<span class="op">;</span>
     <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
-<h4 id="プログラムの実行過程"><span class="header-section-number">2.2.3.2</span> プログラムの実行過程</h4>
+<h4 id="プログラムの実行過程"><span class="header-section-number">2.2.4.2</span> プログラムの実行過程</h4>
 <p>プログラムの実行過程を追ってみましょう．</p>
 <ol style="list-style-type: decimal">
-<li>変数の宣言 <br><img src="img/chapter02/table_model_name_01.gif" /></li>
-<li>変数の宣言 <br><img src="img/chapter02/table_model_name_02.gif" /></li>
-<li>変数への値の代入 <br><img src="img/chapter02/table_model_name_03.gif" /></li>
-<li>変数への値の代入 <br><img src="img/chapter02/table_model_name_04.gif" /></li>
-<li>変数を評価して値にする <img src="img/chapter02/table_model_name_05.gif" /></li>
+<li><p>変数の宣言 <br><img src="img/chapter02/table_model_name_01.gif" /></p></li>
+<li><p>変数の宣言 <br><img src="img/chapter02/table_model_name_02.gif" /></p></li>
+<li><p>変数への値の代入 <br><img src="img/chapter02/table_model_name_03.gif" /></p></li>
+<li><p>変数への値の代入 <br><img src="img/chapter02/table_model_name_04.gif" /></p></li>
+<li><p>変数を評価して値にする <br><img src="img/chapter02/table_model_name_05.gif" /></p></li>
 </ol>
 <h2 id="コンピュータに計算をさせる"><span class="header-section-number">2.3</span> コンピュータに計算をさせる</h2>
 <h3 id="計算式を使ったプログラム"><span class="header-section-number">2.3.1</span> 計算式を使ったプログラム</h3>
@@ -514,7 +526,7 @@ length <span class="op">=</span> <span class="at">input</span>()<span class="op"
 <p>ユーザにメッセージを出すには</p>
 <p><code>print(&quot;ここに出したいメッセージを書く&quot;)</code></p>
 <p>命令を使います．</p>
-<p>出したいメッセージを「&quot;」（ダブルクォーテーション）「&quot;」（ダブルクォーテーション）で囲んでください．</p>
+<p>出したいメッセージを<code>&quot;</code>（ダブルクォーテーション）または，<code>'</code> （シングルクォーテーション）で囲んでください．</p>
 <h2 id="乱数"><span class="header-section-number">2.5</span> 乱数</h2>
 <h3 id="命令ごとに毎回変わる値"><span class="header-section-number">2.5.1</span> 命令ごとに毎回変わる値</h3>
 <div class="sourceCode" id="lst:2-1" caption="家を書くサンプルプログラム"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -1273,8 +1285,8 @@ handNumber <span class="op">=</span> <span class="at">random</span>(<span class=
 <h4 id="論理演算子の評価の過程"><span class="header-section-number">3.3.2.2</span> 論理演算子の評価の過程</h4>
 <p>論理演算子の評価の過程を見ていきましょう．</p>
 <ol style="list-style-type: decimal">
-<li>And演算子が成立(true)する場合 <br><img src="img/chapter03/condition_logic_and_true.gif" /></li>
-<li>And演算子が不成立(false)する場合 <br><img src="img/chapter03/condition_logic_and_false.gif" /></li>
+<li><p>And演算子が成立(true)する場合 <br><img src="img/chapter03/condition_logic_and_true.gif" /></p></li>
+<li><p>And演算子が不成立(false)する場合 <br><img src="img/chapter03/condition_logic_and_false.gif" /></p></li>
 </ol>
 <h2 id="変数のスコープ有効範囲"><span class="header-section-number">3.4</span> 変数のスコープ（有効範囲）</h2>
 <p>変数には有効範囲（スコープといいます）があります．Javascriptでは基本的に，宣言した変数のブロック内(「{}」で囲まれた範囲)がスコープになります．</p>
@@ -1460,6 +1472,7 @@ if( [条件式] ) {
 <li><p>変数に1を加える <img src="img/chapter04/table_model_i_04.gif" /></p></li>
 </ol>
 <p>変数が，5になったときに条件式が不成立(false)になるので，繰り返しが終ります． これで4回繰り返されるのが分かるでしょうか？</p>
+<!-- ## コラム：while()の後に;はつけないで!{.unnumbered} -->
 <h2 id="応用円を書くプログラム"><span class="header-section-number">4.3</span> 応用：円を書くプログラム</h2>
 <p>繰り返しを使うと，円を簡単に書くことができます．次のプログラムを実行してみましょう．</p>
 <h3 id="円を書きつづけるプログラム"><span class="header-section-number">4.3.1</span> 円を書きつづけるプログラム</h3>
@@ -1480,34 +1493,117 @@ if( [条件式] ) {
         <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">1</span>)<span class="op">;</span>
     <span class="op">}</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
+<h3 id="円を描くプログラムの改良"><span class="header-section-number">4.3.2</span> 円を描くプログラムの改良</h3>
+<p>上記の円を描くプログラムは，条件が無い(常に成立(true))ので止まりません． 変数をつけ，適切な条件式を考えて，一周したらプログラムを止めるように改良しましょう．</p>
+<div class="sourceCode" id="lst:4-1" caption="Circle"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="kw">var</span> t <span class="op">=</span> <span class="at">createTurtle</span>()<span class="op">;</span>
+
+<span class="op">{</span> <span class="co">// 円を書く</span>
+  <span class="kw">var</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> <span class="co">//繰り返しをカウントする変数</span>
+  <span class="cf">while</span> (i <span class="op">&lt;=</span> <span class="dv">360</span> <span class="co">/* 条件--iが360以下の間 */</span> ) <span class="op">{</span>
+    <span class="va">t</span>.<span class="at">fd</span>(<span class="dv">1</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">1</span>)<span class="op">;</span>
+    i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">;</span> <span class="co">//繰り返しカウントを一つ増やす</span>
+  <span class="op">}</span>
+<span class="op">}</span></code></pre></td></tr></table></div>
 <h2 id="for文"><span class="header-section-number">4.4</span> for文</h2>
-<p>（書き加える） このプログラムでは，繰り返しをfor文を使って書いています．for文を使うと，while文よりも短く書くことができます．</p>
-<p>for文の()の中の命令は，それぞれwhile文と以下のように対応しています．</p>
-<p>!!!Javascriptバージョンにすること <img src="img/chapter04/while_and_for.png" alt="while文とfor文" /></p>
-<p>i = i + 1 と i++ は，いずれも i に 1 を足す，という意味です．while文で i++ と書くことも，for文で i = i + 1 と書くこともできます．</p>
-<h2 id="練習問題-3"><span class="header-section-number">4.5</span> 練習問題</h2>
-<h3 id="円を描くプログラムを改良しよう"><span class="header-section-number">4.5.1</span> 円を描くプログラムを改良しよう</h3>
-<p>最後に出てきた円を描くプログラムは，条件が無い(常に成立(true))ので止まりません． 変数をつけ，適切な条件式を考えて，一周したらプログラムを止めるように改良して下さい．</p>
-<p>ファイル名は「Circle.java」とすること．</p>
-<h3 id="円の描かれ方について考察しよう"><span class="header-section-number">4.5.2</span> 円の描かれ方について考察しよう</h3>
+<p>繰り返しの基本はwhile文を使った繰り返しですが，指定した回数繰り返すというのはよくあるパターンで，その場合には， 1. 繰り返しをカウントする変数を作る 1. while文の条件の間 1. 繰り返しの処理をする 1. 繰り返しカウントを一つ増やす という，処理パターンを記述することになります． この処理パターンはよく書くので，簡略化して書ける構文（糖衣構文）である「for文」が用意されています．</p>
+<p>for文を使うと，while文よりも短く書くことができます．</p>
+<div class="sourceCode" id="lst:4-1" caption="Circle"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="kw">var</span> t <span class="op">=</span> <span class="at">createTurtle</span>()<span class="op">;</span>
+
+<span class="op">{</span> <span class="co">// 円を書く</span>
+  <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">360</span><span class="op">;</span> i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span>) <span class="op">{</span>
+    <span class="va">t</span>.<span class="at">fd</span>(<span class="dv">1</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">1</span>)<span class="op">;</span>
+  <span class="op">}</span>
+<span class="op">}</span></code></pre></td></tr></table></div>
+<p>for文の一般型は以下の形です．</p>
+<pre><code>for([初期処理] ;[条件式] ;[一回の繰返しの終了処理] ) {
+    [繰り返す処理]
+}</code></pre>
+<!-- for文の()の中の命令は，それぞれwhile文と以下のように対応しています．
+
+![while文とfor文](img/chapter04/while_and_for.png) -->
+<p>さらに，変数に１を加える，というのもよく行われる処理なので，糖衣構文が用意されています． <code>i = i + 1</code> は <code>i++</code> と書くことができます．</p>
+<p>したがって，円を書くプログラムは次のように書けます．</p>
+<div class="sourceCode" id="lst:4-1" caption="Circle"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="kw">var</span> t <span class="op">=</span> <span class="at">createTurtle</span>()<span class="op">;</span>
+
+<span class="op">{</span> <span class="co">// 円を書く</span>
+  <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">360</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span>
+    <span class="va">t</span>.<span class="at">fd</span>(<span class="dv">1</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">1</span>)<span class="op">;</span>
+  <span class="op">}</span>
+<span class="op">}</span></code></pre></td></tr></table></div>
+<h2 id="コラムカウントは0から1から" class="nunumbered"><span class="header-section-number">4.5</span> コラム：カウントは0から？1から?</h2>
+<p>先程のプログラムでは，iを1からカウントして，360以内の時，つまり，361になった時にループから抜けて，プログラムを止めていました． 以下のように，iを0からカウントして，360より小さい，つまり360になった時にループから抜けて，プログラムを止めても同じことができます．</p>
+<div class="sourceCode" id="lst:4-1" caption="Circle"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="kw">var</span> t <span class="op">=</span> <span class="at">createTurtle</span>()<span class="op">;</span>
+
+<span class="op">{</span> <span class="co">// 円を書く</span>
+  <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">360</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span>
+    <span class="va">t</span>.<span class="at">fd</span>(<span class="dv">1</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">1</span>)<span class="op">;</span>
+  <span class="op">}</span>
+<span class="op">}</span></code></pre></td></tr></table></div>
+<h2 id="練習問題-3"><span class="header-section-number">4.6</span> 練習問題</h2>
+<!-- ### 円を描くプログラムを改良しよう
+最後に出てきた円を描くプログラムは，条件が無い(常に成立(true))ので止まりません． 変数をつけ，適切な条件式を考えて，一周したらプログラムを止めるように改良して下さい．
+
+ファイル名は「Circle.java」とすること． -->
+<h3 id="while文for文の書き換え"><span class="header-section-number">4.6.1</span> while文，for文の書き換え</h3>
+<p>4.2.2 の家をプログラム（while文書き換え版）をfor文に書き換えてみましょう．</p>
+<p>ファイル名は「housefor.js」とすること．</p>
+<h3 id="円の描かれ方について考察しよう"><span class="header-section-number">4.6.2</span> 円の描かれ方について考察しよう</h3>
 <p>一回の繰り返しで動く大きさ(fd(1))と，角度(rt(1))の数字を変更すと，円の大きさを変えることができます． いろいろ数字を変えて，どのようにすると自分の思った円がかけるか，考察してください．</p>
 <p>ヒント: 大きさと角度を入力できるようにすると，数字を変えるたびにコンパイルする必要がないので，いろいろ実験できますよ． そのようなプログラムにしてから，実験することをお奨めします．</p>
-<h3 id="四角形を繰り返しを使って描こう"><span class="header-section-number">4.5.3</span> 四角形を繰り返しを使って描こう</h3>
+<h3 id="四角形を繰り返しを使って描こう"><span class="header-section-number">4.6.3</span> 四角形を繰り返しを使って描こう</h3>
 <p>四角形を描くプログラムを繰り返しを使って書いてみましょう．</p>
-<p>ファイル名は「Box.java」とすること．</p>
-<h3 id="五角形を繰り返しを使って描こう"><span class="header-section-number">4.5.4</span> 五角形を繰り返しを使って描こう</h3>
+<p>ファイル名は「box.js」とすること．</p>
+<h3 id="五角形を繰り返しを使って描こう"><span class="header-section-number">4.6.4</span> 五角形を繰り返しを使って描こう</h3>
 <p>五角形を描くプログラムを繰り返しを使って書き直してみましょう．</p>
-<p>ファイル名は「Pentagon3.java」とすること．</p>
-<h3 id="星を繰り返しを使って描こう"><span class="header-section-number">4.5.5</span> 星を繰り返しを使って描こう</h3>
+<p>ファイル名は「pentagon3.js」とすること．</p>
+<h3 id="星を繰り返しを使って描こう"><span class="header-section-number">4.6.5</span> 星を繰り返しを使って描こう</h3>
 <p>星を描くプログラムを繰り返しを使って書き直してみましょう．</p>
-<p>ファイル名は「Star3.java」とすること．</p>
-<h3 id="アスタリスクを繰り返しを使って描こう"><span class="header-section-number">4.5.6</span> アスタリスクを繰り返しを使って描こう</h3>
+<p>ファイル名は「star3.js」とすること．</p>
+<h3 id="アスタリスクを繰り返しを使って描こう"><span class="header-section-number">4.6.6</span> アスタリスクを繰り返しを使って描こう</h3>
 <p>アスタリスクを描くプログラムを繰り返しを使って書いてみましょう．</p>
 <div class="figure">
 <img src="img/chapter04/q_asterisk.jpg" alt="アスタリスク" />
 <p class="caption">アスタリスク</p>
 </div>
-<p>ファイル名は「Asterisk.java」とすること．</p>
+<p>ファイル名は「asterisk.js」とすること．</p>
 <h1 id="ブロックの入れ子構造"><span class="header-section-number">5</span> ブロックの入れ子構造</h1>
 <h2 id="学習目標-4"><span class="header-section-number">5.1</span> 学習目標</h2>
 <ul>
@@ -1530,26 +1626,16 @@ if( [条件式] ) {
 9
 10
 11
-12
-13
-14
-15
-16
 </pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="kw">var</span> t <span class="op">=</span> <span class="at">createTurtle</span>()<span class="op">;</span>
 
 <span class="op">{</span> <span class="co">// 窓を描く</span>
-  <span class="kw">var</span> j <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>
-  <span class="cf">while</span> (j <span class="op">&lt;=</span> <span class="dv">4</span>) <span class="op">{</span>
-  <span class="op">{</span> <span class="co">// 四角形を描く</span>
-    <span class="kw">var</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>
-    <span class="cf">while</span> (i <span class="op">&lt;=</span> <span class="dv">4</span>) <span class="op">{</span>
+  <span class="cf">for</span> (<span class="kw">var</span> j <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;=</span> <span class="dv">4</span><span class="op">;</span> j<span class="op">++</span>) <span class="op">{</span> 
+    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">4</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span><span class="co">// 四角形を描く</span>
       <span class="va">t</span>.<span class="at">fd</span>(<span class="dv">50</span>)<span class="op">;</span>
       <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">90</span>)<span class="op">;</span>
-      i<span class="op">++;</span>
     <span class="op">}</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">90</span>)<span class="op">;</span>
   <span class="op">}</span>
-  <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">90</span>)<span class="op">;</span>
-  j<span class="op">++;</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
 <div class="figure">
 <img src="img/chapter05/foursquares.jpg" alt="窓を描くプログラム" />
@@ -1578,7 +1664,7 @@ if( [条件式] ) {
 <img src="img/chapter05/indent.gif" alt="インデント" />
 <p class="caption">インデント</p>
 </div>
-<p>論プロエディタでは，フォーマットをするとよいです．</p>
+<p>PikePlace環境では，<a href="Ctrlキーを押しながらsキーを押す">Ctrl-s</a>で，フォーマットをするとよいです．</p>
 <h2 id="入れ子と並列の違いの考察花を描くプログラム"><span class="header-section-number">5.3</span> 入れ子と並列の違いの考察：花を描くプログラム</h2>
 <p>入れ子の応用として，花を描くプログラムを考えてみましょう．</p>
 <div class="figure">
@@ -1608,38 +1694,20 @@ if( [条件式] ) {
 14
 15
 16
-17
-18
-19
-20
-21
-22
-23
-24
-25
 </pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="kw">var</span> t <span class="op">=</span> <span class="at">createTurtle</span>()<span class="op">;</span>
 
-<span class="op">{</span><span class="co">// 花びらを描く</span>
-  <span class="op">{</span><span class="co">// 円弧を描く</span>
-    <span class="kw">var</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>
-    <span class="cf">while</span> (i <span class="op">&lt;=</span> <span class="dv">120</span>) <span class="op">{</span>
-      <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">1</span>)<span class="op">;</span>
-      <span class="va">t</span>.<span class="at">fd</span>(<span class="dv">1</span>)<span class="op">;</span>
-      i<span class="op">++;</span>
-    <span class="op">}</span>
+<span class="op">{</span> <span class="co">// 花びらを描く</span>
+  <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">120</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span> <span class="co">// 円弧を描く</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">1</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(<span class="dv">1</span>)<span class="op">;</span>
   <span class="op">}</span>
-  
-  <span class="op">{</span><span class="co">// 次の円弧の角度へ</span>
-    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">60</span>)<span class="op">;</span>
-  <span class="op">}</span>
-  
-  <span class="op">{</span><span class="co">// 円弧を描く</span>
-    <span class="kw">var</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>
-    <span class="cf">while</span> (i <span class="op">&lt;=</span> <span class="dv">120</span>) <span class="op">{</span>
-      <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">1</span>)<span class="op">;</span>
-      <span class="va">t</span>.<span class="at">fd</span>(<span class="dv">1</span>)<span class="op">;</span>
-      i<span class="op">++;</span>
-    <span class="op">}</span>
+
+  <span class="co">// 次の円弧の角度へ</span>
+  <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">60</span>)<span class="op">;</span>
+
+  <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">120</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span> <span class="co">// 円弧を描く</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">1</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(<span class="dv">1</span>)<span class="op">;</span>
   <span class="op">}</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
 <p>6.3.2 花を描く 花びらを描くには繰り返しが必要で，花を描くにはさらにそれを繰り返す必要があります． 以下のように，繰り返しの入れ子を使います．</p>
@@ -1664,46 +1732,24 @@ if( [条件式] ) {
 18
 19
 20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
 </pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="kw">var</span> t <span class="op">=</span> <span class="at">createTurtle</span>()<span class="op">;</span>
 
-<span class="op">{</span><span class="co">// 花をかく（6枚の花びらを書く）</span>
-  <span class="kw">var</span> j <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>
-  <span class="cf">while</span> (j <span class="op">&lt;=</span> <span class="dv">6</span>) <span class="op">{</span>
-    <span class="op">{</span><span class="co">// 花びらを描く</span>
-      <span class="op">{</span><span class="co">// 円弧を描く</span>
-        <span class="kw">var</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>
-        <span class="cf">while</span> (i <span class="op">&lt;=</span> <span class="dv">120</span>) <span class="op">{</span>
-          <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">1</span>)<span class="op">;</span>
-          <span class="va">t</span>.<span class="at">fd</span>(<span class="dv">1</span>)<span class="op">;</span>
-          i<span class="op">++;</span>
-        <span class="op">}</span>
+<span class="op">{</span> <span class="co">// 花をかく（6枚の花びらを書く）</span>
+  <span class="cf">for</span> (<span class="kw">var</span> j <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;=</span> <span class="dv">6</span><span class="op">;</span> j<span class="op">++</span>) <span class="op">{</span>
+    <span class="op">{</span> <span class="co">// 花びらを描く</span>
+      <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">120</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span> <span class="co">// 円弧を描く</span>
+        <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">1</span>)<span class="op">;</span>
+        <span class="va">t</span>.<span class="at">fd</span>(<span class="dv">1</span>)<span class="op">;</span>
       <span class="op">}</span>
-    
-      <span class="op">{</span><span class="co">// 次の円弧の角度へ</span>
-        <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">60</span>)<span class="op">;</span>
-      <span class="op">}</span>
-    
-      <span class="op">{</span><span class="co">// 円弧を描く</span>
-        <span class="kw">var</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>
-        <span class="cf">while</span> (i <span class="op">&lt;=</span> <span class="dv">120</span>) <span class="op">{</span>
-          <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">1</span>)<span class="op">;</span>
-          <span class="va">t</span>.<span class="at">fd</span>(<span class="dv">1</span>)<span class="op">;</span>
-          i<span class="op">++;</span>
-        <span class="op">}</span>
+
+      <span class="co">// 次の円弧の角度へ</span>
+      <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">60</span>)<span class="op">;</span>
+
+      <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">120</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span> <span class="co">// 円弧を描く</span>
+        <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">1</span>)<span class="op">;</span>
+        <span class="va">t</span>.<span class="at">fd</span>(<span class="dv">1</span>)<span class="op">;</span>
       <span class="op">}</span>
     <span class="op">}</span>
-    j<span class="op">++;</span>
   <span class="op">}</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
 <p>ポイントは，花びらを書くループの外側にそれを6回繰り返すループをつくる （つまりループを入れ子にする）ことです． 「繰り返しを繰り返す」ためには，繰り返す繰り返しの外側に繰り返しループ を書く必要がありました．構造は以下のようになります．</p>
@@ -1714,7 +1760,52 @@ if( [条件式] ) {
 <h3 id="花を描く間違い"><span class="header-section-number">5.3.2</span> 花を描く（間違い）</h3>
 <p>以下に，よくある間違いの例を示します．</p>
 <!-- リスト 6.3.3.1 BadFlower.java -->
-<div class="sourceCode" id="lst:4-1" caption="House"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre></pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"></code></pre></td></tr></table></div>
+<div class="sourceCode" id="lst:4-1" caption="House"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="kw">var</span> t <span class="op">=</span> <span class="at">createTurtle</span>()<span class="op">;</span>
+
+<span class="op">{</span> <span class="co">// 花をかく（6枚の花びらを書く）</span>
+  <span class="cf">for</span> (<span class="kw">var</span> j <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;=</span> <span class="dv">6</span><span class="op">;</span> j<span class="op">++</span>) <span class="op">{</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">1</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(<span class="dv">1</span>)<span class="op">;</span>
+  <span class="op">}</span>
+<span class="op">}</span>
+
+<span class="op">{</span> <span class="co">// 花びらを描く</span>
+  <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">120</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span> <span class="co">// 円弧を描く</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">1</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(<span class="dv">1</span>)<span class="op">;</span>
+  <span class="op">}</span>
+
+  <span class="co">// 次の円弧の角度へ</span>
+  <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">60</span>)<span class="op">;</span>
+
+  <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">120</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span> <span class="co">// 円弧を描く</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">1</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(<span class="dv">1</span>)<span class="op">;</span>
+  <span class="op">}</span>
+<span class="op">}</span></code></pre></td></tr></table></div>
 <p>これがうまくいかない理由が説明できるでしょうか？ 以下に，このプログラムの構造を示しますので， うまくいく方と比較してみましょう．</p>
 <div class="figure">
 <img src="img/chapter05/flowerblockinvalid.gif" alt="うまくいかない花を書くプログラムの構造" />
@@ -1738,23 +1829,17 @@ if( [条件式] ) {
 11
 12
 13
-14
-15
-16
 </pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="kw">var</span> t <span class="op">=</span> <span class="at">createTurtle</span>()<span class="op">;</span>
 
-<span class="op">{</span> <span class="co">// （円を）10個描く</span>
-  <span class="kw">var</span> j <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>
-  <span class="cf">while</span> (j <span class="op">&lt;=</span> <span class="dv">10</span>) <span class="op">{</span>
-    <span class="op">{</span> <span class="co">// 円を描く</span>
-      <span class="kw">var</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>
-      <span class="cf">while</span> (i <span class="op">&lt;=</span> <span class="dv">360</span>) <span class="op">{</span>
-        <span class="va">t</span>.<span class="at">fd</span>(<span class="dv">1</span>)<span class="op">;</span>
-        <span class="va">t</span>.<span class="at">rt</span>(j)<span class="op">;</span>
-        i <span class="op">=</span> i <span class="op">+</span> j<span class="op">;</span>
-      <span class="op">}</span>
+<span class="cf">for</span> (<span class="kw">var</span> j <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;=</span> <span class="dv">10</span><span class="op">;</span> j<span class="op">++</span>) <span class="op">{</span> <span class="co">// （円を）10個描く</span>
+
+  <span class="op">{</span> <span class="co">// 円を描く</span>
+    <span class="kw">var</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>
+    <span class="cf">while</span> (i <span class="op">&lt;=</span> <span class="dv">360</span>) <span class="op">{</span>
+      <span class="va">t</span>.<span class="at">fd</span>(<span class="dv">1</span>)<span class="op">;</span>
+      <span class="va">t</span>.<span class="at">rt</span>(j)<span class="op">;</span>
+      i <span class="op">=</span> i <span class="op">+</span> j<span class="op">;</span>
     <span class="op">}</span>
-    j <span class="op">=</span> j <span class="op">+</span> <span class="dv">1</span><span class="op">;</span>
   <span class="op">}</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
 <div class="figure">
@@ -1790,59 +1875,29 @@ if( [条件式] ) {
 23
 24
 25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
 </pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="kw">var</span> t <span class="op">=</span> <span class="at">createTurtle</span>()<span class="op">;</span>
-<span class="kw">var</span> length <span class="op">=</span> <span class="dv">50</span><span class="op">;</span><span class="co">// １辺の長さ</span>
+<span class="kw">var</span> length <span class="op">=</span> <span class="dv">50</span><span class="op">;</span> <span class="co">// １辺の長さ</span>
 
-<span class="op">{</span><span class="co">// 図形を描く　（8回繰り返す）</span>
-  <span class="kw">var</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>
-  <span class="cf">while</span> (i <span class="op">&lt;=</span> <span class="dv">8</span>) <span class="op">{</span>
+<span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">8</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span> <span class="co">// 図形を描く（8回繰り返す）</span>
 
-    <span class="cf">if</span> (i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>) <span class="op">{</span><span class="co">// 偶数なら</span>
-      <span class="op">{</span><span class="co">// 四角形を書く</span>
-        <span class="kw">var</span> j <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>
-        <span class="cf">while</span> (j <span class="op">&lt;=</span> <span class="dv">4</span>) <span class="op">{</span>
-          <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
-          <span class="va">t</span>.<span class="at">lt</span>(<span class="dv">90</span>)<span class="op">;</span>
-
-          j<span class="op">++;</span><span class="co">// jを1増やす([j = j + 1] の省略形)</span>
-        <span class="op">}</span>
-      <span class="op">}</span>
-    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span><span class="co">// 奇数なら</span>
-      <span class="op">{</span><span class="co">// 三角形を書く</span>
-        <span class="kw">var</span> j <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>
-        <span class="cf">while</span> (j <span class="op">&lt;=</span> <span class="dv">3</span>) <span class="op">{</span>
-          <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
-          <span class="va">t</span>.<span class="at">lt</span>(<span class="dv">120</span>)<span class="op">;</span>
-
-          j<span class="op">++;</span><span class="co">// jを1増やす([j = j + 1] の省略形)</span>
-        <span class="op">}</span>
-      <span class="op">}</span>
-    <span class="op">}</span>
-
-    <span class="op">{</span><span class="co">// 次の図形を書く位置に移動する</span>
-      <span class="va">t</span>.<span class="at">up</span>()<span class="op">;</span>
-      <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">135</span>)<span class="op">;</span>
+  <span class="cf">if</span> (i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>) <span class="op">{</span> <span class="co">// 偶数なら</span>
+    <span class="cf">for</span> (<span class="kw">var</span> j <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;=</span> <span class="dv">4</span><span class="op">;</span> j<span class="op">++</span>) <span class="op">{</span> <span class="co">// 四角形を書く</span>
       <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
-      <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">180</span>)<span class="op">;</span>
-      <span class="va">t</span>.<span class="at">down</span>()<span class="op">;</span>
+      <span class="va">t</span>.<span class="at">lt</span>(<span class="dv">90</span>)<span class="op">;</span>
     <span class="op">}</span>
-  
-    i<span class="op">++;</span><span class="co">// jを1増やす([i = i + 1] の省略形)</span>
+  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span> <span class="co">// 奇数なら</span>
+    <span class="cf">for</span> (<span class="kw">var</span> j <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;=</span> <span class="dv">3</span><span class="op">;</span> j<span class="op">++</span>) <span class="op">{</span> <span class="co">// 三角形を書く</span>
+      <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+      <span class="va">t</span>.<span class="at">lt</span>(<span class="dv">120</span>)<span class="op">;</span>
+    <span class="op">}</span>
+  <span class="op">}</span>
+
+  <span class="op">{</span> <span class="co">// 次の図形を書く位置に移動する</span>
+    <span class="va">t</span>.<span class="at">up</span>()<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">135</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">180</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">down</span>()<span class="op">;</span>
   <span class="op">}</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
 <div class="figure">
@@ -1940,20 +1995,12 @@ if( [条件式] ) {
 <span class="op">}</span></code></pre></td></tr></table></div>
 <p>関数を使うためには，関数を定義し，その関数を呼び出す必要があります．</p>
 <p>関数は一度定義すれば，同じ関数を何度も呼び出して使うことができます．</p>
-<p>このプログラムでは21行目で関数を定義し，17行目で呼び出しています．</p>
-<pre><code>21: function drawRectangle(){
-22:     for (int i = 0; i &lt; 4;i++) {
-23:         fd(50);
-24:         rt(90);
-25:     }
-26: }</code></pre>
-<p>17: drawRectangle();</p>
+<p>このプログラムでは5行目から10行目で関数を定義し，2行目でそれを呼び出しています．</p>
 <p>引数．戻り値なしの関数定義，関数呼び出しの一般形は以下の通りです</p>
-<pre><code>void [関数名](){
+<pre><code>function [関数名](){
 
-}
-                
-[関数名]();</code></pre>
+}</code></pre>
+<pre><code>[関数名]();</code></pre>
 <h3 id="関数の処理の順序"><span class="header-section-number">6.2.3</span> 関数の処理の順序</h3>
 <p>以下のプログラムは，四角形を描く関数を使って，四角形を３つ描くプログラムです．</p>
 <!-- リスト 12.2.3.1 DrawThreeRectanglesMethod.js -->
@@ -2119,9 +2166,8 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 <p>引数付関数を使うためには，引数付関数を定義し，その関数を引数付で呼び出します． 一般形は以下の通りです．</p>
 <pre><code>function [関数名]([仮引数名]){
 
-}
-                
-[関数名]([実引数]);</code></pre>
+}</code></pre>
+<pre><code>[関数名]([実引数]);</code></pre>
 <p>呼び出し部分の引数を実引数，宣言部分の引数を仮引数と呼びます．実引数（関数ブロック外にあるデータ）が， 仮引数（関数ブロック内で使える変数）に代入され，関数ブロック内でその変数の値が使えるようになります．</p>
 <h3 id="引数を用いた多角形を描く関数の抽象化"><span class="header-section-number">6.3.3</span> 引数を用いた，多角形を描く関数の抽象化</h3>
 <p>家を書くプログラムでは，三角形と四角形を書くために， 2つの関数を作る必要があります．</p>
@@ -2270,13 +2316,18 @@ Javaでは，関数の中に関数を定義することはできません．（ 
         <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">90</span>)<span class="op">;</span>
     <span class="op">}</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
-<pre><code>29: void drawRectangle(int length){
-30:     for (int i =0; i &lt; 4; i++) {
+<!-- ```                    
+29: void drawRectangle(int length){
+30:     for (int i =0; i < 4; i++) {
 31:         fd(length);
 32:         rt(90);
 33:     }
-34: }</code></pre>
-<pre><code>24: drawRectangle(inputLength);//入力された長さを一辺の長さとして四角形を描く</code></pre>
+34: }
+``` 
+
+```                 
+24: drawRectangle(inputLength);//入力された長さを一辺の長さとして四角形を描く
+```  -->
 <h2 id="関数の設計あるいはプログラムの構造化"><span class="header-section-number">6.5</span> 関数の設計．あるいはプログラムの構造化</h2>
 <p>関数から関数を呼ぶことが出来るため，関数の連鎖を用いてプログラムを作ることができます． これは「構造化プログラミング」という，複雑さを制御するための基本的設計技法です．</p>
 <p>複雑になると，関数の呼び出し関係が混乱してくるので，まず以下のような関数構成図を書き， プログラムを書いていくと良いでしょう．</p>
@@ -2420,13 +2471,13 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 <h2 id="ライブラリ" class="unnumbered">ライブラリ</h2>
 <p>実は今まで使っていたfd，rtという命令は，以下のような関数として定義されていたのでした．</p>
 <ul>
-<li><code>function fd(int length){...省略...}</code></li>
-<li><code>function rt(int angle){...省略...}</code></li>
+<li><code>function fd(length){...省略...}</code></li>
+<li><code>function rt(angle){...省略...}</code></li>
 </ul>
 <p>ある目的のために使う関数の集まりを作り，関数群を再利用します． この関数の集まりのことを「ライブラリ」といいます． fd, rtなどのタートルに使う命令は「タートルライブラリ」としてどこかに定義されているのです．</p>
 <h2 id="練習問題-5"><span class="header-section-number">6.6</span> 練習問題</h2>
 <h3 id="円を描く関数を作ろう"><span class="header-section-number">6.6.1</span> 円を描く関数を作ろう</h3>
-<p>円を描く関数「void drawCircle()」を作ってください． できたら，start関数から2回以上呼び出して，うまく動作するか確かめてみよう．</p>
+<p>円を描く関数「function drawCircle()」を作ってください． できたら，start関数から2回以上呼び出して，うまく動作するか確かめてみよう．</p>
 <p>ファイル名は「circle2.js」とすること．</p>
 <h3 id="大きさが変わる家を描く関数を作ろう"><span class="header-section-number">6.6.2</span> 大きさが変わる家を描く関数を作ろう</h3>
 <p>大きさを指定して家を描く関数（窓はなくて良い）「function drawHouse(size)」を作ってください． できたら，start関数から2回以上呼び出して，うまく動作するか確かめてみよう．</p>
@@ -2599,21 +2650,30 @@ Javaでは，関数の中に関数を定義することはできません．（ 
         <span class="at">print</span>(<span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)<span class="op">;</span>
     <span class="op">}</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
-<p>factorial(5, 0) factorial(4, 1) factorial(3, 2) factorial(2, 3) factorial(1, 4) // return 1 // return 2 // return 6 // return 24 // return 120</p>
-<pre><code>
-異なる引数で関数が呼ばれているだけということが分かったと思う．
-
-（ちなみに，階乗の計算は総和と同じように繰り返しでも書ける．）
-
-### フィボナッチ数列
-フィボナッチ数列という数列がある．これも文系の諸君にはあまりなじみがないかもしれないが， 自然界によくみられる不思議な数列である．（このサイトなどをみてみよう）
-
-fib(n)は次の式で求められる．
-</code></pre>
-<p>fib(n) = fib(n-1) + fib(n-2)</p>
-<pre><code>
-以下が具体例である．</code></pre>
-<p>fib(1) = 1 fib(2) = 2 fib(3) = fib(2) + fib(1) = 3 fib(4) = fib(3) + fib(2) = 5 fib(5) = fib(4) + fib(3) = 8 fib(6) = fib(5) + fib(4) = 13 ``` フィボナッチ数列も再帰の例でよく出てくる例で，再帰を使うことでプログラムを次のように書ける．</p>
+<pre><code>factorial(5, 0)
+    factorial(4, 1)
+        factorial(3, 2)
+            factorial(2, 3)
+                factorial(1, 4)
+                // return 1
+            // return 2
+        // return 6
+    // return 24
+// return 120           </code></pre>
+<p>異なる引数で関数が呼ばれているだけということが分かったと思う．</p>
+<p>（ちなみに，階乗の計算は総和と同じように繰り返しでも書ける．）</p>
+<h3 id="フィボナッチ数列"><span class="header-section-number">7.2.3</span> フィボナッチ数列</h3>
+<p>フィボナッチ数列という数列がある．これも文系の諸君にはあまりなじみがないかもしれないが， 自然界によくみられる不思議な数列である．（このサイトなどをみてみよう）</p>
+<p>fib(n)は次の式で求められる．</p>
+<pre><code>fib(n) = fib(n-1) + fib(n-2)</code></pre>
+<p>以下が具体例である．</p>
+<pre><code>fib(1) = 1
+fib(2) = 2
+fib(3) = fib(2) + fib(1) = 3
+fib(4) = fib(3) + fib(2) = 5
+fib(5) = fib(4) + fib(3) = 8
+fib(6) = fib(5) + fib(4) = 13</code></pre>
+<p>フィボナッチ数列も再帰の例でよく出てくる例で，再帰を使うことでプログラムを次のように書ける．</p>
 <!-- リスト 14.2.3.1 Fibonacci.js -->
 <div class="sourceCode" id="lst:7-1" caption="House"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
@@ -2964,7 +3024,7 @@ drawY(50, 0)
 <h3 id="スーパースターを描いてみよう"><span class="header-section-number">7.4.4</span> スーパースターを描いてみよう</h3>
 <p>関数の再帰呼出しを応用して，下記の図を書いてみましょう．</p>
 <div class="figure">
-<img src="img/chapter07/q.superstar.jpg" alt="superstar" />
+<img src="img/chapter07/q_superstar.jpg" alt="superstar" />
 <p class="caption">superstar</p>
 </div>
 <p>ファイル名は「superstar.js」とすること．</p>
