@@ -1,0 +1,615 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="github.css" type="text/css" />
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#初めてのjavascriptタートルプログラミング"><span class="toc-section-number">1</span> 初めてのJavascriptタートルプログラミング</a><ul>
+<li><a href="#学習目標"><span class="toc-section-number">1.1</span> 学習目標</a></li>
+<li><a href="#最初のタートルプログラム"><span class="toc-section-number">1.2</span> 最初のタートルプログラム</a></li>
+<li><a href="#タートルの命令の解説"><span class="toc-section-number">1.3</span> タートルの命令の解説</a><ul>
+<li><a href="#命令の区切り"><span class="toc-section-number">1.3.1</span> 命令の区切り</a></li>
+<li><a href="#コメント"><span class="toc-section-number">1.3.2</span> コメント</a></li>
+</ul></li>
+<li><a href="#プログラムミスと対処"><span class="toc-section-number">1.4</span> プログラムミスと対処</a><ul>
+<li><a href="#コンパイルエラー"><span class="toc-section-number">1.4.1</span> コンパイルエラー</a></li>
+<li><a href="#バグ"><span class="toc-section-number">1.4.2</span> バグ</a></li>
+</ul></li>
+<li><a href="#練習問題"><span class="toc-section-number">1.5</span> 練習問題</a><ul>
+<li><a href="#正五角形描こう"><span class="toc-section-number">1.5.1</span> 正五角形描こう</a></li>
+<li><a href="#星を描こう"><span class="toc-section-number">1.5.2</span> 星を描こう</a></li>
+<li><a href="#こんぺいとうを描こう"><span class="toc-section-number">1.5.3</span> こんぺいとうを描こう</a></li>
+<li><a href="#トライフォースを描こう"><span class="toc-section-number">1.5.4</span> トライフォースを描こう</a></li>
+<li><a href="#好きな図形を描こう"><span class="toc-section-number">1.5.5</span> 好きな図形を描こう</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#コンピュータに情報を記憶させてみよう変数"><span class="toc-section-number">2</span> コンピュータに情報を記憶させてみよう（変数）</a><ul>
+<li><a href="#学習目標-1"><span class="toc-section-number">2.1</span> 学習目標</a></li>
+<li><a href="#変数"><span class="toc-section-number">2.2</span> 変数</a><ul>
+<li><a href="#変数と値"><span class="toc-section-number">2.2.1</span> 変数と値</a></li>
+<li><a href="#変数を使ったプログラムの実行"><span class="toc-section-number">2.2.2</span> 変数を使ったプログラムの実行</a></li>
+<li><a href="#複数の変数と変数名"><span class="toc-section-number">2.2.3</span> 複数の変数と変数名</a></li>
+</ul></li>
+<li><a href="#コンピュータに計算をさせる"><span class="toc-section-number">2.3</span> コンピュータに計算をさせる</a><ul>
+<li><a href="#計算式を使ったプログラム"><span class="toc-section-number">2.3.1</span> 計算式を使ったプログラム</a></li>
+<li><a href="#計算式を使ったプログラムの実行"><span class="toc-section-number">2.3.2</span> 計算式を使ったプログラムの実行</a></li>
+</ul></li>
+<li><a href="#考えてみよう">考えてみよう</a></li>
+<li><a href="#ユーザと対話するインタラクティブなプログラム"><span class="toc-section-number">2.4</span> ユーザと対話する（インタラクティブ）なプログラム</a><ul>
+<li><a href="#入力を受け付ける"><span class="toc-section-number">2.4.1</span> 入力を受け付ける</a></li>
+</ul></li>
+<li><a href="#乱数"><span class="toc-section-number">2.5</span> 乱数</a><ul>
+<li><a href="#命令ごとに毎回変わる値"><span class="toc-section-number">2.5.1</span> 命令ごとに毎回変わる値</a></li>
+</ul></li>
+<li><a href="#練習問題-1"><span class="toc-section-number">2.6</span> 練習問題</a><ul>
+<li><a href="#与えられた大きさの正五角形を描くプログラム"><span class="toc-section-number">2.6.1</span> 与えられた大きさの正五角形を描くプログラム</a></li>
+<li><a href="#乱数を使って星を描くプログラム"><span class="toc-section-number">2.6.2</span> 乱数を使って星を描くプログラム</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="初めてのjavascriptタートルプログラミング"><span class="header-section-number">1</span> 初めてのJavascriptタートルプログラミング</h1>
+<h2 id="学習目標"><span class="header-section-number">1.1</span> 学習目標</h2>
+<ul>
+<li>タートルの基本的な命令を使いこなし、タートルで図形が描けるようになる</li>
+</ul>
+<h2 id="最初のタートルプログラム"><span class="header-section-number">1.2</span> 最初のタートルプログラム</h2>
+<p>最初の例題として､「家を描くサンプルプログラム」を解説します。</p>
+<p>家を書くサンプルプログラム</p>
+<div class="sourceCode" id="lst:1-1" caption="家を書くサンプルプログラム"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="co">//　タートルを生成する</span>
+<span class="kw">var</span> t <span class="op">=</span> <span class="at">createTurtle</span>()<span class="op">;</span>
+
+<span class="co">// 屋根を書く</span>
+<span class="va">t</span>.<span class="at">rt</span>(<span class="dv">30</span>)<span class="op">;</span><span class="co">// 30度右を向く</span>
+<span class="va">t</span>.<span class="at">fd</span>(<span class="dv">50</span>)<span class="op">;</span><span class="co">// 50歩前に進む</span>
+<span class="va">t</span>.<span class="at">rt</span>(<span class="dv">120</span>)<span class="op">;</span>
+<span class="va">t</span>.<span class="at">fd</span>(<span class="dv">50</span>)<span class="op">;</span>
+<span class="va">t</span>.<span class="at">rt</span>(<span class="dv">120</span>)<span class="op">;</span>
+<span class="va">t</span>.<span class="at">fd</span>(<span class="dv">50</span>)<span class="op">;</span>
+
+<span class="co">// 本体を書く</span>
+<span class="va">t</span>.<span class="at">lt</span>(<span class="dv">90</span>)<span class="op">;</span>
+<span class="va">t</span>.<span class="at">fd</span>(<span class="dv">50</span>)<span class="op">;</span>
+<span class="va">t</span>.<span class="at">lt</span>(<span class="dv">90</span>)<span class="op">;</span>
+<span class="va">t</span>.<span class="at">fd</span>(<span class="dv">50</span>)<span class="op">;</span>
+<span class="va">t</span>.<span class="at">lt</span>(<span class="dv">90</span>)<span class="op">;</span>
+<span class="va">t</span>.<span class="at">fd</span>(<span class="dv">50</span>)<span class="op">;</span>
+<span class="va">t</span>.<span class="at">lt</span>(<span class="dv">90</span>)<span class="op">;</span>
+<span class="va">t</span>.<span class="at">fd</span>(<span class="dv">50</span>)<span class="op">;</span></code></pre></td></tr></table></div>
+<h2 id="タートルの命令の解説"><span class="header-section-number">1.3</span> タートルの命令の解説</h2>
+<p><code>var t = createTurtle();</code> （説明を加える）</p>
+<p>t.rt(30)やt.fd(60)がタートルに指示する命令です。 書かれた命令は、 必ず上から順番に実行されます。 以下にタートルに指示できる命令の一覧を示します。</p>
+<dl>
+<dt><code>rt([角度の指定])</code></dt>
+<dd>タートルを指定した角度だけ右に回す．
+</dd>
+<dt><code>lt([角度の指定])</code></dt>
+<dd>タートルを指定した角度だけ左に回す．
+</dd>
+<dt><code>fd([長さの指定])</code></dt>
+<dd>タートルを指定した長さだけ進める．
+</dd>
+<dt><code>bk([長さの指定)</code></dt>
+<dd>タートルを指定した長さだけ後ろに進める．
+</dd>
+<dt><code>up()</code></dt>
+<dd>タートルがペンを上げる(軌跡がかかれなくなる)。
+</dd>
+<dt><code>down()</code></dt>
+<dd>タートルがペンを下げる(軌跡がかかれるようになる)。
+</dd>
+</dl>
+<!-- color([色の指定])
+ペンの色を変える (1) -->
+<h3 id="命令の区切り"><span class="header-section-number">1.3.1</span> 命令の区切り</h3>
+<h3 id="コメント"><span class="header-section-number">1.3.2</span> コメント</h3>
+<p>コメントはプログラム（命令）としては考慮されず、読み飛ばされます。 しかし、人間が読めないとメンテナンスにこまるためにコメントをつけておきます。ファイルの先頭には、プログラムのタイトル、名前や日付を忘れずに。</p>
+<dl>
+<dt>範囲指定コメント</dt>
+<dd><code>/*</code>から<code>*/</code>までコメントになります
+</dd>
+<dt>行コメント</dt>
+<dd><code>//</code>から先行の終わりまでコメントになります
+</dd>
+</dl>
+<h2 id="プログラムミスと対処"><span class="header-section-number">1.4</span> プログラムミスと対処</h2>
+<h3 id="コンパイルエラー"><span class="header-section-number">1.4.1</span> コンパイルエラー</h3>
+<p>プログラムの書きかたを間違えると、コンパイルしたときにエラーになります。</p>
+<!-- 例えば、コマンドの区切りでセミコロンを忘れると、次のようなエラーがでます。
+
+図 2.4.1.1 コンパイルエラー
+>javac House.java House.java:13: ';' がありません。 rt(120)
+^ エラー 1 個 > -->
+<p>コンパイルエラーがでたら、実行することはできないので、ソースを直して、再コンパイルするしかありません。 どうしても原因が分からない時は、ＴＡなどに相談してください。</p>
+<h3 id="バグ"><span class="header-section-number">1.4.2</span> バグ</h3>
+<p>コンパイルが正常に通っても、プログラムが間違っていて、意図した通りに動作しないことをバグといいます。 コンピュータは、必ず 命令した通りに動作します。</p>
+<p>バグがあったら、修正しましょう。バグを修正することをデバッグといいます。</p>
+<p>プロでも、最初から意図したプログラムを書くのは難しいものです。 プログラム上達の早道は、一発で動かそうとせずに、 早くバグを見つけて、修正できるようになるようになるように心がけることです。</p>
+<h2 id="練習問題"><span class="header-section-number">1.5</span> 練習問題</h2>
+<h3 id="正五角形描こう"><span class="header-section-number">1.5.1</span> 正五角形描こう</h3>
+<p>進める（fd）命令や、回す（rt）命令を使って、正五角形を描くプログラムを作りましょう。</p>
+<p><img src="img/chapter01/pentagon.png" alt="正五角形" /> ファイル名は「pentagon.js」とすること．</p>
+<h3 id="星を描こう"><span class="header-section-number">1.5.2</span> 星を描こう</h3>
+<p>進める（fd）命令や、回す（rt）命令を使って、星を描くプログラムを作りましょう。</p>
+<p><img src="img/chapter01/star.png" alt="星" /> ファイル名は「star.js」とすること．</p>
+<h3 id="こんぺいとうを描こう"><span class="header-section-number">1.5.3</span> こんぺいとうを描こう</h3>
+<p>進める（fd）命令や、回す（rt）命令を使って、こんぺいとうを描くプログラムを作りましょう。</p>
+<p><img src="img/chapter01/confetti.png" alt="こんぺいとう" /> ファイル名は「confetti.js」とすること．</p>
+<h3 id="トライフォースを描こう"><span class="header-section-number">1.5.4</span> トライフォースを描こう</h3>
+<p>進める（fd）命令や、回す（rt）命令を使って、トライフォースを描くプログラムを作りましょう。</p>
+<p><img src="img/chapter01/triforce.png" alt="トライフォース" /> ファイル名は「triforce.js」とすること．</p>
+<h3 id="好きな図形を描こう"><span class="header-section-number">1.5.5</span> 好きな図形を描こう</h3>
+<p>タートルを使って、好きな絵を描くプログラムを作りましょう。</p>
+<p>ファイル名は「myfavorite.js」とすること．</p>
+<h1 id="コンピュータに情報を記憶させてみよう変数"><span class="header-section-number">2</span> コンピュータに情報を記憶させてみよう（変数）</h1>
+<h2 id="学習目標-1"><span class="header-section-number">2.1</span> 学習目標</h2>
+<ul>
+<li>整数型の変数の作成（宣言），書き込み（代入），読み込み（評価と値）が使えるようになる</li>
+<li>複数の変数（変数名による区別をしつつ）が使えるようになる</li>
+<li>計算式（四則演算＋剰余計算）が使えるようになる</li>
+<li>ＣＵＩを使ってユーザ対話をするプログラムが作れるようになる</li>
+</ul>
+<h2 id="変数"><span class="header-section-number">2.2</span> 変数</h2>
+<p>今回新しく&quot;変数&quot;が登場します。家の大きさを変更できる次のプログラムをみてみましょう。</p>
+<h3 id="変数と値"><span class="header-section-number">2.2.1</span> 変数と値</h3>
+<p>次のプログラムを見てみましょう。</p>
+<div class="sourceCode" id="lst:2-1" caption="家を書くサンプルプログラム"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="kw">var</span> t <span class="op">=</span> <span class="at">createTurtle</span>()<span class="op">;</span> <span class="co">//　タートルを生成する</span>
+
+<span class="kw">var</span> x<span class="op">;</span> <span class="co">// 変数xを宣言する</span>
+x <span class="op">=</span> <span class="dv">50</span><span class="op">;</span> <span class="co">// 変数xに値50を代入する</span>
+
+<span class="op">{</span><span class="co">// 屋根を書く</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">30</span>)<span class="op">;</span> <span class="co">// 30度右に回る</span>
+    <span class="va">t</span>.<span class="at">fd</span>(x)<span class="op">;</span> <span class="co">// x歩前に進む</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">120</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(x)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">120</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(x)<span class="op">;</span>
+<span class="op">}</span>
+
+<span class="op">{</span><span class="co">// 本体を書く</span>
+    <span class="va">t</span>.<span class="at">lt</span>(<span class="dv">90</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(x)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">lt</span>(<span class="dv">90</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(x)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">lt</span>(<span class="dv">90</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(x)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">lt</span>(<span class="dv">90</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(x)<span class="op">;</span>
+<span class="op">}</span></code></pre></td></tr></table></div>
+<p>変数はデータを格納しておく場所のことです。 プログラムでは、「メモリ」の許す限り、データを格納しておくことが出来ます。</p>
+<p>格納する場所を一つにつき、一つの名前をつけることが出来ます。</p>
+<p>実際に格納されるデータのことを「値」といいます。</p>
+<div class="figure">
+<img src="img/chapter02/table_model_value.gif" alt="変数と値" />
+<p class="caption">変数と値</p>
+</div>
+<h3 id="変数を使ったプログラムの実行"><span class="header-section-number">2.2.2</span> 変数を使ったプログラムの実行</h3>
+<p>プログラムの実行過程と変数を見ていきましょう。</p>
+<ol>
+<li>変数の宣言 <br><img src="img/chapter02/table_model_x_01.gif" alt="変数の宣言" /></li>
+<li>変数へ値を代入する <br><img src="img/chapter02/table_model_x_02.gif" alt="変数へ値を代入する" /></li>
+<li>変数を評価して値にする <br><img src="img/chapter02/table_model_x_03.gif" alt="変数を評価して値にする" /></li>
+</ol>
+<h3 id="複数の変数と変数名"><span class="header-section-number">2.2.3</span> 複数の変数と変数名</h3>
+<p>変数はいくつでも使うことが出来ます。</p>
+<p>区別するために、変数には異なる名前をつけなければなりません。 異なる名前ならば好きな名前をつけることが出来ます。 空白や特殊記号が使えないのはクラス名と同じです。</p>
+<h4 id="複数の変数と変数名-1"><span class="header-section-number">2.2.3.1</span> 複数の変数と変数名</h4>
+<div class="sourceCode" id="lst:2-1" caption="家を書くサンプルプログラム"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="kw">var</span> t <span class="op">=</span> <span class="at">createTurtle</span>()<span class="op">;</span> <span class="co">//　タートルを生成する</span>
+
+<span class="kw">var</span> length<span class="op">;</span><span class="co">// 1辺の長さ</span>
+<span class="kw">var</span> rightAngle<span class="op">;</span><span class="co">// 直角</span>
+
+length <span class="op">=</span> <span class="dv">50</span><span class="op">;</span><span class="co">// 1辺の長さを50に設定する</span>
+rightAngle <span class="op">=</span> <span class="dv">90</span><span class="op">;</span><span class="co">// 直角を90度に設定する</span>
+
+<span class="op">{</span><span class="co">// 屋根を書く</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">30</span>)<span class="op">;</span> <span class="co">// 30度右に回る</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span> <span class="co">// x歩前に進む</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">120</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">120</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+<span class="op">}</span>
+
+<span class="op">{</span><span class="co">// 本体を書く</span>
+    <span class="va">t</span>.<span class="at">lt</span>(rightAngle)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">lt</span>(rightAngle)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">lt</span>(rightAngle)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">lt</span>(rightAngle)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+<span class="op">}</span></code></pre></td></tr></table></div>
+<h4 id="プログラムの実行過程"><span class="header-section-number">2.2.3.2</span> プログラムの実行過程</h4>
+<p>プログラムの実行過程を追ってみましょう。</p>
+<ol>
+<li>変数の宣言 <br><img src="img/chapter02/table_model_name_01.gif" /></li>
+<li>変数の宣言 <br><img src="img/chapter02/table_model_name_02.gif" /></li>
+<li>変数への値の代入 <br><img src="img/chapter02/table_model_name_03.gif" /></li>
+<li>変数への値の代入 <br><img src="img/chapter02/table_model_name_04.gif" /></li>
+<li>変数を評価して値にする <img src="img/chapter02/table_model_name_05.gif" /></li>
+</ol>
+<h2 id="コンピュータに計算をさせる"><span class="header-section-number">2.3</span> コンピュータに計算をさせる</h2>
+<h3 id="計算式を使ったプログラム"><span class="header-section-number">2.3.1</span> 計算式を使ったプログラム</h3>
+<div class="sourceCode" id="lst:2-1" caption="家を書くサンプルプログラム"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="kw">var</span> t <span class="op">=</span> <span class="at">createTurtle</span>()<span class="op">;</span> <span class="co">//　タートルを生成する</span>
+
+<span class="kw">var</span> length <span class="op">=</span> <span class="dv">100</span><span class="op">;</span><span class="co">// 1辺の長さ</span>
+<span class="kw">var</span> smallHouseLength<span class="op">;</span><span class="co">// 小さい家の1辺の長さ</span>
+<span class="kw">var</span> rightAngle <span class="op">=</span> <span class="dv">90</span><span class="op">;</span><span class="co">// 直角</span>
+smallHouseLength <span class="op">=</span> length / <span class="dv">2</span><span class="op">;</span>
+
+<span class="at">canvasSize</span>(<span class="dv">400</span><span class="op">,</span><span class="dv">300</span>)<span class="op">;</span><span class="co">// Canvasのサイズを大きくする</span>
+
+<span class="op">{</span><span class="co">// 屋根を書く</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">30</span>)<span class="op">;</span> <span class="co">// 30度右に回る</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span> <span class="co">// x歩前に進む</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">120</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">120</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+<span class="op">}</span>
+
+<span class="op">{</span><span class="co">// 本体を書く</span>
+    <span class="va">t</span>.<span class="at">lt</span>(rightAngle)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">lt</span>(rightAngle)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">lt</span>(rightAngle)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">lt</span>(rightAngle)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+<span class="op">}</span>
+
+<span class="op">{</span><span class="co">// 小さい家を書く位置まで移動する</span>
+    <span class="va">t</span>.<span class="at">up</span>()<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">lt</span>(rightAngle <span class="op">*</span> <span class="dv">2</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length <span class="op">*</span> <span class="dv">2</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">lt</span>(rightAngle)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">down</span>()<span class="op">;</span>
+<span class="op">}</span>
+
+<span class="op">{</span><span class="co">// 小さい家の屋根を書く</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">30</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(smallHouseLength)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">120</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(smallHouseLength)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">120</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(smallHouseLength)<span class="op">;</span>
+<span class="op">}</span>
+
+<span class="op">{</span> <span class="co">// 小さい家の本体を書く</span>
+    <span class="va">t</span>.<span class="at">lt</span>(rightAngle)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(smallHouseLength)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">lt</span>(rightAngle)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(smallHouseLength)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">lt</span>(rightAngle)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(smallHouseLength)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">lt</span>(rightAngle)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(smallHouseLength)<span class="op">;</span>
+<span class="op">}</span></code></pre></td></tr></table></div>
+<p>コンピュータは計算機ですから、計算をさせることが出来ます。例えば、次のように書くと</p>
+<p><code>rightAngle * 2</code></p>
+<p>掛け算を行うことが出来ます。</p>
+<p>このような、計算を行う書法のことを「式」といいます。</p>
+<p>Javascriptで使うことが出来る基本的な計算命令を以下に示します。</p>
+<p><code>+</code> :足し算をします</p>
+<p><code>-</code> :引き算をします</p>
+<p><code>*</code> :掛け算をします</p>
+<p><code>/</code> :割り算をします</p>
+<p><code>%</code> :割り算の余りを求めます</p>
+<h3 id="計算式を使ったプログラムの実行"><span class="header-section-number">2.3.2</span> 計算式を使ったプログラムの実行</h3>
+<p>次のように評価（計算）されて、具体的な値になり、プログラムが動きます。</p>
+<h4 id="計算式と代入文を使ったプログラムの実行変数の宣言"><span class="header-section-number">2.3.2.1</span> 計算式と代入文を使ったプログラムの実行変数の宣言</h4>
+<div class="figure">
+<img src="img/chapter02/table_model_expression_01.gif" alt="図. 計算式と代入文を使ったプログラムの実行変数の宣言" />
+<p class="caption">図. 計算式と代入文を使ったプログラムの実行変数の宣言</p>
+</div>
+<p>計算式があっても、右辺から評価されるのは一緒です。</p>
+<h4 id="変数の宣言"><span class="header-section-number">2.3.2.2</span> 変数の宣言</h4>
+<div class="figure">
+<img src="img/chapter02/table_model_expression_02.gif" alt="図. 変数の宣言" />
+<p class="caption">図. 変数の宣言</p>
+</div>
+<h2 id="考えてみよう" class="unnumbered">考えてみよう</h2>
+<p>次のようなプログラムが動かない（コンパイルエラーとなる）のは何故ですか？考えてみましょう。</p>
+<p><code>length / 2  = smallHouseLength;</code></p>
+<h2 id="ユーザと対話するインタラクティブなプログラム"><span class="header-section-number">2.4</span> ユーザと対話する（インタラクティブ）なプログラム</h2>
+<h3 id="入力を受け付ける"><span class="header-section-number">2.4.1</span> 入力を受け付ける</h3>
+<div class="sourceCode" id="lst:2-1" caption="家を書くサンプルプログラム"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="kw">var</span> t <span class="op">=</span> <span class="at">createTurtle</span>()<span class="op">;</span> <span class="co">//　タートルを生成する</span>
+
+<span class="kw">var</span> length<span class="op">;</span><span class="co">// 1辺の長さ</span>
+<span class="kw">var</span> rightAngle <span class="op">=</span> <span class="dv">90</span><span class="op">;</span><span class="co">// 直角</span>
+
+length <span class="op">=</span> <span class="at">input</span>()<span class="op">;</span><span class="co">// 1辺の長さを入力値に設定する</span>
+
+<span class="op">{</span><span class="co">// 屋根を書く</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">30</span>)<span class="op">;</span> <span class="co">// 30度右に回る</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span> <span class="co">// x歩前に進む</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">120</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">120</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+<span class="op">}</span>
+
+<span class="op">{</span><span class="co">// 本体を書く</span>
+    <span class="va">t</span>.<span class="at">lt</span>(rightAngle)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">lt</span>(rightAngle)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">lt</span>(rightAngle)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">lt</span>(rightAngle)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+<span class="op">}</span></code></pre></td></tr></table></div>
+<p>ユーザにメッセージを出すには</p>
+<p><code>print(&quot;ここに出したいメッセージを書く&quot;)</code></p>
+<p>命令を使います。</p>
+<p>出したいメッセージを「&quot;」（ダブルクォーテーション）「&quot;」（ダブルクォーテーション）で囲んでください。</p>
+<h2 id="乱数"><span class="header-section-number">2.5</span> 乱数</h2>
+<h3 id="命令ごとに毎回変わる値"><span class="header-section-number">2.5.1</span> 命令ごとに毎回変わる値</h3>
+<div class="sourceCode" id="lst:2-1" caption="家を書くサンプルプログラム"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="kw">var</span> t <span class="op">=</span> <span class="at">createTurtle</span>()<span class="op">;</span><span class="co">// タートルを生成する</span>
+
+<span class="kw">var</span> length<span class="op">;</span><span class="co">// 1辺の長さ</span>
+<span class="kw">var</span> rightAngle <span class="op">=</span> <span class="dv">90</span><span class="op">;</span><span class="co">// 直角</span>
+
+length <span class="op">=</span> <span class="at">random</span>(<span class="dv">100</span>)<span class="op">;</span><span class="co">// 1辺の長さを0-99までのランダム値に設定する</span>
+
+<span class="op">{</span><span class="co">// 屋根を書く</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">30</span>)<span class="op">;</span> <span class="co">// 30度右に回る</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span> <span class="co">// x歩前に進む</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">120</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">120</span>)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+<span class="op">}</span>
+
+<span class="op">{</span><span class="co">// 本体を書く</span>
+    <span class="va">t</span>.<span class="at">lt</span>(rightAngle)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">lt</span>(rightAngle)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">lt</span>(rightAngle)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">lt</span>(rightAngle)<span class="op">;</span>
+    <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+<span class="op">}</span></code></pre></td></tr></table></div>
+<p>乱数値を（命令毎に毎回変わる値）に取得するには</p>
+<p><code>random(数)</code></p>
+<p>命令を使います。</p>
+<p>実行されるごとに異なる値が自動的に選択されます。</p>
+<p>「０」から「数の所に書いた数」未満のどれかの数字が選択されます。</p>
+<p>（例：random(10)のとき、0から9までの１０種類のどれかの数が選択されます）</p>
+<h2 id="練習問題-1"><span class="header-section-number">2.6</span> 練習問題</h2>
+<h3 id="与えられた大きさの正五角形を描くプログラム"><span class="header-section-number">2.6.1</span> 与えられた大きさの正五角形を描くプログラム</h3>
+<p>ユーザの入力を受け取り、その長さを一辺の長さとして正五角形を描くプログラムを作ってください。</p>
+<p>ファイル名は「pentagon2.js」とすること．</p>
+<h3 id="乱数を使って星を描くプログラム"><span class="header-section-number">2.6.2</span> 乱数を使って星を描くプログラム</h3>
+<p>長さに乱数を使い、実行するたびに大きさが変わる星を描くプログラムを作ってください。 乱数は50以上100未満の間になるようにすること。</p>
+<p>ファイル名は「star2.js」とすること．</p>
+</body>
+</html>
