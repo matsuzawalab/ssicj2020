@@ -4,7 +4,7 @@
 - 金曜1, 2限
 
 # スケジュール
-[スケジュール]https://docs.google.com/spreadsheets/d/1LOKHvdWjqzRdcqco0fPwPuG69iuIHuf_rEfVPZKZ35U/edit?usp=sharing
+- [スケジュール](https://docs.google.com/spreadsheets/d/1LOKHvdWjqzRdcqco0fPwPuG69iuIHuf_rEfVPZKZ35U/edit?usp=sharing)
 
 # タートルグラフィックス編
 ## 教材
