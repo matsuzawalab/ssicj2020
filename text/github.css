@@ -8,6 +8,18 @@ pre:after {
   content: '目次';
 }
 
+.CJPicture {
+    width: 12cm;
+}
+
+.CJPictureS {
+    width: 8cm;
+}
+
+.CJPictureL {
+    width: 15cm
+      /* transform: scale(0.5); */
+}
 
 /* ********************************* */
 body {

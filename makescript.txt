@@ -2,4 +2,4 @@ pandoc a.md -f markdown -t html -c github.css -s -o a.html
 
 pandoc --toc --number-sections --top-level-division=chapter *.md -f markdown -t html -c github.css > index.html
 
-pandoc --toc --toc-depth=2 --number-sections --top-level-division=chapter *.md -f markdown -t html -c github.css > index.html
+pandoc --toc --toc-depth=1 --number-sections --top-level-division=chapter *.md -f markdown -t html -c github.css > index.html

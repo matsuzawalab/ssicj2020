@@ -50,7 +50,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">コンピュータ実習2019</h1>
 <h2 class="author">社会情報学部</h2>
-<h3 class="date">2019年9月</h3>
+<h3 class="date">version 0.9</h3>
 </div>
 <div id="TOC">
 <ul>
@@ -151,10 +151,10 @@ t.rt(90)</code></pre>
 <p>コメントはプログラム（命令）としては考慮されず，読み飛ばされます． しかし，人間が読めないとメンテナンスにこまるためにコメントをつけておきます．ファイルの先頭には，プログラムのタイトル，開発者の氏名や日付を入れておきます．</p>
 <dl>
 <dt>範囲指定コメント</dt>
-<dd><code>/*</code>から<code>*/</code>までコメントになります
+<dd><code>/*</code>から<code>*/</code>までコメントになります．
 </dd>
 <dt>行コメント</dt>
-<dd><code>//</code>から先行の終わりまでコメントになります
+<dd><code>//</code>から先，行の終わりまでコメントになります．
 </dd>
 </dl>
 <h2 id="プログラムミスと対処"><span class="header-section-number">1.4</span> プログラムミスと対処</h2>
@@ -165,11 +165,11 @@ t.rt(90)</code></pre>
 図 2.4.1.1 コンパイルエラー
 >javac House.java House.java:13: ';' がありません． rt(120)
 ^ エラー 1 個 > -->
-<p>構文エラーがでたら，実行することはできないので，ソースを直して，再コンパイルするしかありません． どうしても原因が分からない時は，ＴＡなどに相談してください．</p>
+<p>構文エラーがでたら，実行することはできないので，ソースを直して，再実行するしかありません．どうしても原因が分からない時は，ＴＡなどに相談してください．</p>
 <h3 id="バグ"><span class="header-section-number">1.4.2</span> バグ</h3>
-<p>コンパイルが正常に通っても，プログラムが間違っていて，意図した通りに動作しないことをバグといいます． コンピュータは，必ず 命令した通りに動作します．</p>
+<p>構文があっていても，プログラムが間違っていて，意図した通りに動作しないことをバグといいます． コンピュータは，必ず 命令した通りに動作します．</p>
 <p>バグがあったら，修正しましょう．バグを修正することをデバッグといいます．</p>
-<p>プロでも，最初から意図したプログラムを書くのは難しいものです． プログラム上達の早道は，一発で動かそうとせずに， 早くバグを見つけて，修正できるようになるようになるように心がけることです．</p>
+<p>プロでも，最初から意図したプログラムを書くのは難しいものです． プログラム上達の早道は，一回で動かそうとせずに， 早くバグを見つけて，修正できるようになるようになるように心がけることです．</p>
 <h2 id="練習問題"><span class="header-section-number">1.5</span> 練習問題</h2>
 <h3 id="正五角形描こう"><span class="header-section-number">1.5.1</span> 正五角形描こう</h3>
 <p>進める（fd）命令や，回す（rt）命令を使って，正五角形を描くプログラムを作りましょう．</p>
@@ -189,10 +189,9 @@ t.rt(90)</code></pre>
 <h1 id="コンピュータに情報を記憶させてみよう変数"><span class="header-section-number">2</span> コンピュータに情報を記憶させてみよう（変数）</h1>
 <h2 id="学習目標-1"><span class="header-section-number">2.1</span> 学習目標</h2>
 <ul>
-<li>整数型の変数の作成（宣言），書き込み（代入），読み込み（評価と値）が使えるようになる</li>
+<li>変数の作成（宣言），書き込み（代入），読み込み（評価と値）が使えるようになる</li>
 <li>複数の変数（変数名による区別をしつつ）が使えるようになる</li>
-<li>計算式（四則演算＋剰余計算）が使えるようになる</li>
-<li>ＣＵＩを使ってユーザ対話をするプログラムが作れるようになる</li>
+<li>計算式（四則演算＋剰余計算）が使えるようになる <!-- - ＣＵＩを使ってユーザ対話をするプログラムが作れるようになる --></li>
 </ul>
 <h2 id="変数"><span class="header-section-number">2.2</span> 変数</h2>
 <p>今回新しく&quot;変数&quot;が登場します．家の大きさを変更できる次のプログラムをみてみましょう． 次のプログラムを見てみましょう．</p>
@@ -258,13 +257,27 @@ x <span class="op">=</span> <span class="dv">50</span><span class="op">;</span> 
 <h3 id="変数を使ったプログラムの実行"><span class="header-section-number">2.2.3</span> 変数を使ったプログラムの実行</h3>
 <p>プログラムの実行過程と変数を見ていきましょう．</p>
 <ol style="list-style-type: decimal">
-<li><p>変数の宣言 <br><img src="img/chapter02/table_model_x_01.gif" alt="変数の宣言" /></p></li>
-<li><p>変数へ値を代入する <br><img src="img/chapter02/table_model_x_02.gif" alt="変数へ値を代入する" /></p></li>
-<li><p>変数を評価して値にする <br><img src="img/chapter02/table_model_x_03.gif" alt="変数を評価して値にする" /></p></li>
+<li>変数の宣言
+<div class="CJPicture">
+<p><br><img src="img/chapter02/table_model_x_01.png" alt="変数の宣言" /></p>
+</div></li>
+<li>変数へ値を代入する
+<div class="CJPicture">
+<p><br><img src="img/chapter02/table_model_x_02.png" alt="変数へ値を代入する" /></p>
+</div></li>
+<li>変数を評価して値にする
+<div class="CJPicture">
+<p><br><img src="img/chapter02/table_model_x_03.png" alt="変数を評価して値にする" /></p>
+</div></li>
 </ol>
 <h3 id="複数の変数と変数名"><span class="header-section-number">2.2.4</span> 複数の変数と変数名</h3>
 <p>変数はいくつでも使うことが出来ます．</p>
-<p>区別するために，変数には異なる名前をつけなければなりません． 異なる名前ならば好きな名前をつけることが出来ます． 空白や特殊記号が使えないのはクラス名と同じです．</p>
+<p>区別するために，変数には異なる名前をつけなければなりません．異なる名前ならば基本的には好きな名前をつけることが出来ます．ただし，次のような名前は使えません．</p>
+<ul>
+<li>数字から始まる名前 (01XXなど)</li>
+<li>予約語 (var, for, ifなど，プログラムで使用する名前)</li>
+<li>特殊記号は アンダーバー(_), ドル（$）が使用可能，それ以外はNG</li>
+</ul>
 <h4 id="複数の変数と変数名-1"><span class="header-section-number">2.2.4.1</span> 複数の変数と変数名</h4>
 <div class="sourceCode" id="lst:2-1" caption="家を書くサンプルプログラム"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
@@ -323,11 +336,26 @@ rightAngle <span class="op">=</span> <span class="dv">90</span><span class="op">
 <h4 id="プログラムの実行過程"><span class="header-section-number">2.2.4.2</span> プログラムの実行過程</h4>
 <p>プログラムの実行過程を追ってみましょう．</p>
 <ol style="list-style-type: decimal">
-<li><p>変数の宣言 <br><img src="img/chapter02/table_model_name_01.gif" /></p></li>
-<li><p>変数の宣言 <br><img src="img/chapter02/table_model_name_02.gif" /></p></li>
-<li><p>変数への値の代入 <br><img src="img/chapter02/table_model_name_03.gif" /></p></li>
-<li><p>変数への値の代入 <br><img src="img/chapter02/table_model_name_04.gif" /></p></li>
-<li><p>変数を評価して値にする <br><img src="img/chapter02/table_model_name_05.gif" /></p></li>
+<li>変数の宣言
+<div class="CJPicture">
+<p><br><img src="img/chapter02/table_model_name_01.png" /></p>
+</div></li>
+<li>変数の宣言
+<div class="CJPicture">
+<p><br><img src="img/chapter02/table_model_name_02.png" /></p>
+</div></li>
+<li>変数への値の代入
+<div class="CJPicture">
+<p><br><img src="img/chapter02/table_model_name_03.png" /></p>
+</div></li>
+<li>変数への値の代入
+<div class="CJPicture">
+<p><br><img src="img/chapter02/table_model_name_04.png" /></p>
+</div></li>
+<li>変数を評価して値にする
+<div class="CJPicture">
+<p><br><img src="img/chapter02/table_model_name_05.png" /></p>
+</div></li>
 </ol>
 <h2 id="コンピュータに計算をさせる"><span class="header-section-number">2.3</span> コンピュータに計算をさせる</h2>
 <h3 id="計算式を使ったプログラム"><span class="header-section-number">2.3.1</span> 計算式を使ったプログラム</h3>
@@ -456,15 +484,19 @@ smallHouseLength <span class="op">=</span> length / <span class="dv">2</span><sp
 <h3 id="計算式を使ったプログラムの実行"><span class="header-section-number">2.3.2</span> 計算式を使ったプログラムの実行</h3>
 <p>次のように評価（計算）されて，具体的な値になり，プログラムが動きます．</p>
 <h4 id="計算式と代入文を使ったプログラムの実行変数の宣言"><span class="header-section-number">2.3.2.1</span> 計算式と代入文を使ったプログラムの実行変数の宣言</h4>
+<div class="CJPicture">
 <div class="figure">
-<img src="img/chapter02/table_model_expression_01.gif" alt="図. 計算式と代入文を使ったプログラムの実行変数の宣言" />
+<img src="img/chapter02/table_model_expression_01.png" alt="図. 計算式と代入文を使ったプログラムの実行変数の宣言" />
 <p class="caption">図. 計算式と代入文を使ったプログラムの実行変数の宣言</p>
+</div>
 </div>
 <p>計算式があっても，右辺から評価されるのは一緒です．</p>
 <h4 id="変数の宣言"><span class="header-section-number">2.3.2.2</span> 変数の宣言</h4>
+<div class="CJPicture">
 <div class="figure">
-<img src="img/chapter02/table_model_expression_02.gif" alt="図. 変数の宣言" />
+<img src="img/chapter02/table_model_expression_02.png" alt="図. 変数の宣言" />
 <p class="caption">図. 変数の宣言</p>
+</div>
 </div>
 <h2 id="考えてみよう" class="unnumbered">考えてみよう</h2>
 <p>次のようなプログラムが動かない（コンパイルエラーとなる）のは何故ですか？考えてみましょう．</p>
@@ -502,7 +534,7 @@ smallHouseLength <span class="op">=</span> length / <span class="dv">2</span><sp
 <span class="kw">var</span> length<span class="op">;</span><span class="co">// 1辺の長さ</span>
 <span class="kw">var</span> rightAngle <span class="op">=</span> <span class="dv">90</span><span class="op">;</span><span class="co">// 直角</span>
 
-length <span class="op">=</span> <span class="at">input</span>()<span class="op">;</span><span class="co">// 1辺の長さを入力値に設定する</span>
+length <span class="op">=</span> <span class="at">input</span>(<span class="st">&quot;1辺の長さを入力してください&quot;</span>)<span class="op">;</span><span class="co">// 1辺の長さを入力値に設定する</span>
 
 <span class="op">{</span><span class="co">// 屋根を書く</span>
     <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">30</span>)<span class="op">;</span> <span class="co">// 30度右に回る</span>
@@ -523,10 +555,22 @@ length <span class="op">=</span> <span class="at">input</span>()<span class="op"
     <span class="va">t</span>.<span class="at">lt</span>(rightAngle)<span class="op">;</span>
     <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
+<p>ユーザから入力を受け付けるには</p>
+<p><code>input()</code> または， <code>input(&quot;ここに出したいメッセージを書く&quot;)</code></p>
+<p>命令を使います．引数にメッセージを指定した場合は，ダイアログに指定したメッセージが表示されます．</p>
+<h3 id="ユーザにメッセージを出す"><span class="header-section-number">2.4.2</span> ユーザにメッセージを出す</h3>
+<div class="sourceCode" id="lst:2-1" caption="オウム返し"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="kw">var</span> message<span class="op">;</span>
+
+message <span class="op">=</span> <span class="at">input</span>(<span class="st">&quot;メッセージをどうぞ&quot;</span>)<span class="op">;</span>
+<span class="at">println</span>(message)<span class="op">;</span></code></pre></td></tr></table></div>
 <p>ユーザにメッセージを出すには</p>
-<p><code>print(&quot;ここに出したいメッセージを書く&quot;)</code></p>
+<p><code>print(&quot;ここに出したいメッセージを書く&quot;)</code> または， <code>println(&quot;ここに出したいメッセージを書く&quot;)</code></p>
 <p>命令を使います．</p>
-<p>出したいメッセージを<code>&quot;</code>（ダブルクォーテーション）または，<code>'</code> （シングルクォーテーション）で囲んでください．</p>
+<p>print命令はメッセージを出力し，println命令はメッセージを出力した後改行をします． メッセージはConsole欄に表示されます． どちらの命令を使う場合も，出したいメッセージを<code>&quot;</code>（ダブルクォーテーション）または，<code>'</code> （シングルクォーテーション）と中括弧で囲んでください．</p>
 <h2 id="乱数"><span class="header-section-number">2.5</span> 乱数</h2>
 <h3 id="命令ごとに毎回変わる値"><span class="header-section-number">2.5.1</span> 命令ごとに毎回変わる値</h3>
 <div class="sourceCode" id="lst:2-1" caption="家を書くサンプルプログラム"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -741,9 +785,15 @@ length <span class="op">=</span> <span class="at">random</span>(<span class="dv"
 <h3 id="条件式の評価"><span class="header-section-number">3.2.2</span> 条件式の評価</h3>
 <p>条件式の評価の過程を見ていきましょう．</p>
 <ol style="list-style-type: decimal">
-<li><p>成立(true)する場合 <br><img src="img/chapter03/condition_true.gif" /></p></li>
-<li><p>不成立(false)する場合 <br><img src="img/chapter03/condition_false.gif" /></p></li>
-<li><p>注意すること 注意することは，条件式で，同じかどうか調べるには「==」(イコールを2つ)にしなければならないことです．</p></li>
+<li>成立(true)する場合
+<div class="CJPicture">
+<p><br><img src="img/chapter03/condition_true.png" /></p>
+</div></li>
+<li>不成立(false)する場合
+<div class="CJPicture">
+<p><br><img src="img/chapter03/condition_false.png" /></p>
+</div></li>
+<li>注意すること 注意することは，条件式で，同じかどうか調べるには「==」(イコールを2つ)にしなければならないことです．</li>
 </ol>
 <p>これに対して，「=」(イコール1つ)は代入ですので，注意してください．</p>
 <h3 id="複数の分岐"><span class="header-section-number">3.2.3</span> 複数の分岐</h3>
@@ -1182,11 +1232,15 @@ handNumber <span class="op">=</span> <span class="at">random</span>(<span class=
 </tr>
 <tr class="even">
 <td align="center">&lt;</td>
-<td align="center">A<B    |AがBより小さい時成立(true)|
-|>=</td>
-<td align="right">A&gt;=B</td>
+<td align="center">A&lt;B</td>
+<td align="right">AがBより小さい時成立(true)</td>
 </tr>
 <tr class="odd">
+<td align="center">&gt;=</td>
+<td align="center">A&gt;=B</td>
+<td align="right">AがB以上の時成立(true)</td>
+</tr>
+<tr class="even">
 <td align="center">&lt;=</td>
 <td align="center">A&lt;=B</td>
 <td align="right">AがB以下の時成立(true)</td>
@@ -1277,16 +1331,22 @@ handNumber <span class="op">=</span> <span class="at">random</span>(<span class=
 </tr>
 <tr class="even">
 <td align="center"><code>||</code></td>
-<td align="center">A</td>
-<td align="right"></td>
+<td align="center">A||B</td>
+<td align="right">AもしくはBがtrueの時true</td>
 </tr>
 </tbody>
 </table>
 <h4 id="論理演算子の評価の過程"><span class="header-section-number">3.3.2.2</span> 論理演算子の評価の過程</h4>
 <p>論理演算子の評価の過程を見ていきましょう．</p>
 <ol style="list-style-type: decimal">
-<li><p>And演算子が成立(true)する場合 <br><img src="img/chapter03/condition_logic_and_true.gif" /></p></li>
-<li><p>And演算子が不成立(false)する場合 <br><img src="img/chapter03/condition_logic_and_false.gif" /></p></li>
+<li>And演算子が成立(true)する場合
+<div class="CJPicture">
+<p><br><img src="img/chapter03/condition_logic_and_true.png" /></p>
+</div></li>
+<li>And演算子が不成立(false)する場合
+<div class="CJPicture">
+<p><br><img src="img/chapter03/condition_logic_and_false.png" /></p>
+</div></li>
 </ol>
 <h2 id="変数のスコープ有効範囲"><span class="header-section-number">3.4</span> 変数のスコープ（有効範囲）</h2>
 <p>変数には有効範囲（スコープといいます）があります．Javascriptでは基本的に，宣言した変数のブロック内(「{}」で囲まれた範囲)がスコープになります．</p>
@@ -1341,7 +1401,7 @@ if( [条件式] ) {
 <p>乱数と条件分岐を使って，「大吉」「中吉」「小吉」「凶」を表示するプログラムを作りましょう． 大吉のときだけ，タートルの絵（星など）を描くようにしましょう．</p>
 <p>ファイル名は「omikuji.js」とすること．</p>
 <h3 id="評点グレード変換プログラムを作ろう"><span class="header-section-number">3.5.3</span> 評点グレード変換プログラムを作ろう</h3>
-<p>入力と条件分岐を使って，「秀」「優」「良」「可」「不可」を表示するプログラムを作りましょう． ユーザが評点を入力すると，それに応じたグレードが表示されるようにプログラムを書いてください． 評点区分とグレードの定義は静大の評価制度を利用すること．</p>
+<p>入力と条件分岐を使って，「秀」「優」「良」「可」「不可」を表示するプログラムを作りましょう． ユーザが評点を入力すると，それに応じたグレードが表示されるようにプログラムを書いてください． 評点区分とグレードの定義は大学の評価制度を利用すること．</p>
 <p>ファイル名は「grade.js」とすること．</p>
 <h1 id="コンピュータの得意な仕事繰り返し"><span class="header-section-number">4</span> コンピュータの得意な仕事(繰り返し)</h1>
 <h2 id="学習目標-3"><span class="header-section-number">4.1</span> 学習目標</h2>
@@ -1466,10 +1526,34 @@ if( [条件式] ) {
 <h3 id="繰り返しを使ったプログラムの実行過程"><span class="header-section-number">4.2.3</span> 繰り返しを使ったプログラムの実行過程</h3>
 <p>プログラムの実行過程と変数の値の変化を見ていきましょう．</p>
 <ol style="list-style-type: decimal">
-<li><p>変数の宣言 <img src="img/chapter04/table_model_i_01.gif" /></p></li>
-<li><p>変数を初期化する(1を代入) <img src="img/chapter04/table_model_i_02.gif" /></p></li>
-<li><p>変数を評価して条件を判定する <img src="img/chapter04/table_model_i_03.gif" /></p></li>
-<li><p>変数に1を加える <img src="img/chapter04/table_model_i_04.gif" /></p></li>
+<li>変数の宣言
+<div class="CJPicture">
+<div class="figure">
+<img src="img/chapter04/table_model_i_01.png" />
+
+</div>
+</div></li>
+<li>変数を初期化する(1を代入)
+<div class="CJPicture">
+<div class="figure">
+<img src="img/chapter04/table_model_i_02.png" />
+
+</div>
+</div></li>
+<li>変数を評価して条件を判定する
+<div class="CJPicture">
+<div class="figure">
+<img src="img/chapter04/table_model_i_03.png" />
+
+</div>
+</div></li>
+<li>変数に1を加える
+<div class="CJPicture">
+<div class="figure">
+<img src="img/chapter04/table_model_i_04.png" />
+
+</div>
+</div></li>
 </ol>
 <p>変数が，5になったときに条件式が不成立(false)になるので，繰り返しが終ります． これで4回繰り返されるのが分かるでしょうか？</p>
 <!-- ## コラム：while()の後に;はつけないで!{.unnumbered} -->
@@ -1650,9 +1734,11 @@ if( [条件式] ) {
 <h3 id="ブロックの入れ子"><span class="header-section-number">5.2.2</span> ブロックの入れ子</h3>
 <p>ブロックは中括弧({})で囲まれた部分のことを言います．</p>
 <p>下図のように，プログラムのifブロックやwhileブロックはいくつでも入れ子にすることができます．</p>
+<div class="CJPicture">
 <div class="figure">
-<img src="img/chapter05/blocknest.gif" alt="ブロックの入れ子" />
+<img src="img/chapter05/blocknest.png" alt="ブロックの入れ子" />
 <p class="caption">ブロックの入れ子</p>
+</div>
 </div>
 <h3 id="コンパイルエラーに注意" class="nunumbered"><span class="header-section-number">5.2.3</span> コンパイルエラーに注意</h3>
 <p>ブロックを示す中括弧は必ず対応していなくてはなりません． 開き括弧が余ったり，閉じ括弧が余ったりすると，コンパイルエラーとなります．</p>
@@ -1660,9 +1746,11 @@ if( [条件式] ) {
 <h3 id="インデント"><span class="header-section-number">5.2.4</span> インデント</h3>
 <p>第3回の時にも指摘しましたが，インデントをつけると括弧の対応関係やブロックの範囲が分かりやすくなります． インデントがついていないソースは受理しません．</p>
 <p>見やすいだけでなく，これができていないためにコンパイルエラーで動かない場合が非常に多いので， 注意してください．</p>
+<div class="CJPictureS">
 <div class="figure">
-<img src="img/chapter05/indent.gif" alt="インデント" />
+<img src="img/chapter05/indent.png" alt="インデント" />
 <p class="caption">インデント</p>
+</div>
 </div>
 <p>PikePlace環境では，<a href="Ctrlキーを押しながらsキーを押す">Ctrl-s</a>で，フォーマットをするとよいです．</p>
 <h2 id="入れ子と並列の違いの考察花を描くプログラム"><span class="header-section-number">5.3</span> 入れ子と並列の違いの考察：花を描くプログラム</h2>
@@ -1753,9 +1841,11 @@ if( [条件式] ) {
   <span class="op">}</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
 <p>ポイントは，花びらを書くループの外側にそれを6回繰り返すループをつくる （つまりループを入れ子にする）ことです． 「繰り返しを繰り返す」ためには，繰り返す繰り返しの外側に繰り返しループ を書く必要がありました．構造は以下のようになります．</p>
+<div class="CJPicture">
 <div class="figure">
-<img src="img/chapter05/flowerblock.gif" alt="花を書くプログラムの構造" />
+<img src="img/chapter05/flowerblock.png" alt="花を書くプログラムの構造" />
 <p class="caption">花を書くプログラムの構造</p>
+</div>
 </div>
 <h3 id="花を描く間違い"><span class="header-section-number">5.3.2</span> 花を描く（間違い）</h3>
 <p>以下に，よくある間違いの例を示します．</p>
@@ -1807,9 +1897,11 @@ if( [条件式] ) {
   <span class="op">}</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
 <p>これがうまくいかない理由が説明できるでしょうか？ 以下に，このプログラムの構造を示しますので， うまくいく方と比較してみましょう．</p>
+<div class="CJPicture">
 <div class="figure">
-<img src="img/chapter05/flowerblockinvalid.gif" alt="うまくいかない花を書くプログラムの構造" />
+<img src="img/chapter05/flowerblockinvalid.png" alt="うまくいかない花を書くプログラムの構造" />
 <p class="caption">うまくいかない花を書くプログラムの構造</p>
+</div>
 </div>
 <p>このように，入れ子を作る時には，｛｝の位置に注意する必要があります．</p>
 <h2 id="繰り返し変数の利用"><span class="header-section-number">5.4</span> 繰り返し変数の利用</h2>
@@ -2055,9 +2147,11 @@ if( [条件式] ) {
     <span class="va">t</span>.<span class="at">down</span>()<span class="op">;</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
 <p>関数が呼び出されると，プログラムの処理はその関数の処理に飛びます． そして，関数が終了すると，関数呼び出し位置に返ってきます．</p>
+<div class="CJPictureL">
 <div class="figure">
 <img src="img/chapter06/functionflow.png" alt="関数の処理の順序" />
 <p class="caption">関数の処理の順序</p>
+</div>
 </div>
 <p>四角形を３つ描くプログラムでは，まず，四角形を描く関数を呼び， 四角形を描き終わったら，次の描く位置まで移動する関数を呼び， 移動し終わったら，再び四角形を描く関数を呼び…という処理を３回繰り返しています．</p>
 <!-- ### 関数の定義位置の注意点
@@ -2088,9 +2182,11 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 <p>関数ブロック内で宣言された変数は，関数ブロック内でしか有効ではありません． しかし，ある関数から他の関数を呼ぶときに，データを受け渡したいことがあります． 引数とは，関数ブロック外と，関数ブロック内でデータをやり取りする仕組みです． 引数を使うことで，関数ブロック外から，関数ブロック内にデータを受け取ることができます．</p>
 <h3 id="引数を用いた四角形を描く関数の抽象化"><span class="header-section-number">6.3.2</span> 引数を用いた，四角形を描く関数の抽象化</h3>
 <p>引数が使えない場合，次のように大きさが違う四角形を書きたい場合も， 2つの関数を作る必要があります．</p>
+<div class="CJPicture">
 <div class="figure">
 <img src="img/chapter06/design1-1.png" alt="関数の設計" />
 <p class="caption">関数の設計</p>
+</div>
 </div>
 <p>リスト 12.3.2.1 DrawTwoRectangles1.js</p>
 <div class="sourceCode" id="lst:6-1" caption="House"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -2134,9 +2230,11 @@ Javaでは，関数の中に関数を定義することはできません．（ 
     <span class="op">}</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
 <p>次のプログラムでは，引数を使って大きさを指定し，大きい四角形と小さな四角形を「四角形を描く」という ひとつの関数で描けるようにしています．</p>
+<div class="CJPicture">
 <div class="figure">
 <img src="img/chapter06/design1-2.png" alt="関数の設計" />
 <p class="caption">関数の設計</p>
+</div>
 </div>
 <p>リスト 12.3.2.2 DrawTwoRectangles2.js</p>
 <div class="sourceCode" id="lst:6-1" caption="House"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -2169,11 +2267,19 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 }</code></pre>
 <pre><code>[関数名]([実引数]);</code></pre>
 <p>呼び出し部分の引数を実引数，宣言部分の引数を仮引数と呼びます．実引数（関数ブロック外にあるデータ）が， 仮引数（関数ブロック内で使える変数）に代入され，関数ブロック内でその変数の値が使えるようになります．</p>
+<div class="CJPictureL">
+<div class="figure">
+<img src="img/chapter06/design_argument.png" alt="実引数と仮引数" />
+<p class="caption">実引数と仮引数</p>
+</div>
+</div>
 <h3 id="引数を用いた多角形を描く関数の抽象化"><span class="header-section-number">6.3.3</span> 引数を用いた，多角形を描く関数の抽象化</h3>
 <p>家を書くプログラムでは，三角形と四角形を書くために， 2つの関数を作る必要があります．</p>
+<div class="CJPicture">
 <div class="figure">
 <img src="img/chapter06/design2-1.png" alt="関数の設計" />
 <p class="caption">関数の設計</p>
+</div>
 </div>
 <!-- リスト 12.3.3.1 NewHouse1.js -->
 <div class="sourceCode" id="lst:6-1" caption="House"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -2223,9 +2329,11 @@ Javaでは，関数の中に関数を定義することはできません．（ 
     <span class="op">}</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
 <p>次のプログラムでは「屋根を描く」処理で使っていた三角形と，「壁を描く」処理で使っていた四角形を 「多角形を描く」というひとつの関数で描けるようにしています．</p>
+<div class="CJPicture">
 <div class="figure">
 <img src="img/chapter06/design2-2.png" alt="関数の設計" />
 <p class="caption">関数の設計</p>
+</div>
 </div>
 <!-- リスト 12.3.3.2 NewHouse2.js -->
 <div class="sourceCode" id="lst:6-1" caption="House"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -2275,19 +2383,42 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 <h2 id="変数の有効範囲と引数"><span class="header-section-number">6.4</span> 変数の有効範囲と引数</h2>
 <h3 id="変数の有効範囲"><span class="header-section-number">6.4.1</span> 変数の有効範囲</h3>
 <p>次のプログラムは，一辺の長さを指定して四角形を描くプログラムを書こうとして，失敗した例です．</p>
-<p>リスト 12.4.1.1 DrawVariableRectangleMethodError.js</p>
-<p>大きさを変えて四角形を描くプログラム（コンパイルエラー）を実行しようとすると，以下のようなエラーが出ます</p>
-<p>DrawRectangleMethodError.js:31: シンボルを見つけられません． シンボル: 変数 length 場所 : DrawRectangleMethodError の クラス fd(length);</p>
-<p>fd(length)のlengthという変数が見つけられないということを意味しています．</p>
-<p>これは，drawRectangle()関数の内部（{と}で囲われた部分）が，lengthという変数の有効範囲外であるためです．</p>
-<div class="figure">
-<img src="img/chapter06/scope.png" alt="変数の有効範囲" />
-<p class="caption">変数の有効範囲</p>
-</div>
+<div class="sourceCode" id="lst:6-1" caption="ScopeError"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="kw">var</span> t <span class="op">=</span> <span class="at">createTurtle</span>()<span class="op">;</span>
+
+<span class="kw">function</span> <span class="at">start</span>()<span class="op">{</span>
+    <span class="kw">var</span> length <span class="op">=</span> <span class="at">input</span>(<span class="st">&quot;一辺の長さ？&quot;</span>)<span class="op">;</span>
+    <span class="at">drawRectangle</span>()<span class="op">;</span>
+<span class="op">}</span>
+
+<span class="kw">function</span> <span class="at">drawRectangle</span>()<span class="op">{</span>
+    <span class="cf">for</span>(<span class="kw">var</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span>i<span class="op">&lt;</span><span class="dv">4</span><span class="op">;</span>i<span class="op">++</span>)<span class="op">{</span>
+        <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
+        <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">90</span>)<span class="op">;</span>
+    <span class="op">}</span>
+<span class="op">}</span>
+
+<span class="at">start</span>()<span class="op">;</span></code></pre></td></tr></table></div>
+<p>大きさを変えて四角形を描くプログラム（コンパイルエラー）を実行しても，入力した大きさの四角形が描かれず，大きさ0の四角形が描かれます．</p>
+<p>これは，t.fd(length)のlengthという変数が参照できず，0と置き換えられてしまうための動作です．lengthという変数が参照できないのは，drawRectangle()関数の内部（{と}で囲われた部分）が，lengthという変数の有効範囲外であるためです．</p>
+<!-- ![変数の有効範囲](img/chapter06/scope.png) -->
 <h3 id="引数付関数定義と関数呼び出し"><span class="header-section-number">6.4.2</span> 引数付関数定義と関数呼び出し</h3>
 <p>以下のプログラムは，引数を使って，関数の有効範囲外から四角形の長さを渡せるようにしたプログラムです．</p>
 <p>入力された長さのlength（実引数）を，関数にlength（仮引数）として渡し，四角形を描いています．</p>
-<p>リスト 12.4.2.1 DrawVariableRectangleMethod.js</p>
 <div class="sourceCode" id="lst:6-1" caption="House"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
@@ -2302,20 +2433,22 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 12
 13
 14
+15
 </pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="kw">var</span> t <span class="op">=</span> <span class="at">createTurtle</span>()<span class="op">;</span>
 
-<span class="co">// 一辺の長さの入力を受け取る</span>
-<span class="kw">var</span> inputLength <span class="op">=</span> <span class="at">input</span>(<span class="st">&quot;一辺の長さを入力してください&quot;</span>)<span class="op">;</span>
+<span class="kw">function</span> <span class="at">start</span>()<span class="op">{</span>
+    <span class="kw">var</span> length <span class="op">=</span> <span class="at">input</span>(<span class="st">&quot;一辺の長さ？&quot;</span>)<span class="op">;</span>
+    <span class="at">drawRectangle</span>(length)<span class="op">;</span>
+<span class="op">}</span>
 
-<span class="at">drawRectangle</span>(inputLength)<span class="op">;</span><span class="co">// 入力された長さを一辺の長さとして四角形を描く</span>
-
-<span class="co">// 四角形を描く</span>
-<span class="kw">function</span> <span class="at">drawRectangle</span>(length) <span class="op">{</span>
-    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">4</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span>
+<span class="kw">function</span> <span class="at">drawRectangle</span>(length)<span class="op">{</span>
+    <span class="cf">for</span>(<span class="kw">var</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span>i<span class="op">&lt;</span><span class="dv">4</span><span class="op">;</span>i<span class="op">++</span>)<span class="op">{</span>
         <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
         <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">90</span>)<span class="op">;</span>
     <span class="op">}</span>
-<span class="op">}</span></code></pre></td></tr></table></div>
+<span class="op">}</span>
+
+<span class="at">start</span>()<span class="op">;</span></code></pre></td></tr></table></div>
 <!-- ```                    
 29: void drawRectangle(int length){
 30:     for (int i =0; i < 4; i++) {
@@ -2331,9 +2464,11 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 <h2 id="関数の設計あるいはプログラムの構造化"><span class="header-section-number">6.5</span> 関数の設計．あるいはプログラムの構造化</h2>
 <p>関数から関数を呼ぶことが出来るため，関数の連鎖を用いてプログラムを作ることができます． これは「構造化プログラミング」という，複雑さを制御するための基本的設計技法です．</p>
 <p>複雑になると，関数の呼び出し関係が混乱してくるので，まず以下のような関数構成図を書き， プログラムを書いていくと良いでしょう．</p>
+<div class="CJPictureL">
 <div class="figure">
 <img src="img/chapter06/design3.png" alt="関数の設計" />
 <p class="caption">関数の設計</p>
+</div>
 </div>
 <p>この設計を実装したものを下に載せます．</p>
 <h3 id="窓付きの家を描くプログラム引数を用いた多角形を描く関数の抽象化"><span class="header-section-number">6.5.1</span> 窓付きの家を描くプログラム（引数を用いた，多角形を描く関数の抽象化）</h3>
