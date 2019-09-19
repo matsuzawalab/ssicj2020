@@ -54,6 +54,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="TOC">
 <ul>
+<li><a href="#開発環境pike-placeの説明"><span class="toc-section-number">0</span> 開発環境(pike place)の説明</a></li>
 <li><a href="#初めてのjavascriptタートルプログラミング"><span class="toc-section-number">1</span> 初めてのJavascriptタートルプログラミング</a></li>
 <li><a href="#コンピュータに情報を記憶させてみよう変数"><span class="toc-section-number">2</span> コンピュータに情報を記憶させてみよう（変数）</a></li>
 <li><a href="#プログラムに知性を条件分岐"><span class="toc-section-number">3</span> プログラムに知性を(条件分岐)</a></li>
@@ -63,6 +64,56 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#挑戦再帰プログラム"><span class="toc-section-number">7</span> 挑戦：再帰プログラム</a></li>
 </ul>
 </div>
+<h1 id="開発環境pike-placeの説明"><span class="header-section-number">0</span> 開発環境(pike place)の説明</h1>
+<p>第５週目までは，初学者用Javascript開発環境(pike place)を使って学習を進めます． ここでは，簡単に使い方を説明します．</p>
+<h2 id="ブラウザ"><span class="header-section-number">0.1</span> ブラウザ</h2>
+<p>ブラウザはChromeを使用してください．Chrome以外のブラウザでも動作する可能性はありますが，テストはしておりません．</p>
+<h2 id="ユーザ登録"><span class="header-section-number">0.2</span> ユーザ登録</h2>
+<div class="figure">
+<img src="img/chapter00/registration.png" />
+
+</div>
+<p>初回はユーザ登録が必要です．ユーザ名は学生番号（半角で！），メールアドレスは青山メールを，パスワードは任意のものを入力してください．ユーザ名（学生番号）が間違っていると，採点されない可能性がありますので注意ください．</p>
+<h2 id="起動時の画面"><span class="header-section-number">0.3</span> 起動時の画面</h2>
+<p>ユーザ登録を済ませると，以下のような画面が起動します． <img src="img/chapter00/opened.png" /></p>
+<h2 id="ファイルの作成"><span class="header-section-number">0.4</span> ファイルの作成</h2>
+<p>それでは，はじめのプログラムのためのファイルを作ってみましょう．</p>
+<p>左上の <img src="img/chapter00/openfiletreebutton.png" /> ボタンをクリックし，ファイルツリーを開きます（下図）</p>
+<div class="figure">
+<img src="img/chapter00/filetreeopened.png" />
+
+</div>
+<p>Project1フォルダは最初から作られています． ファイルツリービューの操作アイコンとして，左から，</p>
+<ul>
+<li>ファイルの作成: <img src="img/chapter00/icon_f_newfile.png" /></li>
+<li>プロジェクトの作成: <img src="img/chapter00/icon_f_newproject.png" /></li>
+<li>ファイル名の編集: <img src="img/chapter00/icon_f_edit.png" /></li>
+<li>ファイルの削除: <img src="img/chapter00/icon_f_delete.png" /></li>
+</ul>
+<p>ボタンが表示されています．</p>
+<p>Project1フォルダは最初から作られていますので，その「Project1」フォルダを選択し，ファイルの作成アイコンを押すことで，「hello.js」という名前のファイルを作成してみましょう．</p>
+<h2 id="プログラムの作成実行"><span class="header-section-number">0.5</span> プログラムの作成，実行</h2>
+<p>「hello.js」ファイルができたら，もう一度ファイルツリーボタンを押してファイルツリーを消し，プログラムを書いてみましょう．（コピペできませんので，打ち込んでください．）</p>
+<div class="figure">
+<img src="img/chapter00/hello.png" />
+
+</div>
+<p>プログラムの内容は後から勉強していただくとして，プログラムができたら， <img src="img/chapter00/icon_play.png" />ボタンを押し，実行してみましょう．右の画面に亀が表示され３０歩進むアニメーションが表示され，console＊にhello, world!という文字がでが出現したら成功です．右側に変数が表示されています．</p>
+<h2 id="プログラムのステップ実行"><span class="header-section-number">0.6</span> プログラムのステップ実行</h2>
+<p>プログラムを全部実行するるのではなくて，１行ずつ実行することもできます． <img src="img/chapter00/icon_reload.png" />ボタンを１回押してリセットをした後，<img src="img/chapter00/icon_step.png" />ボタンを押すごとに，１行ずつステップ実行することができます．</p>
+<h2 id="プログラムの保存"><span class="header-section-number">0.7</span> プログラムの保存</h2>
+<p>プログラムは，実行するたびに自動的に保存されます．保存だけしたい場合はリロードボタン<img src="img/chapter00/icon_reload.png" />を押下してください．</p>
+<h2 id="そのほか"><span class="header-section-number">0.8</span> そのほか</h2>
+<h3 id="アニメーションの速度調整"><span class="header-section-number">0.8.1</span> アニメーションの速度調整</h3>
+<ul>
+<li>Turtleゲージでタートルグラフィックスのアニメーションの速度が変更できます．</li>
+<li>Programゲージで変数表示アニメーションの速度を変更できます．</li>
+</ul>
+<h3 id="ソースエディタ"><span class="header-section-number">0.8.2</span> ソースエディタ</h3>
+<ul>
+<li>ソースエディタのフォントの変更ができます．</li>
+<li>Ctrl-s　でソースコードの整形ができます．</li>
+</ul>
 <h1 id="初めてのjavascriptタートルプログラミング"><span class="header-section-number">1</span> 初めてのJavascriptタートルプログラミング</h1>
 <h2 id="学習目標"><span class="header-section-number">1.1</span> 学習目標</h2>
 <ul>
