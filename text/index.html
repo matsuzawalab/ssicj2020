@@ -50,7 +50,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">コンピュータ実習2019</h1>
 <h2 class="author">社会情報学部</h2>
-<h3 class="date">version 0.9</h3>
+<h3 class="date">version 0.9.1</h3>
 </div>
 <div id="TOC">
 <ul>
@@ -98,7 +98,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <img src="img/chapter00/hello.png" />
 
 </div>
-<p>プログラムの内容は後から勉強していただくとして，プログラムができたら， <img src="img/chapter00/icon_play.png" />ボタンを押し，実行してみましょう．右の画面に亀が表示され３０歩進むアニメーションが表示され，console＊にhello, world!という文字がでが出現したら成功です．右側に変数が表示されています．</p>
+<p>プログラムの内容は後から勉強していただくとして，プログラムができたら， <img src="img/chapter00/icon_play.png" />ボタンを押し，実行してみましょう．右の画面に亀が表示され３０歩進むアニメーションが表示され，consoleにhello, world!という文字がでが出現したら成功です．右側に変数が表示されています．</p>
 <h2 id="プログラムのステップ実行"><span class="header-section-number">0.6</span> プログラムのステップ実行</h2>
 <p>プログラムを全部実行するるのではなくて，１行ずつ実行することもできます． <img src="img/chapter00/icon_reload.png" />ボタンを１回押してリセットをした後，<img src="img/chapter00/icon_step.png" />ボタンを押すごとに，１行ずつステップ実行することができます．</p>
 <h2 id="プログラムの保存"><span class="header-section-number">0.7</span> プログラムの保存</h2>
@@ -550,7 +550,7 @@ smallHouseLength <span class="op">=</span> length / <span class="dv">2</span><sp
 </div>
 </div>
 <h2 id="考えてみよう" class="unnumbered">考えてみよう</h2>
-<p>次のようなプログラムが動かない（コンパイルエラーとなる）のは何故ですか？考えてみましょう．</p>
+<p>次のようなプログラムが動かない（構文エラーとなる）のは何故ですか？考えてみましょう．</p>
 <p><code>length / 2  = smallHouseLength;</code></p>
 <h2 id="ユーザと対話するインタラクティブなプログラム"><span class="header-section-number">2.4</span> ユーザと対話する（インタラクティブ）なプログラム</h2>
 <h3 id="入力を受け付ける"><span class="header-section-number">2.4.1</span> 入力を受け付ける</h3>
@@ -607,7 +607,7 @@ length <span class="op">=</span> <span class="at">input</span>(<span class="st">
     <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
 <p>ユーザから入力を受け付けるには</p>
-<p><code>input()</code> または， <code>input(&quot;ここに出したいメッセージを書く&quot;)</code></p>
+<p><code>input()</code> または， <code>input('ここに出したいメッセージを書く')</code></p>
 <p>命令を使います．引数にメッセージを指定した場合は，ダイアログに指定したメッセージが表示されます．</p>
 <h3 id="ユーザにメッセージを出す"><span class="header-section-number">2.4.2</span> ユーザにメッセージを出す</h3>
 <div class="sourceCode" id="lst:2-1" caption="オウム返し"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
@@ -616,14 +616,46 @@ length <span class="op">=</span> <span class="at">input</span>(<span class="st">
 4
 </pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="kw">var</span> message<span class="op">;</span>
 
-message <span class="op">=</span> <span class="at">input</span>(<span class="st">&quot;メッセージをどうぞ&quot;</span>)<span class="op">;</span>
+message <span class="op">=</span> <span class="at">input</span>(<span class="st">&#39;メッセージをどうぞ&#39;</span>)<span class="op">;</span>
 <span class="at">println</span>(message)<span class="op">;</span></code></pre></td></tr></table></div>
 <p>ユーザにメッセージを出すには</p>
-<p><code>print(&quot;ここに出したいメッセージを書く&quot;)</code> または， <code>println(&quot;ここに出したいメッセージを書く&quot;)</code></p>
+<p><code>print('ここに出したいメッセージを書く')</code> または， <code>println('ここに出したいメッセージを書く')</code></p>
 <p>命令を使います．</p>
-<p>print命令はメッセージを出力し，println命令はメッセージを出力した後改行をします． メッセージはConsole欄に表示されます． どちらの命令を使う場合も，出したいメッセージを<code>&quot;</code>（ダブルクォーテーション）または，<code>'</code> （シングルクォーテーション）と中括弧で囲んでください．</p>
-<h2 id="乱数"><span class="header-section-number">2.5</span> 乱数</h2>
-<h3 id="命令ごとに毎回変わる値"><span class="header-section-number">2.5.1</span> 命令ごとに毎回変わる値</h3>
+<p>print命令はメッセージを出力し，println命令はメッセージを出力した後改行をします． メッセージはConsole欄に表示されます．</p>
+<h3 id="文字列"><span class="header-section-number">2.4.3</span> 文字列</h3>
+<p>どちらの命令を使う場合も，出したいメッセージを<code>&quot;</code>（ダブルクォーテーション）または，<code>'</code> （シングルクォーテーション）と中括弧で囲んだ，プログラムでは「文字列」と呼ばれる要素を中括弧の中に入れることで指定してください．</p>
+<h2 id="入力-処理-出力"><span class="header-section-number">2.5</span> 入力-処理-出力</h2>
+<p>本章で説明した，入力と出力，そして計算を組み合わせて，情報処理システムの基本形である入力ー処理ー出力」の応用プログラムを作ることができます．下記のプログラムは消費税込みの価格を計算するプログラムで，税抜価格と税率の入力をユーザから受け付け，四捨五入した消費税込みの価格を求め，コンソールに出力します．</p>
+<pre><code>/* 消費税込みの価格を計算するプログラム */
+
+//入力
+var price = input(&#39;税抜価格は?&#39;);
+var taxrate = input(&#39;税率(%)は？&#39;);
+
+//処理
+var priceB = price + price * taxrate / 100;
+priceB = Math.round(priceB);//四捨五入する
+
+//出力
+println(&#39;税込価格は&#39; + priceB + &#39;円です&#39;);</code></pre>
+<h3 id="四捨五入"><span class="header-section-number">2.5.1</span> 四捨五入</h3>
+<p><code>priceB = Math.round(priceB);</code>では，<code>Math.round()</code>という四捨五入をする関数を使い，税率をかけたpriceBに対して，四捨五入した結果をpriceBに書き戻しています．</p>
+<p>数字を四捨五入，切り上げ，切り捨てする関数は以下の通りです．</p>
+<dl>
+<dt><code>Math.ceil([数字（変数でもOK）])</code></dt>
+<dd>数字を切り上げます．
+</dd>
+<dt><code>Math.round([数字（変数でもOK）])</code></dt>
+<dd>数字を四捨五入します．
+</dd>
+<dt><code>Math.floor([数字（変数でもOK）])</code></dt>
+<dd>数字を切り捨てます．
+</dd>
+</dl>
+<h3 id="文字列の連結"><span class="header-section-number">2.5.2</span> 文字列の連結</h3>
+<p>文字列を数字などと連結して出力するには，<code>+</code>記号を使います． <code>'税込価格は' + priceB + '円です'</code>などと，と文字列の間に変数を入れて連結することができます．</p>
+<h2 id="乱数"><span class="header-section-number">2.6</span> 乱数</h2>
+<h3 id="命令を呼び出す度に毎回変わる値"><span class="header-section-number">2.6.1</span> 命令を呼び出す度に毎回変わる値</h3>
 <div class="sourceCode" id="lst:2-1" caption="家を書くサンプルプログラム"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
@@ -677,18 +709,29 @@ length <span class="op">=</span> <span class="at">random</span>(<span class="dv"
     <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
 <p>乱数値を（命令毎に毎回変わる値）に取得するには</p>
-<p><code>random(数)</code></p>
+<p><code>random([数字（変数でもOK）])</code></p>
 <p>命令を使います．</p>
 <p>実行されるごとに異なる値が自動的に選択されます．</p>
 <p>「０」から「数の所に書いた数」未満のどれかの数字が選択されます．</p>
 <p>（例：random(10)のとき，0から9までの１０種類のどれかの数が選択されます）</p>
-<h2 id="練習問題-1"><span class="header-section-number">2.6</span> 練習問題</h2>
-<h3 id="与えられた大きさの正五角形を描くプログラム"><span class="header-section-number">2.6.1</span> 与えられた大きさの正五角形を描くプログラム</h3>
+<h2 id="練習問題-1"><span class="header-section-number">2.7</span> 練習問題</h2>
+<h3 id="与えられた大きさの正五角形を描くプログラム"><span class="header-section-number">2.7.1</span> 与えられた大きさの正五角形を描くプログラム</h3>
 <p>ユーザの入力を受け取り，その長さを一辺の長さとして正五角形を描くプログラムを作ってください．</p>
 <p>ファイル名は「pentagon2.js」とすること．</p>
-<h3 id="乱数を使って星を描くプログラム"><span class="header-section-number">2.6.2</span> 乱数を使って星を描くプログラム</h3>
+<h3 id="乱数を使って星を描くプログラム"><span class="header-section-number">2.7.2</span> 乱数を使って星を描くプログラム</h3>
 <p>長さに乱数を使い，実行するたびに大きさが変わる星を描くプログラムを作ってください． 乱数は50以上100未満の間になるようにすること．</p>
 <p>ファイル名は「star2.js」とすること．</p>
+<h3 id="割り算プログラム"><span class="header-section-number">2.7.3</span> 割り算プログラム</h3>
+<p>ユーザから２つの数，a, bを受け取り，以下のような出力をするプログラムを作ってください．</p>
+<pre><code>a / b の商(整数部分)は [答え] です．
+a / b の余りは [答え] です．</code></pre>
+<p>出力例</p>
+<pre><code>13 / 5 の商(整数部分)は 2 です．
+13 / 5 の余りは 3 です．</code></pre>
+<p>ファイル名は「division.js」とすること．</p>
+<h3 id="入力ー処理ー出力のプログラム"><span class="header-section-number">2.7.4</span> 入力ー処理ー出力のプログラム</h3>
+<p>例題の消費税計算プログラムのように，なにかシンプル処理をする入力ー処理ー出力の形のプログラムを作ってください．</p>
+<p>ファイル名は「simpleio.js」とすること．</p>
 <h1 id="プログラムに知性を条件分岐"><span class="header-section-number">3</span> プログラムに知性を(条件分岐)</h1>
 <h2 id="学習目標-2"><span class="header-section-number">3.1</span> 学習目標</h2>
 <ul>
@@ -1448,12 +1491,15 @@ if( [条件式] ) {
 <h3 id="絵の描き分けプログラムを作ろう"><span class="header-section-number">3.5.1</span> 絵の描き分けプログラムを作ろう</h3>
 <p>前回作ったプログラムを改造して，条件式を使って， ユーザの入力に応じて，タートルの書く絵を変えるプログラムを書いてください． 余裕がある人は，条件文を駆使して実用的なプログラムに挑戦してみてください．</p>
 <p>ファイル名は「figureshop.js」とすること．</p>
-<h3 id="おみくじプログラムを作ろう"><span class="header-section-number">3.5.2</span> おみくじプログラムを作ろう</h3>
-<p>乱数と条件分岐を使って，「大吉」「中吉」「小吉」「凶」を表示するプログラムを作りましょう． 大吉のときだけ，タートルの絵（星など）を描くようにしましょう．</p>
-<p>ファイル名は「omikuji.js」とすること．</p>
-<h3 id="評点グレード変換プログラムを作ろう"><span class="header-section-number">3.5.3</span> 評点グレード変換プログラムを作ろう</h3>
-<p>入力と条件分岐を使って，「秀」「優」「良」「可」「不可」を表示するプログラムを作りましょう． ユーザが評点を入力すると，それに応じたグレードが表示されるようにプログラムを書いてください． 評点区分とグレードの定義は大学の評価制度を利用すること．</p>
+<h3 id="評点グレード変換プログラムを作ろう"><span class="header-section-number">3.5.2</span> 評点グレード変換プログラムを作ろう</h3>
+<p>入力と条件分岐を使って，「秀」「優」「良」「可」「不可」を表示するプログラムを作りましょう． ユーザが評点を入力すると，それに応じたグレードが表示されるようにプログラムを書いてください．ただし，90点以上が秀，80点以上が優，70点以上が良，60点以上が可，それ以外は不可とする．</p>
 <p>ファイル名は「grade.js」とすること．</p>
+<h3 id="おみくじプログラムを作ろう"><span class="header-section-number">3.5.3</span> おみくじプログラムを作ろう</h3>
+<p>乱数と条件分岐を使って，「大吉」「中吉」「小吉」「凶」を表示するプログラムを作りましょう．結果は大吉20%, 中吉30%, 小吉30%, 凶20%の確率で出るようにしてください．</p>
+<p>ファイル名は「omikuji.js」とすること．</p>
+<h3 id="入力ー処理ー出力条件付きのプログラム"><span class="header-section-number">3.5.4</span> 入力ー処理ー出力（条件付き）のプログラム</h3>
+<p>評点グレード変換プログラムのように，なにかシンプルな条件分岐を伴う処理をする入力ー処理ー出力の形のプログラムを作ってください．</p>
+<p>ファイル名は「simpleio2.js」とすること．</p>
 <h1 id="コンピュータの得意な仕事繰り返し"><span class="header-section-number">4</span> コンピュータの得意な仕事(繰り返し)</h1>
 <h2 id="学習目標-3"><span class="header-section-number">4.1</span> 学習目標</h2>
 <ul>
