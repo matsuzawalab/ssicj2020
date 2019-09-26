@@ -8,15 +8,15 @@
 
 # タートルグラフィックス編
 ## 教材
-[タートルグラフィックス編教材](text/index.html)
+[タートルグラフィックス編教材](text/index.html){:target="_blank"}
 
 ## 開発環境
-- [松澤クラス](http://pp1.si.aoyama.ac.jp/)
-- [村田クラス](http://pp2.si.aoyama.ac.jp/)
-- [居駒クラス](http://pp3.si.aoyama.ac.jp/)
-- [斎藤クラス](http://pp4.si.aoyama.ac.jp/)
+- [松澤クラス](http://pp1.si.aoyama.ac.jp/){:target="_blank"}
+- [村田クラス](http://pp2.si.aoyama.ac.jp/){:target="_blank"}
+- [居駒クラス](http://pp3.si.aoyama.ac.jp/){:target="_blank"}
+- [斎藤クラス](http://pp4.si.aoyama.ac.jp/){:target="_blank"}
 
-- [ステージングサーバ(学内のみ)](http://ppstaging-creco.si.aoyama.ac.jp/)
+- [ステージングサーバ(学内のみ)](http://ppstaging-creco.si.aoyama.ac.jp/){:target="_blank"}
 
 # シラバス
 ## 主題と目標
