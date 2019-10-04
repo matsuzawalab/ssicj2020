@@ -60,7 +60,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#プログラムに知性を条件分岐"><span class="toc-section-number">3</span> プログラムに知性を(条件分岐)</a></li>
 <li><a href="#コンピュータの得意な仕事繰り返し"><span class="toc-section-number">4</span> コンピュータの得意な仕事(繰り返し)</a></li>
 <li><a href="#ブロックの入れ子構造"><span class="toc-section-number">5</span> ブロックの入れ子構造</a></li>
-<li><a href="#命令をつくる関数引数付関数"><span class="toc-section-number">6</span> 命令をつくる（１）：関数．引数付関数</a></li>
+<li><a href="#命令をつくる関数引数付関数"><span class="toc-section-number">6</span> 命令をつくる：関数．引数付関数</a></li>
 <li><a href="#挑戦再帰プログラム"><span class="toc-section-number">7</span> 挑戦：再帰プログラム</a></li>
 </ul>
 </div>
@@ -2098,16 +2098,9 @@ if( [条件式] ) {
 <p>このプログラムでは，剰余演算子と，先ほど説明した繰り返しの変数を利用して， 繰り返した数が偶数なら四角，奇数なら三角を描くようにプログラムされています．</p>
 <h2 id="練習問題-4"><span class="header-section-number">5.5</span> 練習問題</h2>
 <h3 id="四角形を10個描くプログラム"><span class="header-section-number">5.5.1</span> 四角形を10個描くプログラム</h3>
-<div class="figure">
-<img src="img/chapter05/q_tenboxes.jpg" alt="10個描くプログラム" />
-<p class="caption">10個描くプログラム</p>
-</div>
-<p>ファイル名は「tenboxes.js」とすること．</p>
+<p>四角形を横に並べて１０個描くプログラムを作ってみよう <img src="img/chapter05/q_tenboxes.jpg" alt="10個描くプログラム" /> ファイル名は「tenboxes.js」とすること．</p>
 <h3 id="四角形を100個描くプログラム"><span class="header-section-number">5.5.2</span> 四角形を100個描くプログラム</h3>
-<div class="figure">
-<img src="img/chapter05/q_hundredboxes.jpg" alt="四角形を100個描くプログラム" />
-<p class="caption">四角形を100個描くプログラム</p>
-</div>
+<p>四角形を１００個を１０ｘ１０に並べて描くプログラムを作ってみよう <img src="img/chapter05/q_hundredboxes.jpg" alt="四角形を100個描くプログラム" /></p>
 <p>ファイル名は「hundredboxes.js」とすること．</p>
 <h3 id="四角形と三角形を交互に100個描くプログラム"><span class="header-section-number">5.5.3</span> 四角形と三角形を交互に100個描くプログラム</h3>
 <div class="figure">
@@ -2146,7 +2139,7 @@ if( [条件式] ) {
 <p class="caption">キーボードを描くプログラム</p>
 </div>
 <p>ファイル名は「keyboard.js」とすること．</p>
-<h1 id="命令をつくる関数引数付関数"><span class="header-section-number">6</span> 命令をつくる（１）：関数．引数付関数</h1>
+<h1 id="命令をつくる関数引数付関数"><span class="header-section-number">6</span> 命令をつくる：関数．引数付関数</h1>
 <h2 id="学習目標-5"><span class="header-section-number">6.1</span> 学習目標</h2>
 <ul>
 <li>関数を使ったプログラムを作れるようになる</li>
@@ -2702,22 +2695,61 @@ Javaでは，関数の中に関数を定義することはできません．（ 
     <span class="va">t</span>.<span class="at">lt</span>(direction)<span class="op">;</span>
     <span class="va">t</span>.<span class="at">down</span>()<span class="op">;</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
-<h2 id="ライブラリ" class="unnumbered">ライブラリ</h2>
+<h2 id="コラムライブラリ" class="unnumbered">コラム：ライブラリ</h2>
 <p>実は今まで使っていたfd，rtという命令は，以下のような関数として定義されていたのでした．</p>
 <ul>
 <li><code>function fd(length){...省略...}</code></li>
 <li><code>function rt(angle){...省略...}</code></li>
 </ul>
 <p>ある目的のために使う関数の集まりを作り，関数群を再利用します． この関数の集まりのことを「ライブラリ」といいます． fd, rtなどのタートルに使う命令は「タートルライブラリ」としてどこかに定義されているのです．</p>
+<!-- ## コラム：亀に命令を追加する{.unnumbered}
+Javascriptで関数の定義をする方法には，次のような書き方もあります．
+
+```
+var drawRectangle = function(length){
+    for(var i=0;i<4;i++){
+        t.fd(length);
+        t.rt(90);
+    }
+}
+```
+
+この例では関数を定義して，drawRectangle変数に代入しています．
+この書法を利用して，亀に命令を追加することができます． -->
 <h2 id="練習問題-5"><span class="header-section-number">6.6</span> 練習問題</h2>
-<h3 id="円を描く関数を作ろう"><span class="header-section-number">6.6.1</span> 円を描く関数を作ろう</h3>
-<p>円を描く関数「function drawCircle()」を作ってください． できたら，start関数から2回以上呼び出して，うまく動作するか確かめてみよう．</p>
-<p>ファイル名は「circle2.js」とすること．</p>
-<h3 id="大きさが変わる家を描く関数を作ろう"><span class="header-section-number">6.6.2</span> 大きさが変わる家を描く関数を作ろう</h3>
-<p>大きさを指定して家を描く関数（窓はなくて良い）「function drawHouse(size)」を作ってください． できたら，start関数から2回以上呼び出して，うまく動作するか確かめてみよう．</p>
+<!-- ### 円を描く関数を作ろう
+円を描く関数「function drawCircle()」を作ってください． できたら，start関数から2回以上呼び出して，うまく動作するか確かめてみよう．
+
+ファイル名は「circle2.js」とすること． -->
+<h3 id="四角形を横に並べて個描くプログラム関数を使って"><span class="header-section-number">6.6.1</span> 四角形を横に並べて１０個描くプログラム(関数を使って)</h3>
+<p>四角形を横に並べて１０個描くプログラム</p>
+<div class="figure">
+<img src="img/chapter05/q_tenboxes.jpg" alt="10個描くプログラム" />
+<p class="caption">10個描くプログラム</p>
+</div>
+<p>について，四角形を描く以下の関数を定義し，これを利用することで描いてみよう．</p>
+<pre><code>function drawRectangle(length){
+    for(var i=0;i&lt;4;i++){
+        t.fd(length);
+        t.rt(90);
+    }
+}</code></pre>
+<p>ファイル名は「tenboxes2.js」とすること．</p>
+<h3 id="四角形を横に並べてn個描くプログラム引数付関数を使って"><span class="header-section-number">6.6.2</span> 四角形を横に並べてN個描くプログラム(引数付関数を使って)</h3>
+<p>上の問題について，プログラム全体を関数にして引数n（四角形の個数）をとるようにし，</p>
+<pre><code>drawBoxes(10);</code></pre>
+<p>とすると，１０個の四角形を描き，</p>
+<pre><code>drawBoxes(5);</code></pre>
+<p>とすると，５個の四角形を描くプログラムを書きなさい．</p>
+<p>ファイル名は「tenboxes3.js」とすること．</p>
+<!-- ### 四角形を100個描くプログラム
+四角形を１００個を１０ｘ１０に並べて描くプログラムを作ってみよう
+![四角形を100個描くプログラム](img/chapter05/q_hundredboxes.jpg) -->
+<h3 id="大きさが変わる家を描くプログラム"><span class="header-section-number">6.6.3</span> 大きさが変わる家を描くプログラム</h3>
+<p>大きさを指定して家を描く関数（窓はなくて良い）「function drawHouse(size)」を作ってください． できたら，2回以上呼び出して，うまく動作するか確かめてみよう．</p>
 <p>ファイル名は「twohouses.js」とすること．</p>
-<h3 id="中心角を指定して円弧を描く関数を作ろう"><span class="header-section-number">6.6.3</span> 中心角を指定して円弧を描く関数を作ろう</h3>
-<p>中心角を指定して円弧を描く関数「function drawArc(angle)」を作ってください．</p>
+<h3 id="中心角を指定して円弧を描くプログラム"><span class="header-section-number">6.6.4</span> 中心角を指定して円弧を描くプログラム</h3>
+<p>中心角を指定して円弧を描く関数「function drawArc(angle)」を作り，テストしてください．</p>
 <p>(ヒント：中心角が３６０ならば円に，１８０ならば半円に，１ならば点のようになります．以下に，120度の場合と，300度の場合の例を示します）</p>
 <div class="figure">
 <img src="img/chapter06/q_drawarc.png" alt="円弧を描く関数" />
@@ -2727,29 +2759,33 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 <img src="img/chapter06/q_drawarc2.png" alt="円弧を描く関数2" />
 <p class="caption">円弧を描く関数2</p>
 </div>
-<h3 id="レモン型の図形を描く関数を作ろう"><span class="header-section-number">6.6.4</span> レモン型の図形を描く関数を作ろう</h3>
-<p>drawArc(angle)を利用してレモン型の図形を描く関数「function drawLemon()」を作ってください.</p>
+<p>ファイル名は「drawarc.js」とすること．</p>
+<h3 id="レモンを描くプログラム"><span class="header-section-number">6.6.5</span> レモンを描くプログラム</h3>
+<p>drawArc(angle)を利用してレモン型の図形を描く関数「function drawLemon()」を作り，呼び出してテストをしてください．</p>
+<p>ファイル名は「drawlemon.js」とすること．</p>
 <div class="figure">
 <img src="img/chapter06/q_drawlemon.png" alt="レモン型の図形を描く関数" />
 <p class="caption">レモン型の図形を描く関数</p>
 </div>
-<h3 id="関数の多段呼び出しの練習をしよう"><span class="header-section-number">6.6.5</span> 関数の多段呼び出しの練習をしよう</h3>
-<p>蝶を描く関数drawButterfly()を作ってください． 関数構造図による設計もすること． （ヒント：円弧を描く関数のほかにも，レモン型を描く関数などを部品として使う）</p>
+<h3 id="ちょうちょを描くプログラム関数の多段呼び出しの練習"><span class="header-section-number">6.6.6</span> ちょうちょを描くプログラム（関数の多段呼び出しの練習）</h3>
+<p>蝶を描く関数drawButterfly()を作ってください．（ヒント：レモン型を描く関数drawLemon()を部品として使う）</p>
 <div class="figure">
 <img src="img/chapter06/q_drawbutterfly.png" alt="蝶を描く関数" />
 <p class="caption">蝶を描く関数</p>
 </div>
 <p>ファイル名は「butterfly.js」とすること．</p>
-<h3 id="関数の再利用をしよう"><span class="header-section-number">6.6.6</span> 関数の再利用をしよう</h3>
-<p>drawLemon()を再利用して，drawFlower()のように花を描く関数を作ろう．</p>
+<h3 id="花を描くプログラム関数の再利用"><span class="header-section-number">6.6.7</span> 花を描くプログラム（関数の再利用）</h3>
+<p>drawLemon()を再利用して，drawFlower()のように花を描く関数をつくってください．</p>
 <div class="figure">
 <img src="img/chapter06/q_drawflower.png" alt="花を描く関数" />
 <p class="caption">花を描く関数</p>
 </div>
 <p>ファイル名は「flower.js」とすること．</p>
-<h3 id="マス目"><span class="header-section-number">6.6.7</span> マス目</h3>
+<h3 id="マス目を描くプログラム"><span class="header-section-number">6.6.8</span> マス目を描くプログラム</h3>
 <p>x行y列のマス目を書く関数を作ろう．以下のような定義を持つ</p>
-<p><code>function drawMasume(int row, int col, int size) {．．．なかみ．．．}</code></p>
+<pre><code>function drawMasume(row, col, size) {
+    ．．．なかみ．．．
+}</code></pre>
 <p>出力例を以下に示す．</p>
 <p><code>drawMasume(2, 3, 50);</code></p>
 <div class="figure">
@@ -2762,7 +2798,7 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 
 </div>
 <p>ファイル名は「masume.js」とすること．</p>
-<h3 id="構造化プログラミングによる自由作品"><span class="header-section-number">6.6.8</span> 構造化プログラミングによる自由作品</h3>
+<h3 id="構造化プログラミングによる自由作品"><span class="header-section-number">6.6.9</span> 構造化プログラミングによる自由作品</h3>
 <p>「１関数１０行以内！」というルールで，図形を書くプログラムを作ろう．</p>
 <p>ファイル名は「structured.js」とすること．</p>
 <h1 id="挑戦再帰プログラム"><span class="header-section-number">7</span> 挑戦：再帰プログラム</h1>
