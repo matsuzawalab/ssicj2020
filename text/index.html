@@ -2280,7 +2280,7 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 <p class="caption">関数の設計</p>
 </div>
 </div>
-<p>リスト 12.3.2.1 DrawTwoRectangles1.js</p>
+<!-- リスト 12.3.2.1 DrawTwoRectangles1.js -->
 <div class="sourceCode" id="lst:6-1" caption="House"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
@@ -2328,7 +2328,7 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 <p class="caption">関数の設計</p>
 </div>
 </div>
-<p>リスト 12.3.2.2 DrawTwoRectangles2.js</p>
+<!-- リスト 12.3.2.2 DrawTwoRectangles2.js -->
 <div class="sourceCode" id="lst:6-1" caption="House"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
@@ -2492,6 +2492,8 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 15
 </pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="kw">var</span> t <span class="op">=</span> <span class="at">createTurtle</span>()<span class="op">;</span>
 
+<span class="at">start</span>()<span class="op">;</span>
+
 <span class="kw">function</span> <span class="at">start</span>()<span class="op">{</span>
     <span class="kw">var</span> length <span class="op">=</span> <span class="at">input</span>(<span class="st">&quot;一辺の長さ？&quot;</span>)<span class="op">;</span>
     <span class="at">drawRectangle</span>()<span class="op">;</span>
@@ -2502,10 +2504,8 @@ Javaでは，関数の中に関数を定義することはできません．（ 
         <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
         <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">90</span>)<span class="op">;</span>
     <span class="op">}</span>
-<span class="op">}</span>
-
-<span class="at">start</span>()<span class="op">;</span></code></pre></td></tr></table></div>
-<p>大きさを変えて四角形を描くプログラム（コンパイルエラー）を実行しても，入力した大きさの四角形が描かれず，大きさ0の四角形が描かれます．</p>
+<span class="op">}</span></code></pre></td></tr></table></div>
+<p>上記のプログラムを実行しても，入力した大きさの四角形が描かれず，大きさ0の四角形が描かれます．</p>
 <p>これは，t.fd(length)のlengthという変数が参照できず，0と置き換えられてしまうための動作です．lengthという変数が参照できないのは，drawRectangle()関数の内部（{と}で囲われた部分）が，lengthという変数の有効範囲外であるためです．</p>
 <!-- ![変数の有効範囲](img/chapter06/scope.png) -->
 <h3 id="引数付関数定義と関数呼び出し"><span class="header-section-number">6.4.2</span> 引数付関数定義と関数呼び出し</h3>
@@ -2528,6 +2528,8 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 15
 </pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="kw">var</span> t <span class="op">=</span> <span class="at">createTurtle</span>()<span class="op">;</span>
 
+<span class="at">start</span>()<span class="op">;</span>
+
 <span class="kw">function</span> <span class="at">start</span>()<span class="op">{</span>
     <span class="kw">var</span> length <span class="op">=</span> <span class="at">input</span>(<span class="st">&quot;一辺の長さ？&quot;</span>)<span class="op">;</span>
     <span class="at">drawRectangle</span>(length)<span class="op">;</span>
@@ -2538,9 +2540,7 @@ Javaでは，関数の中に関数を定義することはできません．（ 
         <span class="va">t</span>.<span class="at">fd</span>(length)<span class="op">;</span>
         <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">90</span>)<span class="op">;</span>
     <span class="op">}</span>
-<span class="op">}</span>
-
-<span class="at">start</span>()<span class="op">;</span></code></pre></td></tr></table></div>
+<span class="op">}</span></code></pre></td></tr></table></div>
 <!-- ```                    
 29: void drawRectangle(int length){
 30:     for (int i =0; i < 4; i++) {
@@ -2564,7 +2564,7 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 </div>
 <p>この設計を実装したものを下に載せます．</p>
 <h3 id="窓付きの家を描くプログラム引数を用いた多角形を描く関数の抽象化"><span class="header-section-number">6.5.1</span> 窓付きの家を描くプログラム（引数を用いた，多角形を描く関数の抽象化）</h3>
-<p>リスト 12.5.1.1 House05.js</p>
+<!-- リスト 12.5.1.1 House05.js -->
 <div class="sourceCode" id="lst:6-1" caption="House"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
