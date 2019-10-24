@@ -3562,9 +3562,10 @@ function calculatePower(base, exponent) {
 <p>ファイル名は「HowOld.js」とすること．</p>
 <h3 id="税込み価格計算"><span class="header-section-number">8.6.2</span> 税込み価格計算</h3>
 <p>税込み価格を計算する次の関数を作り，テストしてください．</p>
-<pre><code>function getWithTax(withoutTax){．．．}</code></pre>
+<pre><code>function calculateWithTax(withoutTax){．．．}</code></pre>
 <p>withoutTaxは税抜きの価格を入力する引数で，消費税込の価格を戻り値として出力する．（日本で，今年だけ使えればよい）</p>
-<p>ファイル名は「ConsumptionTax.js」とすること．</p>
+<p>（端数の処理では，四捨五入などの処理をする必要がある．その処理は，２章の「入力-処理-出力」を参考にすること）</p>
+<p>ファイル名は「Tax.js」とすること．</p>
 <h3 id="勝率計算"><span class="header-section-number">8.6.3</span> 勝率計算</h3>
 <p>勝率を計算する次の関数を作り，テストしてください．</p>
 <pre><code>function getWinningRate(win, lose){．．．}</code></pre>
@@ -3577,14 +3578,14 @@ function calculatePower(base, exponent) {
 <p>ファイル名は「BMI.js」とすること．</p>
 <h3 id="総和"><span class="header-section-number">8.6.5</span> 総和</h3>
 <p>１からnまでの総和（1からnまでの数を全部足した数）を計算する次の関数を作り，テストしてください．</p>
-<pre><code>function sum(int n){．．．}</code></pre>
+<pre><code>function sum(n){．．．}</code></pre>
 <p>nはいくつまでの総和を求めるか入力する引数で，計算された総和を戻り値として出力する．</p>
 <p>ファイル名は「Sum.js」とすること．</p>
 <!-- ### ランダム
 最小値と最大値を考慮してランダムな数値を作りだす以下の関数を作り，テストしてください．
 
 ```                     
-int makeRandom(int min, int max){．．．}
+function makeRandom(min, max){．．．}
 ```
                 
 minは最小値，maxは最大値を入力する引数で，生成されたランダムな数（最小値から最大値の間に入ること！）を戻り値として出力する．
