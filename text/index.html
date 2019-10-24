@@ -167,7 +167,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3 id="タートルの生成"><span class="header-section-number">1.3.1</span> タートルの生成</h3>
 <p>コンピュータ実習の授業では，しばらくタートルグラフィックスライブラリを使って演習を行っていきます．タートル（亀）を動かすことでアルゴリズムの基礎とJavascriptを使ったプログラムの基礎を学んでいきましょう．</p>
 <p>タートルグラフィックスライブラリを使うための最初の命令が <code>var t = createTurtle();</code> という行です． 右辺の<code>createTurtle()</code>関数を呼び出してタートルを一つ作成し， <code>var t</code>で，tという名前の変数を一つ作成し，作成したタートルへの参照を代入します．</p>
-<p>と説明しても難しいでしょうから，まずは，これは&quot;おまじない&quot;だと思って，タートルグラフィックスを扱うプログラムでは最初に記述しておいておいてください．</p>
+<p>と説明しても難しいでしょうから，まずは，これは「おまじない」だと思って，タートルグラフィックスを扱うプログラムでは最初に記述しておいておいてください．</p>
 <h3 id="タートルの命令"><span class="header-section-number">1.3.2</span> タートルの命令</h3>
 <p>t.rt(30)やt.fd(60)がタートルに指示する命令です． 書かれた命令は， 必ず上から順番に実行されます． 以下にタートルに指示できる命令の一覧を示します．</p>
 <dl>
@@ -586,7 +586,7 @@ smallHouseLength <span class="op">=</span> length / <span class="dv">2</span><sp
 <span class="kw">var</span> length<span class="op">;</span><span class="co">// 1辺の長さ</span>
 <span class="kw">var</span> rightAngle <span class="op">=</span> <span class="dv">90</span><span class="op">;</span><span class="co">// 直角</span>
 
-length <span class="op">=</span> <span class="at">input</span>(<span class="st">&quot;1辺の長さを入力してください&quot;</span>)<span class="op">;</span><span class="co">// 1辺の長さを入力値に設定する</span>
+length <span class="op">=</span> <span class="at">input</span>(<span class="st">&#39;1辺の長さを入力してください&#39;</span>)<span class="op">;</span><span class="co">// 1辺の長さを入力値に設定する</span>
 
 <span class="op">{</span><span class="co">// 屋根を書く</span>
     <span class="va">t</span>.<span class="at">rt</span>(<span class="dv">30</span>)<span class="op">;</span> <span class="co">// 30度右に回る</span>
@@ -806,7 +806,7 @@ a / b の余りは [答え] です．</code></pre>
 <span class="kw">var</span> pictureNumber<span class="op">;</span><span class="co">// 絵の番号</span>
 
 <span class="op">{</span><span class="co">// ユーザから入力を受け取る</span>
-    pictureNumber <span class="op">=</span> <span class="at">input</span>(<span class="st">&quot;書きたい絵の番号を入力してください．(1.家, 2.星)&quot;</span>)<span class="op">;</span>
+    pictureNumber <span class="op">=</span> <span class="at">input</span>(<span class="st">&#39;書きたい絵の番号を入力してください．(1.家, 2.星)&#39;</span>)<span class="op">;</span>
 <span class="op">}</span>
 
 <span class="cf">if</span> (pictureNumber <span class="op">==</span> <span class="dv">1</span>) <span class="op">{</span><span class="co">// 入力された番号が1ならば</span>
@@ -858,7 +858,7 @@ a / b の余りは [答え] です．</code></pre>
 
 <span class="op">}</span></code></pre></td></tr></table></div>
 <p>いままでのプログラムでは，命令が必ず上から順番に全て実行されていました． これを順次実行といいます．</p>
-<p>今回登場する&quot;条件分岐&quot;を使うと，命令の実行される順番を変更，制御することができます．</p>
+<p>今回登場する「条件分岐」を使うと，命令の実行される順番を変更，制御することができます．</p>
 <p>条件分岐の一般的な形は次のとおりです．</p>
 <pre><code>if( [条件式] ) {
     処理A
@@ -1216,7 +1216,7 @@ handNumber <span class="op">=</span> <span class="at">random</span>(<span class=
 
 <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span> <span class="co">// 1,2,3以外の場合</span>
 
-    <span class="at">println</span>(<span class="st">&quot;不正な数です．&quot;</span>)<span class="op">;</span>
+    <span class="at">println</span>(<span class="st">&#39;不正な数です．&#39;</span>)<span class="op">;</span>
 
 <span class="op">}</span></code></pre></td></tr></table></div>
 <h4 id="じゃんけんの手のデータの扱いについて"><span class="header-section-number">3.2.3.2</span> じゃんけんの手のデータの扱いについて</h4>
@@ -1277,26 +1277,26 @@ handNumber <span class="op">=</span> <span class="at">random</span>(<span class=
 <span class="kw">var</span> rohrer<span class="op">;</span> <span class="co">// ローレル指数</span>
 
 <span class="op">{</span><span class="co">// ユーザの入力を受け取る</span>
-    height <span class="op">=</span> <span class="at">input</span>(<span class="st">&quot;身長を入力してください&quot;</span>)<span class="op">;</span>
-    weight <span class="op">=</span> <span class="at">input</span>(<span class="st">&quot;体重を入力してください&quot;</span>)<span class="op">;</span>
+    height <span class="op">=</span> <span class="at">input</span>(<span class="st">&#39;身長を入力してください&#39;</span>)<span class="op">;</span>
+    weight <span class="op">=</span> <span class="at">input</span>(<span class="st">&#39;体重を入力してください&#39;</span>)<span class="op">;</span>
 <span class="op">}</span>
 
 <span class="op">{</span><span class="co">// ローレル指数を求める</span>
     rohrer <span class="op">=</span> weight <span class="op">*</span> <span class="dv">10000000</span> / height / height / height<span class="op">;</span>
-    <span class="at">println</span>(<span class="st">&quot;ローレル指数は&quot;</span> <span class="op">+</span> rohrer <span class="op">+</span> <span class="st">&quot;です．&quot;</span>)<span class="op">;</span>
+    <span class="at">println</span>(<span class="st">&#39;ローレル指数は&#39;</span> <span class="op">+</span> rohrer <span class="op">+</span> <span class="st">&#39;です．&#39;</span>)<span class="op">;</span>
 <span class="op">}</span>
 
 <span class="op">{</span><span class="co">// 体型に対するコメントを提示する</span>
     <span class="cf">if</span> (rohrer <span class="op">&lt;</span> <span class="dv">100</span>) <span class="op">{</span>
-        <span class="at">println</span>(<span class="st">&quot;やせすぎですね．&quot;</span>)<span class="op">;</span>
+        <span class="at">println</span>(<span class="st">&#39;やせすぎですね．&#39;</span>)<span class="op">;</span>
     <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (rohrer <span class="op">&lt;</span> <span class="dv">115</span>) <span class="op">{</span>
-        <span class="at">println</span>(<span class="st">&quot;やせていますね．&quot;</span>)<span class="op">;</span>
+        <span class="at">println</span>(<span class="st">&#39;やせていますね．&#39;</span>)<span class="op">;</span>
     <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (rohrer <span class="op">&lt;</span> <span class="dv">145</span>) <span class="op">{</span>
-        <span class="at">println</span>(<span class="st">&quot;普通ですね．&quot;</span>)<span class="op">;</span>
+        <span class="at">println</span>(<span class="st">&#39;普通ですね．&#39;</span>)<span class="op">;</span>
     <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (rohrer <span class="op">&lt;</span> <span class="dv">160</span>) <span class="op">{</span>
-        <span class="at">println</span>(<span class="st">&quot;太っていますね．&quot;</span>)<span class="op">;</span>
+        <span class="at">println</span>(<span class="st">&#39;太っていますね．&#39;</span>)<span class="op">;</span>
     <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span>
-        <span class="at">println</span>(<span class="st">&quot;太りすぎですね．&quot;</span>)<span class="op">;</span>
+        <span class="at">println</span>(<span class="st">&#39;太りすぎですね．&#39;</span>)<span class="op">;</span>
     <span class="op">}</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
 <p>今度のプログラムでは，ローレル指数の範囲に対応して，メッセージが変わっていますね． このように，プログラムでは，変数に入っている値が同じかどうかを調べるだけでなく， 大きさの大小を比較して，条件を判定することもできます．</p>
@@ -1381,30 +1381,30 @@ handNumber <span class="op">=</span> <span class="at">random</span>(<span class=
 <span class="kw">var</span> rohrer<span class="op">;</span> <span class="co">// ローレル指数</span>
 
 <span class="op">{</span><span class="co">// ユーザの入力を受け取る</span>
-    height <span class="op">=</span> <span class="at">input</span>(<span class="st">&quot;身長を入力してください&quot;</span>)<span class="op">;</span>
-    weight <span class="op">=</span> <span class="at">input</span>(<span class="st">&quot;体重を入力してください&quot;</span>)<span class="op">;</span>
+    height <span class="op">=</span> <span class="at">input</span>(<span class="st">&#39;身長を入力してください&#39;</span>)<span class="op">;</span>
+    weight <span class="op">=</span> <span class="at">input</span>(<span class="st">&#39;体重を入力してください&#39;</span>)<span class="op">;</span>
 <span class="op">}</span>
 
 <span class="op">{</span><span class="co">// ローレル指数を求める</span>
     rohrer <span class="op">=</span> weight <span class="op">*</span> <span class="dv">10000000</span> / height / height / height<span class="op">;</span>
-    <span class="at">println</span>(<span class="st">&quot;ローレル指数は&quot;</span> <span class="op">+</span> rohrer <span class="op">+</span> <span class="st">&quot;です．&quot;</span>)<span class="op">;</span>
+    <span class="at">println</span>(<span class="st">&#39;ローレル指数は&#39;</span> <span class="op">+</span> rohrer <span class="op">+</span> <span class="st">&#39;です．&#39;</span>)<span class="op">;</span>
 <span class="op">}</span>
 
 <span class="op">{</span><span class="co">// 体型に対するコメントを提示する</span>
     <span class="cf">if</span> (rohrer <span class="op">&lt;</span> <span class="dv">100</span>) <span class="op">{</span>
-        <span class="at">println</span>(<span class="st">&quot;やせすぎですね．&quot;</span>)<span class="op">;</span>
+        <span class="at">println</span>(<span class="st">&#39;やせすぎですね．&#39;</span>)<span class="op">;</span>
     <span class="op">}</span>
     <span class="cf">if</span> (rohrer <span class="op">&gt;=</span> <span class="dv">100</span> <span class="op">&amp;&amp;</span> rohrer <span class="op">&lt;</span> <span class="dv">115</span>) <span class="op">{</span>
-        <span class="at">println</span>(<span class="st">&quot;やせていますね．&quot;</span>)<span class="op">;</span>
+        <span class="at">println</span>(<span class="st">&#39;やせていますね．&#39;</span>)<span class="op">;</span>
     <span class="op">}</span>
     <span class="cf">if</span> (rohrer <span class="op">&gt;=</span> <span class="dv">115</span> <span class="op">&amp;&amp;</span> rohrer <span class="op">&lt;</span> <span class="dv">145</span>) <span class="op">{</span>
-        <span class="at">println</span>(<span class="st">&quot;普通ですね．&quot;</span>)<span class="op">;</span>
+        <span class="at">println</span>(<span class="st">&#39;普通ですね．&#39;</span>)<span class="op">;</span>
     <span class="op">}</span>
     <span class="cf">if</span> (rohrer <span class="op">&gt;=</span> <span class="dv">145</span> <span class="op">&amp;&amp;</span> rohrer <span class="op">&lt;</span> <span class="dv">160</span>) <span class="op">{</span>
-        <span class="at">println</span>(<span class="st">&quot;太っていますね．&quot;</span>)<span class="op">;</span>
+        <span class="at">println</span>(<span class="st">&#39;太っていますね．&#39;</span>)<span class="op">;</span>
     <span class="op">}</span>
     <span class="cf">if</span> (rohrer <span class="op">&gt;=</span> <span class="dv">160</span>) <span class="op">{</span>
-        <span class="at">println</span>(<span class="st">&quot;太りすぎですね．&quot;</span>)<span class="op">;</span>
+        <span class="at">println</span>(<span class="st">&#39;太りすぎですね．&#39;</span>)<span class="op">;</span>
     <span class="op">}</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
 <p>今度のプログラムも，前例とやっていることは同じなのですが，条件文がちょっと異なっていますね．</p>
@@ -1601,7 +1601,7 @@ if( [条件式] ) {
     i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">;</span>
   <span class="op">}</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
-<p>今回登場した&quot;繰り返し&quot;を使うと，プログラムを繰り返すことができます．</p>
+<p>今回登場した「繰り返し」を使うと，プログラムを繰り返すことができます．</p>
 <p>繰り返しの一般的な形は次のとおりです．</p>
 <pre><code>while( [条件式] ) {
     処理
@@ -1823,7 +1823,7 @@ if( [条件式] ) {
 <img src="img/chapter05/foursquares.jpg" alt="窓を描くプログラム" />
 <p class="caption">窓を描くプログラム</p>
 </div>
-<p>前回，四角形を描くには繰り返しを使うことを習いました．今回は，さらにその四角形を何個も描くために， もう一つ外側に繰り返しを作って，&quot;繰り返しを繰り返す&quot;ということをやっています．</p>
+<p>前回，四角形を描くには繰り返しを使うことを習いました．今回は，さらにその四角形を何個も描くために， もう一つ外側に繰り返しを作って，「繰り返しを繰り返す」ということをやっています．</p>
 <p>入れ子の様子はフローチャートで示すとよく分かります．</p>
 <div class="figure">
 <img src="img/chapter05/flowchart.jpg" alt="窓を描くプログラムのフローチャート" />
@@ -2496,7 +2496,7 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 <span class="at">start</span>()<span class="op">;</span>
 
 <span class="kw">function</span> <span class="at">start</span>()<span class="op">{</span>
-    <span class="kw">var</span> length <span class="op">=</span> <span class="at">input</span>(<span class="st">&quot;一辺の長さ？&quot;</span>)<span class="op">;</span>
+    <span class="kw">var</span> length <span class="op">=</span> <span class="at">input</span>(<span class="st">&#39;一辺の長さ？&#39;</span>)<span class="op">;</span>
     <span class="at">drawRectangle</span>()<span class="op">;</span>
 <span class="op">}</span>
 
@@ -2532,7 +2532,7 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 <span class="at">start</span>()<span class="op">;</span>
 
 <span class="kw">function</span> <span class="at">start</span>()<span class="op">{</span>
-    <span class="kw">var</span> length <span class="op">=</span> <span class="at">input</span>(<span class="st">&quot;一辺の長さ？&quot;</span>)<span class="op">;</span>
+    <span class="kw">var</span> length <span class="op">=</span> <span class="at">input</span>(<span class="st">&#39;一辺の長さ？&#39;</span>)<span class="op">;</span>
     <span class="at">drawRectangle</span>(length)<span class="op">;</span>
 <span class="op">}</span>
 
@@ -2838,11 +2838,11 @@ var drawRectangle = function(length){
 13
 14
 15
-</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="at">println</span>(<span class="st">&quot;factorial(1) = &quot;</span> <span class="op">+</span> <span class="at">factorial</span>(<span class="dv">1</span>))<span class="op">;</span>
-<span class="at">println</span>(<span class="st">&quot;factorial(2) = &quot;</span> <span class="op">+</span> <span class="at">factorial</span>(<span class="dv">2</span>))<span class="op">;</span>
-<span class="at">println</span>(<span class="st">&quot;factorial(3) = &quot;</span> <span class="op">+</span> <span class="at">factorial</span>(<span class="dv">3</span>))<span class="op">;</span>
-<span class="at">println</span>(<span class="st">&quot;factorial(4) = &quot;</span> <span class="op">+</span> <span class="at">factorial</span>(<span class="dv">4</span>))<span class="op">;</span>
-<span class="at">println</span>(<span class="st">&quot;factorial(5) = &quot;</span> <span class="op">+</span> <span class="at">factorial</span>(<span class="dv">5</span>))<span class="op">;</span>
+</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="at">println</span>(<span class="st">&#39;factorial(1) = &#39;</span> <span class="op">+</span> <span class="at">factorial</span>(<span class="dv">1</span>))<span class="op">;</span>
+<span class="at">println</span>(<span class="st">&#39;factorial(2) = &#39;</span> <span class="op">+</span> <span class="at">factorial</span>(<span class="dv">2</span>))<span class="op">;</span>
+<span class="at">println</span>(<span class="st">&#39;factorial(3) = &#39;</span> <span class="op">+</span> <span class="at">factorial</span>(<span class="dv">3</span>))<span class="op">;</span>
+<span class="at">println</span>(<span class="st">&#39;factorial(4) = &#39;</span> <span class="op">+</span> <span class="at">factorial</span>(<span class="dv">4</span>))<span class="op">;</span>
+<span class="at">println</span>(<span class="st">&#39;factorial(5) = &#39;</span> <span class="op">+</span> <span class="at">factorial</span>(<span class="dv">5</span>))<span class="op">;</span>
 
 <span class="kw">function</span> <span class="at">factorial</span>(n) <span class="op">{</span>
     <span class="kw">var</span> result<span class="op">;</span>
@@ -2892,7 +2892,7 @@ var drawRectangle = function(length){
 27
 28
 29
-</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="at">print</span>(<span class="st">&quot;factorial(5, 0) = &quot;</span> <span class="op">+</span> <span class="at">factorial</span>(<span class="dv">5</span><span class="op">,</span> <span class="dv">0</span>))<span class="op">;</span>
+</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="at">print</span>(<span class="st">&#39;factorial(5, 0) = &#39;</span> <span class="op">+</span> <span class="at">factorial</span>(<span class="dv">5</span><span class="op">,</span> <span class="dv">0</span>))<span class="op">;</span>
 
 <span class="kw">function</span> <span class="at">factorial</span>(n<span class="op">,</span> indentCount) <span class="op">{</span>
     <span class="at">printStart</span>(n<span class="op">,</span> indentCount)<span class="op">;</span>
@@ -2908,17 +2908,17 @@ var drawRectangle = function(length){
 
 <span class="kw">function</span> <span class="at">printStart</span>(length<span class="op">,</span> indentCount) <span class="op">{</span>
     <span class="at">makeIndent</span>(indentCount)<span class="op">;</span>
-    <span class="at">println</span>(<span class="st">&quot;factorial(&quot;</span> <span class="op">+</span> length <span class="op">+</span> <span class="st">&quot;, &quot;</span> <span class="op">+</span> indentCount <span class="op">+</span> <span class="st">&quot;)&quot;</span>)<span class="op">;</span>
+    <span class="at">println</span>(<span class="st">&#39;factorial(&#39;</span> <span class="op">+</span> length <span class="op">+</span> <span class="st">&#39;, &#39;</span> <span class="op">+</span> indentCount <span class="op">+</span> <span class="st">&#39;)&#39;</span>)<span class="op">;</span>
 <span class="op">}</span>
 
 <span class="kw">function</span> <span class="at">printEnd</span>(result<span class="op">,</span> indentCount) <span class="op">{</span>
     <span class="at">makeIndent</span>(indentCount)<span class="op">;</span>
-    <span class="at">println</span>(<span class="st">&quot;// return &quot;</span> <span class="op">+</span> result)<span class="op">;</span>
+    <span class="at">println</span>(<span class="st">&#39;// return &#39;</span> <span class="op">+</span> result)<span class="op">;</span>
 <span class="op">}</span>
 
 <span class="kw">function</span> <span class="at">makeIndent</span>(indentCount) <span class="op">{</span>
     <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> indentCount<span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span>
-        <span class="at">print</span>(<span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)<span class="op">;</span>
+        <span class="at">print</span>(<span class="st">&#39;</span><span class="sc">\t</span><span class="st">&#39;</span>)<span class="op">;</span>
     <span class="op">}</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
 <pre><code>factorial(5, 0)
@@ -2965,13 +2965,13 @@ fib(6) = fib(5) + fib(4) = 13</code></pre>
 17
 18
 19
-</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="at">println</span>(<span class="st">&quot;fib(1) = &quot;</span> <span class="op">+</span> <span class="at">fib</span>(<span class="dv">1</span>))<span class="op">;</span>
-<span class="at">println</span>(<span class="st">&quot;fib(2) = &quot;</span> <span class="op">+</span> <span class="at">fib</span>(<span class="dv">2</span>))<span class="op">;</span>
-<span class="at">println</span>(<span class="st">&quot;fib(3) = &quot;</span> <span class="op">+</span> <span class="at">fib</span>(<span class="dv">3</span>))<span class="op">;</span>
-<span class="at">println</span>(<span class="st">&quot;fib(4) = &quot;</span> <span class="op">+</span> <span class="at">fib</span>(<span class="dv">4</span>))<span class="op">;</span>
-<span class="at">println</span>(<span class="st">&quot;fib(5) = &quot;</span> <span class="op">+</span> <span class="at">fib</span>(<span class="dv">5</span>))<span class="op">;</span>
-<span class="at">println</span>(<span class="st">&quot;fib(6) = &quot;</span> <span class="op">+</span> <span class="at">fib</span>(<span class="dv">6</span>))<span class="op">;</span>
-<span class="at">println</span>(<span class="st">&quot;fib(7) = &quot;</span> <span class="op">+</span> <span class="at">fib</span>(<span class="dv">7</span>))<span class="op">;</span>
+</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="at">println</span>(<span class="st">&#39;fib(1) = &#39;</span> <span class="op">+</span> <span class="at">fib</span>(<span class="dv">1</span>))<span class="op">;</span>
+<span class="at">println</span>(<span class="st">&#39;fib(2) = &#39;</span> <span class="op">+</span> <span class="at">fib</span>(<span class="dv">2</span>))<span class="op">;</span>
+<span class="at">println</span>(<span class="st">&#39;fib(3) = &#39;</span> <span class="op">+</span> <span class="at">fib</span>(<span class="dv">3</span>))<span class="op">;</span>
+<span class="at">println</span>(<span class="st">&#39;fib(4) = &#39;</span> <span class="op">+</span> <span class="at">fib</span>(<span class="dv">4</span>))<span class="op">;</span>
+<span class="at">println</span>(<span class="st">&#39;fib(5) = &#39;</span> <span class="op">+</span> <span class="at">fib</span>(<span class="dv">5</span>))<span class="op">;</span>
+<span class="at">println</span>(<span class="st">&#39;fib(6) = &#39;</span> <span class="op">+</span> <span class="at">fib</span>(<span class="dv">6</span>))<span class="op">;</span>
+<span class="at">println</span>(<span class="st">&#39;fib(7) = &#39;</span> <span class="op">+</span> <span class="at">fib</span>(<span class="dv">7</span>))<span class="op">;</span>
 
 <span class="kw">function</span> <span class="at">fib</span>(n) <span class="op">{</span>
     <span class="kw">var</span> value<span class="op">;</span>
@@ -3017,7 +3017,7 @@ fib(6) = fib(5) + fib(4) = 13</code></pre>
 29
 30
 31
-</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="at">print</span>(<span class="st">&quot;fib(5, 0) = &quot;</span> <span class="op">+</span> <span class="at">fib</span>(<span class="dv">5</span><span class="op">,</span> <span class="dv">0</span>))<span class="op">;</span>
+</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript"><span class="at">print</span>(<span class="st">&#39;fib(5, 0) = &#39;</span> <span class="op">+</span> <span class="at">fib</span>(<span class="dv">5</span><span class="op">,</span> <span class="dv">0</span>))<span class="op">;</span>
 
 <span class="kw">function</span> <span class="at">fib</span>(n<span class="op">,</span> indentCount) <span class="op">{</span>
     <span class="at">printStart</span>(n<span class="op">,</span> indentCount)<span class="op">;</span>
@@ -3035,17 +3035,17 @@ fib(6) = fib(5) + fib(4) = 13</code></pre>
 
 <span class="kw">function</span> <span class="at">printStart</span>(length<span class="op">,</span> indentCount) <span class="op">{</span>
     <span class="at">makeIndent</span>(indentCount)<span class="op">;</span>
-    <span class="at">println</span>(<span class="st">&quot;fib(&quot;</span> <span class="op">+</span> length <span class="op">+</span> <span class="st">&quot;, &quot;</span> <span class="op">+</span> indentCount <span class="op">+</span> <span class="st">&quot;)&quot;</span>)<span class="op">;</span>
+    <span class="at">println</span>(<span class="st">&#39;fib(&#39;</span> <span class="op">+</span> length <span class="op">+</span> <span class="st">&#39;, &#39;</span> <span class="op">+</span> indentCount <span class="op">+</span> <span class="st">&#39;)&#39;</span>)<span class="op">;</span>
 <span class="op">}</span>
 
 <span class="kw">function</span> <span class="at">printEnd</span>(result<span class="op">,</span> indentCount) <span class="op">{</span>
     <span class="at">makeIndent</span>(indentCount)<span class="op">;</span>
-    <span class="at">println</span>(<span class="st">&quot;// return &quot;</span> <span class="op">+</span> result)<span class="op">;</span>
+    <span class="at">println</span>(<span class="st">&#39;// return &#39;</span> <span class="op">+</span> result)<span class="op">;</span>
 <span class="op">}</span>
 
 <span class="kw">function</span> <span class="at">makeIndent</span>(indentCount) <span class="op">{</span>
     <span class="cf">for</span> (i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> indentCount<span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span>
-        <span class="at">print</span>(<span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)<span class="op">;</span>
+        <span class="at">print</span>(<span class="st">&#39;</span><span class="sc">\t</span><span class="st">&#39;</span>)<span class="op">;</span>
     <span class="op">}</span>
 <span class="op">}</span></code></pre></td></tr></table></div>
 <pre><code>fib(5, 0)
@@ -3329,7 +3329,7 @@ drawY(50, 0)
 
 function main() {
   var aishow = judge(&#39;木村拓哉&#39;, &#39;工藤静香&#39;);
-  println(&quot;相性は&quot; + aishow + &quot;です&quot;);
+  println(&#39;相性は&#39; + aishow + &#39;です&#39;);
 }
 
 function judge(name1, name2) {
@@ -3353,7 +3353,7 @@ function judge(name1, name2) {
 
 function main() {
   var aishow = judge(&#39;木村拓哉&#39;, &#39;工藤静香&#39;);
-  println(&quot;相性は&quot; + aishow + &quot;です&quot;);
+  println(&#39;相性は&#39; + aishow + &#39;です&#39;);
 }
 
 function judge(name1, name2) {
@@ -3387,31 +3387,31 @@ function myRandom(min, max) {
 <p>関数を使って西暦和暦変換プログラムを構造化してみましょう．</p>
 <p>はじめに，以下に構造化されていない西暦和暦変換プログラムを示します．</p>
 <pre><code> // アプリケーションの開始を知らせる
- println(&quot;西暦和暦変換プログラムを開始します&quot;);
+ println(&#39;西暦和暦変換プログラムを開始します&#39;);
 
  // 西暦を和暦に変換する
  var year;
  var japaneseYear;
 
  // 西暦を入力する
- year = input(&quot;西暦を入力してください&quot;);
+ year = input(&#39;西暦を入力してください&#39;);
 
  // 西暦を和暦に変換する
  if (year &gt;= 2019) {
-   japaneseYear = &quot;令和&quot; + (year - 2018);
+   japaneseYear = &#39;令和&#39; + (year - 2018);
  } else if (year &gt;= 1989) {
-   japaneseYear = &quot;平成&quot; + (year - 1988);
+   japaneseYear = &#39;平成&#39; + (year - 1988);
  } else if (year &gt;= 1926) {
-   japaneseYear = &quot;昭和&quot; + (year - 1925);
+   japaneseYear = &#39;昭和&#39; + (year - 1925);
  } else {
-   japaneseYear = &quot;不明&quot;;
+   japaneseYear = &#39;不明&#39;;
  }
 
  // 変換結果を出力する
- println(year + &quot;年は&quot; + japaneseYear + &quot;年です.&quot;);
+ println(year + &#39;年は&#39; + japaneseYear + &#39;年です.&#39;);
 
  // アプリケーションの終了を知らせる
- println(&quot;西暦和暦変換プログラムを終了します&quot;);</code></pre>
+ println(&#39;西暦和暦変換プログラムを終了します&#39;);</code></pre>
 <h3 id="構造化された西暦変換プログラム"><span class="header-section-number">8.4.1</span> 構造化された西暦変換プログラム</h3>
 <p>関数を使って構造化された，西暦変換プログラムの完全版を読んでみましょう．</p>
 <pre><code>// 西暦を和暦に変換する
@@ -3432,7 +3432,7 @@ function convertYear() {
 
 // 西暦を入力する
 function inputYear() {
-  var year = input(&quot;西暦を入力してください&quot;);
+  var year = input(&#39;西暦を入力してください&#39;);
   return year;
 }
 
@@ -3440,30 +3440,30 @@ function inputYear() {
 function convertToJapaneseYear(year) {
   var japaneseYear;
   if (year &gt;= 2019) {
-    japaneseYear = &quot;令和&quot; + (year - 2018);
+    japaneseYear = &#39;令和&#39; + (year - 2018);
   } else if (year &gt;= 1989) {
-    japaneseYear = &quot;平成&quot; + (year - 1988);
+    japaneseYear = &#39;平成&#39; + (year - 1988);
   } else if (year &gt;= 1926) {
-    japaneseYear = &quot;昭和&quot; + (year - 1925);
+    japaneseYear = &#39;昭和&#39; + (year - 1925);
   } else {
-    japaneseYear = &quot;不明&quot;;
+    japaneseYear = &#39;不明&#39;;
   }
   return japaneseYear;
 }
 
 // 変換結果を出力する
 function showResult(year, japaneseYear) {
-  println(year + &quot;年は&quot; + japaneseYear + &quot;年です.&quot;);
+  println(year + &#39;年は&#39; + japaneseYear + &#39;年です.&#39;);
 }
 
 // アプリケーションの開始を知らせる
 function showTitle() {
-  println(&quot;西暦和暦変換プログラムを開始します&quot;);
+  println(&#39;西暦和暦変換プログラムを開始します&#39;);
 }
 
 // アプリケーションの終了を知らせる
 function showEndTitle() {
-  println(&quot;西暦和暦変換プログラムを終了します&quot;);
+  println(&#39;西暦和暦変換プログラムを終了します&#39;);
 }</code></pre>
 <h2 id="関数の単体テスト"><span class="header-section-number">8.5</span> 関数の単体テスト</h2>
 <h3 id="結果の出力"><span class="header-section-number">8.5.1</span> 結果の出力</h3>
@@ -3472,10 +3472,10 @@ function showEndTitle() {
 <pre><code>main();
 
 function main() {
-  println(&quot;calculatePower(&quot; + 2 + &quot;, &quot; + 2 + &quot;) = &quot; + calculatePower(2, 2));
-  println(&quot;calculatePower(&quot; + 2 + &quot;, &quot; + 3 + &quot;) = &quot; + calculatePower(2, 3));
-  println(&quot;calculatePower(&quot; + 2 + &quot;, &quot; + 4 + &quot;) = &quot; + calculatePower(2, 4));
-  println(&quot;calculatePower(&quot; + 3 + &quot;, &quot; + 3 + &quot;) = &quot; + calculatePower(3, 3));
+  println(&#39;calculatePower(&#39; + 2 + &#39;, &#39; + 2 + &#39;) = &#39; + calculatePower(2, 2));
+  println(&#39;calculatePower(&#39; + 2 + &#39;, &#39; + 3 + &#39;) = &#39; + calculatePower(2, 3));
+  println(&#39;calculatePower(&#39; + 2 + &#39;, &#39; + 4 + &#39;) = &#39; + calculatePower(2, 4));
+  println(&#39;calculatePower(&#39; + 3 + &#39;, &#39; + 3 + &#39;) = &#39; + calculatePower(3, 3));
 }
 
 // 累乗を計算する
@@ -3503,7 +3503,7 @@ function main() {
 }
 
 function test(base, exp) {
-  println(&quot;calculatePower(&quot; + base + &quot;, &quot; + exp + &quot;) = &quot; + calculatePower(base, exp));
+  println(&#39;calculatePower(&#39; + base + &#39;, &#39; + exp + &#39;) = &#39; + calculatePower(base, exp));
 }
 
 // 累乗を計算する
@@ -3532,13 +3532,13 @@ function main() {
 
 function test(base, exp, expected) {
   var answer = calculatePower(base, exp);
-  var result = &quot;&quot;;
+  var result = &#39;&#39;;
   if (answer == expected) {
-    result = &quot;PASS&quot;;
+    result = &#39;PASS&#39;;
   } else {
-    result = &quot;FAIL&quot;;
+    result = &#39;FAIL&#39;;
   }
-  println(&quot;calculatePower(&quot; + base + &quot;, &quot; + exp + &quot;) = &quot; + answer + &quot;, 判定: &quot; + result);
+  println(&#39;calculatePower(&#39; + base + &#39;, &#39; + exp + &#39;) = &#39; + answer + &#39;, 判定: &#39; + result);
 }
 
 // 累乗を計算する
