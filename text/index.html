@@ -60,9 +60,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#プログラムに知性を条件分岐"><span class="toc-section-number">3</span> プログラムに知性を(条件分岐)</a></li>
 <li><a href="#コンピュータの得意な仕事繰り返し"><span class="toc-section-number">4</span> コンピュータの得意な仕事(繰り返し)</a></li>
 <li><a href="#ブロックの入れ子構造"><span class="toc-section-number">5</span> ブロックの入れ子構造</a></li>
-<li><a href="#命令をつくる関数引数付関数"><span class="toc-section-number">6</span> 命令をつくる：関数．引数付関数</a></li>
+<li><a href="#命令をつくる関数引数付関数"><span class="toc-section-number">6</span> 命令をつくる（１）：関数．引数付関数</a></li>
 <li><a href="#挑戦再帰プログラム"><span class="toc-section-number">7</span> 挑戦：再帰プログラム</a></li>
-<li><a href="#プログラムの部品化戻り値"><span class="toc-section-number">8</span> プログラムの部品化（２）（戻り値）</a></li>
+<li><a href="#命令をつくる戻り値付き関数"><span class="toc-section-number">8</span> 命令をつくる（２）：戻り値付き関数</a></li>
 </ul>
 </div>
 <h1 id="開発環境pike-placeの説明"><span class="header-section-number">0</span> 開発環境(pike place)の説明</h1>
@@ -2140,7 +2140,7 @@ if( [条件式] ) {
 <p class="caption">キーボードを描くプログラム</p>
 </div>
 <p>ファイル名は「keyboard.js」とすること．</p>
-<h1 id="命令をつくる関数引数付関数"><span class="header-section-number">6</span> 命令をつくる：関数．引数付関数</h1>
+<h1 id="命令をつくる関数引数付関数"><span class="header-section-number">6</span> 命令をつくる（１）：関数．引数付関数</h1>
 <h2 id="学習目標-5"><span class="header-section-number">6.1</span> 学習目標</h2>
 <ul>
 <li>関数を使ったプログラムを作れるようになる</li>
@@ -3315,11 +3315,12 @@ drawY(50, 0)
 このサイトを参考にして，葉っぱの絵を描いてみましょう．
 
 ファイル名は「Leaf.js」とすること． -->
-<h1 id="プログラムの部品化戻り値"><span class="header-section-number">8</span> プログラムの部品化（２）（戻り値）</h1>
+<h1 id="命令をつくる戻り値付き関数"><span class="header-section-number">8</span> 命令をつくる（２）：戻り値付き関数</h1>
 <h2 id="学習目標-7"><span class="header-section-number">8.1</span> 学習目標</h2>
 <ul>
 <li>戻り値を持つ関数を使ったプログラムを作れるようになる</li>
-<li>入出力を持つ関数を使ったプログラムを作れるようになる</li>
+<li>関数を作ることによって，プログラムの汎用化や構造化をすることができる．</li>
+<li>関数に対応した単体テストを作れるようになる．</li>
 </ul>
 <h2 id="戻り値付関数"><span class="header-section-number">8.2</span> 戻り値付関数</h2>
 <h3 id="戻り値とは"><span class="header-section-number">8.2.1</span> 戻り値とは</h3>
@@ -3381,7 +3382,8 @@ function main() {
 }
 
 function myRandom(min, max) {
-  return random(max - min) + min;
+  var generated = random(max - min + 1) + min;
+  return generated;
 }</code></pre>
 <h2 id="入出力を持つ関数を用いたプログラムの構造化"><span class="header-section-number">8.4</span> 入出力を持つ関数を用いたプログラムの構造化</h2>
 <p>関数を使って西暦和暦変換プログラムを構造化してみましょう．</p>
