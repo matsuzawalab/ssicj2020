@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <script>
+        function buttonAPressed() {
+            var x = document.getElementById('textbox1').value;
+            var y = document.getElementById('textbox2').value;
+            var z = x + y;
+            document.getElementById('textbox3').value = z;
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="textbox1">
+    +
+    <input type="text" id="textbox2">
+    =
+    <input type="text" id="textbox3">
+    <hr>
+    <button onclick="buttonAPressed()">A</button>
+</body>
+
+</html>
