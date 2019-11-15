@@ -16,6 +16,12 @@
 - [居駒クラス](http://pp3.si.aoyama.ac.jp/signin.html){:target="_blank"}
 - [斎藤クラス](http://pp4.si.aoyama.ac.jp/signin.html){:target="_blank"}
 
+## 中間テスト環境
+- [松澤クラス](http://pp2.si.aoyama.ac.jp/exam/){:target="_blank"}
+- [村田クラス](http://pp3.si.aoyama.ac.jp/exam/){:target="_blank"}
+- [居駒クラス](http://pp4.si.aoyama.ac.jp/exam/){:target="_blank"}
+- [斎藤クラス](http://pp1.si.aoyama.ac.jp/exam/){:target="_blank"}
+
 - [ステージングサーバ(学内のみ)](http://ppstaging-creco.si.aoyama.ac.jp/){:target="_blank"}
 
 # シラバス
