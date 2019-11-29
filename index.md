@@ -25,6 +25,10 @@
 - [居駒クラス](http://pp4.si.aoyama.ac.jp/exam/){:target="_blank"}
 - [斎藤クラス](http://pp1.si.aoyama.ac.jp/exam/){:target="_blank"}
 
+# Track
+
+- [Track]https://aoyama-gakuin-univ.tracks.run/auth/signin
+
 # シラバス
 ## 主題と目標
 本授業では，コンピュータを能動的に使用して問題を解決する「コンピューティング」の基礎技法を学ぶ．初歩のプログラミング体験を通して，自分の考えをモデル化して表現し，その良し悪しを評価しながら，形式的に，漸進的に問題を解決する技法と考え方を学ぶ(Computational Thinkingと呼ばれる考え方と同様である）．
