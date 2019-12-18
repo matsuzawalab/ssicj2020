@@ -1,0 +1,21 @@
+body {
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    font-size: 0.8em;
+}
+
+h1 {
+    /*線の種類（実線） 太さ 色*/
+    border-bottom: solid 2px black;
+}
+
+h2 {
+    padding: 0.25em 0.5em;
+    /*上下 左右の余白*/
+    color: #494949;
+    /*文字色*/
+    background: transparent;
+    /*背景透明に*/
+    border-left: solid 5px #2f2bf1;
+    /*左線*/
+}
+      
