@@ -1,0 +1,23 @@
+<html>
+
+<head>
+    <script>
+        function buttonAPressed() {
+            var html = '';
+            for (var i = 1; i <= 10; i++) {
+                html = html + '<li>' + i + '</li>';
+            }
+            document.getElementById('fruits').innerHTML = html;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>箇条書き</h1>
+    <button onclick="buttonAPressed()">A</button>
+    <hr>
+    <ul id="fruits">
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <script>
+        function buttonAPressed() {
+            var n = document.getElementById('input-repeatnum').value;
+            n = Number(n);
+            var html = '';
+            var sum = 0;
+            for (var i = 1; i <= n; i++) {
+                sum = sum + i;
+                html = html + '<li>' + sum + '</li>';
+            }
+            document.getElementById('list1').innerHTML = html;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>１からNまでの総和を求めるプログラム</h1>
+    求める回数（N）：
+    <select id="input-repeatnum">
+        <option value="10">10回</option>
+        <option value="15">15回</option>
+        <option value="20">20回</option>
+    </select>
+    <button onclick="buttonAPressed()">A</button>
+    <hr>
+    <ul id="list1"></ul>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <script>
+        var x = 0;
+        var timer;
+        var state = '停止中';
+
+        function buttonAPressed() {
+            if (state == '停止中') {
+                timer = setInterval(tick, 1000);
+                state = '動作中';
+            }
+        }
+
+        function buttonBPressed() {
+            if (state == '動作中') {
+                clearInterval(timer);
+                state = '停止中';
+            }
+        }
+
+        function tick() {
+            x = x + 1;
+            document.getElementById('time').innerHTML = x;
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="buttonAPressed()">A</button>
+    <button onclick="buttonBPressed()">B</button>
+    <hr>
+    <p id="time">0</p>
+</body>
+
+</html>

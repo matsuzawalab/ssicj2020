@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <script>
+
+        var img01 = new Image();
+        img01.src = 'img/goo.png';
+        var img02 = new Image();
+        img02.src = 'img/choki.png';
+        var img03 = new Image();
+        img03.src = 'img/pa.png';
+
+        function buttonAPressed() {
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+
+            var x = Math.floor(Math.random() * 3) + 1;
+            if (x == 1) {
+                ctx.drawImage(img01, 10, 10, 100, 100);
+            } else if (x == 2) {
+                ctx.drawImage(img02, 10, 10, 100, 100);
+            } else if (x == 3) {
+                ctx.drawImage(img03, 10, 10, 100, 100);
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <button onclick="buttonAPressed()">A</button>
+    <hr>
+    <canvas id="canvas1" width="400" height="300" style="border: solid 1px;"></canvas>
+</body>
+
+</html>

@@ -1,5 +1,5 @@
-# セクション1 タイマー
-セクション１では，タイマーの使い方を学びます．
+# タイマー
+本章では，タイマーの使い方を学びます．
 
 ## タイマーから一定間隔で関数を呼び出す
 
@@ -17,34 +17,7 @@ setInterval(tick, 1000);
 ```
 という行では，tickという関数（下に定義してありますね）を，1000ミリ秒ごと，つまり１秒毎に呼び出すタイマーを起動する，という意味になります．Aボタンを押すと，setInterval関数が実行され，タイマーが起動して１秒毎にtick関数が実行されるようになります．
 
-### main(index.html)
-
-```
-<html>
-
-<head>
-    <script>
-        var x = 0;
-
-        function buttonAPressed() {
-            ${setInterval}(tick, 1000);
-        }
-
-        function tick() {
-            x = x + 1;
-            document.getElementById('time').innerHTML = x;
-        }
-    </script>
-</head>
-
-<body>
-    <button onclick="buttonAPressed()">A</button>
-    <hr>
-    <p id="time">0</p>
-</body>
-
-</html>
-```
+<div code src='8-1'></div>
 
 ## タイマーを停止する
 
@@ -65,40 +38,7 @@ clearInterval関数でタイマーを停止します．
 clearInterval(timer);
 ```
 
-### main(index.html)
-
-```
-<html>
-
-<head>
-    <script>
-        var x = 0;
-        var timer;
-
-        function buttonAPressed() {
-            ${timer} = setInterval(tick, 1000);
-        }
-
-        function buttonBPressed() {
-            ${clearInterval(timer)};
-        }
-
-        function tick() {
-            x = x + 1;
-            document.getElementById('time').innerHTML = x;
-        }
-    </script>
-</head>
-
-<body>
-    <button onclick="buttonAPressed()">A</button>
-    <button onclick="buttonBPressed()">B</button>
-    <hr>
-    <p id="time">0</p>
-</body>
-
-</html>
-```
+<div code src='8-2'></div>
 
 ## タイマーの重複起動を回避する
 
@@ -131,89 +71,14 @@ function buttonBPressed() {
 ```
 このプログラムは，stateが「動作中」のときだけ，タイマーを停止し，停止したらstateを「停止中」に切り替えます．
 
-### main(index.html)
-
-```
-<html>
-
-<head>
-    <script>
-        var x = 0;
-        var timer;
-        var state = '停止中';
-
-        function buttonAPressed() {
-            if (state == '${停止中}') {
-                timer = setInterval(tick, 1000);
-                state = '${動作中}';
-            }
-        }
-
-        function buttonBPressed() {
-            if (state == '動作中') {
-                clearInterval(timer);
-                state = '停止中';
-            }
-        }
-
-        function tick() {
-            x = x + 1;
-            document.getElementById('time').innerHTML = x;
-        }
-    </script>
-</head>
-
-<body>
-    <button onclick="buttonAPressed()">A</button>
-    <button onclick="buttonBPressed()">B</button>
-    <hr>
-    <p id="time">0</p>
-</body>
-
-</html>
-```
+<div code src='8-3'></div>
 
 ## シンプルなインターフェイスに
 
 state変数で状態を管理できるようになると，ボタンは一つでも同様の機能を実現できることに気づきます．
 AボタンとBボタンの動作について，Aボタン一つでその状態ごとに動作を分岐するようにして，Aボタンを押すたびに停止と実行を切り替えるプログラムを作ることができます．
 
-### main(index.html)
-
-```
-<html>
-
-<head>
-    <script>
-        var x = 0;
-        var timer;
-        var state = '停止中';
-
-        function buttonAPressed() {
-            if (${state} == '停止中') {
-                timer = setInterval(tick, 1000);
-                state = '動作中';
-            } else if (${state} == '動作中') {
-                clearInterval(timer);
-                state = '停止中';
-            }
-        }
-
-        function tick() {
-            x = x + 1;
-            document.getElementById('time').innerHTML = x;
-        }
-    </script>
-</head>
-
-<body>
-    <button onclick="buttonAPressed()">A</button>
-    <hr>
-    <p id="time">0</p>
-</body>
-
-</html>
-```
+<div code src='8-4'></div>
 
 ## ストップウォッチ
 
@@ -229,45 +94,4 @@ if (oneof10sec == 10) {
 }
 ```
 
-### main(index.html)
-
-```
-<html>
-
-<head>
-    <script>
-        var sec = 0;
-        var oneof10sec = 0;
-        var timer;
-        var state = '停止中';
-
-        function buttonAPressed() {
-            if (state == '停止中') {
-                timer = setInterval(tick, 100);
-                state = '動作中';
-            } else if (state == '動作中') {
-                clearInterval(timer);
-                state = '停止中';
-            }
-        }
-
-        function tick() {
-            oneof10sec = oneof10sec + 1;
-            if (oneof10sec == 10) {
-                sec = ${sec + 1};
-                oneof10sec = ${0};
-            }
-            document.getElementById('output-sec').innerHTML = sec;
-            document.getElementById('output-oneof10sec').innerHTML = oneof10sec;
-        }
-    </script>
-</head>
-
-<body>
-    <button onclick="buttonAPressed()">A</button>
-    <hr>
-    <p><span id="output-sec">0</span>:<span id="output-oneof10sec">0</span></p>
-</body>
-
-</html>
-```
+<div code src='8-5'></div>

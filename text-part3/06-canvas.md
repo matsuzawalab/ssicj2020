@@ -33,36 +33,7 @@ ctx.strokeRect(200, 80, 100, 50);
 ctx.fillRect(20, 40, 50, 100);
 ```    
 
-### main(index.html)
-
-```
-<html>
-
-<head>
-    <script>
-
-        function buttonAPressed() {
-            var ctx = document.getElementById('${canvas1}').getContext('2d');
-            ctx.clearRect(0, 0, 400, 300);
-
-            ctx.strokeStyle = '#0000FF';
-            ctx.fillStyle = '#FF0000';
-
-            ctx.strokeRect(200, 80, 100, 50);
-            ctx.fillRect(20, 40, 50, 100);
-        }
-
-    </script>
-</head>
-
-<body>
-    <button onclick="buttonAPressed()">A</button>
-    <hr>
-    <${canvas} id="canvas1" width="400" height="300" style="border: solid 1px;"></canvas>
-</body>
-
-</html>
-```
+<div code src='6-1'></div>
 
 ## 円を書く
 
@@ -90,44 +61,10 @@ ctx.fill();
 ```
 で，パスを終了し，図形を描画します．
 
+<div code src='6-2'></div>
+
 ### hint
 180°はラジアンでπ，360°はラジアンで２πとなります．
-
-### main(index.html)
-
-```
-<html>
-
-<head>
-    <script>
-
-        function buttonAPressed() {
-            var ctx = document.getElementById('canvas1').getContext('2d');
-            ctx.clearRect(0, 0, 400, 300);
-
-            ctx.strokeStyle = '#0000FF';
-            ctx.fillStyle = '#FF0000';
-
-            ctx.beginPath();
-            ctx.${arc}(100, 100, 50, 0, Math.PI * 2);
-            ctx.stroke();
-
-            ctx.beginPath();
-            ctx.arc(200, 100, 50, 0, Math.PI * 2);
-            ctx.fill();
-        }
-
-    </script>
-</head>
-
-<body>
-    <button onclick="buttonAPressed()">A</button>
-    <hr>
-    <canvas id="canvas1" width="400" height="300" style="border: solid 1px;"></canvas>
-</body>
-
-</html>
-```
 
 ## 線を書く
 
@@ -151,47 +88,7 @@ ctx.stroke();
 
 lineToを２回以上呼び出して，３角形以上の多角形ができる場合には，始点と終点をつなぎ，多角形を作ります．
 
-### main(index.html)
-
-```
-<html>
-
-<head>
-    <script>
-
-        function buttonAPressed() {
-            var ctx = document.getElementById('canvas1').getContext('2d');
-            ctx.clearRect(0, 0, 400, 300);
-
-            ctx.strokeStyle = '#0000FF';
-            ctx.fillStyle = '#FF0000';
-
-            //100, 100から200, 200 へ線を引く
-            ctx.${beginPath()};
-            ctx.${moveTo}(100, 100);
-            ctx.${lineTo}(200, 200);
-            ctx.${stroke}();
-
-            //３点を頂点とする三角形を描画する
-            ctx.beginPath();
-            ctx.moveTo(200, 200);
-            ctx.lineTo(250, 100);
-            ctx.lineTo(300, 200);
-            ctx.closePath();
-            ctx.stroke();
-        }
-
-    </script>
-</head>
-
-<body>
-    <button onclick="buttonAPressed()">A</button>
-    <hr>
-    <canvas id="canvas1" width="400" height="300" style="border: solid 1px;"></canvas>
-</body>
-
-</html>
-```
+<div code src='6-3'></div>
 
 ## 文字列を描画する
 
@@ -213,34 +110,7 @@ ctx.strokeText("hello, world!", 20, 175, 200);
 ```
 で描画します．
 
-### main(index.html)
-
-```
-<html>
-
-<head>
-    <script>
-
-        function buttonAPressed() {
-            var ctx = document.getElementById('canvas1').getContext('2d');
-            ctx.clearRect(0, 0, 400, 300);
-
-            ctx.${font} = "30px sans-serif";
-            ctx.${fillText}("hello, world!", 20, 75, 200);            
-            ctx.strokeText("hello, world!", 20, 175, 200);
-        }
-
-    </script>
-</head>
-
-<body>
-    <button onclick="buttonAPressed()">A</button>
-    <hr>
-    <canvas id="canvas1" width="400" height="300" style="border: solid 1px;"></canvas>
-</body>
-
-</html>
-```
+<div code src='6-4'></div>
 
 ## 画像を描画する
 
@@ -259,36 +129,5 @@ ctx.drawImage(img01, 10, 10, 100, 100);
 ```
 と記述し描画します．引数は(画像オブジェクト, x座標, y座標, 幅，高さ)です．
 
-### main(index.html)
+<div code src='6-5'></div>
 
-```
-<html>
-
-<head>
-    <script>
-
-        var img01 = new Image();
-        img01.src = "goo.png";
-
-        function buttonAPressed() {
-            var ctx = document.getElementById('canvas1').getContext('2d');
-            ctx.clearRect(0, 0, 400, 300);
-
-            ctx.${drawImage}(img01, 10, 10, 100, 100);
-        }
-
-    </script>
-</head>
-
-<body>
-    <button onclick="buttonAPressed()">A</button>
-    <hr>
-    <canvas id="canvas1" width="400" height="300" style="border: solid 1px;"></canvas>
-</body>
-
-</html>
-```
-
-### files
-
-- [goo.png](src/goo.png)

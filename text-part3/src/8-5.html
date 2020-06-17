@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <script>
+        var sec = 0;
+        var oneof10sec = 0;
+        var timer;
+        var state = '停止中';
+
+        function buttonAPressed() {
+            if (state == '停止中') {
+                timer = setInterval(tick, 100);
+                state = '動作中';
+            } else if (state == '動作中') {
+                clearInterval(timer);
+                state = '停止中';
+            }
+        }
+
+        function tick() {
+            oneof10sec = oneof10sec + 1;
+            if (oneof10sec == 10) {
+                sec = sec + 1;
+                oneof10sec = 0;
+            }
+            document.getElementById('output-sec').innerHTML = sec;
+            document.getElementById('output-oneof10sec').innerHTML = oneof10sec;
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="buttonAPressed()">A</button>
+    <hr>
+    <p><span id="output-sec">0</span>:<span id="output-oneof10sec">0</span></p>
+</body>
+
+</html>

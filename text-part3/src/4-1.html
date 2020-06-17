@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <script>
+        function buttonAPressed() {
+            var n = document.getElementById('input-repeatnum').value;
+            n = Number(n);
+            var html = '';
+            for (var i = 1; i <= n; i++) {
+                html = html + '<li>' + i + '</li>';
+            }
+            document.getElementById('list1').innerHTML = html;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>１からNまでの数字を数えるプログラム</h1>
+    数える回数（N）：
+    <select id="input-repeatnum">
+        <option value="10">10回</option>
+        <option value="15">15回</option>
+        <option value="20">20回</option>
+    </select>
+    <button onclick="buttonAPressed()">A</button>
+    <hr>
+    <ul id="list1"></ul>
+</body>
+
+</html>

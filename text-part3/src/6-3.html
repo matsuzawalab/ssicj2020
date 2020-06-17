@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <script>
+
+        function buttonAPressed() {
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+
+            ctx.strokeStyle = '#0000FF';
+            ctx.fillStyle = '#FF0000';
+
+            //100, 100から200, 200 へ線を引く
+            ctx.beginPath();
+            ctx.moveTo(100, 100);
+            ctx.lineTo(200, 200);
+            ctx.stroke();
+
+            //３点を頂点とする三角形を描画する
+            ctx.beginPath();
+            ctx.moveTo(200, 200);
+            ctx.lineTo(250, 100);
+            ctx.lineTo(300, 200);
+            ctx.closePath();
+            ctx.stroke();
+        }
+
+    </script>
+</head>
+
+<body>
+    <button onclick="buttonAPressed()">A</button>
+    <hr>
+    <canvas id="canvas1" width="400" height="300" style="border: solid 1px;"></canvas>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <script>
+        var x = 0;
+        var timer;
+
+        function buttonAPressed() {
+            timer = setInterval(tick, 1000);
+        }
+
+        function buttonBPressed() {
+            clearInterval(timer);
+        }
+
+        function tick() {
+            x = x + 1;
+            document.getElementById('time').innerHTML = x;
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="buttonAPressed()">A</button>
+    <button onclick="buttonBPressed()">B</button>
+    <hr>
+    <p id="time">0</p>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <script>
+
+        var img01 = new Image();
+        img01.src = 'img/goo.png';
+        var img02 = new Image();
+        img02.src = 'img/choki.png';
+        var img03 = new Image();
+        img03.src = 'img/pa.png';
+
+        var timer;
+        var state = '停止中';
+
+        var x = 1;
+
+        function buttonAPressed() {
+            if (state == '停止中') {
+                timer = setInterval(tick, 20);
+                state = '動作中';
+            } else if (state == '動作中') {
+                clearInterval(timer);
+                state = '停止中';
+            }
+        }
+
+        function tick() {
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+
+            if (x == 1) {
+                ctx.drawImage(img01, 10, 10, 100, 100);
+            } else if (x == 2) {
+                ctx.drawImage(img02, 10, 10, 100, 100);
+            } else if (x == 3) {
+                ctx.drawImage(img03, 10, 10, 100, 100);
+            }
+
+            if (x <= 2) {
+                x = x + 1;
+            } else {
+                x = 1;
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <button onclick="buttonAPressed()">A</button>
+    <hr>
+    <canvas id="canvas1" width="400" height="300" style="border: solid 1px;"></canvas>
+</body>
+
+</html>

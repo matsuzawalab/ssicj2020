@@ -1,5 +1,5 @@
-# セクション２ テキストフィールドとJavaScriptの連携
-セクション２では，テキストフィールドへの入出力を学びます．
+# テキストフィールドとJavaScriptの連携
+本章では，テキストフィールドへの入出力を学びます．
 
 ## テキストフィールドを作る
 
@@ -13,15 +13,7 @@ htmlを使ってテキストフィールドを作るには，inputタグを使�
 
 ### main(index.html)
 
-```
-<html>
-    <head>
-    </head>
-    <body>
-        <${input type="text"}>
-    </body>
-</html>
-```
+<div code src='2-1'></div>
 
 ## テキストフィールドの初期値作る
 
@@ -32,15 +24,7 @@ htmlを使ってテキストフィールドを作るには，inputタグを使�
 
 ### main(index.html)
 
-```
-<html>
-    <head>
-    </head>
-    <body>
-        <input type="text" ${value}="2">
-    </body>
-</html>
-```
+<div code src='2-2'></div>
 
 ## テキストフィールドから値を取得する
 
@@ -60,22 +44,7 @@ document.getElementById('[id名]')
 
 ### main(index.html)
 
-```
-<html>    
-<head>
-    <script>
-        function a(){
-            var x = ${document}.${getElementById}('${textfield1}').value;
-            window.alert('入力されたのは' + x + 'です．');
-        } 
-    </script>
-</head>
-<body>
-    <input id="textfield1" type="text">
-    <button onclick="a()">A</button>
-</body>
-</html>
-```
+<div code src='2-3'></div>
 
 ## テキストフィールドに値を入力する
 
@@ -87,23 +56,7 @@ documnet.getElementById('[id名]').value = x;
 
 ### main(index.html)
 
-```
-<html>    
-<head>
-    <script>
-        function a(){
-            var x = document.getElementById('textfield1').value;
-            ${document}.${getElementById}('textfield2').value = x;
-        } 
-    </script>
-</head>
-<body>
-    <input id="textfield1" type="text">
-    <input id="textfield2" type="text">
-    <button onclick="a()">A</button>
-</body>
-</html>
-```
+<div code src='2-4'></div>
 
 ## テキストフィールドから取得した文字列を数字に変換し，計算を行う
 
@@ -120,28 +73,6 @@ Number関数で，文字列を数字に変えることができます．
 
 ### main(index.html)
 
-```
-<html>    
-<head>
-    <script>
-        function ${calc}(){
-            var a = document.getElementById('textfield1').value;
-            a = ${Number}(${a});
-            var b = document.getElementById('textfield2').value;
-            b = ${Number}(${b});
-            var c = a + b;
-            document.getElementById('${textfield3}').value = c;
-        } 
-    </script>
-</head>
-<body>
-    <input id="textfield1" type="text">
-    +
-    <input id="textfield2" type="text">
-    <button onclick="calc()">=</button>
-    <input id="textfield3" type="text">
-    
-</body>
-</html>
-```
+<div code src='2-5'></div>
+
 

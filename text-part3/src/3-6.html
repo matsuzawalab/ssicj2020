@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <script>
+        function buttonAPressed() {
+            var fruit = document.getElementById('input-fruit').value;
+            var html = document.getElementById('fruits').innerHTML;
+            html = html + '<li>' + fruit + '</li>';
+            document.getElementById('fruits').innerHTML = html;
+            document.getElementById('input-fruit').value = '';
+        }
+    </script>
+</head>
+
+<body>
+    <h1>箇条書き</h1>
+    <input id="input-fruit" type="text">
+    <button onclick="buttonAPressed()">A</button>
+    <hr>
+    <ul id="fruits">
+    </ul>
+</body>
+
+</html>

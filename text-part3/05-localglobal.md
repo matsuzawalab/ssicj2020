@@ -13,30 +13,7 @@ var x = 0;
 
 関数内で定義されたローカル変数（局所変数）は，関数の呼び出し毎に毎回保存領域が確保され，初期化され，関数が終わると消滅する呼び出し１回限り有効な変数です．したがって，ボタンを何度も押し，関数を何度実行しても，表示されるのは１のままです．
 
-### main(index.html)
-
-```
-<html>
-
-<head>
-    <script>
-        function buttonAPressed() {
-            ${var x = 0;}
-            x = x + 1;
-            document.getElementById('label1').innerHTML = x;
-        }
-
-    </script>
-</head>
-
-<body>
-    <button onclick="buttonAPressed()">A</button>
-    <hr>
-    <p id="label1">0</p>
-</body>
-
-</html>
-```
+<div code src='5-1'></div>
 
 ## グローバル変数
 
@@ -49,31 +26,7 @@ var x = 0;
 
 今度のプログラムでは，ボタンを何度押しても，前回の値が保存されているので，１ずつカウントアップするプログラムを作ることができます．
 
-### main(index.html)
-
-```
-<html>
-
-<head>
-    <script>
-        ${var x = 0;}
-
-        function buttonAPressed() {
-            x = x + 1;
-            document.getElementById('label1').innerHTML = x;
-        }
-
-    </script>
-</head>
-
-<body>
-    <button onclick="buttonAPressed()">A</button>
-    <hr>
-    <p id="label1">0</p>
-</body>
-
-</html>
-```
+<div code src='5-2'></div>
 
 ## グローバル変数（２）
 
@@ -85,37 +38,8 @@ x = 0;
 
 もう一つの関数を用意して，カウントをリセットするボタンを作ることができました．
 
+<div code src='5-3'></div>
+
 ### tips
 
 このように，大変便利に見えるグローバル変数ですが，プログラムの保守という観点からは問題が多いので，極力控えてプログラムを作ることが推奨されています．簡単に説明すると，バグが起こったときに，ローカル変数ならばバグの範囲が限定しやすいのですが，グローバル変数が多いと，影響を与える関数（プログラム）の範囲が広大になってしまい，デバッグする範囲も広域に及びます．
-
-### main(index.html)
-
-```
-<html>
-
-<head>
-    <script>
-        var x = 0;
-
-        function buttonAPressed() {
-            ${x = x + 1;}
-            document.getElementById('label1').innerHTML = x;
-        }
-
-        function buttonBPressed() {
-            ${x = 0;}
-            document.getElementById('label1').innerHTML = x;
-        }
-    </script>
-</head>
-
-<body>
-    <button onclick="buttonAPressed()">A</button>
-    <button onclick="buttonBPressed()">B</button>
-    <hr>
-    <p id="label1">0</p>
-</body>
-
-</html>
-```

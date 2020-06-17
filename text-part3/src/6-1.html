@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <script>
+
+        function buttonAPressed() {
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+
+            ctx.strokeStyle = '#0000FF';
+            ctx.fillStyle = '#FF0000';
+
+            ctx.strokeRect(200, 80, 100, 50);
+            ctx.fillRect(20, 40, 50, 100);
+        }
+
+    </script>
+</head>
+
+<body>
+    <button onclick="buttonAPressed()">A</button>
+    <hr>
+    <canvas id="canvas1" width="400" height="300" style="border: solid 1px;"></canvas>
+</body>
+
+</html>

@@ -1,6 +1,5 @@
-
-# セクション1 ボタンとJavaScriptの連携
-セクション１では，htmlボタンの作り方とJavaScriptの基本を学びます．
+# ボタンとJavaScriptの連携
+本章では，htmlボタンの作り方とJavaScriptの基本を学びます．
 
 ## ボタンを作る
 
@@ -9,42 +8,24 @@ htmlを使ってボタンを作るには，buttonタグを使います．
 <button>[ボタンのラベル]</button>
 ```
 
-```{#lst:1-1 .javascript .numberLines caption="家を書くサンプルプログラム"}
-<html>
-    <head>
-    </head>
-    <body>
-        <${button}>A</${button}>
-    </body>
-</html>
-```
+<div code src='1-1'></div>
 
 ## Javascriptを埋め込む
 
 htmlにJavascriptプログラムを埋め込むには，scriptタグを使います．
+
 ```
 <html>
+
 <head>
     <script>
         [Javascriptのプログラム]
     </script>
 </head>
+
 <body>
 </body>
-</html>
-```
 
-```{#lst:1-1 .javascript .numberLines caption="家を書くサンプルプログラム"}
-<html>
-    <head>
-        <${script}>
-            function a(){
-                window.alert('hello, world');
-            }
-        <${\/script}>
-    </head>
-    <body>
-    </body>
 </html>
 ```
 
@@ -55,49 +36,18 @@ htmlにJavascriptプログラムを埋め込むには，scriptタグを使いま
 <button onclick="a()">A</button>
 ```
 
-```{#lst:1-1 .javascript .numberLines caption="家を書くサンプルプログラム"}
-<html>
-    <head>
-        <script>
-            function a(){
-                window.alert('hello, world');
-            }
-        </script>
-    </head>
-    <body>
-        <button ${onclick}="${a()}">A</button>
-    </body>
-</html>
-```
+<div code src='1-3'></div>
 
 ### tips
 プログラムが完成したら，ボタンを押してみよう．
 window.alert("メッセージ")命令は，ダイアログにメッセージを出力します．
 なお，タートルではないJavascriptでは，print()命令は使えません．
 
-
 ## ボタンを２つ作る
 
 ボタンを２つ作ることもできます．
 
-```{#lst:1-1 .javascript .numberLines caption="家を書くサンプルプログラム"}
-<html>
-    <head>
-        <script>
-            function a(){
-                window.alert('A!');
-            }
-            function b(){
-                window.alert('B!');
-            }            
-        </script>
-    </head>
-    <body>
-        <button onclick="${a()}">A</button>
-        <button onclick="${b()}">B</button>
-    </body>
-</html>
-```
+<div code src='1-4'></div>
 
 ## おみくじ
 
@@ -115,26 +65,6 @@ var x = Math.floor(Math.random() * 5) + 1
 ```
 というようにプログラムします．
 
-```{#lst:1-1 .javascript .numberLines caption="家を書くサンプルプログラム"}
-<html>
-    <head>
-        <script>
-            function a(){
-                //0, 1の乱数を生成する
-                var x = Math.floor(${Math.random()} * ${2})
-                if(x == 0){
-                    window.alert('あたり！');
-                }else{
-                    window.alert('はずれ．');
-                }
-            }         
-        </script>
-    </head>
-    <body>
-        <h1>おみくじプログラム</h1>
-        <button onclick="a()">A</button>
-    </body>
-</html>
-```
+<div code src='1-5'></div>
 
 
