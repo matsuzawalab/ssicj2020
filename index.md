@@ -26,15 +26,13 @@
 - [斎藤クラス](http://pp1.si.aoyama.ac.jp/exam/){:target="_blank"} -->
 
 # HTML+Javascript編
-## Track
-- [Track](https://aoyama-gakuin-univ.tracks.run/auth/signin)
-<!-- - [アンケート](https://docs.google.com/forms/d/e/1FAIpQLSenUUh6EhsaKtNT7QocNMJqFeTlYOllDdaAeyMzXdlod9Ydwg/viewform) -->
 
-# テキスト
-- [ミニプロジェクト](text-part3/index.html)
-
+# 教材
+- [テキスト](text-part3/index.html)
 
 ## 第１３回課題
+- [Track](https://aoyama-gakuin-univ.tracks.run/auth/signin)
+<!-- - [アンケート](https://docs.google.com/forms/d/e/1FAIpQLSenUUh6EhsaKtNT7QocNMJqFeTlYOllDdaAeyMzXdlod9Ydwg/viewform) -->
 - [第１３回課題](part3-2019/practice13.html)
 
 # ミニプロジェクト
