@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        function button1Pressed() {
+            var userid = document.getElementById('tf1').value;
+            var password = document.getElementById('tf2').value;
+
+            window.localStorage.setItem('userid', userid);
+            window.localStorage.setItem('password', password);
+        }
+
+        function button2Pressed() {
+            var userid = window.localStorage.getItem('userid');
+            var password = window.localStorage.getItem('password');
+
+            document.getElementById('tf1').value = userid;
+            document.getElementById('tf2').value = password;
+        }
+    </script>
+</head>
+
+<body>
+    <input id="tf1" type="textfield">ログイン名
+    <br>
+    <input id="tf2" type="password">パスワード
+    <button onclick="button1Pressed()">A</button>
+    <button onclick="button2Pressed()">B</button>
+    <hr>
+    <p id="result"></p>
+</body>
+
+</html>

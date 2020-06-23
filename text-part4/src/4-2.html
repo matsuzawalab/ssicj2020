@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script>
+        async function button1Pressed() {
+            var userid = document.getElementById('tf1').value;
+            var password = document.getElementById('tf2').value;
+            var tweet = document.getElementById('tf3').value;
+
+            var sql = 'insert into Tweets (name, tweet, time) values("' + userid + '","' + tweet + '",now());';
+            var query = {
+                db: 'crecodb',
+                userid: userid,
+                password: password,
+                sql: sql
+            };
+            var objects = await connect(query);
+            console.log(objects);
+        }
+
+        //この関数は変えないこと
+        function connect(query) {
+            return new Promise(function (resolve) {
+                $.post('http://dbkiso.si.aoyama.ac.jp/api/', query, function (data, textStatus) {
+                    var objects = JSON.parse(data);
+                    resolve(objects);
+                });
+            });
+        }
+
+    </script>
+</head>
+
+<body>
+    version 1.0
+    <h1>まいついったー</h1>
+    <input id="tf1" value="t23921" type="textfield">ログイン名
+    <br>
+    <input id="tf2" type="password">パスワード
+    <br>
+    <input id="tf3" type="textfield">
+    <button onclick="button1Pressed()">tweet</button>
+    <hr>
+    <br>
+    <p id="result"></p>
+
+
+</body>
+
+</html>
