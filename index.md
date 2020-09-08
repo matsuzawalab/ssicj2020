@@ -4,8 +4,13 @@
 - 金曜1, 2限
 
 # Jigsaw教材
+<!--
 - [p1](jigsaw/p1/index.html){:target="_blank"}
-<a href="jigsaw/p1/index.html" target="_blank">alternative</a>
+-->
+<ul>
+<li><a href="jigsaw/p1/index.html" target="_blank">演習１</a></li>
+<li><a href="jigsaw/p2/index.html" target="_blank">演習２</a></li>
+</ul>
 
 <!--
 # スケジュール
