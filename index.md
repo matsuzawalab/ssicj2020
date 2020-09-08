@@ -1,10 +1,15 @@
-# コンピュータ実習 2019
+# コンピュータ実習 2020
 
 # 実施要領
 - 金曜1, 2限
 
 # スケジュール
+- (jigsaw/p1/index.html){:target="_blank"}
+
+<!--
+# スケジュール
 - [スケジュール](https://docs.google.com/spreadsheets/d/1LOKHvdWjqzRdcqco0fPwPuG69iuIHuf_rEfVPZKZ35U/edit?usp=sharing)
+-->
 
 # タートルグラフィックス編
 ## 教材
