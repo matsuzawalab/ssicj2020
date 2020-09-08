@@ -3,8 +3,9 @@
 # 実施要領
 - 金曜1, 2限
 
-# スケジュール
-- (jigsaw/p1/index.html){:target="_blank"}
+# Jigsaw教材
+- [p1](jigsaw/p1/index.html){:target="_blank"}
+<a href="jigsaw/p1/index.html" target="_blank">alternative</a>
 
 <!--
 # スケジュール
