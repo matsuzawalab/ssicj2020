@@ -12,6 +12,10 @@
 <li><a href="jigsaw/p2/index.html" target="_blank">演習２</a></li>
 </ul>
 
+# CreCoSpeek
+<ul>
+<li><a href="https://apps2-creco.si.aoyama.ac.jp/speeker/SpeekerD/" target="_blank">CreCo Speek</a></li>
+</ul>
 <!--
 # スケジュール
 - [スケジュール](https://docs.google.com/spreadsheets/d/1LOKHvdWjqzRdcqco0fPwPuG69iuIHuf_rEfVPZKZ35U/edit?usp=sharing)
@@ -22,12 +26,17 @@
 [タートルグラフィックス編教材](text/index.html){:target="_blank"}
 
 ## 開発環境
-- [松澤クラス](http://pp1.si.aoyama.ac.jp/signin.html){:target="_blank"}
-- [村田クラス](http://pp2.si.aoyama.ac.jp/signin.html){:target="_blank"}
-- [居駒クラス](http://pp3.si.aoyama.ac.jp/signin.html){:target="_blank"}
-- [斎藤クラス](http://pp4.si.aoyama.ac.jp/signin.html){:target="_blank"}
+<ul>
+<li><a href="http://pp1.si.aoyama.ac.jp/sumatra.html" target="_blank">村田クラス</a></li>
+<li><a href="http://pp2.si.aoyama.ac.jp/sumatra.html" target="_blank">東クラス</a></li>
+<li><a href="http://pp3.si.aoyama.ac.jp/sumatra.html" target="_blank">齋藤クラス</a></li>
+<li><a href="http://pp4.si.aoyama.ac.jp/sumatra.html" target="_blank">松澤クラス</a></li>
+</ul>
 
-- [ステージングサーバ(学内のみ)](http://ppstaging-creco.si.aoyama.ac.jp/){:target="_blank"}
+<ul>
+<li><a href="http://ppstaging-creco.si.aoyama.ac.jp/sumatra.html" target="_blank">ステージングサーバ</a></li>
+</ul>
+
 
 <!-- ## 中間テスト環境
 
@@ -41,7 +50,6 @@
 # 教材
 - [テキスト](text-part3/index.html)
 - [第１３回課題](part3-2019/practice13/practice13.html)
-- [Track](https://aoyama-gakuin-univ.tracks.run/auth/signin)
 <!-- - [アンケート](https://docs.google.com/forms/d/e/1FAIpQLSenUUh6EhsaKtNT7QocNMJqFeTlYOllDdaAeyMzXdlod9Ydwg/viewform) -->
 
 # ミニプロジェクト
