@@ -1,4 +1,4 @@
-# コンピュータ実習 2020
+# コンピューティング実習 2020
 
 # 実施要領
 - 金曜1, 2限
@@ -14,7 +14,7 @@
 
 # CreCoSpeek
 <ul>
-<li><a href="https://apps2-creco.si.aoyama.ac.jp/speeker/SpeekerD/" target="_blank">CreCo Speek</a></li>
+<li><a href="https://apps2-creco.si.aoyama.ac.jp/speeker/SpeekerD/" target="_blank">CreCoSpeekD</a></li>
 </ul>
 <!--
 # スケジュール
