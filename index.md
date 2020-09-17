@@ -1,9 +1,9 @@
 # コンピューティング実習 2020
 
-# 実施要領
-- 金曜1, 2限
+<!-- # 実施要領 -->
+<!-- - 金曜1, 2限 -->
 
-# Jigsaw教材
+<!-- # Jigsaw教材 -->
 <!--
 - [p1](jigsaw/p1/index.html){:target="_blank"}
 -->
@@ -12,7 +12,7 @@
 <li><a href="jigsaw/p2/index.html" target="_blank">演習２</a></li>
 </ul> -->
 
-# CreCoSpeek
+<!-- # CreCoSpeek -->
 <!-- <ul>
 <li><a href="https://apps2-creco.si.aoyama.ac.jp/speeker/SpeekerD/" target="_blank">CreCoSpeekD</a></li>
 </ul> -->
@@ -25,18 +25,18 @@
 ## 教材
 [タートルグラフィックス編教材](text/index.html){:target="_blank"}
 
-## 開発環境
+## 演習環境
 <ul>
-<li><a href="http://pp1.si.aoyama.ac.jp/sumatra.html" target="_blank">村田クラス</a></li>
-<li><a href="http://pp2.si.aoyama.ac.jp/sumatra.html" target="_blank">東クラス</a></li>
-<li><a href="http://pp3.si.aoyama.ac.jp/sumatra.html" target="_blank">齋藤クラス</a></li>
-<li><a href="http://pp4.si.aoyama.ac.jp/sumatra.html" target="_blank">松澤クラス</a></li>
+<li><a href="https://pp1.si.aoyama.ac.jp/sumatra.html" target="_blank">村田クラス</a></li>
+<li><a href="https://pp2.si.aoyama.ac.jp/sumatra.html" target="_blank">東クラス</a></li>
+<li><a href="https://pp3.si.aoyama.ac.jp/sumatra.html" target="_blank">齋藤クラス</a></li>
+<li><a href="https://pp4.si.aoyama.ac.jp/sumatra.html" target="_blank">松澤クラス</a></li>
 </ul>
 
+## 以下は学生の方は使わないでください
 <ul>
-<li><a href="http://ppstaging-creco.si.aoyama.ac.jp/sumatra.html" target="_blank">ステージングサーバ</a></li>
+<li><a href="https://ppstaging-creco.si.aoyama.ac.jp/sumatra.html" target="_blank">ステージングサーバ</a></li>
 </ul>
-
 
 <!-- ## 中間テスト環境
 
@@ -45,15 +45,15 @@
 - [居駒クラス](http://pp4.si.aoyama.ac.jp/exam/){:target="_blank"}
 - [斎藤クラス](http://pp1.si.aoyama.ac.jp/exam/){:target="_blank"} -->
 
-# HTML+Javascript編
+<!-- # HTML+Javascript編 -->
 
-# 教材
+<!-- # 教材
 - [テキスト](text-part3/index.html)
-- [第１３回課題](part3-2019/practice13/practice13.html)
+- [第１３回課題](part3-2019/practice13/practice13.html) -->
 <!-- - [アンケート](https://docs.google.com/forms/d/e/1FAIpQLSenUUh6EhsaKtNT7QocNMJqFeTlYOllDdaAeyMzXdlod9Ydwg/viewform) -->
 
-# ミニプロジェクト
-- [ミニプロジェクト](part3-2019/project02.html)
+<!-- # ミニプロジェクト
+- [ミニプロジェクト](part3-2019/project02.html) -->
 
 # シラバス
 ## 主題と目標
