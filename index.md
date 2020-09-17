@@ -7,15 +7,15 @@
 <!--
 - [p1](jigsaw/p1/index.html){:target="_blank"}
 -->
-<ul>
+<!-- <ul>
 <li><a href="jigsaw/p1/index.html" target="_blank">演習１</a></li>
 <li><a href="jigsaw/p2/index.html" target="_blank">演習２</a></li>
-</ul>
+</ul> -->
 
 # CreCoSpeek
-<ul>
+<!-- <ul>
 <li><a href="https://apps2-creco.si.aoyama.ac.jp/speeker/SpeekerD/" target="_blank">CreCoSpeekD</a></li>
-</ul>
+</ul> -->
 <!--
 # スケジュール
 - [スケジュール](https://docs.google.com/spreadsheets/d/1LOKHvdWjqzRdcqco0fPwPuG69iuIHuf_rEfVPZKZ35U/edit?usp=sharing)
