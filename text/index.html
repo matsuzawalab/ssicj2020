@@ -100,6 +100,12 @@
 <li><a href="#挑戦再帰プログラム"><span class="toc-section-number">8</span> 挑戦：再帰プログラム</a></li>
 </ul>
 </nav>
+<script>
+    function copycode(idstr){
+        document.getSelection().selectAllChildren(document.getElementById(idstr).querySelector('code')); 
+        document.execCommand('copy');
+    }
+</script>
 <section id="開発環境sumatraの説明" data-number="1">
 <h1 data-number="0"><span class="header-section-number">0</span> 開発環境(sumatra)の説明</h1>
 <p>第５週目までは，初学者用Javascript開発環境(pikeplace - sumatra)を使って学習を進めます． ここでは，簡単に使い方を説明します．</p>
@@ -336,13 +342,8 @@ t.rt(90)</code></pre>
 <span id="lst:2-1-20"><a href="#lst:2-1-20"></a>t<span class="op">.</span><span class="fu">fd</span>(x)<span class="op">;</span></span>
 <span id="lst:2-1-21"><a href="#lst:2-1-21"></a>t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
 <span id="lst:2-1-22"><a href="#lst:2-1-22"></a>t<span class="op">.</span><span class="fu">fd</span>(x)<span class="op">;</span></span></code></pre></div>
-<section id="ブロック" data-number="3.2.1">
-<h3 data-number="2.2.1"><span class="header-section-number">2.2.1</span> ブロック</h3>
-<p>「屋根を書く」，「本体を書く」のように，中括弧で囲まれた部分をブロックと呼びます．プログラムは複数のブロックから構成されます．ブロックの中にブロックを入れる（入れ子にする）ことも出来ます．</p>
-<p>上記のプログラムの２つのブロックは，空ブロックといって，プログラムとしては必要はないのですが（実際に取り払ってもプログラムは動きます），人間がプログラムのまとまりを把握しやすいようにブロックを記述しています．カッコの対応があっていないと，構文エラーになりますので注意してください．</p>
-</section>
-<section id="変数と値" data-number="3.2.2">
-<h3 data-number="2.2.2"><span class="header-section-number">2.2.2</span> 変数と値</h3>
+<section id="変数と値" data-number="3.2.1">
+<h3 data-number="2.2.1"><span class="header-section-number">2.2.1</span> 変数と値</h3>
 <p>変数はデータを格納しておく場所のことです． プログラムでは，「メモリ」の許す限り，データを格納しておくことが出来ます．</p>
 <p>格納する場所を一つにつき，一つの名前をつけることが出来ます．</p>
 <p>実際に格納されるデータのことを「値」といいます．</p>
@@ -350,8 +351,8 @@ t.rt(90)</code></pre>
 <img src="img/chapter02/table_model_value.gif" alt="" /><figcaption>変数と値</figcaption>
 </figure>
 </section>
-<section id="変数を使ったプログラムの実行" data-number="3.2.3">
-<h3 data-number="2.2.3"><span class="header-section-number">2.2.3</span> 変数を使ったプログラムの実行</h3>
+<section id="変数を使ったプログラムの実行" data-number="3.2.2">
+<h3 data-number="2.2.2"><span class="header-section-number">2.2.2</span> 変数を使ったプログラムの実行</h3>
 <p>プログラムの実行過程と変数を見ていきましょう．</p>
 <ol type="1">
 <li>変数の宣言
@@ -368,8 +369,8 @@ t.rt(90)</code></pre>
 </div></li>
 </ol>
 </section>
-<section id="複数の変数と変数名" data-number="3.2.4">
-<h3 data-number="2.2.4"><span class="header-section-number">2.2.4</span> 複数の変数と変数名</h3>
+<section id="複数の変数と変数名" data-number="3.2.3">
+<h3 data-number="2.2.3"><span class="header-section-number">2.2.3</span> 複数の変数と変数名</h3>
 <p>変数はいくつでも使うことが出来ます．</p>
 <p>区別するために，変数には異なる名前をつけなければなりません．異なる名前ならば基本的には好きな名前をつけることが出来ます．ただし，次のような名前は使えません．</p>
 <ul>
@@ -377,8 +378,8 @@ t.rt(90)</code></pre>
 <li>予約語 (var, for, ifなど，プログラムで使用する名前)</li>
 <li>特殊記号は アンダーバー(_), ドル（$）が使用可能，それ以外はNG</li>
 </ul>
-<section id="複数の変数と変数名-1" data-number="3.2.4.1">
-<h4 data-number="2.2.4.1"><span class="header-section-number">2.2.4.1</span> 複数の変数と変数名</h4>
+<section id="複数の変数と変数名-1" data-number="3.2.3.1">
+<h4 data-number="2.2.3.1"><span class="header-section-number">2.2.3.1</span> 複数の変数と変数名</h4>
 <div class="sourceCode" id="lst:2-1" data-caption="家を書くサンプルプログラム"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:2-1-1"><a href="#lst:2-1-1"></a><span class="kw">var</span> t <span class="op">=</span> createTurtle()<span class="op">;</span> <span class="co">//　タートルを生成する</span></span>
 <span id="lst:2-1-2"><a href="#lst:2-1-2"></a></span>
 <span id="lst:2-1-3"><a href="#lst:2-1-3"></a><span class="kw">var</span> length<span class="op">;</span><span class="co">// 1辺の長さ</span></span>
@@ -405,8 +406,8 @@ t.rt(90)</code></pre>
 <span id="lst:2-1-24"><a href="#lst:2-1-24"></a>t<span class="op">.</span><span class="fu">lt</span>(rightAngle)<span class="op">;</span></span>
 <span id="lst:2-1-25"><a href="#lst:2-1-25"></a>t<span class="op">.</span><span class="fu">fd</span>(length)<span class="op">;</span></span></code></pre></div>
 </section>
-<section id="プログラムの実行過程" data-number="3.2.4.2">
-<h4 data-number="2.2.4.2"><span class="header-section-number">2.2.4.2</span> プログラムの実行過程</h4>
+<section id="プログラムの実行過程" data-number="3.2.3.2">
+<h4 data-number="2.2.3.2"><span class="header-section-number">2.2.3.2</span> プログラムの実行過程</h4>
 <p>プログラムの実行過程を追ってみましょう．</p>
 <ol type="1">
 <li>変数の宣言
@@ -692,6 +693,7 @@ a / b の余りは [答え] です．</code></pre>
 <section id="条件分岐" data-number="4.2.1">
 <h3 data-number="3.2.1"><span class="header-section-number">3.2.1</span> 条件分岐</h3>
 <p>次のプログラムを見てみましょう．</p>
+<p><span class="CopyButton" onclick="copycode(&#39;lst:3-1&#39;)">c</span></p>
 <div class="sourceCode" id="lst:3-1" data-caption="Condition"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:3-1-1"><a href="#lst:3-1-1"></a><span class="kw">var</span> t <span class="op">=</span> createTurtle()<span class="op">;</span></span>
 <span id="lst:3-1-2"><a href="#lst:3-1-2"></a></span>
 <span id="lst:3-1-3"><a href="#lst:3-1-3"></a><span class="kw">var</span> pictureNumber<span class="op">;</span><span class="co">// 絵の番号</span></span>
@@ -738,8 +740,8 @@ a / b の余りは [答え] です．</code></pre>
 <span id="lst:3-1-44"><a href="#lst:3-1-44"></a>    t<span class="op">.</span><span class="fu">rt</span>(angle)<span class="op">;</span></span>
 <span id="lst:3-1-45"><a href="#lst:3-1-45"></a>    t<span class="op">.</span><span class="fu">fd</span>(length)<span class="op">;</span></span>
 <span id="lst:3-1-46"><a href="#lst:3-1-46"></a>}</span></code></pre></div>
-<p>いままでのプログラムでは，命令が必ず上から順番に全て実行されていました． これを順次実行といいます．</p>
-<p>今回登場する「条件分岐」を使うと，命令の実行される順番を変更，制御することができます．</p>
+<p>いままでのプログラムでは，処理（命令）が必ず上から順番に全て実行されていました． これを順次実行といいます．</p>
+<p>今回登場する「条件分岐」を使うと，処理の実行される順番を変更，制御することができます．</p>
 <p>条件分岐の一般的な形は次のとおりです．</p>
 <pre><code>if( [条件式] ) {
     処理A
@@ -752,14 +754,37 @@ a / b の余りは [答え] です．</code></pre>
 <figure>
 <img src="img/chapter03/if_flow_chart.gif" alt="" /><figcaption>条件分岐のフローチャート</figcaption>
 </figure>
-<p>ちなみに，elseブロックは必要が無ければ省略できます．次のような形になります．</p>
-<pre><code>if( [条件式] ) {
-    処理A
-}</code></pre>
-<p>このように書くと，条件式が成立した時に処理Aが実行され，不成立の時には処理Aを飛ばします．</p>
 </section>
-<section id="条件式の評価" data-number="4.2.2">
-<h3 data-number="3.2.2"><span class="header-section-number">3.2.2</span> 条件式の評価</h3>
+<section id="ブロック" data-number="4.2.2">
+<h3 data-number="3.2.2"><span class="header-section-number">3.2.2</span> ブロック</h3>
+<p>条件分岐のプログラムなどに出てくる，中括弧で囲まれた部分をブロックと呼びます． ブロックの基本機能は，複数の処理（命令）をまとめて扱うことができる点で，例えば，</p>
+<pre><code>{
+    fd(100);
+    rt(90);
+}</code></pre>
+<p>のように書くと，fd(100);とrt(90);の２つの処理をまとめて扱うことができるので，</p>
+<pre><code>if(条件式){
+    fd(100);
+    rt(90);
+}</code></pre>
+<p>と書くことによって，条件式が成立した場合に，複数の処理のまとまりを実行する，というようなプログラムを書けるようになります．</p>
+<p>プログラムは複数のブロックから構成されます．ブロックの中にブロックを入れる（入れ子にする）ことも出来ます．ブロックの入れ子については，第５章で説明します．</p>
+</section>
+<section id="インデント字下げ" data-number="4.2.3">
+<h3 data-number="3.2.3"><span class="header-section-number">3.2.3</span> インデント（字下げ）</h3>
+<p>ブロックを作成した場合には，プログラムを字下げ（インデントをつける）すると括弧の対応関係やブロックの範囲，ブロック内外の区別等が分かりやすくなります．</p>
+<div class="CJPictureS">
+<figure>
+<img src="img/chapter05/indent.png" alt="" /><figcaption>インデント</figcaption>
+</figure>
+</div>
+<p>プログラムがきちんとできていればインデントをつけていなくてもプログラムは動作しますが，インデントがができていないために構文エラーを見逃して，動かない場合が非常に多いので，プロも初学者も，インデントは必ずつけてください．</p>
+<p>コンピューティング実習では，インデントがつけられていないプログラムは課題受理しません．</p>
+<p>Sumatra環境では，<a href="Ctrlキーを押しながらsキーを押す">Ctrl-s</a>で，フォーマット（自動的に字下げをすること）ができます．</p>
+<!-- 上記のプログラムの２つのブロックは，空ブロックといって，プログラムとしては必要はないのですが（実際に取り払ってもプログラムは動きます），人間がプログラムのまとまりを把握しやすいようにブロックを記述しています．カッコの対応があっていないと，構文エラーになりますので注意してください． -->
+</section>
+<section id="条件式の評価" data-number="4.2.4">
+<h3 data-number="3.2.4"><span class="header-section-number">3.2.4</span> 条件式の評価</h3>
 <p>条件式の評価の過程を見ていきましょう．</p>
 <ol type="1">
 <li>成立(true)する場合
@@ -770,187 +795,87 @@ a / b の余りは [答え] です．</code></pre>
 <div class="CJPicture">
 <p><br><img src="img/chapter03/condition_false.png" /></p>
 </div></li>
-<li>注意すること 注意することは，条件式で，同じかどうか調べるには「==」(イコールを2つ)にしなければならないことです．</li>
+<li>注意すること</li>
 </ol>
-<p>これに対して，「=」(イコール1つ)は代入ですので，注意してください．</p>
+<p>注意することは，条件式で，同じかどうか調べるには「==」(イコールを2つ)にしなければならないことです． これに対して，「=」(イコール1つ)は代入ですので，注意してください．</p>
 </section>
-<section id="複数の分岐" data-number="4.2.3">
-<h3 data-number="3.2.3"><span class="header-section-number">3.2.3</span> 複数の分岐</h3>
-<section id="じゃんけんプログラム" data-number="4.2.3.1">
-<h4 data-number="3.2.3.1"><span class="header-section-number">3.2.3.1</span> じゃんけんプログラム</h4>
+<section id="else節の省略" data-number="4.2.5">
+<h3 data-number="3.2.5"><span class="header-section-number">3.2.5</span> else節の省略</h3>
+<p>elseブロックは必要が無ければ省略できます．次のような形になります．</p>
+<pre><code>if( [条件式] ) {
+    処理A
+}</code></pre>
+<p>このように書くと，条件式が成立した時に処理Aが実行され，不成立の時には処理Aを飛ばします．</p>
+</section>
+<section id="複数の分岐" data-number="4.2.6">
+<h3 data-number="3.2.6"><span class="header-section-number">3.2.6</span> 複数の分岐</h3>
+<section id="じゃんけんプログラム" data-number="4.2.6.1">
+<h4 data-number="3.2.6.1"><span class="header-section-number">3.2.6.1</span> じゃんけんプログラム</h4>
 <p>複数に分岐するプログラムを書くこともできます．</p>
 <p>次のじゃんけんプログラムを見てみましょう．</p>
-<div class="sourceCode" id="lst:3-1" data-caption="Janken"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:3-1-1"><a href="#lst:3-1-1"></a><span class="kw">var</span> t <span class="op">=</span> createTurtle()<span class="op">;</span></span>
-<span id="lst:3-1-2"><a href="#lst:3-1-2"></a></span>
-<span id="lst:3-1-3"><a href="#lst:3-1-3"></a><span class="kw">var</span> handNumber<span class="op">;</span><span class="co">// じゃんけんの手</span></span>
-<span id="lst:3-1-4"><a href="#lst:3-1-4"></a></span>
-<span id="lst:3-1-5"><a href="#lst:3-1-5"></a><span class="co">// じゃんけんの手は　1をグー,2をチョキ,3をパーとする</span></span>
-<span id="lst:3-1-6"><a href="#lst:3-1-6"></a>handNumber <span class="op">=</span> random(<span class="dv">3</span>) <span class="op">+</span> <span class="dv">1</span><span class="op">;</span> <span class="co">// random(3)は0から2までの値を発生するので1を足す</span></span>
-<span id="lst:3-1-7"><a href="#lst:3-1-7"></a></span>
-<span id="lst:3-1-8"><a href="#lst:3-1-8"></a><span class="cf">if</span> (handNumber <span class="op">==</span> <span class="dv">1</span>) {<span class="co">//グーを書く</span></span>
-<span id="lst:3-1-9"><a href="#lst:3-1-9"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">30</span>)<span class="op">;</span></span>
-<span id="lst:3-1-10"><a href="#lst:3-1-10"></a></span>
-<span id="lst:3-1-11"><a href="#lst:3-1-11"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">30</span>)<span class="op">;</span></span>
-<span id="lst:3-1-12"><a href="#lst:3-1-12"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">25</span>)<span class="op">;</span></span>
-<span id="lst:3-1-13"><a href="#lst:3-1-13"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">60</span>)<span class="op">;</span></span>
-<span id="lst:3-1-14"><a href="#lst:3-1-14"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">25</span>)<span class="op">;</span></span>
-<span id="lst:3-1-15"><a href="#lst:3-1-15"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">150</span>)<span class="op">;</span></span>
-<span id="lst:3-1-16"><a href="#lst:3-1-16"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">30</span>)<span class="op">;</span></span>
-<span id="lst:3-1-17"><a href="#lst:3-1-17"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">180</span>)<span class="op">;</span></span>
-<span id="lst:3-1-18"><a href="#lst:3-1-18"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-19"><a href="#lst:3-1-19"></a></span>
-<span id="lst:3-1-20"><a href="#lst:3-1-20"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-21"><a href="#lst:3-1-21"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-22"><a href="#lst:3-1-22"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-23"><a href="#lst:3-1-23"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-24"><a href="#lst:3-1-24"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-25"><a href="#lst:3-1-25"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-26"><a href="#lst:3-1-26"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">5</span>)<span class="op">;</span></span>
-<span id="lst:3-1-27"><a href="#lst:3-1-27"></a></span>
-<span id="lst:3-1-28"><a href="#lst:3-1-28"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-29"><a href="#lst:3-1-29"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-30"><a href="#lst:3-1-30"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-31"><a href="#lst:3-1-31"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-32"><a href="#lst:3-1-32"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-33"><a href="#lst:3-1-33"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-34"><a href="#lst:3-1-34"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-35"><a href="#lst:3-1-35"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">5</span>)<span class="op">;</span></span>
-<span id="lst:3-1-36"><a href="#lst:3-1-36"></a></span>
-<span id="lst:3-1-37"><a href="#lst:3-1-37"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-38"><a href="#lst:3-1-38"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-39"><a href="#lst:3-1-39"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-40"><a href="#lst:3-1-40"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-41"><a href="#lst:3-1-41"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-42"><a href="#lst:3-1-42"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-43"><a href="#lst:3-1-43"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-44"><a href="#lst:3-1-44"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">5</span>)<span class="op">;</span></span>
-<span id="lst:3-1-45"><a href="#lst:3-1-45"></a></span>
-<span id="lst:3-1-46"><a href="#lst:3-1-46"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-47"><a href="#lst:3-1-47"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-48"><a href="#lst:3-1-48"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-49"><a href="#lst:3-1-49"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-50"><a href="#lst:3-1-50"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-51"><a href="#lst:3-1-51"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-52"><a href="#lst:3-1-52"></a></span>
-<span id="lst:3-1-53"><a href="#lst:3-1-53"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">65</span>)<span class="op">;</span></span>
-<span id="lst:3-1-54"><a href="#lst:3-1-54"></a></span>
-<span id="lst:3-1-55"><a href="#lst:3-1-55"></a>} <span class="cf">else</span> <span class="cf">if</span> (handNumber <span class="op">==</span> <span class="dv">2</span>) {<span class="co">//チョキを書く</span></span>
-<span id="lst:3-1-56"><a href="#lst:3-1-56"></a></span>
-<span id="lst:3-1-57"><a href="#lst:3-1-57"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">30</span>)<span class="op">;</span></span>
-<span id="lst:3-1-58"><a href="#lst:3-1-58"></a></span>
-<span id="lst:3-1-59"><a href="#lst:3-1-59"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">30</span>)<span class="op">;</span></span>
-<span id="lst:3-1-60"><a href="#lst:3-1-60"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">25</span>)<span class="op">;</span></span>
-<span id="lst:3-1-61"><a href="#lst:3-1-61"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">60</span>)<span class="op">;</span></span>
-<span id="lst:3-1-62"><a href="#lst:3-1-62"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">25</span>)<span class="op">;</span></span>
-<span id="lst:3-1-63"><a href="#lst:3-1-63"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">150</span>)<span class="op">;</span></span>
-<span id="lst:3-1-64"><a href="#lst:3-1-64"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">30</span>)<span class="op">;</span></span>
-<span id="lst:3-1-65"><a href="#lst:3-1-65"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">180</span>)<span class="op">;</span></span>
-<span id="lst:3-1-66"><a href="#lst:3-1-66"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">30</span>)<span class="op">;</span></span>
-<span id="lst:3-1-67"><a href="#lst:3-1-67"></a></span>
-<span id="lst:3-1-68"><a href="#lst:3-1-68"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">15</span>)<span class="op">;</span></span>
-<span id="lst:3-1-69"><a href="#lst:3-1-69"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span></span>
-<span id="lst:3-1-70"><a href="#lst:3-1-70"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">105</span>)<span class="op">;</span></span>
-<span id="lst:3-1-71"><a href="#lst:3-1-71"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-72"><a href="#lst:3-1-72"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">75</span>)<span class="op">;</span></span>
-<span id="lst:3-1-73"><a href="#lst:3-1-73"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span></span>
-<span id="lst:3-1-74"><a href="#lst:3-1-74"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">75</span>)<span class="op">;</span></span>
-<span id="lst:3-1-75"><a href="#lst:3-1-75"></a></span>
-<span id="lst:3-1-76"><a href="#lst:3-1-76"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">75</span>)<span class="op">;</span></span>
-<span id="lst:3-1-77"><a href="#lst:3-1-77"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span></span>
-<span id="lst:3-1-78"><a href="#lst:3-1-78"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">75</span>)<span class="op">;</span></span>
-<span id="lst:3-1-79"><a href="#lst:3-1-79"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-80"><a href="#lst:3-1-80"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">105</span>)<span class="op">;</span></span>
-<span id="lst:3-1-81"><a href="#lst:3-1-81"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span></span>
-<span id="lst:3-1-82"><a href="#lst:3-1-82"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-83"><a href="#lst:3-1-83"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">105</span>)<span class="op">;</span></span>
-<span id="lst:3-1-84"><a href="#lst:3-1-84"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">5</span>)<span class="op">;</span></span>
-<span id="lst:3-1-85"><a href="#lst:3-1-85"></a></span>
-<span id="lst:3-1-86"><a href="#lst:3-1-86"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-87"><a href="#lst:3-1-87"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-88"><a href="#lst:3-1-88"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-89"><a href="#lst:3-1-89"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-90"><a href="#lst:3-1-90"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-91"><a href="#lst:3-1-91"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-92"><a href="#lst:3-1-92"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-93"><a href="#lst:3-1-93"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">5</span>)<span class="op">;</span></span>
-<span id="lst:3-1-94"><a href="#lst:3-1-94"></a></span>
-<span id="lst:3-1-95"><a href="#lst:3-1-95"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-96"><a href="#lst:3-1-96"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-97"><a href="#lst:3-1-97"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-98"><a href="#lst:3-1-98"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-99"><a href="#lst:3-1-99"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-100"><a href="#lst:3-1-100"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-101"><a href="#lst:3-1-101"></a></span>
-<span id="lst:3-1-102"><a href="#lst:3-1-102"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">65</span>)<span class="op">;</span></span>
-<span id="lst:3-1-103"><a href="#lst:3-1-103"></a></span>
-<span id="lst:3-1-104"><a href="#lst:3-1-104"></a>} <span class="cf">else</span> <span class="cf">if</span> (handNumber <span class="op">==</span> <span class="dv">3</span>) {<span class="co">//パーを書く</span></span>
-<span id="lst:3-1-105"><a href="#lst:3-1-105"></a></span>
-<span id="lst:3-1-106"><a href="#lst:3-1-106"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">30</span>)<span class="op">;</span></span>
-<span id="lst:3-1-107"><a href="#lst:3-1-107"></a></span>
-<span id="lst:3-1-108"><a href="#lst:3-1-108"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">30</span>)<span class="op">;</span></span>
-<span id="lst:3-1-109"><a href="#lst:3-1-109"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span></span>
-<span id="lst:3-1-110"><a href="#lst:3-1-110"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">120</span>)<span class="op">;</span></span>
-<span id="lst:3-1-111"><a href="#lst:3-1-111"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-112"><a href="#lst:3-1-112"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">60</span>)<span class="op">;</span></span>
-<span id="lst:3-1-113"><a href="#lst:3-1-113"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">40</span>)<span class="op">;</span></span>
-<span id="lst:3-1-114"><a href="#lst:3-1-114"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">150</span>)<span class="op">;</span></span>
-<span id="lst:3-1-115"><a href="#lst:3-1-115"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">15</span>)<span class="op">;</span></span>
-<span id="lst:3-1-116"><a href="#lst:3-1-116"></a></span>
-<span id="lst:3-1-117"><a href="#lst:3-1-117"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span></span>
-<span id="lst:3-1-118"><a href="#lst:3-1-118"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-119"><a href="#lst:3-1-119"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-120"><a href="#lst:3-1-120"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-121"><a href="#lst:3-1-121"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span></span>
-<span id="lst:3-1-122"><a href="#lst:3-1-122"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-123"><a href="#lst:3-1-123"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">5</span>)<span class="op">;</span></span>
-<span id="lst:3-1-124"><a href="#lst:3-1-124"></a></span>
-<span id="lst:3-1-125"><a href="#lst:3-1-125"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-126"><a href="#lst:3-1-126"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span></span>
-<span id="lst:3-1-127"><a href="#lst:3-1-127"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-128"><a href="#lst:3-1-128"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-129"><a href="#lst:3-1-129"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-130"><a href="#lst:3-1-130"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span></span>
-<span id="lst:3-1-131"><a href="#lst:3-1-131"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-132"><a href="#lst:3-1-132"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">5</span>)<span class="op">;</span></span>
-<span id="lst:3-1-133"><a href="#lst:3-1-133"></a></span>
-<span id="lst:3-1-134"><a href="#lst:3-1-134"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-135"><a href="#lst:3-1-135"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span></span>
-<span id="lst:3-1-136"><a href="#lst:3-1-136"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-137"><a href="#lst:3-1-137"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-138"><a href="#lst:3-1-138"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-139"><a href="#lst:3-1-139"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span></span>
-<span id="lst:3-1-140"><a href="#lst:3-1-140"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-141"><a href="#lst:3-1-141"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">5</span>)<span class="op">;</span></span>
-<span id="lst:3-1-142"><a href="#lst:3-1-142"></a></span>
-<span id="lst:3-1-143"><a href="#lst:3-1-143"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-144"><a href="#lst:3-1-144"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span></span>
-<span id="lst:3-1-145"><a href="#lst:3-1-145"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-146"><a href="#lst:3-1-146"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:3-1-147"><a href="#lst:3-1-147"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:3-1-148"><a href="#lst:3-1-148"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span></span>
-<span id="lst:3-1-149"><a href="#lst:3-1-149"></a></span>
-<span id="lst:3-1-150"><a href="#lst:3-1-150"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">75</span>)<span class="op">;</span></span>
-<span id="lst:3-1-151"><a href="#lst:3-1-151"></a></span>
-<span id="lst:3-1-152"><a href="#lst:3-1-152"></a>} <span class="cf">else</span> { <span class="co">// 1,2,3以外の場合</span></span>
-<span id="lst:3-1-153"><a href="#lst:3-1-153"></a></span>
-<span id="lst:3-1-154"><a href="#lst:3-1-154"></a>    println(<span class="st">&#39;不正な数です．&#39;</span>)<span class="op">;</span></span>
-<span id="lst:3-1-155"><a href="#lst:3-1-155"></a></span>
-<span id="lst:3-1-156"><a href="#lst:3-1-156"></a>}</span></code></pre></div>
+<p><span class="CopyButton" onclick="copycode(&#39;lst:3-2&#39;)">c</span></p>
+<div class="sourceCode" id="lst:3-2" data-caption="Janken"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:3-2-1"><a href="#lst:3-2-1"></a><span class="kw">var</span> t <span class="op">=</span> createTurtle()<span class="op">;</span></span>
+<span id="lst:3-2-2"><a href="#lst:3-2-2"></a></span>
+<span id="lst:3-2-3"><a href="#lst:3-2-3"></a><span class="kw">var</span> handNumber<span class="op">;</span><span class="co">// じゃんけんの手</span></span>
+<span id="lst:3-2-4"><a href="#lst:3-2-4"></a></span>
+<span id="lst:3-2-5"><a href="#lst:3-2-5"></a><span class="co">// じゃんけんの手は　1をグー,2をチョキ,3をパーとする</span></span>
+<span id="lst:3-2-6"><a href="#lst:3-2-6"></a>handNumber <span class="op">=</span> random(<span class="dv">3</span>) <span class="op">+</span> <span class="dv">1</span><span class="op">;</span> <span class="co">// random(3)は0から2までの値を発生するので1を足す</span></span>
+<span id="lst:3-2-7"><a href="#lst:3-2-7"></a></span>
+<span id="lst:3-2-8"><a href="#lst:3-2-8"></a><span class="cf">if</span> (handNumber <span class="op">==</span> <span class="dv">1</span>) {<span class="co">//グーを書く</span></span>
+<span id="lst:3-2-9"><a href="#lst:3-2-9"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">30</span>)<span class="op">;</span></span>
+<span id="lst:3-2-10"><a href="#lst:3-2-10"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">30</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">25</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">60</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">25</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">150</span>)<span class="op">;</span></span>
+<span id="lst:3-2-11"><a href="#lst:3-2-11"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">30</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">180</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:3-2-12"><a href="#lst:3-2-12"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">5</span>)<span class="op">;</span></span>
+<span id="lst:3-2-13"><a href="#lst:3-2-13"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:3-2-14"><a href="#lst:3-2-14"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">5</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
+<span id="lst:3-2-15"><a href="#lst:3-2-15"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:3-2-16"><a href="#lst:3-2-16"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">5</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
+<span id="lst:3-2-17"><a href="#lst:3-2-17"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">65</span>)<span class="op">;</span></span>
+<span id="lst:3-2-18"><a href="#lst:3-2-18"></a></span>
+<span id="lst:3-2-19"><a href="#lst:3-2-19"></a>} <span class="cf">else</span> <span class="cf">if</span> (handNumber <span class="op">==</span> <span class="dv">2</span>) {<span class="co">//チョキを書く</span></span>
+<span id="lst:3-2-20"><a href="#lst:3-2-20"></a></span>
+<span id="lst:3-2-21"><a href="#lst:3-2-21"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">30</span>)<span class="op">;</span>    </span>
+<span id="lst:3-2-22"><a href="#lst:3-2-22"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">30</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">25</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">60</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">25</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">150</span>)<span class="op">;</span></span>
+<span id="lst:3-2-23"><a href="#lst:3-2-23"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">30</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">180</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">30</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">15</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span></span>
+<span id="lst:3-2-24"><a href="#lst:3-2-24"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">105</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">75</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">75</span>)<span class="op">;</span></span>
+<span id="lst:3-2-25"><a href="#lst:3-2-25"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">75</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">75</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
+<span id="lst:3-2-26"><a href="#lst:3-2-26"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">105</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">105</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">5</span>)<span class="op">;</span></span>
+<span id="lst:3-2-27"><a href="#lst:3-2-27"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:3-2-28"><a href="#lst:3-2-28"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">5</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
+<span id="lst:3-2-29"><a href="#lst:3-2-29"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">65</span>)<span class="op">;</span></span>
+<span id="lst:3-2-30"><a href="#lst:3-2-30"></a></span>
+<span id="lst:3-2-31"><a href="#lst:3-2-31"></a>} <span class="cf">else</span> <span class="cf">if</span> (handNumber <span class="op">==</span> <span class="dv">3</span>) {<span class="co">//パーを書く</span></span>
+<span id="lst:3-2-32"><a href="#lst:3-2-32"></a></span>
+<span id="lst:3-2-33"><a href="#lst:3-2-33"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">30</span>)<span class="op">;</span></span>
+<span id="lst:3-2-34"><a href="#lst:3-2-34"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">30</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">120</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">60</span>)<span class="op">;</span></span>
+<span id="lst:3-2-35"><a href="#lst:3-2-35"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">40</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">150</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">15</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:3-2-36"><a href="#lst:3-2-36"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">5</span>)<span class="op">;</span></span>
+<span id="lst:3-2-37"><a href="#lst:3-2-37"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:3-2-38"><a href="#lst:3-2-38"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">5</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span></span>
+<span id="lst:3-2-39"><a href="#lst:3-2-39"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:3-2-40"><a href="#lst:3-2-40"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">5</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
+<span id="lst:3-2-41"><a href="#lst:3-2-41"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">80</span>)<span class="op">;</span>      t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">75</span>)<span class="op">;</span></span>
+<span id="lst:3-2-42"><a href="#lst:3-2-42"></a></span>
+<span id="lst:3-2-43"><a href="#lst:3-2-43"></a>} <span class="cf">else</span> { <span class="co">// 1,2,3以外の場合</span></span>
+<span id="lst:3-2-44"><a href="#lst:3-2-44"></a></span>
+<span id="lst:3-2-45"><a href="#lst:3-2-45"></a>    println(<span class="st">&#39;不正な数です．&#39;</span>)<span class="op">;</span></span>
+<span id="lst:3-2-46"><a href="#lst:3-2-46"></a></span>
+<span id="lst:3-2-47"><a href="#lst:3-2-47"></a>}</span></code></pre></div>
 </section>
-<section id="じゃんけんの手のデータの扱いについて" data-number="4.2.3.2">
-<h4 data-number="3.2.3.2"><span class="header-section-number">3.2.3.2</span> じゃんけんの手のデータの扱いについて</h4>
+<section id="じゃんけんの手のデータの扱いについて" data-number="4.2.6.2">
+<h4 data-number="3.2.6.2"><span class="header-section-number">3.2.6.2</span> じゃんけんの手のデータの扱いについて</h4>
 <p>じゃんけんプログラムのような現実問題を扱うときに問題となるのは， データ（グー，チョキ，パーの手）をどうコンピュータで扱えるようにするかです． コンピュータでは，そのままこの概念を表すことができないので， ここでは，1,2,3の数値で表すという方法で実現することを考えましょう．</p>
 <figure>
 <img src="img/chapter03/janken_data_model.gif" alt="" /><figcaption>じゃんけんのデータの表現</figcaption>
 </figure>
 </section>
-<section id="じゃんけんの手をどのようにプログラムのデータとして扱うか" data-number="4.2.3.3">
-<h4 data-number="3.2.3.3"><span class="header-section-number">3.2.3.3</span> じゃんけんの手をどのようにプログラムのデータとして扱うか</h4>
+<section id="じゃんけんの手をどのようにプログラムのデータとして扱うか" data-number="4.2.6.3">
+<h4 data-number="3.2.6.3"><span class="header-section-number">3.2.6.3</span> じゃんけんの手をどのようにプログラムのデータとして扱うか</h4>
 <p>このように，現実に即したプログラムを作成するためには， データをコンピュータが扱う形式に変換するという作業が必要になります． この作業のことをデータ構造の設計(モデル化)といいます．</p>
 </section>
 </section>
-<section id="複数の条件分岐" data-number="4.2.4">
-<h3 data-number="3.2.4"><span class="header-section-number">3.2.4</span> 複数の条件分岐</h3>
+<section id="複数の条件分岐" data-number="4.2.7">
+<h3 data-number="3.2.7"><span class="header-section-number">3.2.7</span> 複数の条件分岐</h3>
 <p>else if 文を使うと，複数にわたる条件分岐を記述することができます．</p>
 <p>記述例(書式)を以下に示します．ちなみに，一つのif文に対して，else if文はいくつでも書くことができます．</p>
 <pre><code>if( [条件式] ) {
@@ -971,30 +896,31 @@ a / b の余りは [答え] です．</code></pre>
 <section id="比較演算子" data-number="4.3.1">
 <h3 data-number="3.3.1"><span class="header-section-number">3.3.1</span> 比較演算子</h3>
 <p>次のプログラムを見てみましょう．</p>
-<div class="sourceCode" id="lst:3-1" data-caption="Rohrer"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:3-1-1"><a href="#lst:3-1-1"></a><span class="kw">var</span> height<span class="op">;</span> <span class="co">// 身長</span></span>
-<span id="lst:3-1-2"><a href="#lst:3-1-2"></a><span class="kw">var</span> weight<span class="op">;</span> <span class="co">// 体重</span></span>
-<span id="lst:3-1-3"><a href="#lst:3-1-3"></a><span class="kw">var</span> rohrer<span class="op">;</span> <span class="co">// ローレル指数</span></span>
-<span id="lst:3-1-4"><a href="#lst:3-1-4"></a></span>
-<span id="lst:3-1-5"><a href="#lst:3-1-5"></a><span class="co">// ユーザの入力を受け取る</span></span>
-<span id="lst:3-1-6"><a href="#lst:3-1-6"></a>height <span class="op">=</span> input(<span class="st">&#39;身長を入力してください&#39;</span>)<span class="op">;</span></span>
-<span id="lst:3-1-7"><a href="#lst:3-1-7"></a>weight <span class="op">=</span> input(<span class="st">&#39;体重を入力してください&#39;</span>)<span class="op">;</span></span>
-<span id="lst:3-1-8"><a href="#lst:3-1-8"></a></span>
-<span id="lst:3-1-9"><a href="#lst:3-1-9"></a><span class="co">// ローレル指数を求める</span></span>
-<span id="lst:3-1-10"><a href="#lst:3-1-10"></a>rohrer <span class="op">=</span> weight <span class="op">*</span> <span class="dv">10000000</span> <span class="op">/</span> height <span class="op">/</span> height <span class="op">/</span> height<span class="op">;</span></span>
-<span id="lst:3-1-11"><a href="#lst:3-1-11"></a>println(<span class="st">&#39;ローレル指数は&#39;</span> <span class="op">+</span> rohrer <span class="op">+</span> <span class="st">&#39;です．&#39;</span>)<span class="op">;</span></span>
-<span id="lst:3-1-12"><a href="#lst:3-1-12"></a></span>
-<span id="lst:3-1-13"><a href="#lst:3-1-13"></a><span class="co">// 体型に対するコメントを提示する</span></span>
-<span id="lst:3-1-14"><a href="#lst:3-1-14"></a><span class="cf">if</span> (rohrer <span class="op">&lt;</span> <span class="dv">100</span>) {</span>
-<span id="lst:3-1-15"><a href="#lst:3-1-15"></a>    println(<span class="st">&#39;やせすぎですね．&#39;</span>)<span class="op">;</span></span>
-<span id="lst:3-1-16"><a href="#lst:3-1-16"></a>} <span class="cf">else</span> <span class="cf">if</span> (rohrer <span class="op">&lt;</span> <span class="dv">115</span>) {</span>
-<span id="lst:3-1-17"><a href="#lst:3-1-17"></a>    println(<span class="st">&#39;やせていますね．&#39;</span>)<span class="op">;</span></span>
-<span id="lst:3-1-18"><a href="#lst:3-1-18"></a>} <span class="cf">else</span> <span class="cf">if</span> (rohrer <span class="op">&lt;</span> <span class="dv">145</span>) {</span>
-<span id="lst:3-1-19"><a href="#lst:3-1-19"></a>    println(<span class="st">&#39;普通ですね．&#39;</span>)<span class="op">;</span></span>
-<span id="lst:3-1-20"><a href="#lst:3-1-20"></a>} <span class="cf">else</span> <span class="cf">if</span> (rohrer <span class="op">&lt;</span> <span class="dv">160</span>) {</span>
-<span id="lst:3-1-21"><a href="#lst:3-1-21"></a>    println(<span class="st">&#39;太っていますね．&#39;</span>)<span class="op">;</span></span>
-<span id="lst:3-1-22"><a href="#lst:3-1-22"></a>} <span class="cf">else</span> {</span>
-<span id="lst:3-1-23"><a href="#lst:3-1-23"></a>    println(<span class="st">&#39;太りすぎですね．&#39;</span>)<span class="op">;</span></span>
-<span id="lst:3-1-24"><a href="#lst:3-1-24"></a>}</span></code></pre></div>
+<p><span class="CopyButton" onclick="copycode(&#39;lst:3-3&#39;)">c</span></p>
+<div class="sourceCode" id="lst:3-3" data-caption="Rohrer"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:3-3-1"><a href="#lst:3-3-1"></a><span class="kw">var</span> height<span class="op">;</span> <span class="co">// 身長</span></span>
+<span id="lst:3-3-2"><a href="#lst:3-3-2"></a><span class="kw">var</span> weight<span class="op">;</span> <span class="co">// 体重</span></span>
+<span id="lst:3-3-3"><a href="#lst:3-3-3"></a><span class="kw">var</span> rohrer<span class="op">;</span> <span class="co">// ローレル指数</span></span>
+<span id="lst:3-3-4"><a href="#lst:3-3-4"></a></span>
+<span id="lst:3-3-5"><a href="#lst:3-3-5"></a><span class="co">// ユーザの入力を受け取る</span></span>
+<span id="lst:3-3-6"><a href="#lst:3-3-6"></a>height <span class="op">=</span> input(<span class="st">&#39;身長を入力してください&#39;</span>)<span class="op">;</span></span>
+<span id="lst:3-3-7"><a href="#lst:3-3-7"></a>weight <span class="op">=</span> input(<span class="st">&#39;体重を入力してください&#39;</span>)<span class="op">;</span></span>
+<span id="lst:3-3-8"><a href="#lst:3-3-8"></a></span>
+<span id="lst:3-3-9"><a href="#lst:3-3-9"></a><span class="co">// ローレル指数を求める</span></span>
+<span id="lst:3-3-10"><a href="#lst:3-3-10"></a>rohrer <span class="op">=</span> weight <span class="op">*</span> <span class="dv">10000000</span> <span class="op">/</span> height <span class="op">/</span> height <span class="op">/</span> height<span class="op">;</span></span>
+<span id="lst:3-3-11"><a href="#lst:3-3-11"></a>println(<span class="st">&#39;ローレル指数は&#39;</span> <span class="op">+</span> rohrer <span class="op">+</span> <span class="st">&#39;です．&#39;</span>)<span class="op">;</span></span>
+<span id="lst:3-3-12"><a href="#lst:3-3-12"></a></span>
+<span id="lst:3-3-13"><a href="#lst:3-3-13"></a><span class="co">// 体型に対するコメントを提示する</span></span>
+<span id="lst:3-3-14"><a href="#lst:3-3-14"></a><span class="cf">if</span> (rohrer <span class="op">&lt;</span> <span class="dv">100</span>) {</span>
+<span id="lst:3-3-15"><a href="#lst:3-3-15"></a>    println(<span class="st">&#39;やせすぎですね．&#39;</span>)<span class="op">;</span></span>
+<span id="lst:3-3-16"><a href="#lst:3-3-16"></a>} <span class="cf">else</span> <span class="cf">if</span> (rohrer <span class="op">&lt;</span> <span class="dv">115</span>) {</span>
+<span id="lst:3-3-17"><a href="#lst:3-3-17"></a>    println(<span class="st">&#39;やせていますね．&#39;</span>)<span class="op">;</span></span>
+<span id="lst:3-3-18"><a href="#lst:3-3-18"></a>} <span class="cf">else</span> <span class="cf">if</span> (rohrer <span class="op">&lt;</span> <span class="dv">145</span>) {</span>
+<span id="lst:3-3-19"><a href="#lst:3-3-19"></a>    println(<span class="st">&#39;普通ですね．&#39;</span>)<span class="op">;</span></span>
+<span id="lst:3-3-20"><a href="#lst:3-3-20"></a>} <span class="cf">else</span> <span class="cf">if</span> (rohrer <span class="op">&lt;</span> <span class="dv">160</span>) {</span>
+<span id="lst:3-3-21"><a href="#lst:3-3-21"></a>    println(<span class="st">&#39;太っていますね．&#39;</span>)<span class="op">;</span></span>
+<span id="lst:3-3-22"><a href="#lst:3-3-22"></a>} <span class="cf">else</span> {</span>
+<span id="lst:3-3-23"><a href="#lst:3-3-23"></a>    println(<span class="st">&#39;太りすぎですね．&#39;</span>)<span class="op">;</span></span>
+<span id="lst:3-3-24"><a href="#lst:3-3-24"></a>}</span></code></pre></div>
 <p>今度のプログラムでは，ローレル指数の範囲に対応して，メッセージが変わっていますね． このように，プログラムでは，変数に入っている値が同じかどうかを調べるだけでなく， 大きさの大小を比較して，条件を判定することもできます．</p>
 <p>表. Javascriptで使える数値の比較演算子</p>
 <table>
@@ -1044,34 +970,35 @@ a / b の余りは [答え] です．</code></pre>
 <p>次のプログラムを見てみましょう．</p>
 <section id="rohrer2" data-number="4.3.2.1">
 <h4 data-number="3.3.2.1"><span class="header-section-number">3.3.2.1</span> Rohrer2</h4>
-<div class="sourceCode" id="lst:3-1" data-caption="Rohrer2"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:3-1-1"><a href="#lst:3-1-1"></a><span class="kw">var</span> height<span class="op">;</span> <span class="co">// 身長</span></span>
-<span id="lst:3-1-2"><a href="#lst:3-1-2"></a><span class="kw">var</span> weight<span class="op">;</span> <span class="co">// 体重</span></span>
-<span id="lst:3-1-3"><a href="#lst:3-1-3"></a><span class="kw">var</span> rohrer<span class="op">;</span> <span class="co">// ローレル指数</span></span>
-<span id="lst:3-1-4"><a href="#lst:3-1-4"></a></span>
-<span id="lst:3-1-5"><a href="#lst:3-1-5"></a><span class="co">// ユーザの入力を受け取る</span></span>
-<span id="lst:3-1-6"><a href="#lst:3-1-6"></a>height <span class="op">=</span> input(<span class="st">&#39;身長を入力してください&#39;</span>)<span class="op">;</span></span>
-<span id="lst:3-1-7"><a href="#lst:3-1-7"></a>weight <span class="op">=</span> input(<span class="st">&#39;体重を入力してください&#39;</span>)<span class="op">;</span></span>
-<span id="lst:3-1-8"><a href="#lst:3-1-8"></a></span>
-<span id="lst:3-1-9"><a href="#lst:3-1-9"></a><span class="co">// ローレル指数を求める</span></span>
-<span id="lst:3-1-10"><a href="#lst:3-1-10"></a>rohrer <span class="op">=</span> weight <span class="op">*</span> <span class="dv">10000000</span> <span class="op">/</span> height <span class="op">/</span> height <span class="op">/</span> height<span class="op">;</span></span>
-<span id="lst:3-1-11"><a href="#lst:3-1-11"></a>println(<span class="st">&#39;ローレル指数は&#39;</span> <span class="op">+</span> rohrer <span class="op">+</span> <span class="st">&#39;です．&#39;</span>)<span class="op">;</span></span>
-<span id="lst:3-1-12"><a href="#lst:3-1-12"></a></span>
-<span id="lst:3-1-13"><a href="#lst:3-1-13"></a><span class="co">// 体型に対するコメントを提示する</span></span>
-<span id="lst:3-1-14"><a href="#lst:3-1-14"></a><span class="cf">if</span> (rohrer <span class="op">&lt;</span> <span class="dv">100</span>) {</span>
-<span id="lst:3-1-15"><a href="#lst:3-1-15"></a>    println(<span class="st">&#39;やせすぎですね．&#39;</span>)<span class="op">;</span></span>
-<span id="lst:3-1-16"><a href="#lst:3-1-16"></a>}</span>
-<span id="lst:3-1-17"><a href="#lst:3-1-17"></a><span class="cf">if</span> (rohrer <span class="op">&gt;=</span> <span class="dv">100</span> <span class="op">&amp;&amp;</span> rohrer <span class="op">&lt;</span> <span class="dv">115</span>) {</span>
-<span id="lst:3-1-18"><a href="#lst:3-1-18"></a>    println(<span class="st">&#39;やせていますね．&#39;</span>)<span class="op">;</span></span>
-<span id="lst:3-1-19"><a href="#lst:3-1-19"></a>}</span>
-<span id="lst:3-1-20"><a href="#lst:3-1-20"></a><span class="cf">if</span> (rohrer <span class="op">&gt;=</span> <span class="dv">115</span> <span class="op">&amp;&amp;</span> rohrer <span class="op">&lt;</span> <span class="dv">145</span>) {</span>
-<span id="lst:3-1-21"><a href="#lst:3-1-21"></a>    println(<span class="st">&#39;普通ですね．&#39;</span>)<span class="op">;</span></span>
-<span id="lst:3-1-22"><a href="#lst:3-1-22"></a>}</span>
-<span id="lst:3-1-23"><a href="#lst:3-1-23"></a><span class="cf">if</span> (rohrer <span class="op">&gt;=</span> <span class="dv">145</span> <span class="op">&amp;&amp;</span> rohrer <span class="op">&lt;</span> <span class="dv">160</span>) {</span>
-<span id="lst:3-1-24"><a href="#lst:3-1-24"></a>    println(<span class="st">&#39;太っていますね．&#39;</span>)<span class="op">;</span></span>
-<span id="lst:3-1-25"><a href="#lst:3-1-25"></a>}</span>
-<span id="lst:3-1-26"><a href="#lst:3-1-26"></a><span class="cf">if</span> (rohrer <span class="op">&gt;=</span> <span class="dv">160</span>) {</span>
-<span id="lst:3-1-27"><a href="#lst:3-1-27"></a>    println(<span class="st">&#39;太りすぎですね．&#39;</span>)<span class="op">;</span></span>
-<span id="lst:3-1-28"><a href="#lst:3-1-28"></a>}</span></code></pre></div>
+<p><span class="CopyButton" onclick="copycode(&#39;lst:3-4&#39;)">c</span></p>
+<div class="sourceCode" id="lst:3-4" data-caption="Rohrer2"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:3-4-1"><a href="#lst:3-4-1"></a><span class="kw">var</span> height<span class="op">;</span> <span class="co">// 身長</span></span>
+<span id="lst:3-4-2"><a href="#lst:3-4-2"></a><span class="kw">var</span> weight<span class="op">;</span> <span class="co">// 体重</span></span>
+<span id="lst:3-4-3"><a href="#lst:3-4-3"></a><span class="kw">var</span> rohrer<span class="op">;</span> <span class="co">// ローレル指数</span></span>
+<span id="lst:3-4-4"><a href="#lst:3-4-4"></a></span>
+<span id="lst:3-4-5"><a href="#lst:3-4-5"></a><span class="co">// ユーザの入力を受け取る</span></span>
+<span id="lst:3-4-6"><a href="#lst:3-4-6"></a>height <span class="op">=</span> input(<span class="st">&#39;身長を入力してください&#39;</span>)<span class="op">;</span></span>
+<span id="lst:3-4-7"><a href="#lst:3-4-7"></a>weight <span class="op">=</span> input(<span class="st">&#39;体重を入力してください&#39;</span>)<span class="op">;</span></span>
+<span id="lst:3-4-8"><a href="#lst:3-4-8"></a></span>
+<span id="lst:3-4-9"><a href="#lst:3-4-9"></a><span class="co">// ローレル指数を求める</span></span>
+<span id="lst:3-4-10"><a href="#lst:3-4-10"></a>rohrer <span class="op">=</span> weight <span class="op">*</span> <span class="dv">10000000</span> <span class="op">/</span> height <span class="op">/</span> height <span class="op">/</span> height<span class="op">;</span></span>
+<span id="lst:3-4-11"><a href="#lst:3-4-11"></a>println(<span class="st">&#39;ローレル指数は&#39;</span> <span class="op">+</span> rohrer <span class="op">+</span> <span class="st">&#39;です．&#39;</span>)<span class="op">;</span></span>
+<span id="lst:3-4-12"><a href="#lst:3-4-12"></a></span>
+<span id="lst:3-4-13"><a href="#lst:3-4-13"></a><span class="co">// 体型に対するコメントを提示する</span></span>
+<span id="lst:3-4-14"><a href="#lst:3-4-14"></a><span class="cf">if</span> (rohrer <span class="op">&lt;</span> <span class="dv">100</span>) {</span>
+<span id="lst:3-4-15"><a href="#lst:3-4-15"></a>    println(<span class="st">&#39;やせすぎですね．&#39;</span>)<span class="op">;</span></span>
+<span id="lst:3-4-16"><a href="#lst:3-4-16"></a>}</span>
+<span id="lst:3-4-17"><a href="#lst:3-4-17"></a><span class="cf">if</span> (rohrer <span class="op">&gt;=</span> <span class="dv">100</span> <span class="op">&amp;&amp;</span> rohrer <span class="op">&lt;</span> <span class="dv">115</span>) {</span>
+<span id="lst:3-4-18"><a href="#lst:3-4-18"></a>    println(<span class="st">&#39;やせていますね．&#39;</span>)<span class="op">;</span></span>
+<span id="lst:3-4-19"><a href="#lst:3-4-19"></a>}</span>
+<span id="lst:3-4-20"><a href="#lst:3-4-20"></a><span class="cf">if</span> (rohrer <span class="op">&gt;=</span> <span class="dv">115</span> <span class="op">&amp;&amp;</span> rohrer <span class="op">&lt;</span> <span class="dv">145</span>) {</span>
+<span id="lst:3-4-21"><a href="#lst:3-4-21"></a>    println(<span class="st">&#39;普通ですね．&#39;</span>)<span class="op">;</span></span>
+<span id="lst:3-4-22"><a href="#lst:3-4-22"></a>}</span>
+<span id="lst:3-4-23"><a href="#lst:3-4-23"></a><span class="cf">if</span> (rohrer <span class="op">&gt;=</span> <span class="dv">145</span> <span class="op">&amp;&amp;</span> rohrer <span class="op">&lt;</span> <span class="dv">160</span>) {</span>
+<span id="lst:3-4-24"><a href="#lst:3-4-24"></a>    println(<span class="st">&#39;太っていますね．&#39;</span>)<span class="op">;</span></span>
+<span id="lst:3-4-25"><a href="#lst:3-4-25"></a>}</span>
+<span id="lst:3-4-26"><a href="#lst:3-4-26"></a><span class="cf">if</span> (rohrer <span class="op">&gt;=</span> <span class="dv">160</span>) {</span>
+<span id="lst:3-4-27"><a href="#lst:3-4-27"></a>    println(<span class="st">&#39;太りすぎですね．&#39;</span>)<span class="op">;</span></span>
+<span id="lst:3-4-28"><a href="#lst:3-4-28"></a>}</span></code></pre></div>
 <p>今度のプログラムも，前例とやっていることは同じなのですが，条件文がちょっと異なっていますね．</p>
 <p>論理演算子を使うと，2つの条件式を使って，それらの条件が両方とも(And)もしくは， どちらか(Or)が成立した時のように，組み合わされた条件式全体の条件を判定することができます．</p>
 <p>表 Javascriptで使える論理演算子</p>
@@ -1448,16 +1375,7 @@ if( [条件式] ) {
 <section id="カッコの対応エラーに注意" class="unnumbered" data-number="">
 <h3 class="unnumbered" data-number="-1">カッコの対応エラーに注意</h3>
 <p>ブロックを示す中括弧は開きカッコと閉じカッコが必ず対応していなくてはなりません． 開き括弧が余ったり，閉じ括弧が余ったりすると，構文エラーとなります．</p>
-</section>
-<section id="インデント" data-number="6.2.3">
-<h3 data-number="5.2.3"><span class="header-section-number">5.2.3</span> インデント</h3>
-<p>第3回の時にも指摘しましたが，インデントをつけると括弧の対応関係やブロックの範囲が分かりやすくなります． インデントがついていないソースは受理しません． 見やすいだけでなく，これができていないために構文エラーで動かない場合が非常に多いので， 注意してください．</p>
-<div class="CJPictureS">
-<figure>
-<img src="img/chapter05/indent.png" alt="" /><figcaption>インデント</figcaption>
-</figure>
-</div>
-<p>PikePlace環境では，<a href="Ctrlキーを押しながらsキーを押す">Ctrl-s</a>で，フォーマット（自動的に字下げをすること）ができます．</p>
+<p>ブロックの入れ子を作り始めると，第3章で説明した「インデント」がより重要になります． 「インデント」項をもう一度確認してください．</p>
 </section>
 </section>
 <section id="入れ子と並列の違いの考察花を描くプログラム" data-number="6.3">
