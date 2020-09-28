@@ -15,17 +15,45 @@ var RawBlock = pandoc.RawBlock;
 
 function action({ t: type, c: value }, format, meta) {
     if (type === "Div") {
-        if (value[0][2][0][0] === 'code') {
+        if (value[0] && value[0][2] && value[0][2][0] && value[0][2][0][0] === 'code') {
             var name = value[0][2][1][1];
             var filename = 'src/' + name + '.html';
             var codevalue = [['lst:' + name, ['numberLines', 'html'],
             [['include', filename], ['caption', '']]], ''];
             var codeblock = { t: 'CodeBlock', c: codevalue }
-            var div1 = RawBlock('html', '<div width="100%">');
-            var rb1 = RawBlock('html', '<iframe src="' + filename + '" style="margin: auto; width:80%; height:300px;">');
-            var rb2 = RawBlock('html', '</iframe>');
-            var div2 = RawBlock('html', '</div>');
-            return [codeblock, div1, rb1, rb2, div2];
+
+            var blocks = [];
+            blocks.push(RawBlock('html', '<div class="mytable"">'));
+            blocks.push(RawBlock('html', '<p class="mytdh">source</p>'));
+            blocks.push(RawBlock('html', '<p class="mytdh">result</p>'));
+            blocks.push(RawBlock('html', '</div>'));
+            blocks.push(RawBlock('html', '<div class="mytable"">'));
+            blocks.push(RawBlock('html', '<div class="mytd">'));
+            blocks.push(codeblock);
+            blocks.push(RawBlock('html', '</div>'));
+            blocks.push(RawBlock('html', '<iframe class="mytd" src="' + filename + '" class="myiframe"></iframe>'));
+            blocks.push(RawBlock('html', '</div>'));
+            return blocks;
+
+            // var blocks = [];
+            // blocks[0] = RawBlock('html', '<table width="100%">');
+            // blocks[1] = RawBlock('html', '<tr><td width="50%"></td><td width="50%"></td></tr>');
+            // blocks[2] = RawBlock('html', '<tr><td valign="top">');
+            // blocks[3] = codeblock;
+            // blocks[4] = RawBlock('html', '</td><td valign="top">');
+            // blocks[5] = RawBlock('html', '<iframe src="' + filename + '" style="margin: auto; width:80%; height:300px;"></iframe>');
+            // blocks[6] = RawBlock('html', '</td></tr>');
+            // blocks[7] = RawBlock('html', '</table>');
+            // return blocks;
+
+            //     var div0open = RawBlock('html', '<table width="100%"><tr><td>');
+            //     var div1open = RawBlock('html', '<div style="float:left;" width="50%">');
+            //     var div2open = RawBlock('html', '<div style="float:left;" width="50%">');
+            //     var rb1 = RawBlock('html', '<iframe src="' + filename + '" style="margin: auto; width:80%; height:300px;">');
+            //     var rb2 = RawBlock('html', '</iframe>');
+            //     var divclose = RawBlock('html', '</div>');
+            //     var div3 = RawBlock('html', '<div style="clear:both;"></div>');
+            //     return [div0open, div1open, codeblock, div2open, rb1, rb2, divclose, divclose, divclose, div3];
         }
     }
 
