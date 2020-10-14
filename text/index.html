@@ -2694,26 +2694,25 @@ minは最小値，maxは最大値を入力する引数で，生成されたラ�
 <p>この式を応用し，再帰を使うことで，次のように階乗を求めるプログラムが書けます．</p>
 <!-- リスト 14.2.2.1 Factorial.js -->
 <p><span class="CopyButton" onclick="copycode(&#39;lst:8-1&#39;)">c</span></p>
-<div class="sourceCode" id="lst:8-1" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:8-1-1"><a href="#lst:8-1-1"></a></span>
-<span id="lst:8-1-2"><a href="#lst:8-1-2"></a>main()<span class="op">;</span></span>
-<span id="lst:8-1-3"><a href="#lst:8-1-3"></a></span>
-<span id="lst:8-1-4"><a href="#lst:8-1-4"></a><span class="kw">function</span> <span class="fu">main</span>(){</span>
-<span id="lst:8-1-5"><a href="#lst:8-1-5"></a>    println(<span class="st">&#39;factorial(1) = &#39;</span> <span class="op">+</span> factorial(<span class="dv">1</span>))<span class="op">;</span></span>
-<span id="lst:8-1-6"><a href="#lst:8-1-6"></a>    println(<span class="st">&#39;factorial(2) = &#39;</span> <span class="op">+</span> factorial(<span class="dv">2</span>))<span class="op">;</span></span>
-<span id="lst:8-1-7"><a href="#lst:8-1-7"></a>    println(<span class="st">&#39;factorial(3) = &#39;</span> <span class="op">+</span> factorial(<span class="dv">3</span>))<span class="op">;</span></span>
-<span id="lst:8-1-8"><a href="#lst:8-1-8"></a>    println(<span class="st">&#39;factorial(4) = &#39;</span> <span class="op">+</span> factorial(<span class="dv">4</span>))<span class="op">;</span></span>
-<span id="lst:8-1-9"><a href="#lst:8-1-9"></a>    println(<span class="st">&#39;factorial(5) = &#39;</span> <span class="op">+</span> factorial(<span class="dv">5</span>))<span class="op">;</span></span>
-<span id="lst:8-1-10"><a href="#lst:8-1-10"></a>}</span>
-<span id="lst:8-1-11"><a href="#lst:8-1-11"></a></span>
-<span id="lst:8-1-12"><a href="#lst:8-1-12"></a><span class="kw">function</span> <span class="fu">factorial</span>(n) {</span>
-<span id="lst:8-1-13"><a href="#lst:8-1-13"></a>    <span class="kw">var</span> result<span class="op">;</span></span>
-<span id="lst:8-1-14"><a href="#lst:8-1-14"></a>    <span class="cf">if</span> (n <span class="op">==</span> <span class="dv">1</span>) {</span>
-<span id="lst:8-1-15"><a href="#lst:8-1-15"></a>        result <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="lst:8-1-16"><a href="#lst:8-1-16"></a>    } <span class="cf">else</span> {</span>
-<span id="lst:8-1-17"><a href="#lst:8-1-17"></a>        result <span class="op">=</span> n <span class="op">*</span> factorial(n <span class="op">-</span> <span class="dv">1</span>)<span class="op">;</span></span>
-<span id="lst:8-1-18"><a href="#lst:8-1-18"></a>    }</span>
-<span id="lst:8-1-19"><a href="#lst:8-1-19"></a>    <span class="cf">return</span> result<span class="op">;</span></span>
-<span id="lst:8-1-20"><a href="#lst:8-1-20"></a>}</span></code></pre></div>
+<div class="sourceCode" id="lst:8-1" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:8-1-1"><a href="#lst:8-1-1"></a>main()<span class="op">;</span></span>
+<span id="lst:8-1-2"><a href="#lst:8-1-2"></a></span>
+<span id="lst:8-1-3"><a href="#lst:8-1-3"></a><span class="kw">function</span> <span class="fu">main</span>(){</span>
+<span id="lst:8-1-4"><a href="#lst:8-1-4"></a>    println(<span class="st">&#39;factorial(1) = &#39;</span> <span class="op">+</span> factorial(<span class="dv">1</span>))<span class="op">;</span></span>
+<span id="lst:8-1-5"><a href="#lst:8-1-5"></a>    println(<span class="st">&#39;factorial(2) = &#39;</span> <span class="op">+</span> factorial(<span class="dv">2</span>))<span class="op">;</span></span>
+<span id="lst:8-1-6"><a href="#lst:8-1-6"></a>    println(<span class="st">&#39;factorial(3) = &#39;</span> <span class="op">+</span> factorial(<span class="dv">3</span>))<span class="op">;</span></span>
+<span id="lst:8-1-7"><a href="#lst:8-1-7"></a>    println(<span class="st">&#39;factorial(4) = &#39;</span> <span class="op">+</span> factorial(<span class="dv">4</span>))<span class="op">;</span></span>
+<span id="lst:8-1-8"><a href="#lst:8-1-8"></a>    println(<span class="st">&#39;factorial(5) = &#39;</span> <span class="op">+</span> factorial(<span class="dv">5</span>))<span class="op">;</span></span>
+<span id="lst:8-1-9"><a href="#lst:8-1-9"></a>}</span>
+<span id="lst:8-1-10"><a href="#lst:8-1-10"></a></span>
+<span id="lst:8-1-11"><a href="#lst:8-1-11"></a><span class="kw">function</span> <span class="fu">factorial</span>(n) {</span>
+<span id="lst:8-1-12"><a href="#lst:8-1-12"></a>    <span class="kw">var</span> result<span class="op">;</span></span>
+<span id="lst:8-1-13"><a href="#lst:8-1-13"></a>    <span class="cf">if</span> (n <span class="op">==</span> <span class="dv">1</span>) {</span>
+<span id="lst:8-1-14"><a href="#lst:8-1-14"></a>        result <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="lst:8-1-15"><a href="#lst:8-1-15"></a>    } <span class="cf">else</span> {</span>
+<span id="lst:8-1-16"><a href="#lst:8-1-16"></a>        result <span class="op">=</span> n <span class="op">*</span> factorial(n <span class="op">-</span> <span class="dv">1</span>)<span class="op">;</span></span>
+<span id="lst:8-1-17"><a href="#lst:8-1-17"></a>    }</span>
+<span id="lst:8-1-18"><a href="#lst:8-1-18"></a>    <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="lst:8-1-19"><a href="#lst:8-1-19"></a>}</span></code></pre></div>
 </section>
 <section id="再帰の終点" class="unnumbered" data-number="">
 <h3 class="unnumbered" data-number="-1">再帰の終点</h3>
@@ -2788,69 +2787,67 @@ fib(6) = fib(5) + fib(4) = 13</code></pre>
 <p>フィボナッチ数列も再帰の例でよく出てくる例で，再帰を使うことでフィボナッチ数列を求めるプログラムを次のように書けます．</p>
 <p><span class="CopyButton" onclick="copycode(&#39;lst:8-3&#39;)">c</span></p>
 <!-- リスト 14.2.3.1 Fibonacci.js -->
-<div class="sourceCode" id="lst:8-3" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:8-3-1"><a href="#lst:8-3-1"></a></span>
-<span id="lst:8-3-2"><a href="#lst:8-3-2"></a>main()<span class="op">;</span></span>
-<span id="lst:8-3-3"><a href="#lst:8-3-3"></a></span>
-<span id="lst:8-3-4"><a href="#lst:8-3-4"></a><span class="kw">function</span> <span class="fu">main</span>(){</span>
-<span id="lst:8-3-5"><a href="#lst:8-3-5"></a>    println(<span class="st">&#39;fib(1) = &#39;</span> <span class="op">+</span> fib(<span class="dv">1</span>))<span class="op">;</span></span>
-<span id="lst:8-3-6"><a href="#lst:8-3-6"></a>    println(<span class="st">&#39;fib(2) = &#39;</span> <span class="op">+</span> fib(<span class="dv">2</span>))<span class="op">;</span></span>
-<span id="lst:8-3-7"><a href="#lst:8-3-7"></a>    println(<span class="st">&#39;fib(3) = &#39;</span> <span class="op">+</span> fib(<span class="dv">3</span>))<span class="op">;</span></span>
-<span id="lst:8-3-8"><a href="#lst:8-3-8"></a>    println(<span class="st">&#39;fib(4) = &#39;</span> <span class="op">+</span> fib(<span class="dv">4</span>))<span class="op">;</span></span>
-<span id="lst:8-3-9"><a href="#lst:8-3-9"></a>    println(<span class="st">&#39;fib(5) = &#39;</span> <span class="op">+</span> fib(<span class="dv">5</span>))<span class="op">;</span></span>
-<span id="lst:8-3-10"><a href="#lst:8-3-10"></a>    println(<span class="st">&#39;fib(6) = &#39;</span> <span class="op">+</span> fib(<span class="dv">6</span>))<span class="op">;</span></span>
-<span id="lst:8-3-11"><a href="#lst:8-3-11"></a>    println(<span class="st">&#39;fib(7) = &#39;</span> <span class="op">+</span> fib(<span class="dv">7</span>))<span class="op">;</span></span>
-<span id="lst:8-3-12"><a href="#lst:8-3-12"></a>}</span>
-<span id="lst:8-3-13"><a href="#lst:8-3-13"></a></span>
-<span id="lst:8-3-14"><a href="#lst:8-3-14"></a><span class="kw">function</span> <span class="fu">fib</span>(n) {</span>
-<span id="lst:8-3-15"><a href="#lst:8-3-15"></a>    <span class="kw">var</span> value<span class="op">;</span></span>
-<span id="lst:8-3-16"><a href="#lst:8-3-16"></a>    <span class="cf">if</span> (n <span class="op">==</span> <span class="dv">1</span>) {</span>
-<span id="lst:8-3-17"><a href="#lst:8-3-17"></a>        value <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="lst:8-3-18"><a href="#lst:8-3-18"></a>    } <span class="cf">else</span> <span class="cf">if</span> (n <span class="op">==</span> <span class="dv">2</span>) {</span>
-<span id="lst:8-3-19"><a href="#lst:8-3-19"></a>        value <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="lst:8-3-20"><a href="#lst:8-3-20"></a>    } <span class="cf">else</span> {</span>
-<span id="lst:8-3-21"><a href="#lst:8-3-21"></a>        value <span class="op">=</span> fib(n <span class="op">-</span> <span class="dv">1</span>) <span class="op">+</span> fib(n <span class="op">-</span> <span class="dv">2</span>)<span class="op">;</span></span>
-<span id="lst:8-3-22"><a href="#lst:8-3-22"></a>    }</span>
-<span id="lst:8-3-23"><a href="#lst:8-3-23"></a>    <span class="cf">return</span> value<span class="op">;</span></span>
-<span id="lst:8-3-24"><a href="#lst:8-3-24"></a>}</span></code></pre></div>
+<div class="sourceCode" id="lst:8-3" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:8-3-1"><a href="#lst:8-3-1"></a>main()<span class="op">;</span></span>
+<span id="lst:8-3-2"><a href="#lst:8-3-2"></a></span>
+<span id="lst:8-3-3"><a href="#lst:8-3-3"></a><span class="kw">function</span> <span class="fu">main</span>(){</span>
+<span id="lst:8-3-4"><a href="#lst:8-3-4"></a>    println(<span class="st">&#39;fib(1) = &#39;</span> <span class="op">+</span> fib(<span class="dv">1</span>))<span class="op">;</span></span>
+<span id="lst:8-3-5"><a href="#lst:8-3-5"></a>    println(<span class="st">&#39;fib(2) = &#39;</span> <span class="op">+</span> fib(<span class="dv">2</span>))<span class="op">;</span></span>
+<span id="lst:8-3-6"><a href="#lst:8-3-6"></a>    println(<span class="st">&#39;fib(3) = &#39;</span> <span class="op">+</span> fib(<span class="dv">3</span>))<span class="op">;</span></span>
+<span id="lst:8-3-7"><a href="#lst:8-3-7"></a>    println(<span class="st">&#39;fib(4) = &#39;</span> <span class="op">+</span> fib(<span class="dv">4</span>))<span class="op">;</span></span>
+<span id="lst:8-3-8"><a href="#lst:8-3-8"></a>    println(<span class="st">&#39;fib(5) = &#39;</span> <span class="op">+</span> fib(<span class="dv">5</span>))<span class="op">;</span></span>
+<span id="lst:8-3-9"><a href="#lst:8-3-9"></a>    println(<span class="st">&#39;fib(6) = &#39;</span> <span class="op">+</span> fib(<span class="dv">6</span>))<span class="op">;</span></span>
+<span id="lst:8-3-10"><a href="#lst:8-3-10"></a>    println(<span class="st">&#39;fib(7) = &#39;</span> <span class="op">+</span> fib(<span class="dv">7</span>))<span class="op">;</span></span>
+<span id="lst:8-3-11"><a href="#lst:8-3-11"></a>}</span>
+<span id="lst:8-3-12"><a href="#lst:8-3-12"></a></span>
+<span id="lst:8-3-13"><a href="#lst:8-3-13"></a><span class="kw">function</span> <span class="fu">fib</span>(n) {</span>
+<span id="lst:8-3-14"><a href="#lst:8-3-14"></a>    <span class="kw">var</span> value<span class="op">;</span></span>
+<span id="lst:8-3-15"><a href="#lst:8-3-15"></a>    <span class="cf">if</span> (n <span class="op">==</span> <span class="dv">1</span>) {</span>
+<span id="lst:8-3-16"><a href="#lst:8-3-16"></a>        value <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="lst:8-3-17"><a href="#lst:8-3-17"></a>    } <span class="cf">else</span> <span class="cf">if</span> (n <span class="op">==</span> <span class="dv">2</span>) {</span>
+<span id="lst:8-3-18"><a href="#lst:8-3-18"></a>        value <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="lst:8-3-19"><a href="#lst:8-3-19"></a>    } <span class="cf">else</span> {</span>
+<span id="lst:8-3-20"><a href="#lst:8-3-20"></a>        value <span class="op">=</span> fib(n <span class="op">-</span> <span class="dv">1</span>) <span class="op">+</span> fib(n <span class="op">-</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="lst:8-3-21"><a href="#lst:8-3-21"></a>    }</span>
+<span id="lst:8-3-22"><a href="#lst:8-3-22"></a>    <span class="cf">return</span> value<span class="op">;</span></span>
+<span id="lst:8-3-23"><a href="#lst:8-3-23"></a>}</span></code></pre></div>
 <p>これも呼出し過程を図示してみましょう．</p>
 <p><span class="CopyButton" onclick="copycode(&#39;lst:8-4&#39;)">c</span></p>
 <!-- リスト 14.2.3.2 FibonacciWithPrint.js -->
-<div class="sourceCode" id="lst:8-4" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:8-4-1"><a href="#lst:8-4-1"></a></span>
-<span id="lst:8-4-2"><a href="#lst:8-4-2"></a>main()<span class="op">;</span></span>
-<span id="lst:8-4-3"><a href="#lst:8-4-3"></a></span>
-<span id="lst:8-4-4"><a href="#lst:8-4-4"></a><span class="kw">function</span> <span class="fu">main</span>(){</span>
-<span id="lst:8-4-5"><a href="#lst:8-4-5"></a>    print(<span class="st">&#39;fib(5, 0) = &#39;</span> <span class="op">+</span> fib(<span class="dv">5</span><span class="op">,</span> <span class="dv">0</span>))<span class="op">;</span></span>
-<span id="lst:8-4-6"><a href="#lst:8-4-6"></a>}</span>
-<span id="lst:8-4-7"><a href="#lst:8-4-7"></a></span>
-<span id="lst:8-4-8"><a href="#lst:8-4-8"></a><span class="kw">function</span> <span class="fu">fib</span>(n<span class="op">,</span> indentCount) {</span>
-<span id="lst:8-4-9"><a href="#lst:8-4-9"></a>    printStart(n<span class="op">,</span> indentCount)<span class="op">;</span></span>
-<span id="lst:8-4-10"><a href="#lst:8-4-10"></a>    <span class="kw">var</span> value<span class="op">;</span></span>
-<span id="lst:8-4-11"><a href="#lst:8-4-11"></a>    <span class="cf">if</span> (n <span class="op">==</span> <span class="dv">1</span>) {</span>
-<span id="lst:8-4-12"><a href="#lst:8-4-12"></a>        value <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="lst:8-4-13"><a href="#lst:8-4-13"></a>    } <span class="cf">else</span> <span class="cf">if</span> (n <span class="op">==</span> <span class="dv">2</span>) {</span>
-<span id="lst:8-4-14"><a href="#lst:8-4-14"></a>        value <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="lst:8-4-15"><a href="#lst:8-4-15"></a>    } <span class="cf">else</span> {</span>
-<span id="lst:8-4-16"><a href="#lst:8-4-16"></a>        value <span class="op">=</span> fib(n <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> indentCount <span class="op">+</span> <span class="dv">1</span>) <span class="op">+</span> fib(n <span class="op">-</span> <span class="dv">2</span><span class="op">,</span> indentCount <span class="op">+</span> <span class="dv">1</span>)<span class="op">;</span></span>
-<span id="lst:8-4-17"><a href="#lst:8-4-17"></a>    }</span>
-<span id="lst:8-4-18"><a href="#lst:8-4-18"></a>    printEnd(value<span class="op">,</span> indentCount)<span class="op">;</span></span>
-<span id="lst:8-4-19"><a href="#lst:8-4-19"></a>    <span class="cf">return</span> value<span class="op">;</span></span>
-<span id="lst:8-4-20"><a href="#lst:8-4-20"></a>}</span>
-<span id="lst:8-4-21"><a href="#lst:8-4-21"></a></span>
-<span id="lst:8-4-22"><a href="#lst:8-4-22"></a><span class="kw">function</span> <span class="fu">printStart</span>(length<span class="op">,</span> indentCount) {</span>
-<span id="lst:8-4-23"><a href="#lst:8-4-23"></a>    makeIndent(indentCount)<span class="op">;</span></span>
-<span id="lst:8-4-24"><a href="#lst:8-4-24"></a>    println(<span class="st">&#39;fib(&#39;</span> <span class="op">+</span> length <span class="op">+</span> <span class="st">&#39;, &#39;</span> <span class="op">+</span> indentCount <span class="op">+</span> <span class="st">&#39;)&#39;</span>)<span class="op">;</span></span>
-<span id="lst:8-4-25"><a href="#lst:8-4-25"></a>}</span>
-<span id="lst:8-4-26"><a href="#lst:8-4-26"></a></span>
-<span id="lst:8-4-27"><a href="#lst:8-4-27"></a><span class="kw">function</span> <span class="fu">printEnd</span>(result<span class="op">,</span> indentCount) {</span>
-<span id="lst:8-4-28"><a href="#lst:8-4-28"></a>    makeIndent(indentCount)<span class="op">;</span></span>
-<span id="lst:8-4-29"><a href="#lst:8-4-29"></a>    println(<span class="st">&#39;// return &#39;</span> <span class="op">+</span> result)<span class="op">;</span></span>
-<span id="lst:8-4-30"><a href="#lst:8-4-30"></a>}</span>
-<span id="lst:8-4-31"><a href="#lst:8-4-31"></a></span>
-<span id="lst:8-4-32"><a href="#lst:8-4-32"></a><span class="kw">function</span> <span class="fu">makeIndent</span>(indentCount) {</span>
-<span id="lst:8-4-33"><a href="#lst:8-4-33"></a>    <span class="cf">for</span> (i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> indentCount<span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="lst:8-4-34"><a href="#lst:8-4-34"></a>        print(<span class="st">&#39;</span><span class="sc">\t</span><span class="st">&#39;</span>)<span class="op">;</span></span>
-<span id="lst:8-4-35"><a href="#lst:8-4-35"></a>    }</span>
-<span id="lst:8-4-36"><a href="#lst:8-4-36"></a>}</span></code></pre></div>
+<div class="sourceCode" id="lst:8-4" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:8-4-1"><a href="#lst:8-4-1"></a>main()<span class="op">;</span></span>
+<span id="lst:8-4-2"><a href="#lst:8-4-2"></a></span>
+<span id="lst:8-4-3"><a href="#lst:8-4-3"></a><span class="kw">function</span> <span class="fu">main</span>(){</span>
+<span id="lst:8-4-4"><a href="#lst:8-4-4"></a>    print(<span class="st">&#39;fib(5, 0) = &#39;</span> <span class="op">+</span> fib(<span class="dv">5</span><span class="op">,</span> <span class="dv">0</span>))<span class="op">;</span></span>
+<span id="lst:8-4-5"><a href="#lst:8-4-5"></a>}</span>
+<span id="lst:8-4-6"><a href="#lst:8-4-6"></a></span>
+<span id="lst:8-4-7"><a href="#lst:8-4-7"></a><span class="kw">function</span> <span class="fu">fib</span>(n<span class="op">,</span> indentCount) {</span>
+<span id="lst:8-4-8"><a href="#lst:8-4-8"></a>    printStart(n<span class="op">,</span> indentCount)<span class="op">;</span></span>
+<span id="lst:8-4-9"><a href="#lst:8-4-9"></a>    <span class="kw">var</span> value<span class="op">;</span></span>
+<span id="lst:8-4-10"><a href="#lst:8-4-10"></a>    <span class="cf">if</span> (n <span class="op">==</span> <span class="dv">1</span>) {</span>
+<span id="lst:8-4-11"><a href="#lst:8-4-11"></a>        value <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="lst:8-4-12"><a href="#lst:8-4-12"></a>    } <span class="cf">else</span> <span class="cf">if</span> (n <span class="op">==</span> <span class="dv">2</span>) {</span>
+<span id="lst:8-4-13"><a href="#lst:8-4-13"></a>        value <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="lst:8-4-14"><a href="#lst:8-4-14"></a>    } <span class="cf">else</span> {</span>
+<span id="lst:8-4-15"><a href="#lst:8-4-15"></a>        value <span class="op">=</span> fib(n <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> indentCount <span class="op">+</span> <span class="dv">1</span>) <span class="op">+</span> fib(n <span class="op">-</span> <span class="dv">2</span><span class="op">,</span> indentCount <span class="op">+</span> <span class="dv">1</span>)<span class="op">;</span></span>
+<span id="lst:8-4-16"><a href="#lst:8-4-16"></a>    }</span>
+<span id="lst:8-4-17"><a href="#lst:8-4-17"></a>    printEnd(value<span class="op">,</span> indentCount)<span class="op">;</span></span>
+<span id="lst:8-4-18"><a href="#lst:8-4-18"></a>    <span class="cf">return</span> value<span class="op">;</span></span>
+<span id="lst:8-4-19"><a href="#lst:8-4-19"></a>}</span>
+<span id="lst:8-4-20"><a href="#lst:8-4-20"></a></span>
+<span id="lst:8-4-21"><a href="#lst:8-4-21"></a><span class="kw">function</span> <span class="fu">printStart</span>(length<span class="op">,</span> indentCount) {</span>
+<span id="lst:8-4-22"><a href="#lst:8-4-22"></a>    makeIndent(indentCount)<span class="op">;</span></span>
+<span id="lst:8-4-23"><a href="#lst:8-4-23"></a>    println(<span class="st">&#39;fib(&#39;</span> <span class="op">+</span> length <span class="op">+</span> <span class="st">&#39;, &#39;</span> <span class="op">+</span> indentCount <span class="op">+</span> <span class="st">&#39;)&#39;</span>)<span class="op">;</span></span>
+<span id="lst:8-4-24"><a href="#lst:8-4-24"></a>}</span>
+<span id="lst:8-4-25"><a href="#lst:8-4-25"></a></span>
+<span id="lst:8-4-26"><a href="#lst:8-4-26"></a><span class="kw">function</span> <span class="fu">printEnd</span>(result<span class="op">,</span> indentCount) {</span>
+<span id="lst:8-4-27"><a href="#lst:8-4-27"></a>    makeIndent(indentCount)<span class="op">;</span></span>
+<span id="lst:8-4-28"><a href="#lst:8-4-28"></a>    println(<span class="st">&#39;// return &#39;</span> <span class="op">+</span> result)<span class="op">;</span></span>
+<span id="lst:8-4-29"><a href="#lst:8-4-29"></a>}</span>
+<span id="lst:8-4-30"><a href="#lst:8-4-30"></a></span>
+<span id="lst:8-4-31"><a href="#lst:8-4-31"></a><span class="kw">function</span> <span class="fu">makeIndent</span>(indentCount) {</span>
+<span id="lst:8-4-32"><a href="#lst:8-4-32"></a>    <span class="cf">for</span> (i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> indentCount<span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="lst:8-4-33"><a href="#lst:8-4-33"></a>        print(<span class="st">&#39;</span><span class="sc">\t</span><span class="st">&#39;</span>)<span class="op">;</span></span>
+<span id="lst:8-4-34"><a href="#lst:8-4-34"></a>    }</span>
+<span id="lst:8-4-35"><a href="#lst:8-4-35"></a>}</span></code></pre></div>
 <pre><code>fib(5, 0)
     fib(4, 1)
         fib(3, 2)
