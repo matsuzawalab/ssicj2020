@@ -97,7 +97,7 @@
 <li><a href="#ブロックの入れ子構造"><span class="toc-section-number">5</span> ブロックの入れ子構造</a></li>
 <li><a href="#命令をつくる１関数引数付関数"><span class="toc-section-number">6</span> 命令をつくる（１）：関数．引数付関数</a></li>
 <li><a href="#命令をつくる２戻り値付き関数"><span class="toc-section-number">7</span> 命令をつくる（２）：戻り値付き関数</a></li>
-<li><a href="#挑戦再帰プログラム"><span class="toc-section-number">8</span> 挑戦：再帰プログラム</a></li>
+<li><a href="#挑戦関数の再帰呼び出しとフラクタル図形"><span class="toc-section-number">8</span> 挑戦：関数の再帰呼び出しとフラクタル図形</a></li>
 </ul>
 </nav>
 <script>
@@ -1040,6 +1040,27 @@ a / b の余りは [答え] です．</code></pre>
 </section>
 </section>
 </section>
+<section id="コラム条件式の誤り" class="unnumbered" data-number="">
+<h2 class="unnumbered" data-number="-1">コラム：条件式の誤り</h2>
+<p>初学者が間違えやすい条件式の誤りを紹介します．特に複数の条件を指定するときには，上記の論理演算子を使うようにして，独自の記法を使わないでください．</p>
+<ul>
+<li>カンマを使った複数条件指定はできません</li>
+</ul>
+<p>＜誤＞</p>
+<pre><code>if(a === 1, 2)</code></pre>
+<pre><code>if(a === 1, a === 2)</code></pre>
+<p>＜正＞</p>
+<pre><code>if(a === 1 || a === 2)</code></pre>
+<p>この場合は，1か2を指定したかったのでしょうから，ORで条件を指定します．</p>
+<ul>
+<li>複数の条件をまとめて書くことはできません．</li>
+</ul>
+<p>＜誤＞</p>
+<pre><code>if(1 &lt; a &lt; 100)</code></pre>
+<p>＜正＞</p>
+<pre><code>if(1 &lt; a &amp;&amp; a &lt; 100)</code></pre>
+<p>複数の条件も一つ一つ分けて，論理演算子でつなぐようにしてください．</p>
+</section>
 <section id="変数のスコープ有効範囲" data-number="4.4">
 <h2 data-number="3.4"><span class="header-section-number">3.4</span> 変数のスコープ（有効範囲）</h2>
 <p>変数には有効範囲（スコープといいます）があります．Javascriptでは基本的に，宣言した変数のブロック内(「{}」で囲まれた範囲)がスコープになります．</p>
@@ -1214,8 +1235,24 @@ if( [条件式] ) {
 </div></li>
 </ol>
 <p>変数が，5になったときに条件式が不成立(false)になるので，繰り返しが終ります． これで4回繰り返されるのが分かるでしょうか？</p>
-<!-- ## コラム：while()の後に;はつけないで!{.unnumbered} -->
 </section>
+</section>
+<section id="コラムwhileの後にはつけないで" class="unnumbered" data-number="">
+<h2 class="unnumbered" data-number="-1">コラム：while()の後に;はつけないで!</h2>
+<p>命令の区切りとして「;（セミコロン）」記号をつける必要があります(Javascriptでは１行１命令のときは省略できる） しかし，while文の後に;をつけてはいけません．whileの後にセミコロンを付けた次のようなプログラム</p>
+<pre><code>while ([条件式]) ; {
+  [繰り返したい処理]
+}</code></pre>
+<p>は，次のように解釈されます．</p>
+<pre><code>while ([条件式]) 
+  (空命令);
+  
+{
+  [繰り返したい処理]
+}</code></pre>
+<p>つまり，空命令（なにもしない処理）を繰り返し，繰り返しが終わった後に，繰り返したかった処理が１回実行するプログラムとして解釈されるということです．</p>
+<p>このプログラムでは，空命令が繰り返されてしまい，コンピュータは空命令を実行し続けて，プログラムが止まらなくなります．このような，プログラムミスでループを抜けることができなくなったプログラムの状態ことを，「無限ループ」と表現することもあります．無限ループに陥ると，CPUの負荷が高くなり，コンピュータの動作が重くなったり，動作しなくなったりする可能性があります．この状態を回復するには，ブラウザを再起動したり，OSを再起動する必要がある場合もあります．</p>
+<p>if文やfor文の場合にも同様ですので，注意してください．</p>
 </section>
 <section id="応用円を書くプログラム" data-number="5.3">
 <h2 data-number="4.3"><span class="header-section-number">4.3</span> 応用：円を書くプログラム</h2>
@@ -1532,37 +1569,40 @@ if( [条件式] ) {
 <p><span class="CopyButton" onclick="copycode(&#39;lst:5-6&#39;)">c</span></p>
 <div class="sourceCode" id="lst:5-6" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:5-6-1"><a href="#lst:5-6-1"></a><span class="kw">var</span> t <span class="op">=</span> createTurtle()<span class="op">;</span></span>
 <span id="lst:5-6-2"><a href="#lst:5-6-2"></a></span>
-<span id="lst:5-6-3"><a href="#lst:5-6-3"></a>t<span class="op">.</span><span class="fu">warp</span>(<span class="dv">200</span><span class="op">,</span> <span class="dv">100</span>)<span class="op">;</span></span>
-<span id="lst:5-6-4"><a href="#lst:5-6-4"></a><span class="kw">var</span> length <span class="op">=</span> <span class="dv">50</span><span class="op">;</span> <span class="co">// １辺の長さ</span></span>
-<span id="lst:5-6-5"><a href="#lst:5-6-5"></a></span>
-<span id="lst:5-6-6"><a href="#lst:5-6-6"></a><span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">8</span><span class="op">;</span> i<span class="op">++</span>) { <span class="co">// 図形を描く（8回繰り返す）</span></span>
-<span id="lst:5-6-7"><a href="#lst:5-6-7"></a></span>
-<span id="lst:5-6-8"><a href="#lst:5-6-8"></a>  <span class="cf">if</span> (i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>) { <span class="co">// 偶数なら</span></span>
-<span id="lst:5-6-9"><a href="#lst:5-6-9"></a>    <span class="cf">for</span> (<span class="kw">var</span> j <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;=</span> <span class="dv">4</span><span class="op">;</span> j<span class="op">++</span>) { <span class="co">// 四角形を書く</span></span>
-<span id="lst:5-6-10"><a href="#lst:5-6-10"></a>      t<span class="op">.</span><span class="fu">fd</span>(length)<span class="op">;</span></span>
-<span id="lst:5-6-11"><a href="#lst:5-6-11"></a>      t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:5-6-12"><a href="#lst:5-6-12"></a>    }</span>
-<span id="lst:5-6-13"><a href="#lst:5-6-13"></a>  } <span class="cf">else</span> { <span class="co">// 奇数なら</span></span>
-<span id="lst:5-6-14"><a href="#lst:5-6-14"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">30</span>)<span class="op">;</span>  </span>
-<span id="lst:5-6-15"><a href="#lst:5-6-15"></a>    <span class="cf">for</span> (<span class="kw">var</span> j <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;=</span> <span class="dv">3</span><span class="op">;</span> j<span class="op">++</span>) { <span class="co">// 三角形を書く</span></span>
-<span id="lst:5-6-16"><a href="#lst:5-6-16"></a>      t<span class="op">.</span><span class="fu">fd</span>(length)<span class="op">;</span></span>
-<span id="lst:5-6-17"><a href="#lst:5-6-17"></a>      t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">120</span>)<span class="op">;</span></span>
-<span id="lst:5-6-18"><a href="#lst:5-6-18"></a>    }</span>
-<span id="lst:5-6-19"><a href="#lst:5-6-19"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">30</span>)<span class="op">;</span></span>
-<span id="lst:5-6-20"><a href="#lst:5-6-20"></a>  }</span>
-<span id="lst:5-6-21"><a href="#lst:5-6-21"></a></span>
-<span id="lst:5-6-22"><a href="#lst:5-6-22"></a>  <span class="co">// 次の図形を書く位置に移動する</span></span>
-<span id="lst:5-6-23"><a href="#lst:5-6-23"></a>  t<span class="op">.</span><span class="fu">up</span>()<span class="op">;</span></span>
-<span id="lst:5-6-24"><a href="#lst:5-6-24"></a>  t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:5-6-25"><a href="#lst:5-6-25"></a>  t<span class="op">.</span><span class="fu">fd</span>(length)<span class="op">;</span></span>
-<span id="lst:5-6-26"><a href="#lst:5-6-26"></a>  t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">45</span>)<span class="op">;</span></span>
-<span id="lst:5-6-27"><a href="#lst:5-6-27"></a>  t<span class="op">.</span><span class="fu">down</span>()<span class="op">;</span></span>
-<span id="lst:5-6-28"><a href="#lst:5-6-28"></a>  </span>
-<span id="lst:5-6-29"><a href="#lst:5-6-29"></a>}</span></code></pre></div>
+<span id="lst:5-6-3"><a href="#lst:5-6-3"></a><span class="kw">var</span> length <span class="op">=</span> <span class="dv">50</span><span class="op">;</span> <span class="co">// １辺の長さ</span></span>
+<span id="lst:5-6-4"><a href="#lst:5-6-4"></a></span>
+<span id="lst:5-6-5"><a href="#lst:5-6-5"></a><span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">8</span><span class="op">;</span> i<span class="op">++</span>) { <span class="co">// 図形を描く（8回繰り返す）</span></span>
+<span id="lst:5-6-6"><a href="#lst:5-6-6"></a></span>
+<span id="lst:5-6-7"><a href="#lst:5-6-7"></a>  <span class="cf">if</span> (i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>) { <span class="co">// 偶数なら</span></span>
+<span id="lst:5-6-8"><a href="#lst:5-6-8"></a>    <span class="cf">for</span> (<span class="kw">var</span> j <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;=</span> <span class="dv">4</span><span class="op">;</span> j<span class="op">++</span>) { <span class="co">// 四角形を書く</span></span>
+<span id="lst:5-6-9"><a href="#lst:5-6-9"></a>      t<span class="op">.</span><span class="fu">fd</span>(length)<span class="op">;</span></span>
+<span id="lst:5-6-10"><a href="#lst:5-6-10"></a>      t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:5-6-11"><a href="#lst:5-6-11"></a>    }</span>
+<span id="lst:5-6-12"><a href="#lst:5-6-12"></a>  } <span class="cf">else</span> { <span class="co">// 奇数なら</span></span>
+<span id="lst:5-6-13"><a href="#lst:5-6-13"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">30</span>)<span class="op">;</span>  </span>
+<span id="lst:5-6-14"><a href="#lst:5-6-14"></a>    <span class="cf">for</span> (<span class="kw">var</span> j <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;=</span> <span class="dv">3</span><span class="op">;</span> j<span class="op">++</span>) { <span class="co">// 三角形を書く</span></span>
+<span id="lst:5-6-15"><a href="#lst:5-6-15"></a>      t<span class="op">.</span><span class="fu">fd</span>(length)<span class="op">;</span></span>
+<span id="lst:5-6-16"><a href="#lst:5-6-16"></a>      t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">120</span>)<span class="op">;</span></span>
+<span id="lst:5-6-17"><a href="#lst:5-6-17"></a>    }</span>
+<span id="lst:5-6-18"><a href="#lst:5-6-18"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">30</span>)<span class="op">;</span></span>
+<span id="lst:5-6-19"><a href="#lst:5-6-19"></a>  }</span>
+<span id="lst:5-6-20"><a href="#lst:5-6-20"></a></span>
+<span id="lst:5-6-21"><a href="#lst:5-6-21"></a>  <span class="co">// 次の図形を書く位置に移動する</span></span>
+<span id="lst:5-6-22"><a href="#lst:5-6-22"></a>  t<span class="op">.</span><span class="fu">up</span>()<span class="op">;</span></span>
+<span id="lst:5-6-23"><a href="#lst:5-6-23"></a>  t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:5-6-24"><a href="#lst:5-6-24"></a>  t<span class="op">.</span><span class="fu">fd</span>(length)<span class="op">;</span></span>
+<span id="lst:5-6-25"><a href="#lst:5-6-25"></a>  t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">45</span>)<span class="op">;</span></span>
+<span id="lst:5-6-26"><a href="#lst:5-6-26"></a>  t<span class="op">.</span><span class="fu">down</span>()<span class="op">;</span></span>
+<span id="lst:5-6-27"><a href="#lst:5-6-27"></a>  </span>
+<span id="lst:5-6-28"><a href="#lst:5-6-28"></a>}</span></code></pre></div>
 <figure>
 <img src="img/chapter05/square_and_triangle.gif" alt="" /><figcaption>三角形と四角形を交互に書くプログラム</figcaption>
 </figure>
 <p>このプログラムでは，剰余演算子と，先ほど説明した繰り返しの変数を利用して， 繰り返した数が偶数なら四角，奇数なら三角を描くようにプログラムされています．</p>
+<!-- ## コラム：warp命令{.unnumbered}
+上記のプログラムでは，初期位置を決めるのにwarp命令を使用しています．x座標とy座標を指定して，タートルを指定の場所に移動することができます．
+
+便利ではあるのですが，教育的な観点から，使用しなくても構いませんし，使用するときも初期位置を決めるときにのみ使用してください． -->
 </section>
 </section>
 <section id="練習問題-4" data-number="6.5">
@@ -1653,61 +1693,106 @@ if( [条件式] ) {
 <!-- リスト 12.2.2.1 DrawRectangleMethod.js -->
 <p><span class="CopyButton" onclick="copycode(&#39;lst:6-1&#39;)">c</span></p>
 <div class="sourceCode" id="lst:6-1" data-caption="DrawRectangleMethod"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:6-1-1"><a href="#lst:6-1-1"></a><span class="kw">var</span> t <span class="op">=</span> createTurtle()<span class="op">;</span></span>
-<span id="lst:6-1-2"><a href="#lst:6-1-2"></a>drawRectangle()<span class="op">;</span></span>
-<span id="lst:6-1-3"><a href="#lst:6-1-3"></a></span>
-<span id="lst:6-1-4"><a href="#lst:6-1-4"></a><span class="co">// 四角形を描く</span></span>
-<span id="lst:6-1-5"><a href="#lst:6-1-5"></a><span class="kw">function</span> <span class="fu">drawRectangle</span>() {</span>
-<span id="lst:6-1-6"><a href="#lst:6-1-6"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">4</span><span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="lst:6-1-7"><a href="#lst:6-1-7"></a>        t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">50</span>)<span class="op">;</span></span>
-<span id="lst:6-1-8"><a href="#lst:6-1-8"></a>        t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:6-1-9"><a href="#lst:6-1-9"></a>    }</span>
-<span id="lst:6-1-10"><a href="#lst:6-1-10"></a>}</span></code></pre></div>
+<span id="lst:6-1-2"><a href="#lst:6-1-2"></a></span>
+<span id="lst:6-1-3"><a href="#lst:6-1-3"></a>drawRectangle()<span class="op">;</span></span>
+<span id="lst:6-1-4"><a href="#lst:6-1-4"></a></span>
+<span id="lst:6-1-5"><a href="#lst:6-1-5"></a><span class="co">// 四角形を描く</span></span>
+<span id="lst:6-1-6"><a href="#lst:6-1-6"></a><span class="kw">function</span> <span class="fu">drawRectangle</span>() {</span>
+<span id="lst:6-1-7"><a href="#lst:6-1-7"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">4</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="lst:6-1-8"><a href="#lst:6-1-8"></a>        t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">50</span>)<span class="op">;</span></span>
+<span id="lst:6-1-9"><a href="#lst:6-1-9"></a>        t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:6-1-10"><a href="#lst:6-1-10"></a>    }</span>
+<span id="lst:6-1-11"><a href="#lst:6-1-11"></a>}</span></code></pre></div>
 <p>関数を使うためには，関数を定義し，その関数を呼び出す必要があります．</p>
 <p>関数は一度定義すれば，同じ関数を何度も呼び出して使うことができます．</p>
-<p>このプログラムでは5行目から10行目で関数を定義し，2行目でそれを呼び出しています．</p>
-<p>引数．戻り値なしの関数定義，関数呼び出しの一般形は以下の通りです</p>
+<p>このプログラムでは6行目から11行目で関数を定義し，3行目でそれを呼び出しています．</p>
+<p>引数．戻り値なしの関数定義の一般形は以下の通りです</p>
 <pre><code>function [関数名](){
 
 }</code></pre>
+<p>関数呼び出しの一般形は以下のとおりです．</p>
 <pre><code>[関数名]();</code></pre>
 </section>
-<section id="関数の処理の順序" data-number="7.2.3">
-<h3 data-number="6.2.3"><span class="header-section-number">6.2.3</span> 関数の処理の順序</h3>
-<p>以下のプログラムは，四角形を描く関数を使って，四角形を３つ描くプログラムです．</p>
+</section>
+<section id="命名規則" data-number="7.3">
+<h2 data-number="6.3"><span class="header-section-number">6.3</span> 命名規則</h2>
+<p>関数，変数には好きな名前をつけることができます．ただし，数字から始まる名前や予約語は使用できません．</p>
+<p>ルールから逸脱していなければ自由に命名することができ，プログラムは動作するのですが，プログラムは自分だけが読むものではありません（皆さんのプログラムもチェックする先生，TASAさんが読んでいます）．したがって，皆が分かりやすくなるような作法（ガイドライン）を理解して，守っていただけると助かります．</p>
+<p>Javascriptのガイドラインとして有名なものには，googleのガイドがあります．</p>
+<ul>
+<li>https://google.github.io/styleguide/jsguide.html#naming</li>
+</ul>
+<p>ここで，本テキストでのガイドラインを紹介すると，</p>
+<ul>
+<li>大原則：分かりやすい名前をつける
+<ul>
+<li>a, b, cなどの変数名，１文字変数名はお控えください．繰り返し変数のi, j, k，座標のx, yは例外です．</li>
+<li>短いほうが良いのですが，わかりにくくなるようでしたら，ある程度長くなっても仕方がありません．</li>
+</ul></li>
+<li>複数語を含めた命名規則（lower camel case，といいます．下記参照）
+<ul>
+<li>「draw rectangle」のように複数の単語から構成される名前をつけたい場合には，</li>
+<li>キャメルケース
+<ul>
+<li>単語の最初の文字を大文字にして繋げる方法です．大文字の部分がラクダのコブように見えます．最初の文字を小文字にするlower camel caseと，最初の文字を大文字にするupper camel caseがあります．</li>
+<li>lower camel case 例) height, drawHundredHouses(), calculateConsumptionTax()</li>
+<li>upper camel case 例) Height, DrawHundredHouses(), CalculateConsumptionTax()</li>
+</ul></li>
+<li>スネークケース
+<ul>
+<li>単語を「_」アンダーバーで繋げる方法です．全体として蛇のように見えます．全部の文字を小文字にするlower snake caseと全部の文字を大文字にするupper snake caseがあります．</li>
+<li>lower snake case 例）height, draw_hundred_houses(), calculate_consumption_tax()</li>
+<li>upper snake case 例）HEIGHT, DRAW_HUNDRED_HOUSES(), CALCULATE_CONSUMPTION_TAX()</li>
+</ul></li>
+</ul></li>
+<li>そのほか
+<ul>
+<li>日本語，ローマ字でも結構です．例) 家を描く(); ie-wo-kaku();</li>
+<li>英語の場合は，動詞を先に，例) drawRectangle</li>
+</ul></li>
+</ul>
+<p>本テキストでは，小文字から始めるキャメルケース（lower camel case）で統一しています．</p>
+<section id="関数の処理の順序" data-number="7.3.1">
+<h3 data-number="6.3.1"><span class="header-section-number">6.3.1</span> 関数の処理の順序</h3>
+<p>以下のプログラムは，四角形を描く関数を作って（定義して），四角形を３つ描くプログラムです．</p>
 <!-- リスト 12.2.3.1 DrawThreeRectanglesMethod.js -->
 <p><span class="CopyButton" onclick="copycode(&#39;lst:6-2&#39;)">c</span></p>
 <div class="sourceCode" id="lst:6-2" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:6-2-1"><a href="#lst:6-2-1"></a><span class="kw">var</span> t <span class="op">=</span> createTurtle()<span class="op">;</span></span>
 <span id="lst:6-2-2"><a href="#lst:6-2-2"></a></span>
-<span id="lst:6-2-3"><a href="#lst:6-2-3"></a><span class="co">// 四角形を３つ描く</span></span>
-<span id="lst:6-2-4"><a href="#lst:6-2-4"></a><span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">3</span><span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="lst:6-2-5"><a href="#lst:6-2-5"></a>    drawRectangle()<span class="op">;</span><span class="co">// 四角形を描く</span></span>
-<span id="lst:6-2-6"><a href="#lst:6-2-6"></a>    move()<span class="op">;</span><span class="co">// 次の描く位置まで移動する</span></span>
-<span id="lst:6-2-7"><a href="#lst:6-2-7"></a>}</span>
-<span id="lst:6-2-8"><a href="#lst:6-2-8"></a></span>
-<span id="lst:6-2-9"><a href="#lst:6-2-9"></a></span>
-<span id="lst:6-2-10"><a href="#lst:6-2-10"></a><span class="co">// 四角形を描く</span></span>
-<span id="lst:6-2-11"><a href="#lst:6-2-11"></a><span class="kw">function</span> <span class="fu">drawRectangle</span>() {</span>
-<span id="lst:6-2-12"><a href="#lst:6-2-12"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">4</span><span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="lst:6-2-13"><a href="#lst:6-2-13"></a>        t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">50</span>)<span class="op">;</span></span>
-<span id="lst:6-2-14"><a href="#lst:6-2-14"></a>        t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:6-2-15"><a href="#lst:6-2-15"></a>    }</span>
-<span id="lst:6-2-16"><a href="#lst:6-2-16"></a>}</span>
-<span id="lst:6-2-17"><a href="#lst:6-2-17"></a></span>
-<span id="lst:6-2-18"><a href="#lst:6-2-18"></a><span class="co">// 次の描く位置まで移動する</span></span>
-<span id="lst:6-2-19"><a href="#lst:6-2-19"></a><span class="kw">function</span> <span class="fu">move</span>() {</span>
-<span id="lst:6-2-20"><a href="#lst:6-2-20"></a>    t<span class="op">.</span><span class="fu">up</span>()<span class="op">;</span></span>
-<span id="lst:6-2-21"><a href="#lst:6-2-21"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:6-2-22"><a href="#lst:6-2-22"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">60</span>)<span class="op">;</span></span>
-<span id="lst:6-2-23"><a href="#lst:6-2-23"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:6-2-24"><a href="#lst:6-2-24"></a>    t<span class="op">.</span><span class="fu">down</span>()<span class="op">;</span></span>
-<span id="lst:6-2-25"><a href="#lst:6-2-25"></a>}</span></code></pre></div>
+<span id="lst:6-2-3"><a href="#lst:6-2-3"></a>main()<span class="op">;</span></span>
+<span id="lst:6-2-4"><a href="#lst:6-2-4"></a></span>
+<span id="lst:6-2-5"><a href="#lst:6-2-5"></a><span class="kw">function</span> <span class="fu">main</span>(){</span>
+<span id="lst:6-2-6"><a href="#lst:6-2-6"></a>    <span class="co">// 四角形を３つ描く</span></span>
+<span id="lst:6-2-7"><a href="#lst:6-2-7"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">3</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="lst:6-2-8"><a href="#lst:6-2-8"></a>        drawRectangle()<span class="op">;</span><span class="co">// 四角形を描く</span></span>
+<span id="lst:6-2-9"><a href="#lst:6-2-9"></a>        move()<span class="op">;</span><span class="co">// 次の四角形を描く位置まで移動する</span></span>
+<span id="lst:6-2-10"><a href="#lst:6-2-10"></a>    }</span>
+<span id="lst:6-2-11"><a href="#lst:6-2-11"></a>}</span>
+<span id="lst:6-2-12"><a href="#lst:6-2-12"></a></span>
+<span id="lst:6-2-13"><a href="#lst:6-2-13"></a><span class="co">// 四角形を描く</span></span>
+<span id="lst:6-2-14"><a href="#lst:6-2-14"></a><span class="kw">function</span> <span class="fu">drawRectangle</span>() {</span>
+<span id="lst:6-2-15"><a href="#lst:6-2-15"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">4</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="lst:6-2-16"><a href="#lst:6-2-16"></a>        t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">50</span>)<span class="op">;</span></span>
+<span id="lst:6-2-17"><a href="#lst:6-2-17"></a>        t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:6-2-18"><a href="#lst:6-2-18"></a>    }</span>
+<span id="lst:6-2-19"><a href="#lst:6-2-19"></a>}</span>
+<span id="lst:6-2-20"><a href="#lst:6-2-20"></a></span>
+<span id="lst:6-2-21"><a href="#lst:6-2-21"></a><span class="co">// 次の描く位置まで移動する</span></span>
+<span id="lst:6-2-22"><a href="#lst:6-2-22"></a><span class="kw">function</span> <span class="fu">move</span>() {</span>
+<span id="lst:6-2-23"><a href="#lst:6-2-23"></a>    t<span class="op">.</span><span class="fu">up</span>()<span class="op">;</span></span>
+<span id="lst:6-2-24"><a href="#lst:6-2-24"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:6-2-25"><a href="#lst:6-2-25"></a>    t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">60</span>)<span class="op">;</span></span>
+<span id="lst:6-2-26"><a href="#lst:6-2-26"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:6-2-27"><a href="#lst:6-2-27"></a>    t<span class="op">.</span><span class="fu">down</span>()<span class="op">;</span></span>
+<span id="lst:6-2-28"><a href="#lst:6-2-28"></a>}</span></code></pre></div>
 <p>関数が呼び出されると，プログラムの処理はその関数の処理に飛びます． そして，関数が終了すると，関数呼び出し位置に返ってきます．</p>
 <div class="CJPictureL">
 <figure>
 <img src="img/chapter06/functionflow.png" alt="" /><figcaption>関数の処理の順序</figcaption>
 </figure>
 </div>
-<p>四角形を３つ描くプログラムでは，まず，四角形を描く関数を呼び， 四角形を描き終わったら，次の描く位置まで移動する関数を呼び， 移動し終わったら，再び四角形を描く関数を呼び…という処理を３回繰り返しています．</p>
+<p>このプログラムでは，mainという関数を定義して，3行目でmain関数を呼び出しています．</p>
+<p>main関数中の四角形を３つ描くプログラムでは，まず，四角形を描く関数を呼び， 四角形を描き終わったら，次の描く位置まで移動する関数を呼び， 移動し終わったら，再び四角形を描く関数を呼び…という処理を３回繰り返しています．</p>
 <!-- ### 関数の定義位置の注意点
 次のプログラムは，四角形を描くプログラムを書こうとして，失敗した例です．
 
@@ -1731,16 +1816,17 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 図 12.2.4.2 正しい関数定義
 
 -->
+<p>このように，関数をつくると自分で命令を作り，プログラムを部品に分解することができます．反面，いままでプログラムは上から順番に実行されていましたが，関数呼び出しによりいろいろな場所へ飛ぶ可能性が出てきます．実行順序に気をつける必要が出てきます．（なお，関数の中では，上から順番に実行されます．）</p>
 </section>
 </section>
-<section id="引数付関数" data-number="7.3">
-<h2 data-number="6.3"><span class="header-section-number">6.3</span> 引数付関数</h2>
-<section id="引数とその目的" data-number="7.3.1">
-<h3 data-number="6.3.1"><span class="header-section-number">6.3.1</span> 引数とその目的</h3>
+<section id="引数付関数" data-number="7.4">
+<h2 data-number="6.4"><span class="header-section-number">6.4</span> 引数付関数</h2>
+<section id="引数とその目的" data-number="7.4.1">
+<h3 data-number="6.4.1"><span class="header-section-number">6.4.1</span> 引数とその目的</h3>
 <p>関数ブロック内で宣言された変数は，関数ブロック内でしか有効ではありません． しかし，ある関数から他の関数を呼ぶときに，データを受け渡したいことがあります． 引数とは，関数ブロック外と，関数ブロック内でデータをやり取りする仕組みです． 引数を使うことで，関数ブロック外から，関数ブロック内にデータを受け取ることができます．</p>
 </section>
-<section id="引数を用いた四角形を描く関数の抽象化" data-number="7.3.2">
-<h3 data-number="6.3.2"><span class="header-section-number">6.3.2</span> 引数を用いた，四角形を描く関数の抽象化</h3>
+<section id="引数を用いた四角形を描く関数の抽象化" data-number="7.4.2">
+<h3 data-number="6.4.2"><span class="header-section-number">6.4.2</span> 引数を用いた，四角形を描く関数の抽象化</h3>
 <p>引数が使えない場合，次のように大きさが違う四角形を書きたい場合も， 2つの関数を作る必要があります．</p>
 <div class="CJPicture">
 <figure>
@@ -1751,24 +1837,28 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 <p><span class="CopyButton" onclick="copycode(&#39;lst:6-3&#39;)">c</span></p>
 <div class="sourceCode" id="lst:6-3" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:6-3-1"><a href="#lst:6-3-1"></a><span class="kw">var</span> t <span class="op">=</span> createTurtle()<span class="op">;</span></span>
 <span id="lst:6-3-2"><a href="#lst:6-3-2"></a></span>
-<span id="lst:6-3-3"><a href="#lst:6-3-3"></a>drawBigRectangle()<span class="op">;</span></span>
-<span id="lst:6-3-4"><a href="#lst:6-3-4"></a>drawSmallRectangle()<span class="op">;</span></span>
-<span id="lst:6-3-5"><a href="#lst:6-3-5"></a></span>
-<span id="lst:6-3-6"><a href="#lst:6-3-6"></a><span class="co">// 一辺100の大きな四角形を書く</span></span>
-<span id="lst:6-3-7"><a href="#lst:6-3-7"></a><span class="kw">function</span> <span class="fu">drawBigRectangle</span>() {</span>
-<span id="lst:6-3-8"><a href="#lst:6-3-8"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">4</span><span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="lst:6-3-9"><a href="#lst:6-3-9"></a>        t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">100</span>)<span class="op">;</span></span>
-<span id="lst:6-3-10"><a href="#lst:6-3-10"></a>        t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:6-3-11"><a href="#lst:6-3-11"></a>    }</span>
-<span id="lst:6-3-12"><a href="#lst:6-3-12"></a>}</span>
-<span id="lst:6-3-13"><a href="#lst:6-3-13"></a></span>
-<span id="lst:6-3-14"><a href="#lst:6-3-14"></a><span class="co">// 一辺20の小さな四角形を書く</span></span>
-<span id="lst:6-3-15"><a href="#lst:6-3-15"></a><span class="kw">function</span> <span class="fu">drawSmallRectangle</span>() {</span>
-<span id="lst:6-3-16"><a href="#lst:6-3-16"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">4</span><span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="lst:6-3-17"><a href="#lst:6-3-17"></a>        t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:6-3-18"><a href="#lst:6-3-18"></a>        t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:6-3-19"><a href="#lst:6-3-19"></a>    }</span>
-<span id="lst:6-3-20"><a href="#lst:6-3-20"></a>}</span></code></pre></div>
+<span id="lst:6-3-3"><a href="#lst:6-3-3"></a>main()<span class="op">;</span></span>
+<span id="lst:6-3-4"><a href="#lst:6-3-4"></a></span>
+<span id="lst:6-3-5"><a href="#lst:6-3-5"></a><span class="kw">function</span> <span class="fu">main</span>(){</span>
+<span id="lst:6-3-6"><a href="#lst:6-3-6"></a>    drawBigRectangle()<span class="op">;</span></span>
+<span id="lst:6-3-7"><a href="#lst:6-3-7"></a>    drawSmallRectangle()<span class="op">;</span></span>
+<span id="lst:6-3-8"><a href="#lst:6-3-8"></a>}</span>
+<span id="lst:6-3-9"><a href="#lst:6-3-9"></a></span>
+<span id="lst:6-3-10"><a href="#lst:6-3-10"></a><span class="co">// 一辺100の大きな四角形を書く</span></span>
+<span id="lst:6-3-11"><a href="#lst:6-3-11"></a><span class="kw">function</span> <span class="fu">drawBigRectangle</span>() {</span>
+<span id="lst:6-3-12"><a href="#lst:6-3-12"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">4</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="lst:6-3-13"><a href="#lst:6-3-13"></a>        t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">100</span>)<span class="op">;</span></span>
+<span id="lst:6-3-14"><a href="#lst:6-3-14"></a>        t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:6-3-15"><a href="#lst:6-3-15"></a>    }</span>
+<span id="lst:6-3-16"><a href="#lst:6-3-16"></a>}</span>
+<span id="lst:6-3-17"><a href="#lst:6-3-17"></a></span>
+<span id="lst:6-3-18"><a href="#lst:6-3-18"></a><span class="co">// 一辺20の小さな四角形を書く</span></span>
+<span id="lst:6-3-19"><a href="#lst:6-3-19"></a><span class="kw">function</span> <span class="fu">drawSmallRectangle</span>() {</span>
+<span id="lst:6-3-20"><a href="#lst:6-3-20"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">4</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="lst:6-3-21"><a href="#lst:6-3-21"></a>        t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">20</span>)<span class="op">;</span></span>
+<span id="lst:6-3-22"><a href="#lst:6-3-22"></a>        t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:6-3-23"><a href="#lst:6-3-23"></a>    }</span>
+<span id="lst:6-3-24"><a href="#lst:6-3-24"></a>}</span></code></pre></div>
 <p>次のプログラムでは，引数を使って大きさを指定し，大きい四角形と小さな四角形を「四角形を描く」という ひとつの関数で描けるようにしています．</p>
 <div class="CJPicture">
 <figure>
@@ -1779,16 +1869,20 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 <p><span class="CopyButton" onclick="copycode(&#39;lst:6-4&#39;)">c</span></p>
 <div class="sourceCode" id="lst:6-4" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:6-4-1"><a href="#lst:6-4-1"></a><span class="kw">var</span> t <span class="op">=</span> createTurtle()<span class="op">;</span></span>
 <span id="lst:6-4-2"><a href="#lst:6-4-2"></a></span>
-<span id="lst:6-4-3"><a href="#lst:6-4-3"></a>drawRectangle(<span class="dv">100</span>)<span class="op">;</span></span>
-<span id="lst:6-4-4"><a href="#lst:6-4-4"></a>drawRectangle(<span class="dv">20</span>)<span class="op">;</span></span>
-<span id="lst:6-4-5"><a href="#lst:6-4-5"></a></span>
-<span id="lst:6-4-6"><a href="#lst:6-4-6"></a><span class="co">// 一辺がsizeの四角形を書く</span></span>
-<span id="lst:6-4-7"><a href="#lst:6-4-7"></a><span class="kw">function</span> <span class="fu">drawRectangle</span>(size) {</span>
-<span id="lst:6-4-8"><a href="#lst:6-4-8"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">4</span><span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="lst:6-4-9"><a href="#lst:6-4-9"></a>        t<span class="op">.</span><span class="fu">fd</span>(size)<span class="op">;</span></span>
-<span id="lst:6-4-10"><a href="#lst:6-4-10"></a>        t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:6-4-11"><a href="#lst:6-4-11"></a>    }</span>
-<span id="lst:6-4-12"><a href="#lst:6-4-12"></a>}</span></code></pre></div>
+<span id="lst:6-4-3"><a href="#lst:6-4-3"></a>main()<span class="op">;</span></span>
+<span id="lst:6-4-4"><a href="#lst:6-4-4"></a></span>
+<span id="lst:6-4-5"><a href="#lst:6-4-5"></a><span class="kw">function</span> <span class="fu">main</span>(){</span>
+<span id="lst:6-4-6"><a href="#lst:6-4-6"></a>    drawRectangle(<span class="dv">100</span>)<span class="op">;</span></span>
+<span id="lst:6-4-7"><a href="#lst:6-4-7"></a>    drawRectangle(<span class="dv">20</span>)<span class="op">;</span></span>
+<span id="lst:6-4-8"><a href="#lst:6-4-8"></a>}</span>
+<span id="lst:6-4-9"><a href="#lst:6-4-9"></a></span>
+<span id="lst:6-4-10"><a href="#lst:6-4-10"></a><span class="co">// 一辺がsizeの四角形を書く</span></span>
+<span id="lst:6-4-11"><a href="#lst:6-4-11"></a><span class="kw">function</span> <span class="fu">drawRectangle</span>(size) {</span>
+<span id="lst:6-4-12"><a href="#lst:6-4-12"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">4</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="lst:6-4-13"><a href="#lst:6-4-13"></a>        t<span class="op">.</span><span class="fu">fd</span>(size)<span class="op">;</span></span>
+<span id="lst:6-4-14"><a href="#lst:6-4-14"></a>        t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:6-4-15"><a href="#lst:6-4-15"></a>    }</span>
+<span id="lst:6-4-16"><a href="#lst:6-4-16"></a>}</span></code></pre></div>
 <p>引数付関数を使うためには，引数付関数を定義し，その関数を引数付で呼び出します． 一般形は以下の通りです．</p>
 <pre><code>function [関数名]([仮引数名]){
 
@@ -1801,8 +1895,8 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 </figure>
 </div>
 </section>
-<section id="引数を用いた多角形を描く関数の抽象化" data-number="7.3.3">
-<h3 data-number="6.3.3"><span class="header-section-number">6.3.3</span> 引数を用いた，多角形を描く関数の抽象化</h3>
+<section id="引数を用いた多角形を描く関数の抽象化" data-number="7.4.3">
+<h3 data-number="6.4.3"><span class="header-section-number">6.4.3</span> 引数を用いた，多角形を描く関数の抽象化</h3>
 <p>家を書くプログラムでは，三角形と四角形を書くために， 2つの関数を作る必要があります．</p>
 <div class="CJPicture">
 <figure>
@@ -1813,27 +1907,31 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 <p><span class="CopyButton" onclick="copycode(&#39;lst:6-5&#39;)">c</span></p>
 <div class="sourceCode" id="lst:6-5" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:6-5-1"><a href="#lst:6-5-1"></a><span class="kw">var</span> t <span class="op">=</span> createTurtle()<span class="op">;</span></span>
 <span id="lst:6-5-2"><a href="#lst:6-5-2"></a></span>
-<span id="lst:6-5-3"><a href="#lst:6-5-3"></a>drawTriangle(<span class="dv">100</span>)<span class="op">;</span></span>
-<span id="lst:6-5-4"><a href="#lst:6-5-4"></a>t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:6-5-5"><a href="#lst:6-5-5"></a>drawRectangle(<span class="dv">100</span>)<span class="op">;</span></span>
-<span id="lst:6-5-6"><a href="#lst:6-5-6"></a></span>
-<span id="lst:6-5-7"><a href="#lst:6-5-7"></a><span class="co">// 三角形を書く</span></span>
-<span id="lst:6-5-8"><a href="#lst:6-5-8"></a><span class="kw">function</span> <span class="fu">drawTriangle</span>(size) {</span>
-<span id="lst:6-5-9"><a href="#lst:6-5-9"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">30</span>)<span class="op">;</span></span>
-<span id="lst:6-5-10"><a href="#lst:6-5-10"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">3</span><span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="lst:6-5-11"><a href="#lst:6-5-11"></a>        t<span class="op">.</span><span class="fu">fd</span>(size)<span class="op">;</span></span>
-<span id="lst:6-5-12"><a href="#lst:6-5-12"></a>        t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">120</span>)<span class="op">;</span></span>
-<span id="lst:6-5-13"><a href="#lst:6-5-13"></a>    }</span>
-<span id="lst:6-5-14"><a href="#lst:6-5-14"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">30</span>)<span class="op">;</span></span>
-<span id="lst:6-5-15"><a href="#lst:6-5-15"></a>}</span>
-<span id="lst:6-5-16"><a href="#lst:6-5-16"></a></span>
-<span id="lst:6-5-17"><a href="#lst:6-5-17"></a><span class="co">// 四角形を書く</span></span>
-<span id="lst:6-5-18"><a href="#lst:6-5-18"></a><span class="kw">function</span> <span class="fu">drawRectangle</span>(size) {</span>
-<span id="lst:6-5-19"><a href="#lst:6-5-19"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">4</span><span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="lst:6-5-20"><a href="#lst:6-5-20"></a>        t<span class="op">.</span><span class="fu">fd</span>(size)<span class="op">;</span></span>
-<span id="lst:6-5-21"><a href="#lst:6-5-21"></a>        t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:6-5-22"><a href="#lst:6-5-22"></a>    }</span>
-<span id="lst:6-5-23"><a href="#lst:6-5-23"></a>}</span></code></pre></div>
+<span id="lst:6-5-3"><a href="#lst:6-5-3"></a>main()<span class="op">;</span></span>
+<span id="lst:6-5-4"><a href="#lst:6-5-4"></a></span>
+<span id="lst:6-5-5"><a href="#lst:6-5-5"></a><span class="kw">function</span> <span class="fu">main</span>(){</span>
+<span id="lst:6-5-6"><a href="#lst:6-5-6"></a>    drawTriangle(<span class="dv">100</span>)<span class="op">;</span></span>
+<span id="lst:6-5-7"><a href="#lst:6-5-7"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:6-5-8"><a href="#lst:6-5-8"></a>    drawRectangle(<span class="dv">100</span>)<span class="op">;</span></span>
+<span id="lst:6-5-9"><a href="#lst:6-5-9"></a>}</span>
+<span id="lst:6-5-10"><a href="#lst:6-5-10"></a></span>
+<span id="lst:6-5-11"><a href="#lst:6-5-11"></a><span class="co">// 三角形を書く</span></span>
+<span id="lst:6-5-12"><a href="#lst:6-5-12"></a><span class="kw">function</span> <span class="fu">drawTriangle</span>(size) {</span>
+<span id="lst:6-5-13"><a href="#lst:6-5-13"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">30</span>)<span class="op">;</span></span>
+<span id="lst:6-5-14"><a href="#lst:6-5-14"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">3</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="lst:6-5-15"><a href="#lst:6-5-15"></a>        t<span class="op">.</span><span class="fu">fd</span>(size)<span class="op">;</span></span>
+<span id="lst:6-5-16"><a href="#lst:6-5-16"></a>        t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">120</span>)<span class="op">;</span></span>
+<span id="lst:6-5-17"><a href="#lst:6-5-17"></a>    }</span>
+<span id="lst:6-5-18"><a href="#lst:6-5-18"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">30</span>)<span class="op">;</span></span>
+<span id="lst:6-5-19"><a href="#lst:6-5-19"></a>}</span>
+<span id="lst:6-5-20"><a href="#lst:6-5-20"></a></span>
+<span id="lst:6-5-21"><a href="#lst:6-5-21"></a><span class="co">// 四角形を書く</span></span>
+<span id="lst:6-5-22"><a href="#lst:6-5-22"></a><span class="kw">function</span> <span class="fu">drawRectangle</span>(size) {</span>
+<span id="lst:6-5-23"><a href="#lst:6-5-23"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">4</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="lst:6-5-24"><a href="#lst:6-5-24"></a>        t<span class="op">.</span><span class="fu">fd</span>(size)<span class="op">;</span></span>
+<span id="lst:6-5-25"><a href="#lst:6-5-25"></a>        t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:6-5-26"><a href="#lst:6-5-26"></a>    }</span>
+<span id="lst:6-5-27"><a href="#lst:6-5-27"></a>}</span></code></pre></div>
 <p>次のプログラムでは「屋根を描く」処理で使っていた三角形と，「壁を描く」処理で使っていた四角形を 「多角形を描く」というひとつの関数で描けるようにしています．</p>
 <div class="CJPicture">
 <figure>
@@ -1844,39 +1942,42 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 <p><span class="CopyButton" onclick="copycode(&#39;lst:6-6&#39;)">c</span></p>
 <div class="sourceCode" id="lst:6-6" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:6-6-1"><a href="#lst:6-6-1"></a><span class="kw">var</span> t <span class="op">=</span> createTurtle()<span class="op">;</span></span>
 <span id="lst:6-6-2"><a href="#lst:6-6-2"></a></span>
-<span id="lst:6-6-3"><a href="#lst:6-6-3"></a>drawRegularPolygon(<span class="dv">3</span><span class="op">,</span> <span class="dv">100</span>)<span class="op">;</span></span>
-<span id="lst:6-6-4"><a href="#lst:6-6-4"></a>t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:6-6-5"><a href="#lst:6-6-5"></a>drawRegularPolygon(<span class="dv">4</span><span class="op">,</span> <span class="dv">100</span>)<span class="op">;</span></span>
-<span id="lst:6-6-6"><a href="#lst:6-6-6"></a></span>
-<span id="lst:6-6-7"><a href="#lst:6-6-7"></a></span>
-<span id="lst:6-6-8"><a href="#lst:6-6-8"></a><span class="co">// 指定された角数の正多角形を描く</span></span>
-<span id="lst:6-6-9"><a href="#lst:6-6-9"></a><span class="kw">function</span> <span class="fu">drawRegularPolygon</span>(n<span class="op">,</span> size) {</span>
-<span id="lst:6-6-10"><a href="#lst:6-6-10"></a>    <span class="co">// 向きを調節する</span></span>
-<span id="lst:6-6-11"><a href="#lst:6-6-11"></a>    <span class="kw">var</span> angle <span class="op">=</span> <span class="dv">360</span> <span class="op">/</span> n<span class="op">;</span></span>
-<span id="lst:6-6-12"><a href="#lst:6-6-12"></a>    t<span class="op">.</span><span class="fu">rt</span>(angle <span class="op">-</span> <span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:6-6-13"><a href="#lst:6-6-13"></a></span>
-<span id="lst:6-6-14"><a href="#lst:6-6-14"></a>    <span class="co">// 多角形を描く</span></span>
-<span id="lst:6-6-15"><a href="#lst:6-6-15"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="lst:6-6-16"><a href="#lst:6-6-16"></a>        t<span class="op">.</span><span class="fu">fd</span>(size)<span class="op">;</span></span>
-<span id="lst:6-6-17"><a href="#lst:6-6-17"></a>        t<span class="op">.</span><span class="fu">rt</span>(angle)<span class="op">;</span></span>
-<span id="lst:6-6-18"><a href="#lst:6-6-18"></a>    }</span>
-<span id="lst:6-6-19"><a href="#lst:6-6-19"></a></span>
-<span id="lst:6-6-20"><a href="#lst:6-6-20"></a>    <span class="co">// 向きを上向きに戻す</span></span>
-<span id="lst:6-6-21"><a href="#lst:6-6-21"></a>    t<span class="op">.</span><span class="fu">lt</span>(angle <span class="op">-</span> <span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:6-6-22"><a href="#lst:6-6-22"></a>}</span></code></pre></div>
+<span id="lst:6-6-3"><a href="#lst:6-6-3"></a>main()<span class="op">;</span></span>
+<span id="lst:6-6-4"><a href="#lst:6-6-4"></a></span>
+<span id="lst:6-6-5"><a href="#lst:6-6-5"></a><span class="kw">function</span> <span class="fu">main</span>(){</span>
+<span id="lst:6-6-6"><a href="#lst:6-6-6"></a>    drawRegularPolygon(<span class="dv">3</span><span class="op">,</span> <span class="dv">100</span>)<span class="op">;</span></span>
+<span id="lst:6-6-7"><a href="#lst:6-6-7"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:6-6-8"><a href="#lst:6-6-8"></a>    drawRegularPolygon(<span class="dv">4</span><span class="op">,</span> <span class="dv">100</span>)<span class="op">;</span></span>
+<span id="lst:6-6-9"><a href="#lst:6-6-9"></a>}</span>
+<span id="lst:6-6-10"><a href="#lst:6-6-10"></a></span>
+<span id="lst:6-6-11"><a href="#lst:6-6-11"></a><span class="co">// 指定された角数の正多角形を描く</span></span>
+<span id="lst:6-6-12"><a href="#lst:6-6-12"></a><span class="kw">function</span> <span class="fu">drawRegularPolygon</span>(n<span class="op">,</span> size) {</span>
+<span id="lst:6-6-13"><a href="#lst:6-6-13"></a>    <span class="co">// 向きを調節する</span></span>
+<span id="lst:6-6-14"><a href="#lst:6-6-14"></a>    <span class="kw">var</span> angle <span class="op">=</span> <span class="dv">360</span> <span class="op">/</span> n<span class="op">;</span></span>
+<span id="lst:6-6-15"><a href="#lst:6-6-15"></a>    t<span class="op">.</span><span class="fu">rt</span>(angle <span class="op">-</span> <span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:6-6-16"><a href="#lst:6-6-16"></a></span>
+<span id="lst:6-6-17"><a href="#lst:6-6-17"></a>    <span class="co">// 多角形を描く</span></span>
+<span id="lst:6-6-18"><a href="#lst:6-6-18"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="lst:6-6-19"><a href="#lst:6-6-19"></a>        t<span class="op">.</span><span class="fu">fd</span>(size)<span class="op">;</span></span>
+<span id="lst:6-6-20"><a href="#lst:6-6-20"></a>        t<span class="op">.</span><span class="fu">rt</span>(angle)<span class="op">;</span></span>
+<span id="lst:6-6-21"><a href="#lst:6-6-21"></a>    }</span>
+<span id="lst:6-6-22"><a href="#lst:6-6-22"></a></span>
+<span id="lst:6-6-23"><a href="#lst:6-6-23"></a>    <span class="co">// 向きを上向きに戻す</span></span>
+<span id="lst:6-6-24"><a href="#lst:6-6-24"></a>    t<span class="op">.</span><span class="fu">lt</span>(angle <span class="op">-</span> <span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:6-6-25"><a href="#lst:6-6-25"></a>}</span></code></pre></div>
 </section>
 </section>
-<section id="変数の有効範囲と引数" data-number="7.4">
-<h2 data-number="6.4"><span class="header-section-number">6.4</span> 変数の有効範囲と引数</h2>
-<section id="変数の有効範囲" data-number="7.4.1">
-<h3 data-number="6.4.1"><span class="header-section-number">6.4.1</span> 変数の有効範囲</h3>
+<section id="変数の有効範囲と引数" data-number="7.5">
+<h2 data-number="6.5"><span class="header-section-number">6.5</span> 変数の有効範囲と引数</h2>
+<section id="変数の有効範囲" data-number="7.5.1">
+<h3 data-number="6.5.1"><span class="header-section-number">6.5.1</span> 変数の有効範囲</h3>
 <p>次のプログラムは，一辺の長さを指定して四角形を描くプログラムを書こうとして，失敗した例です．</p>
 <p><span class="CopyButton" onclick="copycode(&#39;lst:6-7&#39;)">c</span></p>
 <div class="sourceCode" id="lst:6-7" data-caption="ScopeError"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:6-7-1"><a href="#lst:6-7-1"></a><span class="kw">var</span> t <span class="op">=</span> createTurtle()<span class="op">;</span></span>
 <span id="lst:6-7-2"><a href="#lst:6-7-2"></a></span>
-<span id="lst:6-7-3"><a href="#lst:6-7-3"></a>start()<span class="op">;</span></span>
+<span id="lst:6-7-3"><a href="#lst:6-7-3"></a>main()<span class="op">;</span></span>
 <span id="lst:6-7-4"><a href="#lst:6-7-4"></a></span>
-<span id="lst:6-7-5"><a href="#lst:6-7-5"></a><span class="kw">function</span> <span class="fu">start</span>(){</span>
+<span id="lst:6-7-5"><a href="#lst:6-7-5"></a><span class="kw">function</span> <span class="fu">main</span>(){</span>
 <span id="lst:6-7-6"><a href="#lst:6-7-6"></a>    <span class="kw">var</span> length <span class="op">=</span> input(<span class="st">&#39;一辺の長さ？&#39;</span>)<span class="op">;</span></span>
 <span id="lst:6-7-7"><a href="#lst:6-7-7"></a>    drawRectangle()<span class="op">;</span></span>
 <span id="lst:6-7-8"><a href="#lst:6-7-8"></a>}</span>
@@ -1891,16 +1992,16 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 <p>これは，t.fd(length)のlengthという変数が参照できず，0と置き換えられてしまうための動作です．lengthという変数が参照できないのは，drawRectangle()関数の内部（{と}で囲われた部分）が，lengthという変数の有効範囲外であるためです．</p>
 <!-- ![変数の有効範囲](img/chapter06/scope.png) -->
 </section>
-<section id="引数付関数定義と関数呼び出し" data-number="7.4.2">
-<h3 data-number="6.4.2"><span class="header-section-number">6.4.2</span> 引数付関数定義と関数呼び出し</h3>
+<section id="引数付関数定義と関数呼び出し" data-number="7.5.2">
+<h3 data-number="6.5.2"><span class="header-section-number">6.5.2</span> 引数付関数定義と関数呼び出し</h3>
 <p>以下のプログラムは，引数を使って，関数の有効範囲外から四角形の長さを渡せるようにしたプログラムです．</p>
 <p>入力された長さのlength（実引数）を，関数にlength（仮引数）として渡し，四角形を描いています．</p>
 <p><span class="CopyButton" onclick="copycode(&#39;lst:6-8&#39;)">c</span></p>
 <div class="sourceCode" id="lst:6-8" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:6-8-1"><a href="#lst:6-8-1"></a><span class="kw">var</span> t <span class="op">=</span> createTurtle()<span class="op">;</span></span>
 <span id="lst:6-8-2"><a href="#lst:6-8-2"></a></span>
-<span id="lst:6-8-3"><a href="#lst:6-8-3"></a>start()<span class="op">;</span></span>
+<span id="lst:6-8-3"><a href="#lst:6-8-3"></a>main()<span class="op">;</span></span>
 <span id="lst:6-8-4"><a href="#lst:6-8-4"></a></span>
-<span id="lst:6-8-5"><a href="#lst:6-8-5"></a><span class="kw">function</span> <span class="fu">start</span>(){</span>
+<span id="lst:6-8-5"><a href="#lst:6-8-5"></a><span class="kw">function</span> <span class="fu">main</span>(){</span>
 <span id="lst:6-8-6"><a href="#lst:6-8-6"></a>    <span class="kw">var</span> length <span class="op">=</span> input(<span class="st">&#39;一辺の長さ？&#39;</span>)<span class="op">;</span></span>
 <span id="lst:6-8-7"><a href="#lst:6-8-7"></a>    drawRectangle(length)<span class="op">;</span></span>
 <span id="lst:6-8-8"><a href="#lst:6-8-8"></a>}</span>
@@ -1925,8 +2026,8 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 ```  -->
 </section>
 </section>
-<section id="関数の設計あるいはプログラムの構造化" data-number="7.5">
-<h2 data-number="6.5"><span class="header-section-number">6.5</span> 関数の設計．あるいはプログラムの構造化</h2>
+<section id="関数の設計あるいはプログラムの構造化" data-number="7.6">
+<h2 data-number="6.6"><span class="header-section-number">6.6</span> 関数の設計．あるいはプログラムの構造化</h2>
 <p>関数から関数を呼ぶことが出来るため，関数の連鎖を用いてプログラムを作ることができます． これは「構造化プログラミング」という，複雑さを制御するための基本的設計技法です．</p>
 <p>複雑になると，関数の呼び出し関係が混乱してくるので，まず以下のような関数構成図を書き， プログラムを書いていくと良いでしょう．</p>
 <div class="CJPictureL">
@@ -1935,75 +2036,79 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 </figure>
 </div>
 <p>この設計を実装したものを下に載せます．</p>
-<section id="窓付きの家を描くプログラム引数を用いた多角形を描く関数の抽象化" data-number="7.5.1">
-<h3 data-number="6.5.1"><span class="header-section-number">6.5.1</span> 窓付きの家を描くプログラム（引数を用いた，多角形を描く関数の抽象化）</h3>
+<section id="窓付きの家を描くプログラム引数を用いた多角形を描く関数の抽象化" data-number="7.6.1">
+<h3 data-number="6.6.1"><span class="header-section-number">6.6.1</span> 窓付きの家を描くプログラム（引数を用いた，多角形を描く関数の抽象化）</h3>
 <!-- リスト 12.5.1.1 House05.js -->
 <p><span class="CopyButton" onclick="copycode(&#39;lst:6-9&#39;)">c</span></p>
 <div class="sourceCode" id="lst:6-9" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:6-9-1"><a href="#lst:6-9-1"></a><span class="kw">var</span> t <span class="op">=</span> createTurtle()<span class="op">;</span></span>
 <span id="lst:6-9-2"><a href="#lst:6-9-2"></a></span>
-<span id="lst:6-9-3"><a href="#lst:6-9-3"></a><span class="co">// 家を描く</span></span>
-<span id="lst:6-9-4"><a href="#lst:6-9-4"></a><span class="co">//タートルを動かす処理</span></span>
-<span id="lst:6-9-5"><a href="#lst:6-9-5"></a>drawRoof()<span class="op">;</span> <span class="co">// 屋根を描く</span></span>
-<span id="lst:6-9-6"><a href="#lst:6-9-6"></a>drawWall()<span class="op">;</span> <span class="co">// 壁を描く</span></span>
-<span id="lst:6-9-7"><a href="#lst:6-9-7"></a>drawWindow()<span class="op">;</span> <span class="co">// 窓を描く</span></span>
-<span id="lst:6-9-8"><a href="#lst:6-9-8"></a></span>
-<span id="lst:6-9-9"><a href="#lst:6-9-9"></a><span class="co">// 屋根を描く</span></span>
-<span id="lst:6-9-10"><a href="#lst:6-9-10"></a><span class="kw">function</span> <span class="fu">drawRoof</span>() {</span>
-<span id="lst:6-9-11"><a href="#lst:6-9-11"></a>    drawRegularPolygon(<span class="dv">3</span><span class="op">,</span> <span class="dv">80</span>)<span class="op">;</span> <span class="co">// 三角形を描く</span></span>
-<span id="lst:6-9-12"><a href="#lst:6-9-12"></a>}</span>
-<span id="lst:6-9-13"><a href="#lst:6-9-13"></a></span>
-<span id="lst:6-9-14"><a href="#lst:6-9-14"></a><span class="co">// 壁を描く</span></span>
-<span id="lst:6-9-15"><a href="#lst:6-9-15"></a><span class="kw">function</span> <span class="fu">drawWall</span>() {</span>
-<span id="lst:6-9-16"><a href="#lst:6-9-16"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span> <span class="co">// 向きを調節する</span></span>
-<span id="lst:6-9-17"><a href="#lst:6-9-17"></a>    drawRegularPolygon(<span class="dv">4</span><span class="op">,</span> <span class="dv">80</span>)<span class="op">;</span><span class="co">// 四角形を描く</span></span>
-<span id="lst:6-9-18"><a href="#lst:6-9-18"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span><span class="co">// 向きを上向きに戻す</span></span>
-<span id="lst:6-9-19"><a href="#lst:6-9-19"></a>}</span>
-<span id="lst:6-9-20"><a href="#lst:6-9-20"></a></span>
-<span id="lst:6-9-21"><a href="#lst:6-9-21"></a><span class="co">// 窓を描く</span></span>
-<span id="lst:6-9-22"><a href="#lst:6-9-22"></a><span class="kw">function</span> <span class="fu">drawWindow</span>() {</span>
-<span id="lst:6-9-23"><a href="#lst:6-9-23"></a>    <span class="co">// 窓を描く位置まで移動する</span></span>
-<span id="lst:6-9-24"><a href="#lst:6-9-24"></a>    moveToWindowLocation(<span class="dv">22</span>)<span class="op">;</span></span>
-<span id="lst:6-9-25"><a href="#lst:6-9-25"></a></span>
-<span id="lst:6-9-26"><a href="#lst:6-9-26"></a>    <span class="co">// 窓を描く</span></span>
-<span id="lst:6-9-27"><a href="#lst:6-9-27"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:6-9-28"><a href="#lst:6-9-28"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">4</span><span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="lst:6-9-29"><a href="#lst:6-9-29"></a>        drawRegularPolygon(<span class="dv">4</span><span class="op">,</span> <span class="dv">16</span>)<span class="op">;</span></span>
-<span id="lst:6-9-30"><a href="#lst:6-9-30"></a>        t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">16</span> <span class="op">*</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">4</span>)<span class="op">;</span></span>
-<span id="lst:6-9-31"><a href="#lst:6-9-31"></a>        t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:6-9-32"><a href="#lst:6-9-32"></a>    }</span>
-<span id="lst:6-9-33"><a href="#lst:6-9-33"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:6-9-34"><a href="#lst:6-9-34"></a>}</span>
-<span id="lst:6-9-35"><a href="#lst:6-9-35"></a></span>
-<span id="lst:6-9-36"><a href="#lst:6-9-36"></a><span class="co">// 指定された角数の正多角形を描く</span></span>
-<span id="lst:6-9-37"><a href="#lst:6-9-37"></a><span class="kw">function</span> <span class="fu">drawRegularPolygon</span>(n<span class="op">,</span> size) {</span>
-<span id="lst:6-9-38"><a href="#lst:6-9-38"></a>    <span class="co">// 向きを調節する</span></span>
-<span id="lst:6-9-39"><a href="#lst:6-9-39"></a>    <span class="kw">var</span> angle <span class="op">=</span> <span class="dv">360</span> <span class="op">/</span> n<span class="op">;</span></span>
-<span id="lst:6-9-40"><a href="#lst:6-9-40"></a>    t<span class="op">.</span><span class="fu">rt</span>(angle <span class="op">-</span> <span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:6-9-41"><a href="#lst:6-9-41"></a></span>
-<span id="lst:6-9-42"><a href="#lst:6-9-42"></a>    <span class="co">// 多角形を描く</span></span>
-<span id="lst:6-9-43"><a href="#lst:6-9-43"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="lst:6-9-44"><a href="#lst:6-9-44"></a>        t<span class="op">.</span><span class="fu">fd</span>(size)<span class="op">;</span></span>
-<span id="lst:6-9-45"><a href="#lst:6-9-45"></a>        t<span class="op">.</span><span class="fu">rt</span>(angle)<span class="op">;</span></span>
-<span id="lst:6-9-46"><a href="#lst:6-9-46"></a>    }</span>
-<span id="lst:6-9-47"><a href="#lst:6-9-47"></a></span>
-<span id="lst:6-9-48"><a href="#lst:6-9-48"></a>    <span class="co">// 向きを上向きに戻す</span></span>
-<span id="lst:6-9-49"><a href="#lst:6-9-49"></a>    t<span class="op">.</span><span class="fu">lt</span>(angle <span class="op">-</span> <span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:6-9-50"><a href="#lst:6-9-50"></a>}</span>
+<span id="lst:6-9-3"><a href="#lst:6-9-3"></a>main()<span class="op">;</span></span>
+<span id="lst:6-9-4"><a href="#lst:6-9-4"></a></span>
+<span id="lst:6-9-5"><a href="#lst:6-9-5"></a><span class="co">// 家を描く</span></span>
+<span id="lst:6-9-6"><a href="#lst:6-9-6"></a><span class="kw">function</span> <span class="fu">main</span>(){</span>
+<span id="lst:6-9-7"><a href="#lst:6-9-7"></a>    <span class="co">//タートルを動かす処理</span></span>
+<span id="lst:6-9-8"><a href="#lst:6-9-8"></a>    drawRoof()<span class="op">;</span> <span class="co">// 屋根を描く</span></span>
+<span id="lst:6-9-9"><a href="#lst:6-9-9"></a>    drawWall()<span class="op">;</span> <span class="co">// 壁を描く</span></span>
+<span id="lst:6-9-10"><a href="#lst:6-9-10"></a>    drawWindow()<span class="op">;</span> <span class="co">// 窓を描く</span></span>
+<span id="lst:6-9-11"><a href="#lst:6-9-11"></a>}</span>
+<span id="lst:6-9-12"><a href="#lst:6-9-12"></a></span>
+<span id="lst:6-9-13"><a href="#lst:6-9-13"></a><span class="co">// 屋根を描く</span></span>
+<span id="lst:6-9-14"><a href="#lst:6-9-14"></a><span class="kw">function</span> <span class="fu">drawRoof</span>() {</span>
+<span id="lst:6-9-15"><a href="#lst:6-9-15"></a>    drawRegularPolygon(<span class="dv">3</span><span class="op">,</span> <span class="dv">80</span>)<span class="op">;</span> <span class="co">// 三角形を描く</span></span>
+<span id="lst:6-9-16"><a href="#lst:6-9-16"></a>}</span>
+<span id="lst:6-9-17"><a href="#lst:6-9-17"></a></span>
+<span id="lst:6-9-18"><a href="#lst:6-9-18"></a><span class="co">// 壁を描く</span></span>
+<span id="lst:6-9-19"><a href="#lst:6-9-19"></a><span class="kw">function</span> <span class="fu">drawWall</span>() {</span>
+<span id="lst:6-9-20"><a href="#lst:6-9-20"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span> <span class="co">// 向きを調節する</span></span>
+<span id="lst:6-9-21"><a href="#lst:6-9-21"></a>    drawRegularPolygon(<span class="dv">4</span><span class="op">,</span> <span class="dv">80</span>)<span class="op">;</span><span class="co">// 四角形を描く</span></span>
+<span id="lst:6-9-22"><a href="#lst:6-9-22"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span><span class="co">// 向きを上向きに戻す</span></span>
+<span id="lst:6-9-23"><a href="#lst:6-9-23"></a>}</span>
+<span id="lst:6-9-24"><a href="#lst:6-9-24"></a></span>
+<span id="lst:6-9-25"><a href="#lst:6-9-25"></a><span class="co">// 窓を描く</span></span>
+<span id="lst:6-9-26"><a href="#lst:6-9-26"></a><span class="kw">function</span> <span class="fu">drawWindow</span>() {</span>
+<span id="lst:6-9-27"><a href="#lst:6-9-27"></a>    <span class="co">// 窓を描く位置まで移動する</span></span>
+<span id="lst:6-9-28"><a href="#lst:6-9-28"></a>    moveToWindowLocation(<span class="dv">22</span>)<span class="op">;</span></span>
+<span id="lst:6-9-29"><a href="#lst:6-9-29"></a></span>
+<span id="lst:6-9-30"><a href="#lst:6-9-30"></a>    <span class="co">// 窓を描く</span></span>
+<span id="lst:6-9-31"><a href="#lst:6-9-31"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:6-9-32"><a href="#lst:6-9-32"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">4</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="lst:6-9-33"><a href="#lst:6-9-33"></a>        drawRegularPolygon(<span class="dv">4</span><span class="op">,</span> <span class="dv">16</span>)<span class="op">;</span></span>
+<span id="lst:6-9-34"><a href="#lst:6-9-34"></a>        t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">16</span> <span class="op">*</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">4</span>)<span class="op">;</span></span>
+<span id="lst:6-9-35"><a href="#lst:6-9-35"></a>        t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:6-9-36"><a href="#lst:6-9-36"></a>    }</span>
+<span id="lst:6-9-37"><a href="#lst:6-9-37"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:6-9-38"><a href="#lst:6-9-38"></a>}</span>
+<span id="lst:6-9-39"><a href="#lst:6-9-39"></a></span>
+<span id="lst:6-9-40"><a href="#lst:6-9-40"></a><span class="co">// 指定された角数の正多角形を描く</span></span>
+<span id="lst:6-9-41"><a href="#lst:6-9-41"></a><span class="kw">function</span> <span class="fu">drawRegularPolygon</span>(n<span class="op">,</span> size) {</span>
+<span id="lst:6-9-42"><a href="#lst:6-9-42"></a>    <span class="co">// 向きを調節する</span></span>
+<span id="lst:6-9-43"><a href="#lst:6-9-43"></a>    <span class="kw">var</span> angle <span class="op">=</span> <span class="dv">360</span> <span class="op">/</span> n<span class="op">;</span></span>
+<span id="lst:6-9-44"><a href="#lst:6-9-44"></a>    t<span class="op">.</span><span class="fu">rt</span>(angle <span class="op">-</span> <span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:6-9-45"><a href="#lst:6-9-45"></a></span>
+<span id="lst:6-9-46"><a href="#lst:6-9-46"></a>    <span class="co">// 多角形を描く</span></span>
+<span id="lst:6-9-47"><a href="#lst:6-9-47"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="lst:6-9-48"><a href="#lst:6-9-48"></a>        t<span class="op">.</span><span class="fu">fd</span>(size)<span class="op">;</span></span>
+<span id="lst:6-9-49"><a href="#lst:6-9-49"></a>        t<span class="op">.</span><span class="fu">rt</span>(angle)<span class="op">;</span></span>
+<span id="lst:6-9-50"><a href="#lst:6-9-50"></a>    }</span>
 <span id="lst:6-9-51"><a href="#lst:6-9-51"></a></span>
-<span id="lst:6-9-52"><a href="#lst:6-9-52"></a><span class="co">// 窓を描く位置まで移動する</span></span>
-<span id="lst:6-9-53"><a href="#lst:6-9-53"></a><span class="kw">function</span> <span class="fu">moveToWindowLocation</span>(length) {</span>
-<span id="lst:6-9-54"><a href="#lst:6-9-54"></a>    moveTurtle(<span class="dv">90</span><span class="op">,</span> <span class="dv">22</span>)<span class="op">;</span><span class="co">// 右へ</span></span>
-<span id="lst:6-9-55"><a href="#lst:6-9-55"></a>    moveTurtle(<span class="dv">180</span><span class="op">,</span> <span class="dv">22</span>)<span class="op">;</span><span class="co">// 下へ</span></span>
-<span id="lst:6-9-56"><a href="#lst:6-9-56"></a>}</span>
-<span id="lst:6-9-57"><a href="#lst:6-9-57"></a></span>
-<span id="lst:6-9-58"><a href="#lst:6-9-58"></a><span class="co">// 指定された方向に（ペンを上げて）移動する</span></span>
-<span id="lst:6-9-59"><a href="#lst:6-9-59"></a><span class="kw">function</span> <span class="fu">moveTurtle</span>(direction<span class="op">,</span> distance) {</span>
-<span id="lst:6-9-60"><a href="#lst:6-9-60"></a>    t<span class="op">.</span><span class="fu">up</span>()<span class="op">;</span></span>
-<span id="lst:6-9-61"><a href="#lst:6-9-61"></a>    t<span class="op">.</span><span class="fu">rt</span>(direction)<span class="op">;</span></span>
-<span id="lst:6-9-62"><a href="#lst:6-9-62"></a>    t<span class="op">.</span><span class="fu">fd</span>(distance)<span class="op">;</span></span>
-<span id="lst:6-9-63"><a href="#lst:6-9-63"></a>    t<span class="op">.</span><span class="fu">lt</span>(direction)<span class="op">;</span></span>
-<span id="lst:6-9-64"><a href="#lst:6-9-64"></a>    t<span class="op">.</span><span class="fu">down</span>()<span class="op">;</span></span>
-<span id="lst:6-9-65"><a href="#lst:6-9-65"></a>}</span></code></pre></div>
+<span id="lst:6-9-52"><a href="#lst:6-9-52"></a>    <span class="co">// 向きを上向きに戻す</span></span>
+<span id="lst:6-9-53"><a href="#lst:6-9-53"></a>    t<span class="op">.</span><span class="fu">lt</span>(angle <span class="op">-</span> <span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:6-9-54"><a href="#lst:6-9-54"></a>}</span>
+<span id="lst:6-9-55"><a href="#lst:6-9-55"></a></span>
+<span id="lst:6-9-56"><a href="#lst:6-9-56"></a><span class="co">// 窓を描く位置まで移動する</span></span>
+<span id="lst:6-9-57"><a href="#lst:6-9-57"></a><span class="kw">function</span> <span class="fu">moveToWindowLocation</span>(length) {</span>
+<span id="lst:6-9-58"><a href="#lst:6-9-58"></a>    moveTurtle(<span class="dv">90</span><span class="op">,</span> <span class="dv">22</span>)<span class="op">;</span><span class="co">// 右へ</span></span>
+<span id="lst:6-9-59"><a href="#lst:6-9-59"></a>    moveTurtle(<span class="dv">180</span><span class="op">,</span> <span class="dv">22</span>)<span class="op">;</span><span class="co">// 下へ</span></span>
+<span id="lst:6-9-60"><a href="#lst:6-9-60"></a>}</span>
+<span id="lst:6-9-61"><a href="#lst:6-9-61"></a></span>
+<span id="lst:6-9-62"><a href="#lst:6-9-62"></a><span class="co">// 指定された方向に（ペンを上げて）移動する</span></span>
+<span id="lst:6-9-63"><a href="#lst:6-9-63"></a><span class="kw">function</span> <span class="fu">moveTurtle</span>(direction<span class="op">,</span> distance) {</span>
+<span id="lst:6-9-64"><a href="#lst:6-9-64"></a>    t<span class="op">.</span><span class="fu">up</span>()<span class="op">;</span></span>
+<span id="lst:6-9-65"><a href="#lst:6-9-65"></a>    t<span class="op">.</span><span class="fu">rt</span>(direction)<span class="op">;</span></span>
+<span id="lst:6-9-66"><a href="#lst:6-9-66"></a>    t<span class="op">.</span><span class="fu">fd</span>(distance)<span class="op">;</span></span>
+<span id="lst:6-9-67"><a href="#lst:6-9-67"></a>    t<span class="op">.</span><span class="fu">lt</span>(direction)<span class="op">;</span></span>
+<span id="lst:6-9-68"><a href="#lst:6-9-68"></a>    t<span class="op">.</span><span class="fu">down</span>()<span class="op">;</span></span>
+<span id="lst:6-9-69"><a href="#lst:6-9-69"></a>}</span></code></pre></div>
 </section>
 </section>
 <section id="コラムライブラリ" class="unnumbered" data-number="">
@@ -2013,7 +2118,42 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 <li><code>function fd(length){...省略...}</code></li>
 <li><code>function rt(angle){...省略...}</code></li>
 </ul>
-<p>ある目的のために使う関数の集まりを作り，関数群を再利用します． この関数の集まりのことを「ライブラリ」といいます． fd, rtなどのタートルに使う命令は「タートルライブラリ」としてどこかに定義されているのです．</p>
+<p>ある目的のために使う関数の集まりを作り，関数群を再利用します． この関数の集まりのことを「ライブラリ」といいます． fd, rtなどのタートルに使う命令は「タートルライブラリ」としてライブラリに定義されているのです．</p>
+<p>皆さんの利用しているfdプログラムの実際の中身は以下のようになります．ちょっと難しいかもしれませんが，プログラムの構文としてはここまでにおおよそ学習してきたものを使っていることが感じられるのではないかと思います．タートルシステムもSumatraもJavascript言語で書かれています．たった数週間で学習した要素の組み合わせ次第で，複雑なプログラムも作ることができることを感じていただければと思います．</p>
+<pre><code>    t.fd = function (d) {
+        if (d &lt; 0) {
+            t.bk(-d);
+        } else {
+            if (jsCRiPS.withKame) {
+                jsCRiPS.th = Thread.create(function (d, t) {
+                    var xx = t.x,
+                        yy = t.y;
+                    var dx = Math.cos(deg2rad(t.angle));
+                    var dy = Math.sin(deg2rad(t.angle));
+                    t.setRxRy();
+                    for (var i = jsCRiPS.moveStep; i &lt; d; i += jsCRiPS.moveStep) {
+                        t.x = xx + dx * i;
+                        t.y = yy + dy * i;
+                        jsCRiPS.draw(t);
+                        t.setRxRy();
+                        Thread.sleep(jsCRiPS.sleepTime);
+                    }
+                    t.x = xx + dx * d;
+                    t.y = yy + dy * d;
+                    jsCRiPS.draw(t);
+                }, d, t);
+            } else {
+                var xx = t.x,
+                    yy = t.y;
+                var dx = Math.cos(deg2rad(t.angle));
+                var dy = Math.sin(deg2rad(t.angle));
+                t.setRxRy();
+                t.x = xx + dx * d;
+                t.y = yy + dy * d;
+                jsCRiPS.draw(t);
+            }
+        }
+    };</code></pre>
 <!-- ## コラム：亀に命令を追加する{.unnumbered}
 Javascriptで関数の定義をする方法には，次のような書き方もあります．
 
@@ -2029,14 +2169,14 @@ var drawRectangle = function(length){
 この例では関数を定義して，drawRectangle変数に代入しています．
 この書法を利用して，亀に命令を追加することができます． -->
 </section>
-<section id="練習問題-5" data-number="7.6">
-<h2 data-number="6.6"><span class="header-section-number">6.6</span> 練習問題</h2>
+<section id="練習問題-5" data-number="7.7">
+<h2 data-number="6.7"><span class="header-section-number">6.7</span> 練習問題</h2>
 <!-- ### 円を描く関数を作ろう
 円を描く関数「function drawCircle()」を作ってください． できたら，start関数から2回以上呼び出して，うまく動作するか確かめてみよう．
 
 ファイル名は「circle2.js」とすること． -->
-<section id="四角形を横に並べて１０個描くプログラム関数を使って" data-number="7.6.1">
-<h3 data-number="6.6.1"><span class="header-section-number">6.6.1</span> 四角形を横に並べて１０個描くプログラム(関数を使って)</h3>
+<section id="四角形を横に並べて１０個描くプログラム関数を使って" data-number="7.7.1">
+<h3 data-number="6.7.1"><span class="header-section-number">6.7.1</span> 四角形を横に並べて１０個描くプログラム(関数を使って)</h3>
 <p>四角形を横に並べて１０個描くプログラム</p>
 <figure>
 <img src="img/chapter05/q_tenboxes.jpg" alt="" /><figcaption>10個描くプログラム</figcaption>
@@ -2050,8 +2190,8 @@ var drawRectangle = function(length){
 }</code></pre>
 <p>ファイル名は「tenboxes2.js」とすること．</p>
 </section>
-<section id="四角形を横に並べてn個描くプログラム引数付関数を使って" data-number="7.6.2">
-<h3 data-number="6.6.2"><span class="header-section-number">6.6.2</span> 四角形を横に並べてN個描くプログラム(引数付関数を使って)</h3>
+<section id="四角形を横に並べてn個描くプログラム引数付関数を使って" data-number="7.7.2">
+<h3 data-number="6.7.2"><span class="header-section-number">6.7.2</span> 四角形を横に並べてN個描くプログラム(引数付関数を使って)</h3>
 <p>上の問題について，プログラム全体を関数にして引数n（四角形の個数）をとるようにし，</p>
 <pre><code>drawBoxes(10);</code></pre>
 <p>とすると，１０個の四角形を描き，</p>
@@ -2062,14 +2202,14 @@ var drawRectangle = function(length){
 四角形を１００個を１０ｘ１０に並べて描くプログラムを作ってみよう
 ![四角形を100個描くプログラム](img/chapter05/q_hundredboxes.jpg) -->
 </section>
-<section id="大きさが変わる家を描くプログラム" data-number="7.6.3">
-<h3 data-number="6.6.3"><span class="header-section-number">6.6.3</span> 大きさが変わる家を描くプログラム</h3>
+<section id="大きさが変わる家を描くプログラム" data-number="7.7.3">
+<h3 data-number="6.7.3"><span class="header-section-number">6.7.3</span> 大きさが変わる家を描くプログラム</h3>
 <p>大きさを指定して家を描く関数（窓はなくて良い）「function drawHouse(size)」を作ってください． できたら，2回以上呼び出して，うまく動作するか確かめてみよう．</p>
 <p>ファイル名は「twohouses.js」とすること．</p>
 </section>
-<section id="中心角を指定して円弧を描くプログラム" data-number="7.6.4">
-<h3 data-number="6.6.4"><span class="header-section-number">6.6.4</span> 中心角を指定して円弧を描くプログラム</h3>
-<p>中心角を指定して円弧を描く関数「function drawArc(angle)」を作り，テストしてください．</p>
+<section id="中心角を指定して円弧を描くプログラム" data-number="7.7.4">
+<h3 data-number="6.7.4"><span class="header-section-number">6.7.4</span> 中心角を指定して円弧を描くプログラム</h3>
+<p>中心角を指定して円弧を描く関数「function drawArc(angle)」を作成しなさい． main関数を作成し，作成したdrawArc関数をいくつか呼び出して(angleを変えて)テストしてください．</p>
 <p>(ヒント：中心角が３６０ならば円に，１８０ならば半円に，１ならば点のようになります．以下に，120度の場合と，300度の場合の例を示します）</p>
 <figure>
 <img src="img/chapter06/q_drawarc.png" alt="" /><figcaption>円弧を描く関数</figcaption>
@@ -2079,33 +2219,39 @@ var drawRectangle = function(length){
 </figure>
 <p>ファイル名は「drawarc.js」とすること．</p>
 </section>
-<section id="レモンを描くプログラム" data-number="7.6.5">
-<h3 data-number="6.6.5"><span class="header-section-number">6.6.5</span> レモンを描くプログラム</h3>
-<p>drawArc(angle)を利用してレモン型の図形を描く関数「function drawLemon()」を作り，呼び出してテストをしてください．</p>
+<section id="レモンを描くプログラム" data-number="7.7.5">
+<h3 data-number="6.7.5"><span class="header-section-number">6.7.5</span> レモンを描くプログラム</h3>
+<p>前の問題で作ったdrawArc(angle)を利用してレモン型の図形を描く関数「function drawLemon()」を作ってください．</p>
+<ul>
+<li>drawArc(angle)関数は，前の問題で作ったものをコピーします．<u>drawArc関数は書き換えないでください．</u></li>
+<li>drawArc関数を何回か呼び出しながら，レモン型の図形を描く関数「function drawLemon()」を作成しなさい．</li>
+<li>main関数を作成し，作成したdrawLemon関数をいくつか呼び出してテストしてください．</li>
+</ul>
 <p>ファイル名は「drawlemon.js」とすること．</p>
 <figure>
 <img src="img/chapter06/q_drawlemon.png" alt="" /><figcaption>レモン型の図形を描く関数</figcaption>
 </figure>
 </section>
-<section id="ちょうちょを描くプログラム関数の多段呼び出しの練習" data-number="7.6.6">
-<h3 data-number="6.6.6"><span class="header-section-number">6.6.6</span> ちょうちょを描くプログラム（関数の多段呼び出しの練習）</h3>
-<p>蝶を描く関数drawButterfly()を作ってください．（ヒント：レモン型を描く関数drawLemon()を部品として使う）</p>
+<section id="ちょうちょを描くプログラム関数の多段呼び出しの練習" data-number="7.7.6">
+<h3 data-number="6.7.6"><span class="header-section-number">6.7.6</span> ちょうちょを描くプログラム（関数の多段呼び出しの練習）</h3>
+<p>蝶を描く関数drawButterfly()を作ってください．</p>
+<p>＜条件＞ - 前の問題で作成したdrawLemon()をコピーして<u>書き換えずに使う</u>こと - main()関数からdrawButterfly()を呼び出してテストすること</p>
 <figure>
 <img src="img/chapter06/q_drawbutterfly.png" alt="" /><figcaption>蝶を描く関数</figcaption>
 </figure>
 <p>ファイル名は「butterfly.js」とすること．</p>
 </section>
-<section id="花を描くプログラム関数の再利用" data-number="7.6.7">
-<h3 data-number="6.6.7"><span class="header-section-number">6.6.7</span> 花を描くプログラム（関数の再利用）</h3>
-<p>drawLemon()を再利用して，drawFlower()のように花を描く関数をつくってください．</p>
+<section id="花を描くプログラム関数の再利用" data-number="7.7.7">
+<h3 data-number="6.7.7"><span class="header-section-number">6.7.7</span> 花を描くプログラム（関数の再利用）</h3>
+<p>前の問題で作成したdrawLemon()を再利用して，花を描く関数drawFlower()を作ってください．</p>
 <figure>
 <img src="img/chapter06/q_drawflower.png" alt="" /><figcaption>花を描く関数</figcaption>
 </figure>
 <p>ファイル名は「flower.js」とすること．</p>
 </section>
-<section id="マス目を描くプログラム" data-number="7.6.8">
-<h3 data-number="6.6.8"><span class="header-section-number">6.6.8</span> マス目を描くプログラム</h3>
-<p>x行y列のマス目を書く関数を作ろう．以下のような定義を持つ</p>
+<section id="マス目を描くプログラム" data-number="7.7.8">
+<h3 data-number="6.7.8"><span class="header-section-number">6.7.8</span> マス目を描くプログラム</h3>
+<p>x行y列のマス目を書く関数を作ってください．以下のような定義を持つ</p>
 <pre><code>function drawMasume(row, col, size) {
     ．．．なかみ．．．
 }</code></pre>
@@ -2116,8 +2262,8 @@ var drawRectangle = function(length){
 <p><img src="img/chapter06/q_masume_57.jpg" /></p>
 <p>ファイル名は「masume.js」とすること．</p>
 </section>
-<section id="構造化プログラミングによる自由作品" data-number="7.6.9">
-<h3 data-number="6.6.9"><span class="header-section-number">6.6.9</span> 構造化プログラミングによる自由作品</h3>
+<section id="構造化プログラミングによる自由作品" data-number="7.7.9">
+<h3 data-number="6.7.9"><span class="header-section-number">6.7.9</span> 構造化プログラミングによる自由作品</h3>
 <p>「１関数１０行以内！」というルールで，図形を書くプログラムを作ろう．</p>
 <p>ファイル名は「structured.js」とすること．</p>
 </section>
@@ -2158,18 +2304,18 @@ var drawRectangle = function(length){
 </section>
 <section id="戻り値を返す関数の定義方法" data-number="8.2.3">
 <h3 data-number="7.2.3"><span class="header-section-number">7.2.3</span> 戻り値を返す関数の定義方法</h3>
-<p>戻り値を返す関数の定義の仕方は，次の通りです．</p>
-<pre><code>[戻り値の型] [関数名]([引数の型] [仮引数名]){
+<p>戻り値を戻す関数の定義の仕方は，次の通りです．</p>
+<pre><code>[関数名]([仮引数名]){
     return [戻り値];
 }</code></pre>
 <p>戻り値あり関数の呼び出し方は，次の通りです（引数あり関数と同じです）．ただし，戻り値を受け取る変数を用意して，戻り値を保存する必要があります．</p>
 <pre><code>var [戻り値を受け取る変数名] = [関数名]([実引数]);</code></pre>
 <p>引数は，複数指定することができますが，戻り値は必ずひとつです． 複数の戻り値を戻したい場合，配列，リストやクラス等を使ってデータを合成し，一つのデータの形にする必要があります．</p>
 </section>
-<section id="コラム戻り値返り値" class="unnumbered" data-number="">
-<h3 class="unnumbered" data-number="-1">コラム：戻り値？返り値？</h3>
-<p>戻り値は他の教科書では返り値と呼ばれていたりします．元々の英語「return value」の訳は定まっていないように思われます． 昔，僕がたくさんの教科書を調べたかぎりでは，「戻り値」，「返り値」，「リターン値」が各1/3くらいずつ分布していました．</p>
 </section>
+<section id="コラム戻り値返り値" class="unnumbered" data-number="">
+<h2 class="unnumbered" data-number="-1">コラム：戻り値？返り値？</h2>
+<p>戻り値は他の教科書では返り値と呼ばれていたりします．元々の英語「return value」の訳は定まっていないように思われます． 昔，僕がたくさんの教科書を調べたかぎりでは，「戻り値」，「返り値」，「リターン値」が各1/3くらいずつ分布していました．</p>
 <section id="相性占い2" data-number="8.2.4">
 <h3 data-number="7.2.4"><span class="header-section-number">7.2.4</span> 相性占い2</h3>
 <p><span class="CopyButton" onclick="copycode(&#39;lst:7-2&#39;)">c</span></p>
@@ -2204,11 +2350,11 @@ var drawRectangle = function(length){
 <span id="lst:7-3-2"><a href="#lst:7-3-2"></a></span>
 <span id="lst:7-3-3"><a href="#lst:7-3-3"></a><span class="kw">function</span> <span class="fu">main</span>() {</span>
 <span id="lst:7-3-4"><a href="#lst:7-3-4"></a>  <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="lst:7-3-5"><a href="#lst:7-3-5"></a>    println(myRandom(<span class="dv">20</span><span class="op">,</span> <span class="dv">30</span>))<span class="op">;</span></span>
+<span id="lst:7-3-5"><a href="#lst:7-3-5"></a>    println(makeRandom(<span class="dv">20</span><span class="op">,</span> <span class="dv">30</span>))<span class="op">;</span></span>
 <span id="lst:7-3-6"><a href="#lst:7-3-6"></a>  }</span>
 <span id="lst:7-3-7"><a href="#lst:7-3-7"></a>}</span>
 <span id="lst:7-3-8"><a href="#lst:7-3-8"></a></span>
-<span id="lst:7-3-9"><a href="#lst:7-3-9"></a><span class="kw">function</span> <span class="fu">myRandom</span>(min<span class="op">,</span> max) {</span>
+<span id="lst:7-3-9"><a href="#lst:7-3-9"></a><span class="kw">function</span> <span class="fu">makeRandom</span>(min<span class="op">,</span> max) {</span>
 <span id="lst:7-3-10"><a href="#lst:7-3-10"></a>  <span class="kw">var</span> generated <span class="op">=</span> random(max <span class="op">-</span> min <span class="op">+</span> <span class="dv">1</span>) <span class="op">+</span> min<span class="op">;</span></span>
 <span id="lst:7-3-11"><a href="#lst:7-3-11"></a>  <span class="cf">return</span> generated<span class="op">;</span></span>
 <span id="lst:7-3-12"><a href="#lst:7-3-12"></a>}</span></code></pre></div>
@@ -2218,87 +2364,140 @@ var drawRectangle = function(length){
 <p>関数を使って西暦和暦変換プログラムを構造化してみましょう．</p>
 <p>はじめに，以下に構造化されていない西暦和暦変換プログラムを示します．</p>
 <p><span class="CopyButton" onclick="copycode(&#39;lst:7-4&#39;)">c</span></p>
-<div class="sourceCode" id="lst:7-4" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:7-4-1"><a href="#lst:7-4-1"></a> <span class="co">// アプリケーションの開始を知らせる</span></span>
-<span id="lst:7-4-2"><a href="#lst:7-4-2"></a> println(<span class="st">&#39;西暦和暦変換プログラムを開始します&#39;</span>)<span class="op">;</span></span>
+<div class="sourceCode" id="lst:7-4" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:7-4-1"><a href="#lst:7-4-1"></a> <span class="co">// 西暦を入力する</span></span>
+<span id="lst:7-4-2"><a href="#lst:7-4-2"></a> <span class="kw">var</span> year <span class="op">=</span> input(<span class="st">&#39;西暦を入力してください&#39;</span>)<span class="op">;</span></span>
 <span id="lst:7-4-3"><a href="#lst:7-4-3"></a></span>
 <span id="lst:7-4-4"><a href="#lst:7-4-4"></a> <span class="co">// 西暦を和暦に変換する</span></span>
-<span id="lst:7-4-5"><a href="#lst:7-4-5"></a> <span class="kw">var</span> year<span class="op">;</span></span>
-<span id="lst:7-4-6"><a href="#lst:7-4-6"></a> <span class="kw">var</span> japaneseYear<span class="op">;</span></span>
-<span id="lst:7-4-7"><a href="#lst:7-4-7"></a></span>
-<span id="lst:7-4-8"><a href="#lst:7-4-8"></a> <span class="co">// 西暦を入力する</span></span>
-<span id="lst:7-4-9"><a href="#lst:7-4-9"></a> year <span class="op">=</span> input(<span class="st">&#39;西暦を入力してください&#39;</span>)<span class="op">;</span></span>
-<span id="lst:7-4-10"><a href="#lst:7-4-10"></a></span>
-<span id="lst:7-4-11"><a href="#lst:7-4-11"></a> <span class="co">// 西暦を和暦に変換する</span></span>
-<span id="lst:7-4-12"><a href="#lst:7-4-12"></a> <span class="cf">if</span> (year <span class="op">&gt;=</span> <span class="dv">2019</span>) {</span>
-<span id="lst:7-4-13"><a href="#lst:7-4-13"></a>   japaneseYear <span class="op">=</span> <span class="st">&#39;令和&#39;</span> <span class="op">+</span> (year <span class="op">-</span> <span class="dv">2018</span>)<span class="op">;</span></span>
-<span id="lst:7-4-14"><a href="#lst:7-4-14"></a> } <span class="cf">else</span> <span class="cf">if</span> (year <span class="op">&gt;=</span> <span class="dv">1989</span>) {</span>
-<span id="lst:7-4-15"><a href="#lst:7-4-15"></a>   japaneseYear <span class="op">=</span> <span class="st">&#39;平成&#39;</span> <span class="op">+</span> (year <span class="op">-</span> <span class="dv">1988</span>)<span class="op">;</span></span>
-<span id="lst:7-4-16"><a href="#lst:7-4-16"></a> } <span class="cf">else</span> <span class="cf">if</span> (year <span class="op">&gt;=</span> <span class="dv">1926</span>) {</span>
-<span id="lst:7-4-17"><a href="#lst:7-4-17"></a>   japaneseYear <span class="op">=</span> <span class="st">&#39;昭和&#39;</span> <span class="op">+</span> (year <span class="op">-</span> <span class="dv">1925</span>)<span class="op">;</span></span>
-<span id="lst:7-4-18"><a href="#lst:7-4-18"></a> } <span class="cf">else</span> {</span>
-<span id="lst:7-4-19"><a href="#lst:7-4-19"></a>   japaneseYear <span class="op">=</span> <span class="st">&#39;不明&#39;</span><span class="op">;</span></span>
-<span id="lst:7-4-20"><a href="#lst:7-4-20"></a> }</span>
-<span id="lst:7-4-21"><a href="#lst:7-4-21"></a></span>
-<span id="lst:7-4-22"><a href="#lst:7-4-22"></a> <span class="co">// 変換結果を出力する</span></span>
-<span id="lst:7-4-23"><a href="#lst:7-4-23"></a> println(year <span class="op">+</span> <span class="st">&#39;年は&#39;</span> <span class="op">+</span> japaneseYear <span class="op">+</span> <span class="st">&#39;年です.&#39;</span>)<span class="op">;</span></span>
-<span id="lst:7-4-24"><a href="#lst:7-4-24"></a></span>
-<span id="lst:7-4-25"><a href="#lst:7-4-25"></a> <span class="co">// アプリケーションの終了を知らせる</span></span>
-<span id="lst:7-4-26"><a href="#lst:7-4-26"></a> println(<span class="st">&#39;西暦和暦変換プログラムを終了します&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<span id="lst:7-4-5"><a href="#lst:7-4-5"></a> <span class="kw">var</span> japaneseYear<span class="op">;</span></span>
+<span id="lst:7-4-6"><a href="#lst:7-4-6"></a> <span class="cf">if</span> (year <span class="op">&gt;=</span> <span class="dv">2019</span>) {</span>
+<span id="lst:7-4-7"><a href="#lst:7-4-7"></a>   japaneseYear <span class="op">=</span> <span class="st">&#39;令和&#39;</span> <span class="op">+</span> (year <span class="op">-</span> <span class="dv">2018</span>)<span class="op">;</span></span>
+<span id="lst:7-4-8"><a href="#lst:7-4-8"></a> } <span class="cf">else</span> <span class="cf">if</span> (year <span class="op">&gt;=</span> <span class="dv">1989</span>) {</span>
+<span id="lst:7-4-9"><a href="#lst:7-4-9"></a>   japaneseYear <span class="op">=</span> <span class="st">&#39;平成&#39;</span> <span class="op">+</span> (year <span class="op">-</span> <span class="dv">1988</span>)<span class="op">;</span></span>
+<span id="lst:7-4-10"><a href="#lst:7-4-10"></a> } <span class="cf">else</span> <span class="cf">if</span> (year <span class="op">&gt;=</span> <span class="dv">1926</span>) {</span>
+<span id="lst:7-4-11"><a href="#lst:7-4-11"></a>   japaneseYear <span class="op">=</span> <span class="st">&#39;昭和&#39;</span> <span class="op">+</span> (year <span class="op">-</span> <span class="dv">1925</span>)<span class="op">;</span></span>
+<span id="lst:7-4-12"><a href="#lst:7-4-12"></a> } <span class="cf">else</span> {</span>
+<span id="lst:7-4-13"><a href="#lst:7-4-13"></a>   japaneseYear <span class="op">=</span> <span class="st">&#39;不明&#39;</span><span class="op">;</span></span>
+<span id="lst:7-4-14"><a href="#lst:7-4-14"></a> }</span>
+<span id="lst:7-4-15"><a href="#lst:7-4-15"></a></span>
+<span id="lst:7-4-16"><a href="#lst:7-4-16"></a> <span class="co">// 変換結果を出力する</span></span>
+<span id="lst:7-4-17"><a href="#lst:7-4-17"></a> println(year <span class="op">+</span> <span class="st">&#39;年は&#39;</span> <span class="op">+</span> japaneseYear <span class="op">+</span> <span class="st">&#39;年です.&#39;</span>)<span class="op">;</span></span></code></pre></div>
 <section id="構造化された西暦変換プログラム" data-number="8.4.1">
 <h3 data-number="7.4.1"><span class="header-section-number">7.4.1</span> 構造化された西暦変換プログラム</h3>
-<p>関数を使って構造化された，西暦変換プログラムの完全版を読んでみましょう．</p>
+<p>西暦から和暦を変換するプログラムは，西暦を入力，和暦を出力と考えることができるので，関数を使って構造化することができます．</p>
 <p><span class="CopyButton" onclick="copycode(&#39;lst:7-5&#39;)">c</span></p>
-<div class="sourceCode" id="lst:7-5" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:7-5-1"><a href="#lst:7-5-1"></a><span class="co">// 西暦を和暦に変換する</span></span>
-<span id="lst:7-5-2"><a href="#lst:7-5-2"></a>main()<span class="op">;</span></span>
-<span id="lst:7-5-3"><a href="#lst:7-5-3"></a></span>
-<span id="lst:7-5-4"><a href="#lst:7-5-4"></a><span class="kw">function</span> <span class="fu">main</span>() {</span>
-<span id="lst:7-5-5"><a href="#lst:7-5-5"></a>  showTitle()<span class="op">;</span></span>
-<span id="lst:7-5-6"><a href="#lst:7-5-6"></a>  convertYear()<span class="op">;</span></span>
-<span id="lst:7-5-7"><a href="#lst:7-5-7"></a>  showEndTitle()<span class="op">;</span></span>
-<span id="lst:7-5-8"><a href="#lst:7-5-8"></a>}</span>
+<div class="sourceCode" id="lst:7-5" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:7-5-1"><a href="#lst:7-5-1"></a> main()<span class="op">;</span></span>
+<span id="lst:7-5-2"><a href="#lst:7-5-2"></a></span>
+<span id="lst:7-5-3"><a href="#lst:7-5-3"></a> <span class="kw">function</span> <span class="fu">main</span>() {</span>
+<span id="lst:7-5-4"><a href="#lst:7-5-4"></a>   <span class="co">// 西暦を入力する</span></span>
+<span id="lst:7-5-5"><a href="#lst:7-5-5"></a>   <span class="kw">var</span> year <span class="op">=</span> input(<span class="st">&#39;西暦を入力してください&#39;</span>)<span class="op">;</span></span>
+<span id="lst:7-5-6"><a href="#lst:7-5-6"></a></span>
+<span id="lst:7-5-7"><a href="#lst:7-5-7"></a>   <span class="co">// 西暦を和暦に変換する</span></span>
+<span id="lst:7-5-8"><a href="#lst:7-5-8"></a>   <span class="kw">var</span> japaneseYear <span class="op">=</span> convertToJapaneseYear(year)<span class="op">;</span></span>
 <span id="lst:7-5-9"><a href="#lst:7-5-9"></a></span>
-<span id="lst:7-5-10"><a href="#lst:7-5-10"></a><span class="co">// 西暦を和暦に変換する</span></span>
-<span id="lst:7-5-11"><a href="#lst:7-5-11"></a><span class="kw">function</span> <span class="fu">convertYear</span>() {</span>
-<span id="lst:7-5-12"><a href="#lst:7-5-12"></a>  <span class="kw">var</span> year <span class="op">=</span> inputYear()<span class="op">;</span></span>
-<span id="lst:7-5-13"><a href="#lst:7-5-13"></a>  <span class="kw">var</span> japaneseYear <span class="op">=</span> convertToJapaneseYear(year)<span class="op">;</span></span>
-<span id="lst:7-5-14"><a href="#lst:7-5-14"></a>  showResult(year<span class="op">,</span> japaneseYear)<span class="op">;</span></span>
-<span id="lst:7-5-15"><a href="#lst:7-5-15"></a>}</span>
-<span id="lst:7-5-16"><a href="#lst:7-5-16"></a></span>
-<span id="lst:7-5-17"><a href="#lst:7-5-17"></a><span class="co">// 西暦を入力する</span></span>
-<span id="lst:7-5-18"><a href="#lst:7-5-18"></a><span class="kw">function</span> <span class="fu">inputYear</span>() {</span>
-<span id="lst:7-5-19"><a href="#lst:7-5-19"></a>  <span class="kw">var</span> year <span class="op">=</span> input(<span class="st">&#39;西暦を入力してください&#39;</span>)<span class="op">;</span></span>
-<span id="lst:7-5-20"><a href="#lst:7-5-20"></a>  <span class="cf">return</span> year<span class="op">;</span></span>
-<span id="lst:7-5-21"><a href="#lst:7-5-21"></a>}</span>
-<span id="lst:7-5-22"><a href="#lst:7-5-22"></a></span>
-<span id="lst:7-5-23"><a href="#lst:7-5-23"></a><span class="co">// 西暦を和暦に変換する</span></span>
-<span id="lst:7-5-24"><a href="#lst:7-5-24"></a><span class="kw">function</span> <span class="fu">convertToJapaneseYear</span>(year) {</span>
-<span id="lst:7-5-25"><a href="#lst:7-5-25"></a>  <span class="kw">var</span> japaneseYear<span class="op">;</span></span>
-<span id="lst:7-5-26"><a href="#lst:7-5-26"></a>  <span class="cf">if</span> (year <span class="op">&gt;=</span> <span class="dv">2019</span>) {</span>
-<span id="lst:7-5-27"><a href="#lst:7-5-27"></a>    japaneseYear <span class="op">=</span> <span class="st">&#39;令和&#39;</span> <span class="op">+</span> (year <span class="op">-</span> <span class="dv">2018</span>)<span class="op">;</span></span>
-<span id="lst:7-5-28"><a href="#lst:7-5-28"></a>  } <span class="cf">else</span> <span class="cf">if</span> (year <span class="op">&gt;=</span> <span class="dv">1989</span>) {</span>
-<span id="lst:7-5-29"><a href="#lst:7-5-29"></a>    japaneseYear <span class="op">=</span> <span class="st">&#39;平成&#39;</span> <span class="op">+</span> (year <span class="op">-</span> <span class="dv">1988</span>)<span class="op">;</span></span>
-<span id="lst:7-5-30"><a href="#lst:7-5-30"></a>  } <span class="cf">else</span> <span class="cf">if</span> (year <span class="op">&gt;=</span> <span class="dv">1926</span>) {</span>
-<span id="lst:7-5-31"><a href="#lst:7-5-31"></a>    japaneseYear <span class="op">=</span> <span class="st">&#39;昭和&#39;</span> <span class="op">+</span> (year <span class="op">-</span> <span class="dv">1925</span>)<span class="op">;</span></span>
-<span id="lst:7-5-32"><a href="#lst:7-5-32"></a>  } <span class="cf">else</span> {</span>
-<span id="lst:7-5-33"><a href="#lst:7-5-33"></a>    japaneseYear <span class="op">=</span> <span class="st">&#39;不明&#39;</span><span class="op">;</span></span>
-<span id="lst:7-5-34"><a href="#lst:7-5-34"></a>  }</span>
-<span id="lst:7-5-35"><a href="#lst:7-5-35"></a>  <span class="cf">return</span> japaneseYear<span class="op">;</span></span>
-<span id="lst:7-5-36"><a href="#lst:7-5-36"></a>}</span>
-<span id="lst:7-5-37"><a href="#lst:7-5-37"></a></span>
-<span id="lst:7-5-38"><a href="#lst:7-5-38"></a><span class="co">// 変換結果を出力する</span></span>
-<span id="lst:7-5-39"><a href="#lst:7-5-39"></a><span class="kw">function</span> <span class="fu">showResult</span>(year<span class="op">,</span> japaneseYear) {</span>
-<span id="lst:7-5-40"><a href="#lst:7-5-40"></a>  println(year <span class="op">+</span> <span class="st">&#39;年は&#39;</span> <span class="op">+</span> japaneseYear <span class="op">+</span> <span class="st">&#39;年です.&#39;</span>)<span class="op">;</span></span>
-<span id="lst:7-5-41"><a href="#lst:7-5-41"></a>}</span>
-<span id="lst:7-5-42"><a href="#lst:7-5-42"></a></span>
-<span id="lst:7-5-43"><a href="#lst:7-5-43"></a><span class="co">// アプリケーションの開始を知らせる</span></span>
-<span id="lst:7-5-44"><a href="#lst:7-5-44"></a><span class="kw">function</span> <span class="fu">showTitle</span>() {</span>
-<span id="lst:7-5-45"><a href="#lst:7-5-45"></a>  println(<span class="st">&#39;西暦和暦変換プログラムを開始します&#39;</span>)<span class="op">;</span></span>
-<span id="lst:7-5-46"><a href="#lst:7-5-46"></a>}</span>
-<span id="lst:7-5-47"><a href="#lst:7-5-47"></a></span>
-<span id="lst:7-5-48"><a href="#lst:7-5-48"></a><span class="co">// アプリケーションの終了を知らせる</span></span>
-<span id="lst:7-5-49"><a href="#lst:7-5-49"></a><span class="kw">function</span> <span class="fu">showEndTitle</span>() {</span>
-<span id="lst:7-5-50"><a href="#lst:7-5-50"></a>  println(<span class="st">&#39;西暦和暦変換プログラムを終了します&#39;</span>)<span class="op">;</span></span>
-<span id="lst:7-5-51"><a href="#lst:7-5-51"></a>}</span></code></pre></div>
+<span id="lst:7-5-10"><a href="#lst:7-5-10"></a>   <span class="co">// 変換結果を出力する</span></span>
+<span id="lst:7-5-11"><a href="#lst:7-5-11"></a>   println(year <span class="op">+</span> <span class="st">&#39;年は&#39;</span> <span class="op">+</span> japaneseYear <span class="op">+</span> <span class="st">&#39;年です.&#39;</span>)<span class="op">;</span></span>
+<span id="lst:7-5-12"><a href="#lst:7-5-12"></a> }</span>
+<span id="lst:7-5-13"><a href="#lst:7-5-13"></a></span>
+<span id="lst:7-5-14"><a href="#lst:7-5-14"></a> <span class="co">// 西暦を和暦に変換する</span></span>
+<span id="lst:7-5-15"><a href="#lst:7-5-15"></a> <span class="kw">function</span> <span class="fu">convertToJapaneseYear</span>(year) {</span>
+<span id="lst:7-5-16"><a href="#lst:7-5-16"></a>   <span class="kw">var</span> japaneseYear<span class="op">;</span></span>
+<span id="lst:7-5-17"><a href="#lst:7-5-17"></a>   <span class="cf">if</span> (year <span class="op">&gt;=</span> <span class="dv">2019</span>) {</span>
+<span id="lst:7-5-18"><a href="#lst:7-5-18"></a>     japaneseYear <span class="op">=</span> <span class="st">&#39;令和&#39;</span> <span class="op">+</span> (year <span class="op">-</span> <span class="dv">2018</span>)<span class="op">;</span></span>
+<span id="lst:7-5-19"><a href="#lst:7-5-19"></a>   } <span class="cf">else</span> <span class="cf">if</span> (year <span class="op">&gt;=</span> <span class="dv">1989</span>) {</span>
+<span id="lst:7-5-20"><a href="#lst:7-5-20"></a>     japaneseYear <span class="op">=</span> <span class="st">&#39;平成&#39;</span> <span class="op">+</span> (year <span class="op">-</span> <span class="dv">1988</span>)<span class="op">;</span></span>
+<span id="lst:7-5-21"><a href="#lst:7-5-21"></a>   } <span class="cf">else</span> <span class="cf">if</span> (year <span class="op">&gt;=</span> <span class="dv">1926</span>) {</span>
+<span id="lst:7-5-22"><a href="#lst:7-5-22"></a>     japaneseYear <span class="op">=</span> <span class="st">&#39;昭和&#39;</span> <span class="op">+</span> (year <span class="op">-</span> <span class="dv">1925</span>)<span class="op">;</span></span>
+<span id="lst:7-5-23"><a href="#lst:7-5-23"></a>   } <span class="cf">else</span> {</span>
+<span id="lst:7-5-24"><a href="#lst:7-5-24"></a>     japaneseYear <span class="op">=</span> <span class="st">&#39;不明&#39;</span><span class="op">;</span></span>
+<span id="lst:7-5-25"><a href="#lst:7-5-25"></a>   }</span>
+<span id="lst:7-5-26"><a href="#lst:7-5-26"></a>   <span class="cf">return</span> japaneseYear<span class="op">;</span></span>
+<span id="lst:7-5-27"><a href="#lst:7-5-27"></a> }</span></code></pre></div>
+<!-- 関数を使って構造化された，西暦変換プログラムの完全版を読んでみましょう．
+
+```{#lst:7-4 .javascript .numberLines caption="House"}
+ // アプリケーションの開始を知らせる
+ println('西暦和暦変換プログラムを開始します');
+
+ // 西暦を和暦に変換する
+ var year;
+ var japaneseYear;
+
+ // 西暦を入力する
+ year = input('西暦を入力してください');
+
+ // 西暦を和暦に変換する
+ if (year >= 2019) {
+   japaneseYear = '令和' + (year - 2018);
+ } else if (year >= 1989) {
+   japaneseYear = '平成' + (year - 1988);
+ } else if (year >= 1926) {
+   japaneseYear = '昭和' + (year - 1925);
+ } else {
+   japaneseYear = '不明';
+ }
+
+ // 変換結果を出力する
+ println(year + '年は' + japaneseYear + '年です.');
+
+ // アプリケーションの終了を知らせる
+ println('西暦和暦変換プログラムを終了します');
+```
+
+<span class="CopyButton" onclick="copycode('lst:7-5')">c</span>
+
+```{#lst:7-5 .javascript .numberLines caption="House"}
+// 西暦を和暦に変換する
+main();
+
+function main() {
+  showTitle();
+  convertYear();
+  showEndTitle();
+}
+
+// 西暦を和暦に変換する
+function convertYear() {
+  var year = inputYear();
+  var japaneseYear = convertToJapaneseYear(year);
+  showResult(year, japaneseYear);
+}
+
+// 西暦を入力する
+function inputYear() {
+  var year = input('西暦を入力してください');
+  return year;
+}
+
+// 西暦を和暦に変換する
+function convertToJapaneseYear(year) {
+  var japaneseYear;
+  if (year >= 2019) {
+    japaneseYear = '令和' + (year - 2018);
+  } else if (year >= 1989) {
+    japaneseYear = '平成' + (year - 1988);
+  } else if (year >= 1926) {
+    japaneseYear = '昭和' + (year - 1925);
+  } else {
+    japaneseYear = '不明';
+  }
+  return japaneseYear;
+}
+
+// 変換結果を出力する
+function showResult(year, japaneseYear) {
+  println(year + '年は' + japaneseYear + '年です.');
+}
+
+// アプリケーションの開始を知らせる
+function showTitle() {
+  println('西暦和暦変換プログラムを開始します');
+}
+
+// アプリケーションの終了を知らせる
+function showEndTitle() {
+  println('西暦和暦変換プログラムを終了します');
+}
+``` -->
 </section>
 </section>
 <section id="関数の単体テスト" data-number="8.5">
@@ -2407,15 +2606,15 @@ var drawRectangle = function(length){
 <h3 data-number="7.6.1"><span class="header-section-number">7.6.1</span> 年齢計算</h3>
 <p>年齢を計算する次の関数を作り，テストしてください． （以下，「テストする」とは，メインのプログラム（main()関数）から一回以上その関数を呼ぶプログラムを書くことを意味する）</p>
 <pre><code>function getAge(year){．．．}</code></pre>
-<p>yearは西暦で生まれ年を入力する引数で，今年の年齢を戻り値として出力する．（今年だけ使えればよい）</p>
+<p>yearは西暦で生まれた年を入力する引数で，今年の年齢を戻り値として出力する．（今年だけ使えればよい）</p>
 <p>ファイル名は「HowOld.js」とすること．</p>
 </section>
 <section id="税込み価格計算" data-number="8.6.2">
 <h3 data-number="7.6.2"><span class="header-section-number">7.6.2</span> 税込み価格計算</h3>
 <p>税込み価格を計算する次の関数を作り，テストしてください．</p>
 <pre><code>function calculateWithTax(withoutTax){．．．}</code></pre>
-<p>withoutTaxは税抜きの価格を入力する引数で，消費税込の価格を戻り値として出力する．（日本で，今年だけ使えればよい）</p>
-<p>（端数の処理では，四捨五入などの処理をする必要がある．その処理は，２章の「入力-処理-出力」を参考にすること）</p>
+<p>withoutTaxは税抜きの価格を入力する引数で，消費税込の価格を戻り値として出力する．（日本の税率で計算すること．軽減税率などを考慮した場合は加点）</p>
+<p>（端数の処理では，四捨五入などの処理をする必要がある．その処理は，２章で学習した数学関数を参考にすること）</p>
 <p>ファイル名は「Tax.js」とすること．</p>
 </section>
 <section id="勝率計算" data-number="8.6.3">
@@ -2467,92 +2666,100 @@ minは最小値，maxは最大値を入力する引数で，生成されたラ�
 </section>
 </section>
 </section>
-<section id="挑戦再帰プログラム" data-number="9">
-<h1 data-number="8"><span class="header-section-number">8</span> 挑戦：再帰プログラム</h1>
+<section id="挑戦関数の再帰呼び出しとフラクタル図形" data-number="9">
+<h1 data-number="8"><span class="header-section-number">8</span> 挑戦：関数の再帰呼び出しとフラクタル図形</h1>
 <section id="学習目標-7" data-number="9.1">
 <h2 data-number="8.1"><span class="header-section-number">8.1</span> 学習目標</h2>
 <ul>
 <li>関数の再帰呼出しとその実行過程を理解する</li>
-<li>再帰プログラム，再帰構造の美しさを楽しむ</li>
+<li>再帰プログラム，フラクタル図形の美しさを楽しむ</li>
 </ul>
 </section>
 <section id="再帰呼び出し" data-number="9.2">
 <h2 data-number="8.2"><span class="header-section-number">8.2</span> 再帰呼び出し</h2>
 <section id="あらまし" data-number="9.2.1">
 <h3 data-number="8.2.1"><span class="header-section-number">8.2.1</span> あらまし</h3>
-<p>関数が自分自身を呼び出す処理を，再帰関数呼び出しと言う・(実は自分自身を呼び出すように見えて，もう一つのコピーを呼び出しているだけなのですがね．)</p>
-<p>関数の再帰呼び出しを使うことで，いろいろな面白いプログラムが書ける．</p>
+<p>関数が自分自身を呼び出す処理を，再帰関数呼び出しと言います．</p>
 </section>
 <section id="階乗計算" data-number="9.2.2">
 <h3 data-number="8.2.2"><span class="header-section-number">8.2.2</span> 階乗計算</h3>
-<p>数学で使う概念の一つに階乗がある．</p>
-<p>nの階乗は１からnまでの数を掛け合わせたもので，n!と書く．次に例を示す．</p>
+<p>数学で使う概念の一つに階乗があります．</p>
+<p>nの階乗は１からnまでの数を掛け合わせたもので，n!と書きます．</p>
 <pre><code>2! = 2 * 1 = 2
 3! = 3 * 2 * 1 = 6
 4! = 4 * 3 * 2 * 1 = 12</code></pre>
-<p>nの階乗は以下の式で求められる．</p>
+<p>nの階乗は以下の式で求められます．</p>
 <pre><code>n! = n * (n-1)!</code></pre>
-<p>つまり，n-1の階乗が求められれば，それにnをかけることでnの階乗が求められる．</p>
-<p>この式を応用し，再帰を使うことで，階乗を求めるプログラムを次のように書ける．</p>
+<p>つまり，n-1の階乗が求められれば，それにnをかけることでnの階乗が求められます．</p>
+<p>この式を応用し，再帰を使うことで，次のように階乗を求めるプログラムが書けます．</p>
 <!-- リスト 14.2.2.1 Factorial.js -->
 <p><span class="CopyButton" onclick="copycode(&#39;lst:8-1&#39;)">c</span></p>
-<div class="sourceCode" id="lst:8-1" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:8-1-1"><a href="#lst:8-1-1"></a>println(<span class="st">&#39;factorial(1) = &#39;</span> <span class="op">+</span> factorial(<span class="dv">1</span>))<span class="op">;</span></span>
-<span id="lst:8-1-2"><a href="#lst:8-1-2"></a>println(<span class="st">&#39;factorial(2) = &#39;</span> <span class="op">+</span> factorial(<span class="dv">2</span>))<span class="op">;</span></span>
-<span id="lst:8-1-3"><a href="#lst:8-1-3"></a>println(<span class="st">&#39;factorial(3) = &#39;</span> <span class="op">+</span> factorial(<span class="dv">3</span>))<span class="op">;</span></span>
-<span id="lst:8-1-4"><a href="#lst:8-1-4"></a>println(<span class="st">&#39;factorial(4) = &#39;</span> <span class="op">+</span> factorial(<span class="dv">4</span>))<span class="op">;</span></span>
-<span id="lst:8-1-5"><a href="#lst:8-1-5"></a>println(<span class="st">&#39;factorial(5) = &#39;</span> <span class="op">+</span> factorial(<span class="dv">5</span>))<span class="op">;</span></span>
-<span id="lst:8-1-6"><a href="#lst:8-1-6"></a></span>
-<span id="lst:8-1-7"><a href="#lst:8-1-7"></a><span class="kw">function</span> <span class="fu">factorial</span>(n) {</span>
-<span id="lst:8-1-8"><a href="#lst:8-1-8"></a>    <span class="kw">var</span> result<span class="op">;</span></span>
-<span id="lst:8-1-9"><a href="#lst:8-1-9"></a>    <span class="cf">if</span> (n <span class="op">==</span> <span class="dv">1</span>) {</span>
-<span id="lst:8-1-10"><a href="#lst:8-1-10"></a>        result <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="lst:8-1-11"><a href="#lst:8-1-11"></a>    } <span class="cf">else</span> {</span>
-<span id="lst:8-1-12"><a href="#lst:8-1-12"></a>        result <span class="op">=</span> n <span class="op">*</span> factorial(n <span class="op">-</span> <span class="dv">1</span>)<span class="op">;</span></span>
-<span id="lst:8-1-13"><a href="#lst:8-1-13"></a>    }</span>
-<span id="lst:8-1-14"><a href="#lst:8-1-14"></a>    <span class="cf">return</span> result<span class="op">;</span></span>
-<span id="lst:8-1-15"><a href="#lst:8-1-15"></a>}</span></code></pre></div>
+<div class="sourceCode" id="lst:8-1" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:8-1-1"><a href="#lst:8-1-1"></a></span>
+<span id="lst:8-1-2"><a href="#lst:8-1-2"></a>main()<span class="op">;</span></span>
+<span id="lst:8-1-3"><a href="#lst:8-1-3"></a></span>
+<span id="lst:8-1-4"><a href="#lst:8-1-4"></a><span class="kw">function</span> <span class="fu">main</span>(){</span>
+<span id="lst:8-1-5"><a href="#lst:8-1-5"></a>    println(<span class="st">&#39;factorial(1) = &#39;</span> <span class="op">+</span> factorial(<span class="dv">1</span>))<span class="op">;</span></span>
+<span id="lst:8-1-6"><a href="#lst:8-1-6"></a>    println(<span class="st">&#39;factorial(2) = &#39;</span> <span class="op">+</span> factorial(<span class="dv">2</span>))<span class="op">;</span></span>
+<span id="lst:8-1-7"><a href="#lst:8-1-7"></a>    println(<span class="st">&#39;factorial(3) = &#39;</span> <span class="op">+</span> factorial(<span class="dv">3</span>))<span class="op">;</span></span>
+<span id="lst:8-1-8"><a href="#lst:8-1-8"></a>    println(<span class="st">&#39;factorial(4) = &#39;</span> <span class="op">+</span> factorial(<span class="dv">4</span>))<span class="op">;</span></span>
+<span id="lst:8-1-9"><a href="#lst:8-1-9"></a>    println(<span class="st">&#39;factorial(5) = &#39;</span> <span class="op">+</span> factorial(<span class="dv">5</span>))<span class="op">;</span></span>
+<span id="lst:8-1-10"><a href="#lst:8-1-10"></a>}</span>
+<span id="lst:8-1-11"><a href="#lst:8-1-11"></a></span>
+<span id="lst:8-1-12"><a href="#lst:8-1-12"></a><span class="kw">function</span> <span class="fu">factorial</span>(n) {</span>
+<span id="lst:8-1-13"><a href="#lst:8-1-13"></a>    <span class="kw">var</span> result<span class="op">;</span></span>
+<span id="lst:8-1-14"><a href="#lst:8-1-14"></a>    <span class="cf">if</span> (n <span class="op">==</span> <span class="dv">1</span>) {</span>
+<span id="lst:8-1-15"><a href="#lst:8-1-15"></a>        result <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="lst:8-1-16"><a href="#lst:8-1-16"></a>    } <span class="cf">else</span> {</span>
+<span id="lst:8-1-17"><a href="#lst:8-1-17"></a>        result <span class="op">=</span> n <span class="op">*</span> factorial(n <span class="op">-</span> <span class="dv">1</span>)<span class="op">;</span></span>
+<span id="lst:8-1-18"><a href="#lst:8-1-18"></a>    }</span>
+<span id="lst:8-1-19"><a href="#lst:8-1-19"></a>    <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="lst:8-1-20"><a href="#lst:8-1-20"></a>}</span></code></pre></div>
 </section>
 <section id="再帰の終点" class="unnumbered" data-number="">
 <h3 class="unnumbered" data-number="-1">再帰の終点</h3>
-<p>上記の例ではfactorial()関数からfactorial()関数を呼んでいるので，再帰の終点を作ってやらないと呼出しが無限に続いて，プログラムが止まらなくなる． （実際には，呼び出すごとに関数がスタックと呼ばれるメモリに読み込まれるので，そのメモリがいっぱいになってStackOverFlowErrorというエラーを出して止まる．</p>
-<p>したがって，どこかで止めるプログラムを書かなければならない．上記の例では，</p>
+<p>上記の例ではfactorial()関数からfactorial()関数を呼んでいるので，再帰の終点を作らないと呼出しが無限に続いて，プログラムが止まらなくなってしまいます．実際には，呼び出すごとに関数がスタックと呼ばれるメモリに読み込まれるので，そのメモリがいっぱいになってStackOverFlowErrorというエラーを出して止まります．</p>
+<p>したがって，どこかで止めるプログラムを書く必要があります．上記の例では，</p>
 <pre><code>if (n == 1) {
     result = 1;
 }</code></pre>
-<p>の部分がそれにあたる．</p>
-<p>再帰のプログラムは関数の中で自分自身の関数を呼び出しているのが特徴だが，自分自身に見えるけれども実は新たなコピーを作り，呼び出しているだけである．</p>
-<p>このコピーの様子を視覚化して理解するために，呼出し過程を図示してみよう．</p>
+<p>の部分がそれにあたります．</p>
+<p>再帰のプログラムは関数の中で自分自身の関数を呼び出しているのが特徴ですが，自分自身に見えるけれども実は新たなコピーを作り，呼び出しています．</p>
+<p>このコピーの様子を視覚化して理解するために，呼出し過程を図示してみましょう．</p>
 <p><span class="CopyButton" onclick="copycode(&#39;lst:8-2&#39;)">c</span></p>
 <!-- リスト 14.2.2.2 FactorialWithPrint.js -->
-<div class="sourceCode" id="lst:8-2" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:8-2-1"><a href="#lst:8-2-1"></a>print(<span class="st">&#39;factorial(5, 0) = &#39;</span> <span class="op">+</span> factorial(<span class="dv">5</span><span class="op">,</span> <span class="dv">0</span>))<span class="op">;</span></span>
+<div class="sourceCode" id="lst:8-2" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:8-2-1"><a href="#lst:8-2-1"></a>main()<span class="op">;</span></span>
 <span id="lst:8-2-2"><a href="#lst:8-2-2"></a></span>
-<span id="lst:8-2-3"><a href="#lst:8-2-3"></a><span class="kw">function</span> <span class="fu">factorial</span>(n<span class="op">,</span> indentCount) {</span>
-<span id="lst:8-2-4"><a href="#lst:8-2-4"></a>    printStart(n<span class="op">,</span> indentCount)<span class="op">;</span></span>
-<span id="lst:8-2-5"><a href="#lst:8-2-5"></a>    <span class="kw">var</span> result<span class="op">;</span></span>
-<span id="lst:8-2-6"><a href="#lst:8-2-6"></a>    <span class="cf">if</span> (n <span class="op">==</span> <span class="dv">1</span>) {</span>
-<span id="lst:8-2-7"><a href="#lst:8-2-7"></a>        result <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="lst:8-2-8"><a href="#lst:8-2-8"></a>    } <span class="cf">else</span> {</span>
-<span id="lst:8-2-9"><a href="#lst:8-2-9"></a>        result <span class="op">=</span> n <span class="op">*</span> factorial(n <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> indentCount <span class="op">+</span> <span class="dv">1</span>)<span class="op">;</span></span>
-<span id="lst:8-2-10"><a href="#lst:8-2-10"></a>    }</span>
-<span id="lst:8-2-11"><a href="#lst:8-2-11"></a>    printEnd(result<span class="op">,</span> indentCount)<span class="op">;</span></span>
-<span id="lst:8-2-12"><a href="#lst:8-2-12"></a>    <span class="cf">return</span> result<span class="op">;</span></span>
-<span id="lst:8-2-13"><a href="#lst:8-2-13"></a>}</span>
-<span id="lst:8-2-14"><a href="#lst:8-2-14"></a></span>
-<span id="lst:8-2-15"><a href="#lst:8-2-15"></a><span class="kw">function</span> <span class="fu">printStart</span>(length<span class="op">,</span> indentCount) {</span>
-<span id="lst:8-2-16"><a href="#lst:8-2-16"></a>    makeIndent(indentCount)<span class="op">;</span></span>
-<span id="lst:8-2-17"><a href="#lst:8-2-17"></a>    println(<span class="st">&#39;factorial(&#39;</span> <span class="op">+</span> length <span class="op">+</span> <span class="st">&#39;, &#39;</span> <span class="op">+</span> indentCount <span class="op">+</span> <span class="st">&#39;)&#39;</span>)<span class="op">;</span></span>
-<span id="lst:8-2-18"><a href="#lst:8-2-18"></a>}</span>
-<span id="lst:8-2-19"><a href="#lst:8-2-19"></a></span>
-<span id="lst:8-2-20"><a href="#lst:8-2-20"></a><span class="kw">function</span> <span class="fu">printEnd</span>(result<span class="op">,</span> indentCount) {</span>
-<span id="lst:8-2-21"><a href="#lst:8-2-21"></a>    makeIndent(indentCount)<span class="op">;</span></span>
-<span id="lst:8-2-22"><a href="#lst:8-2-22"></a>    println(<span class="st">&#39;// return &#39;</span> <span class="op">+</span> result)<span class="op">;</span></span>
-<span id="lst:8-2-23"><a href="#lst:8-2-23"></a>}</span>
-<span id="lst:8-2-24"><a href="#lst:8-2-24"></a></span>
-<span id="lst:8-2-25"><a href="#lst:8-2-25"></a><span class="kw">function</span> <span class="fu">makeIndent</span>(indentCount) {</span>
-<span id="lst:8-2-26"><a href="#lst:8-2-26"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> indentCount<span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="lst:8-2-27"><a href="#lst:8-2-27"></a>        print(<span class="st">&#39;</span><span class="sc">\t</span><span class="st">&#39;</span>)<span class="op">;</span></span>
-<span id="lst:8-2-28"><a href="#lst:8-2-28"></a>    }</span>
-<span id="lst:8-2-29"><a href="#lst:8-2-29"></a>}</span></code></pre></div>
+<span id="lst:8-2-3"><a href="#lst:8-2-3"></a><span class="kw">function</span> <span class="fu">main</span>(){</span>
+<span id="lst:8-2-4"><a href="#lst:8-2-4"></a>    print(<span class="st">&#39;factorial(5, 0) = &#39;</span> <span class="op">+</span> factorial(<span class="dv">5</span><span class="op">,</span> <span class="dv">0</span>))<span class="op">;</span></span>
+<span id="lst:8-2-5"><a href="#lst:8-2-5"></a>}</span>
+<span id="lst:8-2-6"><a href="#lst:8-2-6"></a></span>
+<span id="lst:8-2-7"><a href="#lst:8-2-7"></a><span class="kw">function</span> <span class="fu">factorial</span>(n<span class="op">,</span> indentCount) {</span>
+<span id="lst:8-2-8"><a href="#lst:8-2-8"></a>    printStart(n<span class="op">,</span> indentCount)<span class="op">;</span></span>
+<span id="lst:8-2-9"><a href="#lst:8-2-9"></a>    <span class="kw">var</span> result<span class="op">;</span></span>
+<span id="lst:8-2-10"><a href="#lst:8-2-10"></a>    <span class="cf">if</span> (n <span class="op">==</span> <span class="dv">1</span>) {</span>
+<span id="lst:8-2-11"><a href="#lst:8-2-11"></a>        result <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="lst:8-2-12"><a href="#lst:8-2-12"></a>    } <span class="cf">else</span> {</span>
+<span id="lst:8-2-13"><a href="#lst:8-2-13"></a>        result <span class="op">=</span> n <span class="op">*</span> factorial(n <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> indentCount <span class="op">+</span> <span class="dv">1</span>)<span class="op">;</span></span>
+<span id="lst:8-2-14"><a href="#lst:8-2-14"></a>    }</span>
+<span id="lst:8-2-15"><a href="#lst:8-2-15"></a>    printEnd(result<span class="op">,</span> indentCount)<span class="op">;</span></span>
+<span id="lst:8-2-16"><a href="#lst:8-2-16"></a>    <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="lst:8-2-17"><a href="#lst:8-2-17"></a>}</span>
+<span id="lst:8-2-18"><a href="#lst:8-2-18"></a></span>
+<span id="lst:8-2-19"><a href="#lst:8-2-19"></a><span class="kw">function</span> <span class="fu">printStart</span>(length<span class="op">,</span> indentCount) {</span>
+<span id="lst:8-2-20"><a href="#lst:8-2-20"></a>    makeIndent(indentCount)<span class="op">;</span></span>
+<span id="lst:8-2-21"><a href="#lst:8-2-21"></a>    println(<span class="st">&#39;factorial(&#39;</span> <span class="op">+</span> length <span class="op">+</span> <span class="st">&#39;, &#39;</span> <span class="op">+</span> indentCount <span class="op">+</span> <span class="st">&#39;)&#39;</span>)<span class="op">;</span></span>
+<span id="lst:8-2-22"><a href="#lst:8-2-22"></a>}</span>
+<span id="lst:8-2-23"><a href="#lst:8-2-23"></a></span>
+<span id="lst:8-2-24"><a href="#lst:8-2-24"></a><span class="kw">function</span> <span class="fu">printEnd</span>(result<span class="op">,</span> indentCount) {</span>
+<span id="lst:8-2-25"><a href="#lst:8-2-25"></a>    makeIndent(indentCount)<span class="op">;</span></span>
+<span id="lst:8-2-26"><a href="#lst:8-2-26"></a>    println(<span class="st">&#39;// return &#39;</span> <span class="op">+</span> result)<span class="op">;</span></span>
+<span id="lst:8-2-27"><a href="#lst:8-2-27"></a>}</span>
+<span id="lst:8-2-28"><a href="#lst:8-2-28"></a></span>
+<span id="lst:8-2-29"><a href="#lst:8-2-29"></a><span class="kw">function</span> <span class="fu">makeIndent</span>(indentCount) {</span>
+<span id="lst:8-2-30"><a href="#lst:8-2-30"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> indentCount<span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="lst:8-2-31"><a href="#lst:8-2-31"></a>        print(<span class="st">&#39;</span><span class="sc">\t</span><span class="st">&#39;</span>)<span class="op">;</span></span>
+<span id="lst:8-2-32"><a href="#lst:8-2-32"></a>    }</span>
+<span id="lst:8-2-33"><a href="#lst:8-2-33"></a>}</span></code></pre></div>
 <pre><code>factorial(5, 0)
     factorial(4, 1)
         factorial(3, 2)
@@ -2563,12 +2770,12 @@ minは最小値，maxは最大値を入力する引数で，生成されたラ�
         // return 6
     // return 24
 // return 120           </code></pre>
-<p>異なる引数で関数が呼ばれているだけということが分かったと思う．</p>
-<p>（ちなみに，階乗の計算は総和と同じように繰り返しでも書ける．）</p>
+<p>異なる引数で関数が呼ばれている様子を観察することができました．</p>
+<p>（ちなみに，階乗の計算は総和と同じように繰り返しでも書くことができます．）</p>
 </section>
 <section id="フィボナッチ数列" data-number="9.2.3">
 <h3 data-number="8.2.3"><span class="header-section-number">8.2.3</span> フィボナッチ数列</h3>
-<p>フィボナッチ数列という数列がある．これも文系の諸君にはあまりなじみがないかもしれないが， 自然界によくみられる不思議な数列である．（このサイトなどをみてみよう）</p>
+<p>フィボナッチ数列という自然界にもみられる不思議な数列があります．</p>
 <p>fib(n)は次の式で求められる．</p>
 <pre><code>fib(n) = fib(n-1) + fib(n-2)</code></pre>
 <p>以下が具体例である．</p>
@@ -2578,62 +2785,72 @@ fib(3) = fib(2) + fib(1) = 3
 fib(4) = fib(3) + fib(2) = 5
 fib(5) = fib(4) + fib(3) = 8
 fib(6) = fib(5) + fib(4) = 13</code></pre>
-<p>フィボナッチ数列も再帰の例でよく出てくる例で，再帰を使うことでプログラムを次のように書ける．</p>
+<p>フィボナッチ数列も再帰の例でよく出てくる例で，再帰を使うことでフィボナッチ数列を求めるプログラムを次のように書けます．</p>
 <p><span class="CopyButton" onclick="copycode(&#39;lst:8-3&#39;)">c</span></p>
 <!-- リスト 14.2.3.1 Fibonacci.js -->
-<div class="sourceCode" id="lst:8-3" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:8-3-1"><a href="#lst:8-3-1"></a>println(<span class="st">&#39;fib(1) = &#39;</span> <span class="op">+</span> fib(<span class="dv">1</span>))<span class="op">;</span></span>
-<span id="lst:8-3-2"><a href="#lst:8-3-2"></a>println(<span class="st">&#39;fib(2) = &#39;</span> <span class="op">+</span> fib(<span class="dv">2</span>))<span class="op">;</span></span>
-<span id="lst:8-3-3"><a href="#lst:8-3-3"></a>println(<span class="st">&#39;fib(3) = &#39;</span> <span class="op">+</span> fib(<span class="dv">3</span>))<span class="op">;</span></span>
-<span id="lst:8-3-4"><a href="#lst:8-3-4"></a>println(<span class="st">&#39;fib(4) = &#39;</span> <span class="op">+</span> fib(<span class="dv">4</span>))<span class="op">;</span></span>
-<span id="lst:8-3-5"><a href="#lst:8-3-5"></a>println(<span class="st">&#39;fib(5) = &#39;</span> <span class="op">+</span> fib(<span class="dv">5</span>))<span class="op">;</span></span>
-<span id="lst:8-3-6"><a href="#lst:8-3-6"></a>println(<span class="st">&#39;fib(6) = &#39;</span> <span class="op">+</span> fib(<span class="dv">6</span>))<span class="op">;</span></span>
-<span id="lst:8-3-7"><a href="#lst:8-3-7"></a>println(<span class="st">&#39;fib(7) = &#39;</span> <span class="op">+</span> fib(<span class="dv">7</span>))<span class="op">;</span></span>
-<span id="lst:8-3-8"><a href="#lst:8-3-8"></a></span>
-<span id="lst:8-3-9"><a href="#lst:8-3-9"></a><span class="kw">function</span> <span class="fu">fib</span>(n) {</span>
-<span id="lst:8-3-10"><a href="#lst:8-3-10"></a>    <span class="kw">var</span> value<span class="op">;</span></span>
-<span id="lst:8-3-11"><a href="#lst:8-3-11"></a>    <span class="cf">if</span> (n <span class="op">==</span> <span class="dv">1</span>) {</span>
-<span id="lst:8-3-12"><a href="#lst:8-3-12"></a>        value <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="lst:8-3-13"><a href="#lst:8-3-13"></a>    } <span class="cf">else</span> <span class="cf">if</span> (n <span class="op">==</span> <span class="dv">2</span>) {</span>
-<span id="lst:8-3-14"><a href="#lst:8-3-14"></a>        value <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="lst:8-3-15"><a href="#lst:8-3-15"></a>    } <span class="cf">else</span> {</span>
-<span id="lst:8-3-16"><a href="#lst:8-3-16"></a>        value <span class="op">=</span> fib(n <span class="op">-</span> <span class="dv">1</span>) <span class="op">+</span> fib(n <span class="op">-</span> <span class="dv">2</span>)<span class="op">;</span></span>
-<span id="lst:8-3-17"><a href="#lst:8-3-17"></a>    }</span>
-<span id="lst:8-3-18"><a href="#lst:8-3-18"></a>    <span class="cf">return</span> value<span class="op">;</span></span>
-<span id="lst:8-3-19"><a href="#lst:8-3-19"></a>}</span></code></pre></div>
-<p>これも呼出し過程を図示してみよう</p>
+<div class="sourceCode" id="lst:8-3" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:8-3-1"><a href="#lst:8-3-1"></a></span>
+<span id="lst:8-3-2"><a href="#lst:8-3-2"></a>main()<span class="op">;</span></span>
+<span id="lst:8-3-3"><a href="#lst:8-3-3"></a></span>
+<span id="lst:8-3-4"><a href="#lst:8-3-4"></a><span class="kw">function</span> <span class="fu">main</span>(){</span>
+<span id="lst:8-3-5"><a href="#lst:8-3-5"></a>    println(<span class="st">&#39;fib(1) = &#39;</span> <span class="op">+</span> fib(<span class="dv">1</span>))<span class="op">;</span></span>
+<span id="lst:8-3-6"><a href="#lst:8-3-6"></a>    println(<span class="st">&#39;fib(2) = &#39;</span> <span class="op">+</span> fib(<span class="dv">2</span>))<span class="op">;</span></span>
+<span id="lst:8-3-7"><a href="#lst:8-3-7"></a>    println(<span class="st">&#39;fib(3) = &#39;</span> <span class="op">+</span> fib(<span class="dv">3</span>))<span class="op">;</span></span>
+<span id="lst:8-3-8"><a href="#lst:8-3-8"></a>    println(<span class="st">&#39;fib(4) = &#39;</span> <span class="op">+</span> fib(<span class="dv">4</span>))<span class="op">;</span></span>
+<span id="lst:8-3-9"><a href="#lst:8-3-9"></a>    println(<span class="st">&#39;fib(5) = &#39;</span> <span class="op">+</span> fib(<span class="dv">5</span>))<span class="op">;</span></span>
+<span id="lst:8-3-10"><a href="#lst:8-3-10"></a>    println(<span class="st">&#39;fib(6) = &#39;</span> <span class="op">+</span> fib(<span class="dv">6</span>))<span class="op">;</span></span>
+<span id="lst:8-3-11"><a href="#lst:8-3-11"></a>    println(<span class="st">&#39;fib(7) = &#39;</span> <span class="op">+</span> fib(<span class="dv">7</span>))<span class="op">;</span></span>
+<span id="lst:8-3-12"><a href="#lst:8-3-12"></a>}</span>
+<span id="lst:8-3-13"><a href="#lst:8-3-13"></a></span>
+<span id="lst:8-3-14"><a href="#lst:8-3-14"></a><span class="kw">function</span> <span class="fu">fib</span>(n) {</span>
+<span id="lst:8-3-15"><a href="#lst:8-3-15"></a>    <span class="kw">var</span> value<span class="op">;</span></span>
+<span id="lst:8-3-16"><a href="#lst:8-3-16"></a>    <span class="cf">if</span> (n <span class="op">==</span> <span class="dv">1</span>) {</span>
+<span id="lst:8-3-17"><a href="#lst:8-3-17"></a>        value <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="lst:8-3-18"><a href="#lst:8-3-18"></a>    } <span class="cf">else</span> <span class="cf">if</span> (n <span class="op">==</span> <span class="dv">2</span>) {</span>
+<span id="lst:8-3-19"><a href="#lst:8-3-19"></a>        value <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="lst:8-3-20"><a href="#lst:8-3-20"></a>    } <span class="cf">else</span> {</span>
+<span id="lst:8-3-21"><a href="#lst:8-3-21"></a>        value <span class="op">=</span> fib(n <span class="op">-</span> <span class="dv">1</span>) <span class="op">+</span> fib(n <span class="op">-</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="lst:8-3-22"><a href="#lst:8-3-22"></a>    }</span>
+<span id="lst:8-3-23"><a href="#lst:8-3-23"></a>    <span class="cf">return</span> value<span class="op">;</span></span>
+<span id="lst:8-3-24"><a href="#lst:8-3-24"></a>}</span></code></pre></div>
+<p>これも呼出し過程を図示してみましょう．</p>
 <p><span class="CopyButton" onclick="copycode(&#39;lst:8-4&#39;)">c</span></p>
 <!-- リスト 14.2.3.2 FibonacciWithPrint.js -->
-<div class="sourceCode" id="lst:8-4" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:8-4-1"><a href="#lst:8-4-1"></a>print(<span class="st">&#39;fib(5, 0) = &#39;</span> <span class="op">+</span> fib(<span class="dv">5</span><span class="op">,</span> <span class="dv">0</span>))<span class="op">;</span></span>
-<span id="lst:8-4-2"><a href="#lst:8-4-2"></a></span>
-<span id="lst:8-4-3"><a href="#lst:8-4-3"></a><span class="kw">function</span> <span class="fu">fib</span>(n<span class="op">,</span> indentCount) {</span>
-<span id="lst:8-4-4"><a href="#lst:8-4-4"></a>    printStart(n<span class="op">,</span> indentCount)<span class="op">;</span></span>
-<span id="lst:8-4-5"><a href="#lst:8-4-5"></a>    <span class="kw">var</span> value<span class="op">;</span></span>
-<span id="lst:8-4-6"><a href="#lst:8-4-6"></a>    <span class="cf">if</span> (n <span class="op">==</span> <span class="dv">1</span>) {</span>
-<span id="lst:8-4-7"><a href="#lst:8-4-7"></a>        value <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="lst:8-4-8"><a href="#lst:8-4-8"></a>    } <span class="cf">else</span> <span class="cf">if</span> (n <span class="op">==</span> <span class="dv">2</span>) {</span>
-<span id="lst:8-4-9"><a href="#lst:8-4-9"></a>        value <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="lst:8-4-10"><a href="#lst:8-4-10"></a>    } <span class="cf">else</span> {</span>
-<span id="lst:8-4-11"><a href="#lst:8-4-11"></a>        value <span class="op">=</span> fib(n <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> indentCount <span class="op">+</span> <span class="dv">1</span>) <span class="op">+</span> fib(n <span class="op">-</span> <span class="dv">2</span><span class="op">,</span> indentCount <span class="op">+</span> <span class="dv">1</span>)<span class="op">;</span></span>
-<span id="lst:8-4-12"><a href="#lst:8-4-12"></a>    }</span>
-<span id="lst:8-4-13"><a href="#lst:8-4-13"></a>    printEnd(value<span class="op">,</span> indentCount)<span class="op">;</span></span>
-<span id="lst:8-4-14"><a href="#lst:8-4-14"></a>    <span class="cf">return</span> value<span class="op">;</span></span>
-<span id="lst:8-4-15"><a href="#lst:8-4-15"></a>}</span>
-<span id="lst:8-4-16"><a href="#lst:8-4-16"></a></span>
-<span id="lst:8-4-17"><a href="#lst:8-4-17"></a><span class="kw">function</span> <span class="fu">printStart</span>(length<span class="op">,</span> indentCount) {</span>
-<span id="lst:8-4-18"><a href="#lst:8-4-18"></a>    makeIndent(indentCount)<span class="op">;</span></span>
-<span id="lst:8-4-19"><a href="#lst:8-4-19"></a>    println(<span class="st">&#39;fib(&#39;</span> <span class="op">+</span> length <span class="op">+</span> <span class="st">&#39;, &#39;</span> <span class="op">+</span> indentCount <span class="op">+</span> <span class="st">&#39;)&#39;</span>)<span class="op">;</span></span>
+<div class="sourceCode" id="lst:8-4" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:8-4-1"><a href="#lst:8-4-1"></a></span>
+<span id="lst:8-4-2"><a href="#lst:8-4-2"></a>main()<span class="op">;</span></span>
+<span id="lst:8-4-3"><a href="#lst:8-4-3"></a></span>
+<span id="lst:8-4-4"><a href="#lst:8-4-4"></a><span class="kw">function</span> <span class="fu">main</span>(){</span>
+<span id="lst:8-4-5"><a href="#lst:8-4-5"></a>    print(<span class="st">&#39;fib(5, 0) = &#39;</span> <span class="op">+</span> fib(<span class="dv">5</span><span class="op">,</span> <span class="dv">0</span>))<span class="op">;</span></span>
+<span id="lst:8-4-6"><a href="#lst:8-4-6"></a>}</span>
+<span id="lst:8-4-7"><a href="#lst:8-4-7"></a></span>
+<span id="lst:8-4-8"><a href="#lst:8-4-8"></a><span class="kw">function</span> <span class="fu">fib</span>(n<span class="op">,</span> indentCount) {</span>
+<span id="lst:8-4-9"><a href="#lst:8-4-9"></a>    printStart(n<span class="op">,</span> indentCount)<span class="op">;</span></span>
+<span id="lst:8-4-10"><a href="#lst:8-4-10"></a>    <span class="kw">var</span> value<span class="op">;</span></span>
+<span id="lst:8-4-11"><a href="#lst:8-4-11"></a>    <span class="cf">if</span> (n <span class="op">==</span> <span class="dv">1</span>) {</span>
+<span id="lst:8-4-12"><a href="#lst:8-4-12"></a>        value <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="lst:8-4-13"><a href="#lst:8-4-13"></a>    } <span class="cf">else</span> <span class="cf">if</span> (n <span class="op">==</span> <span class="dv">2</span>) {</span>
+<span id="lst:8-4-14"><a href="#lst:8-4-14"></a>        value <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="lst:8-4-15"><a href="#lst:8-4-15"></a>    } <span class="cf">else</span> {</span>
+<span id="lst:8-4-16"><a href="#lst:8-4-16"></a>        value <span class="op">=</span> fib(n <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> indentCount <span class="op">+</span> <span class="dv">1</span>) <span class="op">+</span> fib(n <span class="op">-</span> <span class="dv">2</span><span class="op">,</span> indentCount <span class="op">+</span> <span class="dv">1</span>)<span class="op">;</span></span>
+<span id="lst:8-4-17"><a href="#lst:8-4-17"></a>    }</span>
+<span id="lst:8-4-18"><a href="#lst:8-4-18"></a>    printEnd(value<span class="op">,</span> indentCount)<span class="op">;</span></span>
+<span id="lst:8-4-19"><a href="#lst:8-4-19"></a>    <span class="cf">return</span> value<span class="op">;</span></span>
 <span id="lst:8-4-20"><a href="#lst:8-4-20"></a>}</span>
 <span id="lst:8-4-21"><a href="#lst:8-4-21"></a></span>
-<span id="lst:8-4-22"><a href="#lst:8-4-22"></a><span class="kw">function</span> <span class="fu">printEnd</span>(result<span class="op">,</span> indentCount) {</span>
+<span id="lst:8-4-22"><a href="#lst:8-4-22"></a><span class="kw">function</span> <span class="fu">printStart</span>(length<span class="op">,</span> indentCount) {</span>
 <span id="lst:8-4-23"><a href="#lst:8-4-23"></a>    makeIndent(indentCount)<span class="op">;</span></span>
-<span id="lst:8-4-24"><a href="#lst:8-4-24"></a>    println(<span class="st">&#39;// return &#39;</span> <span class="op">+</span> result)<span class="op">;</span></span>
+<span id="lst:8-4-24"><a href="#lst:8-4-24"></a>    println(<span class="st">&#39;fib(&#39;</span> <span class="op">+</span> length <span class="op">+</span> <span class="st">&#39;, &#39;</span> <span class="op">+</span> indentCount <span class="op">+</span> <span class="st">&#39;)&#39;</span>)<span class="op">;</span></span>
 <span id="lst:8-4-25"><a href="#lst:8-4-25"></a>}</span>
 <span id="lst:8-4-26"><a href="#lst:8-4-26"></a></span>
-<span id="lst:8-4-27"><a href="#lst:8-4-27"></a><span class="kw">function</span> <span class="fu">makeIndent</span>(indentCount) {</span>
-<span id="lst:8-4-28"><a href="#lst:8-4-28"></a>    <span class="cf">for</span> (i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> indentCount<span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="lst:8-4-29"><a href="#lst:8-4-29"></a>        print(<span class="st">&#39;</span><span class="sc">\t</span><span class="st">&#39;</span>)<span class="op">;</span></span>
-<span id="lst:8-4-30"><a href="#lst:8-4-30"></a>    }</span>
-<span id="lst:8-4-31"><a href="#lst:8-4-31"></a>}</span></code></pre></div>
+<span id="lst:8-4-27"><a href="#lst:8-4-27"></a><span class="kw">function</span> <span class="fu">printEnd</span>(result<span class="op">,</span> indentCount) {</span>
+<span id="lst:8-4-28"><a href="#lst:8-4-28"></a>    makeIndent(indentCount)<span class="op">;</span></span>
+<span id="lst:8-4-29"><a href="#lst:8-4-29"></a>    println(<span class="st">&#39;// return &#39;</span> <span class="op">+</span> result)<span class="op">;</span></span>
+<span id="lst:8-4-30"><a href="#lst:8-4-30"></a>}</span>
+<span id="lst:8-4-31"><a href="#lst:8-4-31"></a></span>
+<span id="lst:8-4-32"><a href="#lst:8-4-32"></a><span class="kw">function</span> <span class="fu">makeIndent</span>(indentCount) {</span>
+<span id="lst:8-4-33"><a href="#lst:8-4-33"></a>    <span class="cf">for</span> (i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> indentCount<span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="lst:8-4-34"><a href="#lst:8-4-34"></a>        print(<span class="st">&#39;</span><span class="sc">\t</span><span class="st">&#39;</span>)<span class="op">;</span></span>
+<span id="lst:8-4-35"><a href="#lst:8-4-35"></a>    }</span>
+<span id="lst:8-4-36"><a href="#lst:8-4-36"></a>}</span></code></pre></div>
 <pre><code>fib(5, 0)
     fib(4, 1)
         fib(3, 2)
@@ -2655,81 +2872,88 @@ fib(6) = fib(5) + fib(4) = 13</code></pre>
 </section>
 <section id="再帰とプログラムの効率" class="unnumbered" data-number="">
 <h3 class="unnumbered" data-number="-1">再帰とプログラムの効率</h3>
-<p>最後の例の呼出し過程をよく見るとfib(1)とかfib(2)は何回も呼ばれており，大変効率が悪いプログラムである．</p>
-<p>再帰プログラムでは，プログラムが計算式と似たように，わかりやすく書ける代わりに，効率が悪くなることがある．（絶対にそうなるわけではない）</p>
-<p>上記のフィボナッチ数列のプログラムは，fib(20)くらいまでは動作するが，fib(50)ではコンピュータはお手上げ状態のはず（計算が終わらない）はずである．試してみよう． 実は，現実には，フィボナッチ数列は，「再帰を使ってはいけない例」として有名である．</p>
+<p>呼出し過程をよく見るとfib(1)とかfib(2)は何回も呼ばれており，大変効率が悪いプログラムであることがわかります．上記のフィボナッチ数列のプログラムは，fib(20)くらいまでは動作しますが，fib(50)ではコンピュータはお手上げ状態（計算が終わらない）のはずです．試してみましょう．</p>
+<p>実は，フィボナッチ数列は，「再帰を使ってはいけない例」として著名で，再帰プログラムでは，プログラムが計算の定義をそのまま，わかりやすく書ける代わりに，効率が悪くなることがあることの例として使われています．</p>
 </section>
 </section>
 <section id="フラクタル図形" data-number="9.3">
 <h2 data-number="8.3"><span class="header-section-number">8.3</span> フラクタル図形</h2>
-<p>フラクタル図形は簡単に言えば「どんなに拡大しても複雑な図形」のことをさす・(wikipedia 2011)</p>
-<p>フラクタル図形の一種である自己相似図形は，自分自身と同じ形のミニチュアが自分の中に入れ子になっている図形をさす．</p>
-<p>自己相似図形と再帰プログラムには深い関係があり，再帰プログラムを使ってフラクタル図形を書くことができる．</p>
-<p>このような図形を書くには，まず繰り返される基本的な図形と変換ルールを考える．この場合は以下のように「Y」に小さな「Y」を足していく プログラムを考える．</p>
+<p>フラクタル図形は簡単に言えば「どんなに拡大しても複雑な図形」のことをさします(wikipedia 2011)．フラクタル図形の一種である自己相似図形は，自分自身と同じ形のミニチュアが自分の中に入れ子になっている図形をさす．自己相似図形と再帰プログラムには深い関係があり，再帰プログラムを使ってフラクタル図形を書くことができます．</p>
+<p>フラクタル図形を書くには，まず繰り返される基本的な図形と変換ルールを考えます．ここでは木を描くために，以下のように「Y」に小さな「Y」を足していく プログラムを考えてみましょう．</p>
 <figure>
 <img src="img/chapter07/maketree.png" alt="" /><figcaption>tree</figcaption>
 </figure>
-<p>まず，「Y」を描くプログラムを書く．ここで一回テストしてみることが重要である． （いきなり再帰のプログラム書こうとした先輩は，ことごとく失敗しています！）</p>
+<p>まず，「Y」を描くプログラムを書きます．ここで一回テストしてみることが肝要です．</p>
 <p><span class="CopyButton" onclick="copycode(&#39;lst:8-5&#39;)">c</span></p>
 <div class="sourceCode" id="lst:8-5" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:8-5-1"><a href="#lst:8-5-1"></a><span class="kw">var</span> t <span class="op">=</span> createTurtle()<span class="op">;</span></span>
-<span id="lst:8-5-2"><a href="#lst:8-5-2"></a>canvasSize(<span class="dv">500</span><span class="op">,</span><span class="dv">500</span>)<span class="op">;</span></span>
-<span id="lst:8-5-3"><a href="#lst:8-5-3"></a>t<span class="op">.</span><span class="fu">warp</span>(<span class="dv">250</span><span class="op">,</span><span class="dv">400</span>)<span class="op">;</span></span>
+<span id="lst:8-5-2"><a href="#lst:8-5-2"></a></span>
+<span id="lst:8-5-3"><a href="#lst:8-5-3"></a>main()<span class="op">;</span></span>
 <span id="lst:8-5-4"><a href="#lst:8-5-4"></a></span>
-<span id="lst:8-5-5"><a href="#lst:8-5-5"></a>drawY(<span class="dv">50</span>)<span class="op">;</span></span>
-<span id="lst:8-5-6"><a href="#lst:8-5-6"></a></span>
-<span id="lst:8-5-7"><a href="#lst:8-5-7"></a><span class="kw">function</span> <span class="fu">drawY</span>(length) {</span>
-<span id="lst:8-5-8"><a href="#lst:8-5-8"></a>  </span>
-<span id="lst:8-5-9"><a href="#lst:8-5-9"></a>  t<span class="op">.</span><span class="fu">fd</span>(length)<span class="op">;</span><span class="co">// 幹を描く</span></span>
-<span id="lst:8-5-10"><a href="#lst:8-5-10"></a>  </span>
-<span id="lst:8-5-11"><a href="#lst:8-5-11"></a>  <span class="co">// 左の枝を描く</span></span>
-<span id="lst:8-5-12"><a href="#lst:8-5-12"></a>  t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">30</span>)<span class="op">;</span></span>
-<span id="lst:8-5-13"><a href="#lst:8-5-13"></a>  t<span class="op">.</span><span class="fu">fd</span>(length <span class="op">/</span> <span class="dv">2</span>)<span class="op">;</span></span>
-<span id="lst:8-5-14"><a href="#lst:8-5-14"></a>  t<span class="op">.</span><span class="fu">bk</span>(length <span class="op">/</span> <span class="dv">2</span>)<span class="op">;</span></span>
-<span id="lst:8-5-15"><a href="#lst:8-5-15"></a>  t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">30</span>)<span class="op">;</span></span>
-<span id="lst:8-5-16"><a href="#lst:8-5-16"></a>  </span>
-<span id="lst:8-5-17"><a href="#lst:8-5-17"></a>  <span class="co">// 右の枝を描く</span></span>
-<span id="lst:8-5-18"><a href="#lst:8-5-18"></a>  t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">30</span>)<span class="op">;</span></span>
-<span id="lst:8-5-19"><a href="#lst:8-5-19"></a>  t<span class="op">.</span><span class="fu">fd</span>(length <span class="op">/</span> <span class="dv">2</span>)<span class="op">;</span></span>
-<span id="lst:8-5-20"><a href="#lst:8-5-20"></a>  t<span class="op">.</span><span class="fu">bk</span>(length <span class="op">/</span> <span class="dv">2</span>)<span class="op">;</span></span>
-<span id="lst:8-5-21"><a href="#lst:8-5-21"></a>  t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">30</span>)<span class="op">;</span></span>
-<span id="lst:8-5-22"><a href="#lst:8-5-22"></a>  </span>
-<span id="lst:8-5-23"><a href="#lst:8-5-23"></a>  t<span class="op">.</span><span class="fu">bk</span>(length)<span class="op">;</span><span class="co">// 幹の根元に戻る</span></span>
-<span id="lst:8-5-24"><a href="#lst:8-5-24"></a>  </span>
-<span id="lst:8-5-25"><a href="#lst:8-5-25"></a>}</span></code></pre></div>
-<p>次に，大きな「Y」の先に小さな「Y」を書くように，再帰呼び出しを行う．再帰の終点も忘れずに！</p>
+<span id="lst:8-5-5"><a href="#lst:8-5-5"></a><span class="kw">function</span> <span class="fu">main</span>(){</span>
+<span id="lst:8-5-6"><a href="#lst:8-5-6"></a>    canvasSize(<span class="dv">500</span><span class="op">,</span><span class="dv">500</span>)<span class="op">;</span></span>
+<span id="lst:8-5-7"><a href="#lst:8-5-7"></a>    t<span class="op">.</span><span class="fu">warp</span>(<span class="dv">250</span><span class="op">,</span><span class="dv">400</span>)<span class="op">;</span></span>
+<span id="lst:8-5-8"><a href="#lst:8-5-8"></a></span>
+<span id="lst:8-5-9"><a href="#lst:8-5-9"></a>    drawY(<span class="dv">50</span>)<span class="op">;</span></span>
+<span id="lst:8-5-10"><a href="#lst:8-5-10"></a>}</span>
+<span id="lst:8-5-11"><a href="#lst:8-5-11"></a></span>
+<span id="lst:8-5-12"><a href="#lst:8-5-12"></a><span class="kw">function</span> <span class="fu">drawY</span>(length) {</span>
+<span id="lst:8-5-13"><a href="#lst:8-5-13"></a>  </span>
+<span id="lst:8-5-14"><a href="#lst:8-5-14"></a>  t<span class="op">.</span><span class="fu">fd</span>(length)<span class="op">;</span><span class="co">// 幹を描く</span></span>
+<span id="lst:8-5-15"><a href="#lst:8-5-15"></a>  </span>
+<span id="lst:8-5-16"><a href="#lst:8-5-16"></a>  <span class="co">// 左の枝を描く</span></span>
+<span id="lst:8-5-17"><a href="#lst:8-5-17"></a>  t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">30</span>)<span class="op">;</span></span>
+<span id="lst:8-5-18"><a href="#lst:8-5-18"></a>  t<span class="op">.</span><span class="fu">fd</span>(length <span class="op">/</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="lst:8-5-19"><a href="#lst:8-5-19"></a>  t<span class="op">.</span><span class="fu">bk</span>(length <span class="op">/</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="lst:8-5-20"><a href="#lst:8-5-20"></a>  t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">30</span>)<span class="op">;</span></span>
+<span id="lst:8-5-21"><a href="#lst:8-5-21"></a>  </span>
+<span id="lst:8-5-22"><a href="#lst:8-5-22"></a>  <span class="co">// 右の枝を描く</span></span>
+<span id="lst:8-5-23"><a href="#lst:8-5-23"></a>  t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">30</span>)<span class="op">;</span></span>
+<span id="lst:8-5-24"><a href="#lst:8-5-24"></a>  t<span class="op">.</span><span class="fu">fd</span>(length <span class="op">/</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="lst:8-5-25"><a href="#lst:8-5-25"></a>  t<span class="op">.</span><span class="fu">bk</span>(length <span class="op">/</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="lst:8-5-26"><a href="#lst:8-5-26"></a>  t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">30</span>)<span class="op">;</span></span>
+<span id="lst:8-5-27"><a href="#lst:8-5-27"></a>  </span>
+<span id="lst:8-5-28"><a href="#lst:8-5-28"></a>  t<span class="op">.</span><span class="fu">bk</span>(length)<span class="op">;</span><span class="co">// 幹の根元に戻る</span></span>
+<span id="lst:8-5-29"><a href="#lst:8-5-29"></a>  </span>
+<span id="lst:8-5-30"><a href="#lst:8-5-30"></a>}</span></code></pre></div>
+<p>次に，大きな「Y」の先に小さな「Y」を書くように，再帰呼び出しを行います．再帰の終点も忘れずに記述すること！</p>
 <p><span class="CopyButton" onclick="copycode(&#39;lst:8-6&#39;)">c</span></p>
 <!-- リスト 14.3.2 DrawTree.js -->
 <div class="sourceCode" id="lst:8-6" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:8-6-1"><a href="#lst:8-6-1"></a><span class="kw">var</span> t <span class="op">=</span> createTurtle()<span class="op">;</span></span>
-<span id="lst:8-6-2"><a href="#lst:8-6-2"></a>canvasSize(<span class="dv">500</span><span class="op">,</span><span class="dv">500</span>)<span class="op">;</span></span>
-<span id="lst:8-6-3"><a href="#lst:8-6-3"></a>t<span class="op">.</span><span class="fu">warp</span>(<span class="dv">250</span><span class="op">,</span><span class="dv">400</span>)<span class="op">;</span></span>
+<span id="lst:8-6-2"><a href="#lst:8-6-2"></a></span>
+<span id="lst:8-6-3"><a href="#lst:8-6-3"></a>main()<span class="op">;</span></span>
 <span id="lst:8-6-4"><a href="#lst:8-6-4"></a></span>
-<span id="lst:8-6-5"><a href="#lst:8-6-5"></a>drawY(<span class="dv">50</span>)<span class="op">;</span></span>
-<span id="lst:8-6-6"><a href="#lst:8-6-6"></a></span>
-<span id="lst:8-6-7"><a href="#lst:8-6-7"></a><span class="kw">function</span> <span class="fu">drawY</span>(length) {</span>
-<span id="lst:8-6-8"><a href="#lst:8-6-8"></a>  </span>
-<span id="lst:8-6-9"><a href="#lst:8-6-9"></a>  <span class="cf">if</span> (length <span class="op">&lt;</span> <span class="dv">5</span>) {<span class="co">// 再帰の終点</span></span>
-<span id="lst:8-6-10"><a href="#lst:8-6-10"></a>    <span class="cf">return</span><span class="op">;</span></span>
-<span id="lst:8-6-11"><a href="#lst:8-6-11"></a>  }</span>
-<span id="lst:8-6-12"><a href="#lst:8-6-12"></a>  </span>
-<span id="lst:8-6-13"><a href="#lst:8-6-13"></a>  t<span class="op">.</span><span class="fu">fd</span>(length)<span class="op">;</span><span class="co">// 幹を描く</span></span>
-<span id="lst:8-6-14"><a href="#lst:8-6-14"></a>  </span>
-<span id="lst:8-6-15"><a href="#lst:8-6-15"></a>  <span class="co">// 左の枝を描く</span></span>
-<span id="lst:8-6-16"><a href="#lst:8-6-16"></a>  t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">30</span>)<span class="op">;</span></span>
-<span id="lst:8-6-17"><a href="#lst:8-6-17"></a>  t<span class="op">.</span><span class="fu">fd</span>(length <span class="op">/</span> <span class="dv">2</span>)<span class="op">;</span></span>
-<span id="lst:8-6-18"><a href="#lst:8-6-18"></a>  drawY(length <span class="op">/</span> <span class="dv">2</span>)<span class="op">;</span></span>
-<span id="lst:8-6-19"><a href="#lst:8-6-19"></a>  t<span class="op">.</span><span class="fu">bk</span>(length <span class="op">/</span> <span class="dv">2</span>)<span class="op">;</span></span>
-<span id="lst:8-6-20"><a href="#lst:8-6-20"></a>  t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">30</span>)<span class="op">;</span></span>
-<span id="lst:8-6-21"><a href="#lst:8-6-21"></a>  </span>
-<span id="lst:8-6-22"><a href="#lst:8-6-22"></a>  <span class="co">// 右の枝を描く</span></span>
-<span id="lst:8-6-23"><a href="#lst:8-6-23"></a>  t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">30</span>)<span class="op">;</span></span>
-<span id="lst:8-6-24"><a href="#lst:8-6-24"></a>  t<span class="op">.</span><span class="fu">fd</span>(length <span class="op">/</span> <span class="dv">2</span>)<span class="op">;</span></span>
-<span id="lst:8-6-25"><a href="#lst:8-6-25"></a>  drawY(length <span class="op">/</span> <span class="dv">2</span>)<span class="op">;</span></span>
-<span id="lst:8-6-26"><a href="#lst:8-6-26"></a>  t<span class="op">.</span><span class="fu">bk</span>(length <span class="op">/</span> <span class="dv">2</span>)<span class="op">;</span></span>
-<span id="lst:8-6-27"><a href="#lst:8-6-27"></a>  t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">30</span>)<span class="op">;</span></span>
-<span id="lst:8-6-28"><a href="#lst:8-6-28"></a>  </span>
-<span id="lst:8-6-29"><a href="#lst:8-6-29"></a>  t<span class="op">.</span><span class="fu">bk</span>(length)<span class="op">;</span><span class="co">// 幹の根元に戻る</span></span>
-<span id="lst:8-6-30"><a href="#lst:8-6-30"></a>  </span>
-<span id="lst:8-6-31"><a href="#lst:8-6-31"></a>}</span></code></pre></div>
+<span id="lst:8-6-5"><a href="#lst:8-6-5"></a><span class="kw">function</span> <span class="fu">main</span>(){</span>
+<span id="lst:8-6-6"><a href="#lst:8-6-6"></a>    canvasSize(<span class="dv">500</span><span class="op">,</span><span class="dv">500</span>)<span class="op">;</span></span>
+<span id="lst:8-6-7"><a href="#lst:8-6-7"></a>    t<span class="op">.</span><span class="fu">warp</span>(<span class="dv">250</span><span class="op">,</span><span class="dv">400</span>)<span class="op">;</span></span>
+<span id="lst:8-6-8"><a href="#lst:8-6-8"></a></span>
+<span id="lst:8-6-9"><a href="#lst:8-6-9"></a>    drawY(<span class="dv">50</span>)<span class="op">;</span></span>
+<span id="lst:8-6-10"><a href="#lst:8-6-10"></a>}</span>
+<span id="lst:8-6-11"><a href="#lst:8-6-11"></a></span>
+<span id="lst:8-6-12"><a href="#lst:8-6-12"></a><span class="kw">function</span> <span class="fu">drawY</span>(length) {</span>
+<span id="lst:8-6-13"><a href="#lst:8-6-13"></a>  </span>
+<span id="lst:8-6-14"><a href="#lst:8-6-14"></a>  <span class="cf">if</span> (length <span class="op">&lt;</span> <span class="dv">5</span>) {<span class="co">// 再帰の終点</span></span>
+<span id="lst:8-6-15"><a href="#lst:8-6-15"></a>    <span class="cf">return</span><span class="op">;</span></span>
+<span id="lst:8-6-16"><a href="#lst:8-6-16"></a>  }</span>
+<span id="lst:8-6-17"><a href="#lst:8-6-17"></a>  </span>
+<span id="lst:8-6-18"><a href="#lst:8-6-18"></a>  t<span class="op">.</span><span class="fu">fd</span>(length)<span class="op">;</span><span class="co">// 幹を描く</span></span>
+<span id="lst:8-6-19"><a href="#lst:8-6-19"></a>  </span>
+<span id="lst:8-6-20"><a href="#lst:8-6-20"></a>  <span class="co">// 左の枝を描く</span></span>
+<span id="lst:8-6-21"><a href="#lst:8-6-21"></a>  t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">30</span>)<span class="op">;</span></span>
+<span id="lst:8-6-22"><a href="#lst:8-6-22"></a>  t<span class="op">.</span><span class="fu">fd</span>(length <span class="op">/</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="lst:8-6-23"><a href="#lst:8-6-23"></a>  drawY(length <span class="op">/</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="lst:8-6-24"><a href="#lst:8-6-24"></a>  t<span class="op">.</span><span class="fu">bk</span>(length <span class="op">/</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="lst:8-6-25"><a href="#lst:8-6-25"></a>  t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">30</span>)<span class="op">;</span></span>
+<span id="lst:8-6-26"><a href="#lst:8-6-26"></a>  </span>
+<span id="lst:8-6-27"><a href="#lst:8-6-27"></a>  <span class="co">// 右の枝を描く</span></span>
+<span id="lst:8-6-28"><a href="#lst:8-6-28"></a>  t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">30</span>)<span class="op">;</span></span>
+<span id="lst:8-6-29"><a href="#lst:8-6-29"></a>  t<span class="op">.</span><span class="fu">fd</span>(length <span class="op">/</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="lst:8-6-30"><a href="#lst:8-6-30"></a>  drawY(length <span class="op">/</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="lst:8-6-31"><a href="#lst:8-6-31"></a>  t<span class="op">.</span><span class="fu">bk</span>(length <span class="op">/</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="lst:8-6-32"><a href="#lst:8-6-32"></a>  t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">30</span>)<span class="op">;</span></span>
+<span id="lst:8-6-33"><a href="#lst:8-6-33"></a>  </span>
+<span id="lst:8-6-34"><a href="#lst:8-6-34"></a>  t<span class="op">.</span><span class="fu">bk</span>(length)<span class="op">;</span><span class="co">// 幹の根元に戻る</span></span>
+<span id="lst:8-6-35"><a href="#lst:8-6-35"></a>  </span>
+<span id="lst:8-6-36"><a href="#lst:8-6-36"></a>}</span></code></pre></div>
 <!-- このプログラムの関数の呼出し過程を表示すると，次のようになる．
 
 リスト 14.3.3 DrawTreeWithPrint.js
