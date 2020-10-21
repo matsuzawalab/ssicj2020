@@ -2503,9 +2503,9 @@ function showEndTitle() {
 </section>
 <section id="関数の単体テスト" data-number="8.5">
 <h2 data-number="7.5"><span class="header-section-number">7.5</span> 関数の単体テスト</h2>
-<section id="結果の出力" data-number="8.5.1">
-<h3 data-number="7.5.1"><span class="header-section-number">7.5.1</span> 結果の出力</h3>
 <p>本節では，ユーザから底と指数の入力を受け取り，累乗を計算するプログラムの例を利用して，関数の単体テストの作り方について説明します．</p>
+<section id="テスト方法a-結果の出力" data-number="8.5.1">
+<h3 data-number="7.5.1"><span class="header-section-number">7.5.1</span> テスト方法A：　結果の出力</h3>
 <p>関数をテストするのに，いちいち入力していたのでは手間がかかりますし，どのテストをやったのかを忘れてしまいます． さらには，プログラムを一行だけ修正したとしても，どの箇所が動かなくなるかは予測できないため，全てのテストをやり直す必要があります． したがって，テストはテストプログラムを作って自動化するのがよいです．具体的には，次のプログラムのように列挙して呼び出し，出力すると良いでしょう.</p>
 <p>この方法を「テスト方法A」と名付けます．</p>
 <p><span class="CopyButton" onclick="copycode(&#39;lst:7-6&#39;)">c</span></p>
@@ -2536,8 +2536,8 @@ function showEndTitle() {
 <span id="lst:7-6-25"><a href="#lst:7-6-25"></a>  <span class="cf">return</span> power<span class="op">;</span></span>
 <span id="lst:7-6-26"><a href="#lst:7-6-26"></a>}</span></code></pre></div>
 </section>
-<section id="テストの関数化" data-number="8.5.2">
-<h3 data-number="7.5.2"><span class="header-section-number">7.5.2</span> テストの関数化</h3>
+<section id="テスト方法b-テストの関数化" data-number="8.5.2">
+<h3 data-number="7.5.2"><span class="header-section-number">7.5.2</span> テスト方法B：　テストの関数化</h3>
 <p>テストの表示部分が冗長で，変更が大変です．テストは関数にしましょう．</p>
 <p>この方法を「テスト方法B」と名付けます．</p>
 <p><span class="CopyButton" onclick="copycode(&#39;lst:7-7&#39;)">c</span></p>
@@ -2569,8 +2569,8 @@ function showEndTitle() {
 <span id="lst:7-7-26"><a href="#lst:7-7-26"></a>  <span class="cf">return</span> power<span class="op">;</span></span>
 <span id="lst:7-7-27"><a href="#lst:7-7-27"></a>}</span></code></pre></div>
 </section>
-<section id="期待値とテスト正否の出力" data-number="8.5.3">
-<h3 data-number="7.5.3"><span class="header-section-number">7.5.3</span> 期待値とテスト正否の出力</h3>
+<section id="テスト方法c-期待値とテスト正否の出力" data-number="8.5.3">
+<h3 data-number="7.5.3"><span class="header-section-number">7.5.3</span> テスト方法C：　期待値とテスト正否の出力</h3>
 <p>Power02のプログラムでもテストできていますが，答えが合っているかを毎回目視で確認する必要があります．プログラムに答え（「期待値」といいます）を書いておき，照合結果も出力できるといいですね！</p>
 <p>この方法を「テスト方法C」と名付けます．</p>
 <p><span class="CopyButton" onclick="copycode(&#39;lst:7-8&#39;)">c</span></p>
