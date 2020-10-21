@@ -2046,69 +2046,68 @@ Javaでは，関数の中に関数を定義することはできません．（ 
 <span id="lst:6-9-4"><a href="#lst:6-9-4"></a></span>
 <span id="lst:6-9-5"><a href="#lst:6-9-5"></a><span class="co">// 家を描く</span></span>
 <span id="lst:6-9-6"><a href="#lst:6-9-6"></a><span class="kw">function</span> <span class="fu">main</span>(){</span>
-<span id="lst:6-9-7"><a href="#lst:6-9-7"></a>    <span class="co">//タートルを動かす処理</span></span>
-<span id="lst:6-9-8"><a href="#lst:6-9-8"></a>    drawRoof()<span class="op">;</span> <span class="co">// 屋根を描く</span></span>
-<span id="lst:6-9-9"><a href="#lst:6-9-9"></a>    drawWall()<span class="op">;</span> <span class="co">// 壁を描く</span></span>
-<span id="lst:6-9-10"><a href="#lst:6-9-10"></a>    drawWindow()<span class="op">;</span> <span class="co">// 窓を描く</span></span>
-<span id="lst:6-9-11"><a href="#lst:6-9-11"></a>}</span>
-<span id="lst:6-9-12"><a href="#lst:6-9-12"></a></span>
-<span id="lst:6-9-13"><a href="#lst:6-9-13"></a><span class="co">// 屋根を描く</span></span>
-<span id="lst:6-9-14"><a href="#lst:6-9-14"></a><span class="kw">function</span> <span class="fu">drawRoof</span>() {</span>
-<span id="lst:6-9-15"><a href="#lst:6-9-15"></a>    drawRegularPolygon(<span class="dv">3</span><span class="op">,</span> <span class="dv">80</span>)<span class="op">;</span> <span class="co">// 三角形を描く</span></span>
-<span id="lst:6-9-16"><a href="#lst:6-9-16"></a>}</span>
-<span id="lst:6-9-17"><a href="#lst:6-9-17"></a></span>
-<span id="lst:6-9-18"><a href="#lst:6-9-18"></a><span class="co">// 壁を描く</span></span>
-<span id="lst:6-9-19"><a href="#lst:6-9-19"></a><span class="kw">function</span> <span class="fu">drawWall</span>() {</span>
-<span id="lst:6-9-20"><a href="#lst:6-9-20"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span> <span class="co">// 向きを調節する</span></span>
-<span id="lst:6-9-21"><a href="#lst:6-9-21"></a>    drawRegularPolygon(<span class="dv">4</span><span class="op">,</span> <span class="dv">80</span>)<span class="op">;</span><span class="co">// 四角形を描く</span></span>
-<span id="lst:6-9-22"><a href="#lst:6-9-22"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span><span class="co">// 向きを上向きに戻す</span></span>
-<span id="lst:6-9-23"><a href="#lst:6-9-23"></a>}</span>
-<span id="lst:6-9-24"><a href="#lst:6-9-24"></a></span>
-<span id="lst:6-9-25"><a href="#lst:6-9-25"></a><span class="co">// 窓を描く</span></span>
-<span id="lst:6-9-26"><a href="#lst:6-9-26"></a><span class="kw">function</span> <span class="fu">drawWindow</span>() {</span>
-<span id="lst:6-9-27"><a href="#lst:6-9-27"></a>    <span class="co">// 窓を描く位置まで移動する</span></span>
-<span id="lst:6-9-28"><a href="#lst:6-9-28"></a>    moveToWindowLocation(<span class="dv">22</span>)<span class="op">;</span></span>
-<span id="lst:6-9-29"><a href="#lst:6-9-29"></a></span>
-<span id="lst:6-9-30"><a href="#lst:6-9-30"></a>    <span class="co">// 窓を描く</span></span>
-<span id="lst:6-9-31"><a href="#lst:6-9-31"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:6-9-32"><a href="#lst:6-9-32"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">4</span><span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="lst:6-9-33"><a href="#lst:6-9-33"></a>        drawRegularPolygon(<span class="dv">4</span><span class="op">,</span> <span class="dv">16</span>)<span class="op">;</span></span>
-<span id="lst:6-9-34"><a href="#lst:6-9-34"></a>        t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">16</span> <span class="op">*</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">4</span>)<span class="op">;</span></span>
-<span id="lst:6-9-35"><a href="#lst:6-9-35"></a>        t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:6-9-36"><a href="#lst:6-9-36"></a>    }</span>
-<span id="lst:6-9-37"><a href="#lst:6-9-37"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:6-9-38"><a href="#lst:6-9-38"></a>}</span>
-<span id="lst:6-9-39"><a href="#lst:6-9-39"></a></span>
-<span id="lst:6-9-40"><a href="#lst:6-9-40"></a><span class="co">// 指定された角数の正多角形を描く</span></span>
-<span id="lst:6-9-41"><a href="#lst:6-9-41"></a><span class="kw">function</span> <span class="fu">drawRegularPolygon</span>(n<span class="op">,</span> size) {</span>
-<span id="lst:6-9-42"><a href="#lst:6-9-42"></a>    <span class="co">// 向きを調節する</span></span>
-<span id="lst:6-9-43"><a href="#lst:6-9-43"></a>    <span class="kw">var</span> angle <span class="op">=</span> <span class="dv">360</span> <span class="op">/</span> n<span class="op">;</span></span>
-<span id="lst:6-9-44"><a href="#lst:6-9-44"></a>    t<span class="op">.</span><span class="fu">rt</span>(angle <span class="op">-</span> <span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:6-9-45"><a href="#lst:6-9-45"></a></span>
-<span id="lst:6-9-46"><a href="#lst:6-9-46"></a>    <span class="co">// 多角形を描く</span></span>
-<span id="lst:6-9-47"><a href="#lst:6-9-47"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="lst:6-9-48"><a href="#lst:6-9-48"></a>        t<span class="op">.</span><span class="fu">fd</span>(size)<span class="op">;</span></span>
-<span id="lst:6-9-49"><a href="#lst:6-9-49"></a>        t<span class="op">.</span><span class="fu">rt</span>(angle)<span class="op">;</span></span>
-<span id="lst:6-9-50"><a href="#lst:6-9-50"></a>    }</span>
-<span id="lst:6-9-51"><a href="#lst:6-9-51"></a></span>
-<span id="lst:6-9-52"><a href="#lst:6-9-52"></a>    <span class="co">// 向きを上向きに戻す</span></span>
-<span id="lst:6-9-53"><a href="#lst:6-9-53"></a>    t<span class="op">.</span><span class="fu">lt</span>(angle <span class="op">-</span> <span class="dv">90</span>)<span class="op">;</span></span>
-<span id="lst:6-9-54"><a href="#lst:6-9-54"></a>}</span>
-<span id="lst:6-9-55"><a href="#lst:6-9-55"></a></span>
-<span id="lst:6-9-56"><a href="#lst:6-9-56"></a><span class="co">// 窓を描く位置まで移動する</span></span>
-<span id="lst:6-9-57"><a href="#lst:6-9-57"></a><span class="kw">function</span> <span class="fu">moveToWindowLocation</span>(length) {</span>
-<span id="lst:6-9-58"><a href="#lst:6-9-58"></a>    moveTurtle(<span class="dv">90</span><span class="op">,</span> <span class="dv">22</span>)<span class="op">;</span><span class="co">// 右へ</span></span>
-<span id="lst:6-9-59"><a href="#lst:6-9-59"></a>    moveTurtle(<span class="dv">180</span><span class="op">,</span> <span class="dv">22</span>)<span class="op">;</span><span class="co">// 下へ</span></span>
-<span id="lst:6-9-60"><a href="#lst:6-9-60"></a>}</span>
-<span id="lst:6-9-61"><a href="#lst:6-9-61"></a></span>
-<span id="lst:6-9-62"><a href="#lst:6-9-62"></a><span class="co">// 指定された方向に（ペンを上げて）移動する</span></span>
-<span id="lst:6-9-63"><a href="#lst:6-9-63"></a><span class="kw">function</span> <span class="fu">moveTurtle</span>(direction<span class="op">,</span> distance) {</span>
-<span id="lst:6-9-64"><a href="#lst:6-9-64"></a>    t<span class="op">.</span><span class="fu">up</span>()<span class="op">;</span></span>
-<span id="lst:6-9-65"><a href="#lst:6-9-65"></a>    t<span class="op">.</span><span class="fu">rt</span>(direction)<span class="op">;</span></span>
-<span id="lst:6-9-66"><a href="#lst:6-9-66"></a>    t<span class="op">.</span><span class="fu">fd</span>(distance)<span class="op">;</span></span>
-<span id="lst:6-9-67"><a href="#lst:6-9-67"></a>    t<span class="op">.</span><span class="fu">lt</span>(direction)<span class="op">;</span></span>
-<span id="lst:6-9-68"><a href="#lst:6-9-68"></a>    t<span class="op">.</span><span class="fu">down</span>()<span class="op">;</span></span>
-<span id="lst:6-9-69"><a href="#lst:6-9-69"></a>}</span></code></pre></div>
+<span id="lst:6-9-7"><a href="#lst:6-9-7"></a>    drawRoof()<span class="op">;</span> <span class="co">// 屋根を描く</span></span>
+<span id="lst:6-9-8"><a href="#lst:6-9-8"></a>    drawWall()<span class="op">;</span> <span class="co">// 壁を描く</span></span>
+<span id="lst:6-9-9"><a href="#lst:6-9-9"></a>    drawWindow()<span class="op">;</span> <span class="co">// 窓を描く</span></span>
+<span id="lst:6-9-10"><a href="#lst:6-9-10"></a>}</span>
+<span id="lst:6-9-11"><a href="#lst:6-9-11"></a></span>
+<span id="lst:6-9-12"><a href="#lst:6-9-12"></a><span class="co">// 屋根を描く</span></span>
+<span id="lst:6-9-13"><a href="#lst:6-9-13"></a><span class="kw">function</span> <span class="fu">drawRoof</span>() {</span>
+<span id="lst:6-9-14"><a href="#lst:6-9-14"></a>    drawRegularPolygon(<span class="dv">3</span><span class="op">,</span> <span class="dv">80</span>)<span class="op">;</span> <span class="co">// 三角形を描く</span></span>
+<span id="lst:6-9-15"><a href="#lst:6-9-15"></a>}</span>
+<span id="lst:6-9-16"><a href="#lst:6-9-16"></a></span>
+<span id="lst:6-9-17"><a href="#lst:6-9-17"></a><span class="co">// 壁を描く</span></span>
+<span id="lst:6-9-18"><a href="#lst:6-9-18"></a><span class="kw">function</span> <span class="fu">drawWall</span>() {</span>
+<span id="lst:6-9-19"><a href="#lst:6-9-19"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span> <span class="co">// 向きを調節する</span></span>
+<span id="lst:6-9-20"><a href="#lst:6-9-20"></a>    drawRegularPolygon(<span class="dv">4</span><span class="op">,</span> <span class="dv">80</span>)<span class="op">;</span><span class="co">// 四角形を描く</span></span>
+<span id="lst:6-9-21"><a href="#lst:6-9-21"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span><span class="co">// 向きを上向きに戻す</span></span>
+<span id="lst:6-9-22"><a href="#lst:6-9-22"></a>}</span>
+<span id="lst:6-9-23"><a href="#lst:6-9-23"></a></span>
+<span id="lst:6-9-24"><a href="#lst:6-9-24"></a><span class="co">// 窓を描く</span></span>
+<span id="lst:6-9-25"><a href="#lst:6-9-25"></a><span class="kw">function</span> <span class="fu">drawWindow</span>() {</span>
+<span id="lst:6-9-26"><a href="#lst:6-9-26"></a>    <span class="co">// 窓を描く位置まで移動する</span></span>
+<span id="lst:6-9-27"><a href="#lst:6-9-27"></a>    moveToWindowLocation(<span class="dv">22</span>)<span class="op">;</span></span>
+<span id="lst:6-9-28"><a href="#lst:6-9-28"></a></span>
+<span id="lst:6-9-29"><a href="#lst:6-9-29"></a>    <span class="co">// 窓を描く</span></span>
+<span id="lst:6-9-30"><a href="#lst:6-9-30"></a>    t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:6-9-31"><a href="#lst:6-9-31"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">4</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="lst:6-9-32"><a href="#lst:6-9-32"></a>        drawRegularPolygon(<span class="dv">4</span><span class="op">,</span> <span class="dv">16</span>)<span class="op">;</span></span>
+<span id="lst:6-9-33"><a href="#lst:6-9-33"></a>        t<span class="op">.</span><span class="fu">fd</span>(<span class="dv">16</span> <span class="op">*</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">4</span>)<span class="op">;</span></span>
+<span id="lst:6-9-34"><a href="#lst:6-9-34"></a>        t<span class="op">.</span><span class="fu">rt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:6-9-35"><a href="#lst:6-9-35"></a>    }</span>
+<span id="lst:6-9-36"><a href="#lst:6-9-36"></a>    t<span class="op">.</span><span class="fu">lt</span>(<span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:6-9-37"><a href="#lst:6-9-37"></a>}</span>
+<span id="lst:6-9-38"><a href="#lst:6-9-38"></a></span>
+<span id="lst:6-9-39"><a href="#lst:6-9-39"></a><span class="co">// 指定された角数の正多角形を描く</span></span>
+<span id="lst:6-9-40"><a href="#lst:6-9-40"></a><span class="kw">function</span> <span class="fu">drawRegularPolygon</span>(n<span class="op">,</span> size) {</span>
+<span id="lst:6-9-41"><a href="#lst:6-9-41"></a>    <span class="co">// 向きを調節する</span></span>
+<span id="lst:6-9-42"><a href="#lst:6-9-42"></a>    <span class="kw">var</span> angle <span class="op">=</span> <span class="dv">360</span> <span class="op">/</span> n<span class="op">;</span></span>
+<span id="lst:6-9-43"><a href="#lst:6-9-43"></a>    t<span class="op">.</span><span class="fu">rt</span>(angle <span class="op">-</span> <span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:6-9-44"><a href="#lst:6-9-44"></a></span>
+<span id="lst:6-9-45"><a href="#lst:6-9-45"></a>    <span class="co">// 多角形を描く</span></span>
+<span id="lst:6-9-46"><a href="#lst:6-9-46"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="lst:6-9-47"><a href="#lst:6-9-47"></a>        t<span class="op">.</span><span class="fu">fd</span>(size)<span class="op">;</span></span>
+<span id="lst:6-9-48"><a href="#lst:6-9-48"></a>        t<span class="op">.</span><span class="fu">rt</span>(angle)<span class="op">;</span></span>
+<span id="lst:6-9-49"><a href="#lst:6-9-49"></a>    }</span>
+<span id="lst:6-9-50"><a href="#lst:6-9-50"></a></span>
+<span id="lst:6-9-51"><a href="#lst:6-9-51"></a>    <span class="co">// 向きを上向きに戻す</span></span>
+<span id="lst:6-9-52"><a href="#lst:6-9-52"></a>    t<span class="op">.</span><span class="fu">lt</span>(angle <span class="op">-</span> <span class="dv">90</span>)<span class="op">;</span></span>
+<span id="lst:6-9-53"><a href="#lst:6-9-53"></a>}</span>
+<span id="lst:6-9-54"><a href="#lst:6-9-54"></a></span>
+<span id="lst:6-9-55"><a href="#lst:6-9-55"></a><span class="co">// 窓を描く位置まで移動する</span></span>
+<span id="lst:6-9-56"><a href="#lst:6-9-56"></a><span class="kw">function</span> <span class="fu">moveToWindowLocation</span>(length) {</span>
+<span id="lst:6-9-57"><a href="#lst:6-9-57"></a>    moveTurtle(<span class="dv">90</span><span class="op">,</span> <span class="dv">22</span>)<span class="op">;</span><span class="co">// 右へ</span></span>
+<span id="lst:6-9-58"><a href="#lst:6-9-58"></a>    moveTurtle(<span class="dv">180</span><span class="op">,</span> <span class="dv">22</span>)<span class="op">;</span><span class="co">// 下へ</span></span>
+<span id="lst:6-9-59"><a href="#lst:6-9-59"></a>}</span>
+<span id="lst:6-9-60"><a href="#lst:6-9-60"></a></span>
+<span id="lst:6-9-61"><a href="#lst:6-9-61"></a><span class="co">// 指定された方向に（ペンを上げて）移動する</span></span>
+<span id="lst:6-9-62"><a href="#lst:6-9-62"></a><span class="kw">function</span> <span class="fu">moveTurtle</span>(direction<span class="op">,</span> distance) {</span>
+<span id="lst:6-9-63"><a href="#lst:6-9-63"></a>    t<span class="op">.</span><span class="fu">up</span>()<span class="op">;</span></span>
+<span id="lst:6-9-64"><a href="#lst:6-9-64"></a>    t<span class="op">.</span><span class="fu">rt</span>(direction)<span class="op">;</span></span>
+<span id="lst:6-9-65"><a href="#lst:6-9-65"></a>    t<span class="op">.</span><span class="fu">fd</span>(distance)<span class="op">;</span></span>
+<span id="lst:6-9-66"><a href="#lst:6-9-66"></a>    t<span class="op">.</span><span class="fu">lt</span>(direction)<span class="op">;</span></span>
+<span id="lst:6-9-67"><a href="#lst:6-9-67"></a>    t<span class="op">.</span><span class="fu">down</span>()<span class="op">;</span></span>
+<span id="lst:6-9-68"><a href="#lst:6-9-68"></a>}</span></code></pre></div>
 </section>
 </section>
 <section id="コラムライブラリ" class="unnumbered" data-number="">
@@ -2223,7 +2222,7 @@ var drawRectangle = function(length){
 <h3 data-number="6.7.5"><span class="header-section-number">6.7.5</span> レモンを描くプログラム</h3>
 <p>前の問題で作ったdrawArc(angle)を利用してレモン型の図形を描く関数「function drawLemon()」を作ってください．</p>
 <ul>
-<li>drawArc(angle)関数は，前の問題で作ったものをコピーします．<u>drawArc関数は書き換えないでください．</u></li>
+<li>drawArc(angle)関数は，前の問題で作ったものをコピーします．<u>drawArc(angle)関数は書き換えない</u>でください．</li>
 <li>drawArc関数を何回か呼び出しながら，レモン型の図形を描く関数「function drawLemon()」を作成しなさい．</li>
 <li>main関数を作成し，作成したdrawLemon関数をいくつか呼び出してテストしてください．</li>
 </ul>
@@ -2232,22 +2231,23 @@ var drawRectangle = function(length){
 <img src="img/chapter06/q_drawlemon.png" alt="" /><figcaption>レモン型の図形を描く関数</figcaption>
 </figure>
 </section>
-<section id="ちょうちょを描くプログラム関数の多段呼び出しの練習" data-number="7.7.6">
-<h3 data-number="6.7.6"><span class="header-section-number">6.7.6</span> ちょうちょを描くプログラム（関数の多段呼び出しの練習）</h3>
-<p>蝶を描く関数drawButterfly()を作ってください．</p>
-<p>＜条件＞ - 前の問題で作成したdrawLemon()をコピーして<u>書き換えずに使う</u>こと - main()関数からdrawButterfly()を呼び出してテストすること</p>
-<figure>
-<img src="img/chapter06/q_drawbutterfly.png" alt="" /><figcaption>蝶を描く関数</figcaption>
-</figure>
-<p>ファイル名は「butterfly.js」とすること．</p>
-</section>
-<section id="花を描くプログラム関数の再利用" data-number="7.7.7">
-<h3 data-number="6.7.7"><span class="header-section-number">6.7.7</span> 花を描くプログラム（関数の再利用）</h3>
-<p>前の問題で作成したdrawLemon()を再利用して，花を描く関数drawFlower()を作ってください．</p>
+<section id="花を描くプログラム関数の再利用" data-number="7.7.6">
+<h3 data-number="6.7.6"><span class="header-section-number">6.7.6</span> 花を描くプログラム（関数の再利用）</h3>
+<p>前の問題で作成したdrawLemon()を利用して，花を描く関数drawFlower()を作ってください．</p>
+<p>＜条件＞ - 前の問題で作成したdrawLemon()をコピーして<u>書き換えずに使う</u>こと．（注：drawLemon関数を使うには，drawArcも必要であるのでコピーすること） - main()関数を作り，main関数からdrawFlower()を呼び出してテストすること</p>
 <figure>
 <img src="img/chapter06/q_drawflower.png" alt="" /><figcaption>花を描く関数</figcaption>
 </figure>
 <p>ファイル名は「flower.js」とすること．</p>
+</section>
+<section id="ちょうちょを描くプログラム関数の多段呼び出しの練習" data-number="7.7.7">
+<h3 data-number="6.7.7"><span class="header-section-number">6.7.7</span> ちょうちょを描くプログラム（関数の多段呼び出しの練習）</h3>
+<p>前の問題で作成したdrawLemon()を利用して，蝶を描く関数drawButterfly()を作ってください．</p>
+<p>＜条件＞ - 前の問題で作成したdrawLemon()をコピーして<u>書き換えずに使う</u>こと．（注：drawLemon関数を使うには，drawArcも必要であるのでコピーすること） - main()関数を作り，main関数からdrawButterfly()を呼び出してテストすること</p>
+<figure>
+<img src="img/chapter06/q_drawbutterfly.png" alt="" /><figcaption>蝶を描く関数</figcaption>
+</figure>
+<p>ファイル名は「butterfly.js」とすること．</p>
 </section>
 <section id="マス目を描くプログラム" data-number="7.7.8">
 <h3 data-number="6.7.8"><span class="header-section-number">6.7.8</span> マス目を描くプログラム</h3>
@@ -2315,7 +2315,7 @@ var drawRectangle = function(length){
 </section>
 <section id="コラム戻り値返り値" class="unnumbered" data-number="">
 <h2 class="unnumbered" data-number="-1">コラム：戻り値？返り値？</h2>
-<p>戻り値は他の教科書では返り値と呼ばれていたりします．元々の英語「return value」の訳は定まっていないように思われます． 昔，僕がたくさんの教科書を調べたかぎりでは，「戻り値」，「返り値」，「リターン値」が各1/3くらいずつ分布していました．</p>
+<p>戻り値は他の教科書では返り値と呼ばれていたりします．元々の英語「return value」の訳は定まっていないように思われます． 昔，いろいろな教科書を調べたかぎりでは，「戻り値」，「返り値」，「リターン値」が各1/3くらいずつ分布していました．</p>
 <section id="相性占い2" data-number="8.2.4">
 <h3 data-number="7.2.4"><span class="header-section-number">7.2.4</span> 相性占い2</h3>
 <p><span class="CopyButton" onclick="copycode(&#39;lst:7-2&#39;)">c</span></p>
@@ -2350,14 +2350,15 @@ var drawRectangle = function(length){
 <span id="lst:7-3-2"><a href="#lst:7-3-2"></a></span>
 <span id="lst:7-3-3"><a href="#lst:7-3-3"></a><span class="kw">function</span> <span class="fu">main</span>() {</span>
 <span id="lst:7-3-4"><a href="#lst:7-3-4"></a>  <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="lst:7-3-5"><a href="#lst:7-3-5"></a>    println(makeRandom(<span class="dv">20</span><span class="op">,</span> <span class="dv">30</span>))<span class="op">;</span></span>
-<span id="lst:7-3-6"><a href="#lst:7-3-6"></a>  }</span>
-<span id="lst:7-3-7"><a href="#lst:7-3-7"></a>}</span>
-<span id="lst:7-3-8"><a href="#lst:7-3-8"></a></span>
-<span id="lst:7-3-9"><a href="#lst:7-3-9"></a><span class="kw">function</span> <span class="fu">makeRandom</span>(min<span class="op">,</span> max) {</span>
-<span id="lst:7-3-10"><a href="#lst:7-3-10"></a>  <span class="kw">var</span> generated <span class="op">=</span> random(max <span class="op">-</span> min <span class="op">+</span> <span class="dv">1</span>) <span class="op">+</span> min<span class="op">;</span></span>
-<span id="lst:7-3-11"><a href="#lst:7-3-11"></a>  <span class="cf">return</span> generated<span class="op">;</span></span>
-<span id="lst:7-3-12"><a href="#lst:7-3-12"></a>}</span></code></pre></div>
+<span id="lst:7-3-5"><a href="#lst:7-3-5"></a>    <span class="kw">var</span> n <span class="op">=</span> makeRandom(<span class="dv">20</span><span class="op">,</span> <span class="dv">30</span>)<span class="op">;</span></span>
+<span id="lst:7-3-6"><a href="#lst:7-3-6"></a>    println(n)<span class="op">;</span></span>
+<span id="lst:7-3-7"><a href="#lst:7-3-7"></a>  }</span>
+<span id="lst:7-3-8"><a href="#lst:7-3-8"></a>}</span>
+<span id="lst:7-3-9"><a href="#lst:7-3-9"></a></span>
+<span id="lst:7-3-10"><a href="#lst:7-3-10"></a><span class="kw">function</span> <span class="fu">makeRandom</span>(min<span class="op">,</span> max) {</span>
+<span id="lst:7-3-11"><a href="#lst:7-3-11"></a>  <span class="kw">var</span> generated <span class="op">=</span> random(max <span class="op">-</span> min <span class="op">+</span> <span class="dv">1</span>) <span class="op">+</span> min<span class="op">;</span></span>
+<span id="lst:7-3-12"><a href="#lst:7-3-12"></a>  <span class="cf">return</span> generated<span class="op">;</span></span>
+<span id="lst:7-3-13"><a href="#lst:7-3-13"></a>}</span></code></pre></div>
 </section>
 <section id="入出力を持つ関数を用いたプログラムの構造化" data-number="8.4">
 <h2 data-number="7.4"><span class="header-section-number">7.4</span> 入出力を持つ関数を用いたプログラムの構造化</h2>
@@ -2505,34 +2506,40 @@ function showEndTitle() {
 <section id="結果の出力" data-number="8.5.1">
 <h3 data-number="7.5.1"><span class="header-section-number">7.5.1</span> 結果の出力</h3>
 <p>本節では，ユーザから底と指数の入力を受け取り，累乗を計算するプログラムの例を利用して，関数の単体テストの作り方について説明します．</p>
-<p>関数をテストするのに，いちいち入力していたのでは手間がかかりますし，どのテストをやったのかを忘れてしまいます． さらには，プログラムを一行だけ修正したとしても，どの箇所が動かなくなるかは予測できないため，全てのテストをやり直す必要があります． したがって，テストはテストプログラムを作って自動化するのがよいです．具体的には，次のプログラムのように列挙して呼び出し，出力すると良いでしょう</p>
+<p>関数をテストするのに，いちいち入力していたのでは手間がかかりますし，どのテストをやったのかを忘れてしまいます． さらには，プログラムを一行だけ修正したとしても，どの箇所が動かなくなるかは予測できないため，全てのテストをやり直す必要があります． したがって，テストはテストプログラムを作って自動化するのがよいです．具体的には，次のプログラムのように列挙して呼び出し，出力すると良いでしょう.</p>
+<p>この方法を「テスト方法A」と名付けます．</p>
 <p><span class="CopyButton" onclick="copycode(&#39;lst:7-6&#39;)">c</span></p>
 <div class="sourceCode" id="lst:7-6" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:7-6-1"><a href="#lst:7-6-1"></a>main()<span class="op">;</span></span>
 <span id="lst:7-6-2"><a href="#lst:7-6-2"></a></span>
 <span id="lst:7-6-3"><a href="#lst:7-6-3"></a><span class="kw">function</span> <span class="fu">main</span>() {</span>
-<span id="lst:7-6-4"><a href="#lst:7-6-4"></a>  println(<span class="st">&#39;calculatePower(&#39;</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">+</span> <span class="st">&#39;, &#39;</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">+</span> <span class="st">&#39;) = &#39;</span> <span class="op">+</span> calculatePower(<span class="dv">2</span><span class="op">,</span> <span class="dv">2</span>))<span class="op">;</span></span>
-<span id="lst:7-6-5"><a href="#lst:7-6-5"></a>  println(<span class="st">&#39;calculatePower(&#39;</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">+</span> <span class="st">&#39;, &#39;</span> <span class="op">+</span> <span class="dv">3</span> <span class="op">+</span> <span class="st">&#39;) = &#39;</span> <span class="op">+</span> calculatePower(<span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>))<span class="op">;</span></span>
-<span id="lst:7-6-6"><a href="#lst:7-6-6"></a>  println(<span class="st">&#39;calculatePower(&#39;</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">+</span> <span class="st">&#39;, &#39;</span> <span class="op">+</span> <span class="dv">4</span> <span class="op">+</span> <span class="st">&#39;) = &#39;</span> <span class="op">+</span> calculatePower(<span class="dv">2</span><span class="op">,</span> <span class="dv">4</span>))<span class="op">;</span></span>
-<span id="lst:7-6-7"><a href="#lst:7-6-7"></a>  println(<span class="st">&#39;calculatePower(&#39;</span> <span class="op">+</span> <span class="dv">3</span> <span class="op">+</span> <span class="st">&#39;, &#39;</span> <span class="op">+</span> <span class="dv">3</span> <span class="op">+</span> <span class="st">&#39;) = &#39;</span> <span class="op">+</span> calculatePower(<span class="dv">3</span><span class="op">,</span> <span class="dv">3</span>))<span class="op">;</span></span>
-<span id="lst:7-6-8"><a href="#lst:7-6-8"></a>}</span>
-<span id="lst:7-6-9"><a href="#lst:7-6-9"></a></span>
-<span id="lst:7-6-10"><a href="#lst:7-6-10"></a><span class="co">// 累乗を計算する</span></span>
-<span id="lst:7-6-11"><a href="#lst:7-6-11"></a><span class="kw">function</span> <span class="fu">calculatePower</span>(base<span class="op">,</span> exponent) {</span>
-<span id="lst:7-6-12"><a href="#lst:7-6-12"></a>  <span class="kw">var</span> power <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> <span class="co">// 累乗数の初期値を，数の0乗（1）に設定する</span></span>
+<span id="lst:7-6-4"><a href="#lst:7-6-4"></a>  <span class="kw">var</span> answer1 <span class="op">=</span> calculatePower(<span class="dv">2</span><span class="op">,</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="lst:7-6-5"><a href="#lst:7-6-5"></a>  println(<span class="st">&#39;calculatePower(&#39;</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">+</span> <span class="st">&#39;, &#39;</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">+</span> <span class="st">&#39;) = &#39;</span> <span class="op">+</span> answer1)<span class="op">;</span></span>
+<span id="lst:7-6-6"><a href="#lst:7-6-6"></a>  <span class="kw">var</span> answer2 <span class="op">=</span> calculatePower(<span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>)<span class="op">;</span></span>
+<span id="lst:7-6-7"><a href="#lst:7-6-7"></a>  println(<span class="st">&#39;calculatePower(&#39;</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">+</span> <span class="st">&#39;, &#39;</span> <span class="op">+</span> <span class="dv">3</span> <span class="op">+</span> <span class="st">&#39;) = &#39;</span> <span class="op">+</span> answer2)<span class="op">;</span></span>
+<span id="lst:7-6-8"><a href="#lst:7-6-8"></a>  <span class="kw">var</span> answer3 <span class="op">=</span> calculatePower(<span class="dv">2</span><span class="op">,</span> <span class="dv">4</span>)<span class="op">;</span></span>
+<span id="lst:7-6-9"><a href="#lst:7-6-9"></a>  println(<span class="st">&#39;calculatePower(&#39;</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">+</span> <span class="st">&#39;, &#39;</span> <span class="op">+</span> <span class="dv">4</span> <span class="op">+</span> <span class="st">&#39;) = &#39;</span> <span class="op">+</span> answer3)<span class="op">;</span></span>
+<span id="lst:7-6-10"><a href="#lst:7-6-10"></a>  <span class="kw">var</span> answer4 <span class="op">=</span> calculatePower(<span class="dv">3</span><span class="op">,</span> <span class="dv">3</span>)<span class="op">;</span></span>
+<span id="lst:7-6-11"><a href="#lst:7-6-11"></a>  println(<span class="st">&#39;calculatePower(&#39;</span> <span class="op">+</span> <span class="dv">3</span> <span class="op">+</span> <span class="st">&#39;, &#39;</span> <span class="op">+</span> <span class="dv">3</span> <span class="op">+</span> <span class="st">&#39;) = &#39;</span> <span class="op">+</span> answer4)<span class="op">;</span></span>
+<span id="lst:7-6-12"><a href="#lst:7-6-12"></a>}</span>
 <span id="lst:7-6-13"><a href="#lst:7-6-13"></a></span>
-<span id="lst:7-6-14"><a href="#lst:7-6-14"></a>  <span class="co">// 累乗を計算する</span></span>
-<span id="lst:7-6-15"><a href="#lst:7-6-15"></a>  <span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="lst:7-6-16"><a href="#lst:7-6-16"></a>  <span class="cf">while</span> (i <span class="op">&lt;</span> exponent) {</span>
-<span id="lst:7-6-17"><a href="#lst:7-6-17"></a>    power <span class="op">=</span> power <span class="op">*</span> base<span class="op">;</span></span>
-<span id="lst:7-6-18"><a href="#lst:7-6-18"></a>    i<span class="op">++;</span></span>
-<span id="lst:7-6-19"><a href="#lst:7-6-19"></a>  }</span>
-<span id="lst:7-6-20"><a href="#lst:7-6-20"></a></span>
-<span id="lst:7-6-21"><a href="#lst:7-6-21"></a>  <span class="cf">return</span> power<span class="op">;</span></span>
-<span id="lst:7-6-22"><a href="#lst:7-6-22"></a>}</span></code></pre></div>
+<span id="lst:7-6-14"><a href="#lst:7-6-14"></a><span class="co">// 累乗を計算する</span></span>
+<span id="lst:7-6-15"><a href="#lst:7-6-15"></a><span class="kw">function</span> <span class="fu">calculatePower</span>(base<span class="op">,</span> exponent) {</span>
+<span id="lst:7-6-16"><a href="#lst:7-6-16"></a>  <span class="kw">var</span> power <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> <span class="co">// 累乗数の初期値を，数の0乗（1）に設定する</span></span>
+<span id="lst:7-6-17"><a href="#lst:7-6-17"></a></span>
+<span id="lst:7-6-18"><a href="#lst:7-6-18"></a>  <span class="co">// 累乗を計算する</span></span>
+<span id="lst:7-6-19"><a href="#lst:7-6-19"></a>  <span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="lst:7-6-20"><a href="#lst:7-6-20"></a>  <span class="cf">while</span> (i <span class="op">&lt;</span> exponent) {</span>
+<span id="lst:7-6-21"><a href="#lst:7-6-21"></a>    power <span class="op">=</span> power <span class="op">*</span> base<span class="op">;</span></span>
+<span id="lst:7-6-22"><a href="#lst:7-6-22"></a>    i<span class="op">++;</span></span>
+<span id="lst:7-6-23"><a href="#lst:7-6-23"></a>  }</span>
+<span id="lst:7-6-24"><a href="#lst:7-6-24"></a></span>
+<span id="lst:7-6-25"><a href="#lst:7-6-25"></a>  <span class="cf">return</span> power<span class="op">;</span></span>
+<span id="lst:7-6-26"><a href="#lst:7-6-26"></a>}</span></code></pre></div>
 </section>
 <section id="テストの関数化" data-number="8.5.2">
 <h3 data-number="7.5.2"><span class="header-section-number">7.5.2</span> テストの関数化</h3>
 <p>テストの表示部分が冗長で，変更が大変です．テストは関数にしましょう．</p>
+<p>この方法を「テスト方法B」と名付けます．</p>
 <p><span class="CopyButton" onclick="copycode(&#39;lst:7-7&#39;)">c</span></p>
 <div class="sourceCode" id="lst:7-7" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:7-7-1"><a href="#lst:7-7-1"></a>main()<span class="op">;</span></span>
 <span id="lst:7-7-2"><a href="#lst:7-7-2"></a></span>
@@ -2544,26 +2551,28 @@ function showEndTitle() {
 <span id="lst:7-7-8"><a href="#lst:7-7-8"></a>}</span>
 <span id="lst:7-7-9"><a href="#lst:7-7-9"></a></span>
 <span id="lst:7-7-10"><a href="#lst:7-7-10"></a><span class="kw">function</span> <span class="fu">test</span>(base<span class="op">,</span> exp) {</span>
-<span id="lst:7-7-11"><a href="#lst:7-7-11"></a>  println(<span class="st">&#39;calculatePower(&#39;</span> <span class="op">+</span> base <span class="op">+</span> <span class="st">&#39;, &#39;</span> <span class="op">+</span> exp <span class="op">+</span> <span class="st">&#39;) = &#39;</span> <span class="op">+</span> calculatePower(base<span class="op">,</span> exp))<span class="op">;</span></span>
-<span id="lst:7-7-12"><a href="#lst:7-7-12"></a>}</span>
-<span id="lst:7-7-13"><a href="#lst:7-7-13"></a></span>
-<span id="lst:7-7-14"><a href="#lst:7-7-14"></a><span class="co">// 累乗を計算する</span></span>
-<span id="lst:7-7-15"><a href="#lst:7-7-15"></a><span class="kw">function</span> <span class="fu">calculatePower</span>(base<span class="op">,</span> exponent) {</span>
-<span id="lst:7-7-16"><a href="#lst:7-7-16"></a>  <span class="kw">var</span> power <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> <span class="co">// 累乗数の初期値を，数の0乗（1）に設定する</span></span>
-<span id="lst:7-7-17"><a href="#lst:7-7-17"></a></span>
-<span id="lst:7-7-18"><a href="#lst:7-7-18"></a>  <span class="co">// 累乗を計算する</span></span>
-<span id="lst:7-7-19"><a href="#lst:7-7-19"></a>  <span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="lst:7-7-20"><a href="#lst:7-7-20"></a>  <span class="cf">while</span> (i <span class="op">&lt;</span> exponent) {</span>
-<span id="lst:7-7-21"><a href="#lst:7-7-21"></a>    power <span class="op">=</span> power <span class="op">*</span> base<span class="op">;</span></span>
-<span id="lst:7-7-22"><a href="#lst:7-7-22"></a>    i<span class="op">++;</span></span>
-<span id="lst:7-7-23"><a href="#lst:7-7-23"></a>  }</span>
-<span id="lst:7-7-24"><a href="#lst:7-7-24"></a></span>
-<span id="lst:7-7-25"><a href="#lst:7-7-25"></a>  <span class="cf">return</span> power<span class="op">;</span></span>
-<span id="lst:7-7-26"><a href="#lst:7-7-26"></a>}</span></code></pre></div>
+<span id="lst:7-7-11"><a href="#lst:7-7-11"></a>  <span class="kw">var</span> answer <span class="op">=</span> calculatePower(base<span class="op">,</span> exp)<span class="op">;</span></span>
+<span id="lst:7-7-12"><a href="#lst:7-7-12"></a>  println(<span class="st">&#39;calculatePower(&#39;</span> <span class="op">+</span> base <span class="op">+</span> <span class="st">&#39;, &#39;</span> <span class="op">+</span> exp <span class="op">+</span> <span class="st">&#39;) = &#39;</span> <span class="op">+</span> answer)<span class="op">;</span></span>
+<span id="lst:7-7-13"><a href="#lst:7-7-13"></a>}</span>
+<span id="lst:7-7-14"><a href="#lst:7-7-14"></a></span>
+<span id="lst:7-7-15"><a href="#lst:7-7-15"></a><span class="co">// 累乗を計算する</span></span>
+<span id="lst:7-7-16"><a href="#lst:7-7-16"></a><span class="kw">function</span> <span class="fu">calculatePower</span>(base<span class="op">,</span> exponent) {</span>
+<span id="lst:7-7-17"><a href="#lst:7-7-17"></a>  <span class="kw">var</span> power <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> <span class="co">// 累乗数の初期値を，数の0乗（1）に設定する</span></span>
+<span id="lst:7-7-18"><a href="#lst:7-7-18"></a></span>
+<span id="lst:7-7-19"><a href="#lst:7-7-19"></a>  <span class="co">// 累乗を計算する</span></span>
+<span id="lst:7-7-20"><a href="#lst:7-7-20"></a>  <span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="lst:7-7-21"><a href="#lst:7-7-21"></a>  <span class="cf">while</span> (i <span class="op">&lt;</span> exponent) {</span>
+<span id="lst:7-7-22"><a href="#lst:7-7-22"></a>    power <span class="op">=</span> power <span class="op">*</span> base<span class="op">;</span></span>
+<span id="lst:7-7-23"><a href="#lst:7-7-23"></a>    i<span class="op">++;</span></span>
+<span id="lst:7-7-24"><a href="#lst:7-7-24"></a>  }</span>
+<span id="lst:7-7-25"><a href="#lst:7-7-25"></a></span>
+<span id="lst:7-7-26"><a href="#lst:7-7-26"></a>  <span class="cf">return</span> power<span class="op">;</span></span>
+<span id="lst:7-7-27"><a href="#lst:7-7-27"></a>}</span></code></pre></div>
 </section>
 <section id="期待値とテスト正否の出力" data-number="8.5.3">
 <h3 data-number="7.5.3"><span class="header-section-number">7.5.3</span> 期待値とテスト正否の出力</h3>
 <p>Power02のプログラムでもテストできていますが，答えが合っているかを毎回目視で確認する必要があります．プログラムに答え（「期待値」といいます）を書いておき，照合結果も出力できるといいですね！</p>
+<p>この方法を「テスト方法C」と名付けます．</p>
 <p><span class="CopyButton" onclick="copycode(&#39;lst:7-8&#39;)">c</span></p>
 <div class="sourceCode" id="lst:7-8" data-caption="House"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="lst:7-8-1"><a href="#lst:7-8-1"></a>main()<span class="op">;</span></span>
 <span id="lst:7-8-2"><a href="#lst:7-8-2"></a></span>
@@ -2604,10 +2613,10 @@ function showEndTitle() {
 <h2 data-number="7.6"><span class="header-section-number">7.6</span> 練習問題</h2>
 <section id="年齢計算" data-number="8.6.1">
 <h3 data-number="7.6.1"><span class="header-section-number">7.6.1</span> 年齢計算</h3>
-<p>年齢を計算する次の関数を作り，テストしてください． （以下，「テストする」とは，メインのプログラム（main()関数）から一回以上その関数を呼ぶプログラムを書くことを意味する）</p>
+<p>年齢を計算する次の関数を作り，テストしてください． （以下，「テストする」とは，テスト方法A〜テスト方法Cのいずれかの方法でテストすることを意味する．input()関数を使ってユーザから入力を受け付ける<u>必要はない</u>．）</p>
 <pre><code>function getAge(year){．．．}</code></pre>
-<p>yearは西暦で生まれた年を入力する引数で，今年の年齢を戻り値として出力する．（今年だけ使えればよい）</p>
-<p>ファイル名は「HowOld.js」とすること．</p>
+<p>yearは西暦で生まれた年を入力する引数で，今年の年齢を戻り値として出力する．（本年のみ使えればよい．例えば本年が2020年だとすると，2020から引数で与えられたyearを引けば，2020年時点での年齢を求めることができる．）</p>
+<p>ファイル名は「howold.js」とすること．</p>
 </section>
 <section id="税込み価格計算" data-number="8.6.2">
 <h3 data-number="7.6.2"><span class="header-section-number">7.6.2</span> 税込み価格計算</h3>
@@ -2615,28 +2624,28 @@ function showEndTitle() {
 <pre><code>function calculateWithTax(withoutTax){．．．}</code></pre>
 <p>withoutTaxは税抜きの価格を入力する引数で，消費税込の価格を戻り値として出力する．（日本の税率で計算すること．軽減税率などを考慮した場合は加点）</p>
 <p>（端数の処理では，四捨五入などの処理をする必要がある．その処理は，２章で学習した数学関数を参考にすること）</p>
-<p>ファイル名は「Tax.js」とすること．</p>
+<p>ファイル名は「tax.js」とすること．</p>
 </section>
 <section id="勝率計算" data-number="8.6.3">
 <h3 data-number="7.6.3"><span class="header-section-number">7.6.3</span> 勝率計算</h3>
 <p>勝率を計算する次の関数を作り，テストしてください．</p>
 <pre><code>function getWinningRate(win, lose){．．．}</code></pre>
 <p>winは勝数, loseは敗数をそれぞれ入力する引数で，勝率（単位％）を戻り値として出力する．（小数第一位以下切り捨て，もしくは四捨五入のいずれかでよい）</p>
-<p>ファイル名は「WinningRate.js」とすること．</p>
+<p>ファイル名は「winningrate.js」とすること．</p>
 </section>
 <section id="bmi" data-number="8.6.4">
 <h3 data-number="7.6.4"><span class="header-section-number">7.6.4</span> BMI</h3>
 <p>BMIを計算する次の関数を作り，テストしてください．</p>
 <pre><code>function bmi(height, weight){．．．}</code></pre>
 <p>heightは身長(cm)，weightは体重を入力する引数で，BMI値を戻り値として出力する．BMIの計算方法は，Webなどを参考にすること</p>
-<p>ファイル名は「BMI.js」とすること．</p>
+<p>ファイル名は「bmi.js」とすること．</p>
 </section>
 <section id="総和" data-number="8.6.5">
 <h3 data-number="7.6.5"><span class="header-section-number">7.6.5</span> 総和</h3>
 <p>１からnまでの総和（1からnまでの数を全部足した数）を計算する次の関数を作り，テストしてください．</p>
 <pre><code>function sum(n){．．．}</code></pre>
 <p>nはいくつまでの総和を求めるか入力する引数で，計算された総和を戻り値として出力する．</p>
-<p>ファイル名は「Sum.js」とすること．</p>
+<p>ファイル名は「sum.js」とすること．</p>
 <!-- ### ランダム
 最小値と最大値を考慮してランダムな数値を作りだす以下の関数を作り，テストしてください．
 
@@ -2653,7 +2662,7 @@ minは最小値，maxは最大値を入力する引数で，生成されたラ�
 <p>じゃんけんの判定をする次の関数を作り，テストしてください．</p>
 <pre><code>function jankenJudge(hand1, hand2){．．．}</code></pre>
 <p>hand1はplayer１の手（0-グー, 1-チョキ, 2-パー），hand2はplayer2の手（数字の割り当てはplayer1と同じ）を表現する引数で， player1からみた結果(1-勝ち，0-あいこ, (-1)-負け)を戻り値として出力する．</p>
-<p>ファイル名は「Janken.js」とすること．</p>
+<p>ファイル名は「janken.js」とすること．</p>
 </section>
 <section id="コイン投げのシミュレーション" data-number="8.6.7">
 <h3 data-number="7.6.7"><span class="header-section-number">7.6.7</span> コイン投げのシミュレーション</h3>
@@ -2662,7 +2671,7 @@ minは最小値，maxは最大値を入力する引数で，生成されたラ�
 <p>次に，次の関数を作ってください．この関数は引数で与えられたn回flip関数を呼び，表が出た回数を数えて戻り値とします．</p>
 <pre><code>function simulate(n){．．．}</code></pre>
 <p>最後に，この関数をテストし，実際の確率を計算してみてください．（できる人は，試行回数が増えるにつれて 1/2に近くなることを表現する出力を考えてみよう．）</p>
-<p>ファイル名は「Coin.js」とすること．</p>
+<p>ファイル名は「coin.js」とすること．</p>
 </section>
 </section>
 </section>
