@@ -145,55 +145,11 @@ TD: 列（データ）の指定
 
 ### その他：学習に関して
 - 日常的に作業しない場合，全てのタグやオプションを覚えることは困難
-  - 必要に応じて調べながら使えれば良い
+ - 必要に応じて調べながら使えれば良い
 - 例題の多い辞書的なサイトが参考に
-  - HTMLクイックリファレンス　[http://www.htmq.com/](http://www.htmq.com/) 
-  - HTML5やCSSプロパティなど
-- お手本となるサイトのソースを覗く
-  - 実際のイメージから，どのように実現しているのか
-
-
-# 練習問題
-## 練習問題8-1
-配布ファイルssi.txtの内容を使い，以下の表示例と同様の出力が可能なssi.htmlを作成せよ
-
-- 表示例（1）
-  - ![ssi.htmlの表示例（1）](./images/example1.png)
-- 表示例（2）
-  - ![ssi.htmlの表示例（2）](./images/example2.png)
-- 表示例（3）
-  - ![ssi.htmlの表示例（3）](./images/example3.png)
-- 表示例（4）
-  - ![ssi.htmlの表示例（4）](./images/example4.png)
-- 表示例（5）
-  - ![ssi.htmlの表示例（5）](./images/example5.png)
-- ただし，見出しの設定と表の構成は次に従うこと
-  - 見出しの設定
-    - h1 :「社会情報学部の教育」
-    - h2 :「学際的遊行領域を学ぶ」「カリキュラムでの科目」
-    - h3 : それ以外の見出し部分
-  - 表示例（4）の表の構成
-    - 表の周りの線や色が無いためわかりづらいので，わかりやすくするために色づけした表を以下に示す
-	- このように3行2列の表を作成する（実際には色付けは不要である）
-	  - ![表の構成](./images/table.png)
- - 表示例（5）の表も同様に2行3列である
- - どの行にどの科目が入るのかは，ssi.txtファイルを参照すること
-
-## 練習問題8-2
-3つのHTMLファイルからなる青山学院大学を説明するWebページを作成せよ
-
-- ただし、文章はagu.txtを利用すること
-- ページの構成は以下のようにすること
-  - index.html : トップページ
-  - dept.html : 学部について書かれたページ
-  - history.html : 沿革について書かれたページ
-  - test.jpg ; [https://xxxx.xxxx.xxxx.xxxx/test.jpg](https://xxxx.xxxx.xxxx.xxxx/test.jpg)を利用する
-- index.htmlの表示例
-  - <img src="./images/example6.png" width=80%>
-- history.htmlの表示例
-  - <img src="./images/example7.png" width=80%>
-- dept.htmlの表示例
-  - <img src="./images/example8.png" width=80%>
-
+ - HTMLクイックリファレンス　　　　　　　　 　http://www.htmq.com/ 
+ - HTML5やCSSプロパティなど
+-お手本となるサイトのソースを覗く
+ - 実際のイメージから，どのように実現しているのか
 
 
