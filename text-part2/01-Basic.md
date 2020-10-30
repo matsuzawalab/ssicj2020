@@ -1,8 +1,15 @@
 # HTMLの基本
 
-本章では，htmlボタンの作り方とJavaScriptの基本を学びます．
+本章では，HTMLファイル作成の基本について学びます．  
+初学者用Webページ開発環境（pikeplace - kenya）を使って学習を進めます．  
+基本的な使い方はsumatraに準じています．  
+
 
 ## 最初のページ（最小限の構成）
+まずはkenyaにログインし，新しいフォルダを「Sample01」という名称で作成してください．  
+その後，新しいファイルを「index.html」という名称で作成してください．  
+HTMLファイルは「.html」という拡張子を使用します。  
+index.htmlを作成したら，次の「source」のように編集してください．  
 
 <div code src='1-1'></div>
 
@@ -65,83 +72,48 @@
 </tr>
 </table>
 
+## body部で利用するタグ
+
 <div code src='1-2'></div>
-```
 
-```
-
-見出しは h1（大見出し） から h6（小見出し） まで
-パラグラフは&lt;p> &lt;/p>でくくる
-希望位置で改行したい場合には&lt;br>を利用（閉じタグ無し）
+- 見出しは h1（大見出し） から h6（小見出し） まで．  
+- パラグラフは&lt;p> &lt;/p>でくくる．
+- 希望位置で改行したい場合には&lt;br>を利用（閉じタグ無し）．
 
 ### 画像を貼る
 
 ```<img src="test.jpg" width="180" height="240" alt="サンプル画像">```
 
-srcにファイル名を，altには画像の説明を付ける
-画像ファイルは，GIF, JPEG, PNGの形式
+- srcにファイル名を，altには画像の説明を付ける．  
+- 画像ファイルは，GIF, JPEG, PNGの形式
 
 ### リンクする
 
-```
-<p>Googleは<a href="http://google.com">こちら</a>から</p>
-<p>別に作ったページは<a href="next.html">ここ</a>から</p>
-```
-オプション target="_blank" を付けると別ウィンドウ（タブ）で開く
+<div code src='1-3'></div>
+
+- オプション target="_blank" を付けると別ウィンドウ（タブ）で開く
 
 ### 箇条書き
 
-```
-<p>クラウドといえば</p>
-<ul>
-	<li>IaaS</li>
-	<li>PaaS</li>
-	<li>SaaS</li>
-</ul>
-```
+<div code src='1-4'></div>
+
 
 ### 段落番号
 
-<div class="mytd">
+<div code src='1-5'></div>
 
-```
-<p>信号の色の順</p>
-<ol>
-	<li>青</li>
-	<li>黄</li>
-	<li>赤</li>
-</ol>
-```
-
-</div>
-
-<div class="mytd">
-<p>信号の色の順</p>
-<ol>
-	<li>青</li>
-	<li>黄</li>
-	<li>赤</li>
-</ol>
-</div>
-
-UL: Unordered List (順序のないリスト) → 箇条書きリスト
-OL: Ordered List (順序のあるリスト) → 番号付きリスト
-LI: List Item (リストの項目)
+- ul : Unordered List (順序のないリスト) → 箇条書きリスト  
+- ol : Ordered List (順序のあるリスト) → 番号付きリスト  
+- li : List Item (リストの項目)
 
 ### 表
-```
-<p>売り上げ</p>
-<table>
-	<tr><th>支店名</th><th>2009年</th><th>2010年</th><th>2011年</th></tr>
-	<tr><th>新宿支店</th><td>1000</td><td>1200</td><td>1500</td></tr>
-		<tr><th>渋谷支店</th><td>800</td><td>950</td><td>1300</td></tr>
-	<tr><th>横浜支店</th><td>900</td><td>1100</td><td>1200</td></tr>
-</table>
-```
 
-TR: 行の指定
-TH: 見出しの指定
-TD: 列（データ）の指定
+<div code src='1-6'></div>
+
+
+- tr : 行の指定
+- th : 見出しの指定  
+- td : 列（データ）の指定  
 
 ### その他：学習に関して
 - 日常的に作業しない場合，全てのタグやオプションを覚えることは困難
