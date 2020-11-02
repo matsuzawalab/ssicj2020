@@ -238,10 +238,27 @@ index.htmlを作成したら，次の「source」のように編集してくだ�
 <li>希望位置で改行したい場合には&lt;br&gt;を利用（閉じタグ無し）．</li>
 </ul>
 <h3 data-number="1.2.1" id="画像を貼る"><span class="header-section-number">1.2.1</span> 画像を貼る</h3>
-<p><code>&lt;img src="test.jpg" width="180" height="240" alt="サンプル画像"&gt;</code></p>
+<p>画像を利用する場合には事前にWebサーバにアップロードしておく必要があります．<br />
+本演習では，以下の手順でkenyaサーバに画像をアップロードしておきます．</p>
+<ol type="1">
+<li>「up」をクリックする</li>
+<li>「ファイルを選択」をクリックし，画像をアップロードする</li>
+<li>アップロードされたことを確認する</li>
+</ol>
+<p><img src="./images/image_upload.png" width=50%></p>
+<p>その後，以下のように&lt;img&gt;タグを用いて画像を貼ります．</p>
+<div class="mytable"">
+<p class="mytdh">source</p>
+<p class="mytdh">result</p>
+</div>
+<div class="mytable"">
+<div class="mytd">
+<div class="sourceCode" id="lst:1-7" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"><span id="lst:1-7-1"><a href="#lst:1-7-1"></a><span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;test.jpg&quot;</span><span class="ot"> width=</span><span class="st">&quot;180&quot;</span><span class="ot"> height=</span><span class="st">&quot;240&quot;</span><span class="ot"> alt=</span><span class="st">&quot;サンプル画像&quot;</span><span class="kw">&gt;</span></span></code></pre></div>
+</div>
+<iframe class="mytd" src="src/1-7.html" class="myiframe"></iframe>
+</div>
 <ul>
-<li>srcにファイル名を，altには画像の説明を付ける．<br />
-</li>
+<li>srcにファイル名を，altには画像の説明を付ける</li>
 <li>画像ファイルは，GIF, JPEG, PNGの形式</li>
 </ul>
 <h3 data-number="1.2.2" id="リンクする"><span class="header-section-number">1.2.2</span> リンクする</h3>
