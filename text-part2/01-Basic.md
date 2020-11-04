@@ -1,8 +1,15 @@
 # HTMLの基本
 
-本章では，htmlボタンの作り方とJavaScriptの基本を学びます．
+本章では，HTMLファイル作成の基本について学びます．  
+初学者用Webページ開発環境（pikeplace - kenya）を使って学習を進めます．  
+基本的な使い方はsumatraに準じています．  
+
 
 ## 最初のページ（最小限の構成）
+まずはkenyaにログインし，新しいフォルダを「Sample01」という名称で作成してください．  
+その後，新しいファイルを「index.html」という名称で作成してください．  
+HTMLファイルは「.html」という拡張子を使用します。  
+index.htmlを作成したら，次の「source」のように編集してください．  
 
 <div code src='1-1'></div>
 
@@ -65,91 +72,111 @@
 </tr>
 </table>
 
+## body部で利用するタグ
+
 <div code src='1-2'></div>
-```
 
-```
-
-見出しは h1（大見出し） から h6（小見出し） まで
-パラグラフは&lt;p> &lt;/p>でくくる
-希望位置で改行したい場合には&lt;br>を利用（閉じタグ無し）
+- 見出しは h1（大見出し） から h6（小見出し） まで．  
+- パラグラフは&lt;p> &lt;/p>でくくる．
+- 希望位置で改行したい場合には&lt;br>を利用（閉じタグ無し）．
 
 ### 画像を貼る
 
-```<img src="test.jpg" width="180" height="240" alt="サンプル画像">```
+画像を利用する場合には事前にWebサーバにアップロードしておく必要があります．  
+本演習では，以下の手順でkenyaサーバに画像をアップロードしておきます．  
 
-srcにファイル名を，altには画像の説明を付ける
-画像ファイルは，GIF, JPEG, PNGの形式
+1. 「up」をクリックする
+1. 「ファイルを選択」をクリックし，画像をアップロードする
+1. アップロードされたことを確認する
+
+<img src="./images/image_upload.png" width=50%>
+
+その後，以下のように&lt;img&gt;タグを用いて画像を貼ります．
+
+<div code src='1-7'></div>
+- srcにファイル名を，altには画像の説明を付ける
+- 画像ファイルは，GIF, JPEG, PNGの形式
+
 
 ### リンクする
 
-```
-<p>Googleは<a href="http://google.com">こちら</a>から</p>
-<p>別に作ったページは<a href="next.html">ここ</a>から</p>
-```
-オプション target="_blank" を付けると別ウィンドウ（タブ）で開く
+<div code src='1-3'></div>
+
+- オプション target="_blank" を付けると別ウィンドウ（タブ）で開く
 
 ### 箇条書き
 
-```
-<p>クラウドといえば</p>
-<ul>
-	<li>IaaS</li>
-	<li>PaaS</li>
-	<li>SaaS</li>
-</ul>
-```
+<div code src='1-4'></div>
+
 
 ### 段落番号
 
-<div class="mytd">
+<div code src='1-5'></div>
 
-```
-<p>信号の色の順</p>
-<ol>
-	<li>青</li>
-	<li>黄</li>
-	<li>赤</li>
-</ol>
-```
-
-</div>
-
-<div class="mytd">
-<p>信号の色の順</p>
-<ol>
-	<li>青</li>
-	<li>黄</li>
-	<li>赤</li>
-</ol>
-</div>
-
-UL: Unordered List (順序のないリスト) → 箇条書きリスト
-OL: Ordered List (順序のあるリスト) → 番号付きリスト
-LI: List Item (リストの項目)
+- ul : Unordered List (順序のないリスト) → 箇条書きリスト  
+- ol : Ordered List (順序のあるリスト) → 番号付きリスト  
+- li : List Item (リストの項目)
 
 ### 表
-```
-<p>売り上げ</p>
-<table>
-	<tr><th>支店名</th><th>2009年</th><th>2010年</th><th>2011年</th></tr>
-	<tr><th>新宿支店</th><td>1000</td><td>1200</td><td>1500</td></tr>
-		<tr><th>渋谷支店</th><td>800</td><td>950</td><td>1300</td></tr>
-	<tr><th>横浜支店</th><td>900</td><td>1100</td><td>1200</td></tr>
-</table>
-```
 
-TR: 行の指定
-TH: 見出しの指定
-TD: 列（データ）の指定
+<div code src='1-6'></div>
+
+
+- tr : 行の指定
+- th : 見出しの指定  
+- td : 列（データ）の指定  
 
 ### その他：学習に関して
 - 日常的に作業しない場合，全てのタグやオプションを覚えることは困難
- - 必要に応じて調べながら使えれば良い
+  - 必要に応じて調べながら使えれば良い
 - 例題の多い辞書的なサイトが参考に
- - HTMLクイックリファレンス　　　　　　　　 　http://www.htmq.com/ 
- - HTML5やCSSプロパティなど
--お手本となるサイトのソースを覗く
- - 実際のイメージから，どのように実現しているのか
+  - HTMLクイックリファレンス　[http://www.htmq.com/](http://www.htmq.com/) 
+  - HTML5やCSSプロパティなど
+- お手本となるサイトのソースを覗く
+  - 実際のイメージから，どのように実現しているのか
+
+
+## 練習問題
+### 練習問題8-1
+配布ファイルssi.txtの内容を使い，以下の表示例と同様の出力が可能なssi.htmlを作成せよ
+
+- 表示例（1）
+  - ![ssi.htmlの表示例（1）](./images/example1.png)
+- 表示例（2）
+  - ![ssi.htmlの表示例（2）](./images/example2.png)
+- 表示例（3）
+  - ![ssi.htmlの表示例（3）](./images/example3.png)
+- 表示例（4）
+  - ![ssi.htmlの表示例（4）](./images/example4.png)
+- 表示例（5）
+  - ![ssi.htmlの表示例（5）](./images/example5.png)
+- ただし，見出しの設定と表の構成は次に従うこと
+  - 見出しの設定
+    - h1 :「社会情報学部の教育」
+    - h2 :「学際的融合領域を学ぶ」「カリキュラムでの科目」
+    - h3 : それ以外の見出し部分
+  - 表示例（4）の表の構成
+    - 表の周りの線や色が無いためわかりづらいので，わかりやすくするために色づけした表を以下に示す
+	- このように3行2列の表を作成する（実際には色付けは不要である）
+	  - ![表の構成](./images/table.png)
+ - 表示例（5）の表も同様に2行3列である
+ - どの行にどの科目が入るのかは，ssi.txtファイルを参照すること
+
+### 練習問題8-2
+3つのHTMLファイルからなる青山学院大学を説明するWebページを作成せよ
+
+- ただし、文章はagu.txtを利用すること
+- ページの構成は以下のようにすること
+  - index.html : トップページ
+  - dept.html : 学部について書かれたページ
+  - history.html : 沿革について書かれたページ
+  - 画像：test.jpgを利用する
+- index.htmlの表示例
+  - <img src="./images/example6.png" width=60%>
+- history.htmlの表示例
+  - <img src="./images/example7.png" width=60%>
+- dept.htmlの表示例
+  - <img src="./images/example8.png" width=60%>
+
 
 

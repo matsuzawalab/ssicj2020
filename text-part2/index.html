@@ -75,6 +75,7 @@
     code span.va { color: #19177c; } /* Variable */
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="cj.css" />
   <!--[if lt IE 9]>
@@ -93,8 +94,14 @@
 </ul>
 </nav>
 <h1 data-number="1" id="htmlの基本"><span class="header-section-number">1</span> HTMLの基本</h1>
-<p>本章では，htmlボタンの作り方とJavaScriptの基本を学びます．</p>
+<p>本章では，HTMLファイル作成の基本について学びます．<br />
+初学者用Webページ開発環境（pikeplace - kenya）を使って学習を進めます．<br />
+基本的な使い方はsumatraに準じています．</p>
 <h2 data-number="1.1" id="最初のページ最小限の構成"><span class="header-section-number">1.1</span> 最初のページ（最小限の構成）</h2>
+<p>まずはkenyaにログインし，新しいフォルダを「Sample01」という名称で作成してください．<br />
+その後，新しいファイルを「index.html」という名称で作成してください．<br />
+HTMLファイルは「.html」という拡張子を使用します。<br />
+index.htmlを作成したら，次の「source」のように編集してください．</p>
 <div class="mytable"">
 <p class="mytdh">source</p>
 <p class="mytdh">result</p>
@@ -208,6 +215,7 @@
 </td>
 </tr>
 </table>
+<h2 data-number="1.2" id="body部で利用するタグ"><span class="header-section-number">1.2</span> body部で利用するタグ</h2>
 <div class="mytable"">
 <p class="mytdh">source</p>
 <p class="mytdh">result</p>
@@ -222,65 +230,196 @@
 </div>
 <iframe class="mytd" src="src/1-2.html" class="myiframe"></iframe>
 </div>
-<pre><code></code></pre>
-<p>見出しは h1（大見出し） から h6（小見出し） まで パラグラフは&lt;p&gt; &lt;/p&gt;でくくる 希望位置で改行したい場合には&lt;br&gt;を利用（閉じタグ無し）</p>
-<h3 data-number="1.1.5" id="画像を貼る"><span class="header-section-number">1.1.5</span> 画像を貼る</h3>
-<p><code>&lt;img src="test.jpg" width="180" height="240" alt="サンプル画像"&gt;</code></p>
-<p>srcにファイル名を，altには画像の説明を付ける 画像ファイルは，GIF, JPEG, PNGの形式</p>
-<h3 data-number="1.1.6" id="リンクする"><span class="header-section-number">1.1.6</span> リンクする</h3>
-<pre><code>&lt;p&gt;Googleは&lt;a href=&quot;http://google.com&quot;&gt;こちら&lt;/a&gt;から&lt;/p&gt;
-&lt;p&gt;別に作ったページは&lt;a href=&quot;next.html&quot;&gt;ここ&lt;/a&gt;から&lt;/p&gt;</code></pre>
-<p>オプション target="_blank" を付けると別ウィンドウ（タブ）で開く</p>
-<h3 data-number="1.1.7" id="箇条書き"><span class="header-section-number">1.1.7</span> 箇条書き</h3>
-<pre><code>&lt;p&gt;クラウドといえば&lt;/p&gt;
-&lt;ul&gt;
-    &lt;li&gt;IaaS&lt;/li&gt;
-    &lt;li&gt;PaaS&lt;/li&gt;
-    &lt;li&gt;SaaS&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
-<h3 data-number="1.1.8" id="段落番号"><span class="header-section-number">1.1.8</span> 段落番号</h3>
-<div class="mytd">
-<pre><code>&lt;p&gt;信号の色の順&lt;/p&gt;
-&lt;ol&gt;
-    &lt;li&gt;青&lt;/li&gt;
-    &lt;li&gt;黄&lt;/li&gt;
-    &lt;li&gt;赤&lt;/li&gt;
-&lt;/ol&gt;</code></pre>
-</div>
-<div class="mytd">
-<p>
-信号の色の順
-</p>
-<ol>
-<li>
-青
-</li>
-<li>
-黄
-</li>
-<li>
-赤
-</li>
-</ol>
-</div>
-<p>UL: Unordered List (順序のないリスト) → 箇条書きリスト OL: Ordered List (順序のあるリスト) → 番号付きリスト LI: List Item (リストの項目)</p>
-<h3 data-number="1.1.9" id="表"><span class="header-section-number">1.1.9</span> 表</h3>
-<pre><code>&lt;p&gt;売り上げ&lt;/p&gt;
-&lt;table&gt;
-    &lt;tr&gt;&lt;th&gt;支店名&lt;/th&gt;&lt;th&gt;2009年&lt;/th&gt;&lt;th&gt;2010年&lt;/th&gt;&lt;th&gt;2011年&lt;/th&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;th&gt;新宿支店&lt;/th&gt;&lt;td&gt;1000&lt;/td&gt;&lt;td&gt;1200&lt;/td&gt;&lt;td&gt;1500&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;th&gt;渋谷支店&lt;/th&gt;&lt;td&gt;800&lt;/td&gt;&lt;td&gt;950&lt;/td&gt;&lt;td&gt;1300&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;th&gt;横浜支店&lt;/th&gt;&lt;td&gt;900&lt;/td&gt;&lt;td&gt;1100&lt;/td&gt;&lt;td&gt;1200&lt;/td&gt;&lt;/tr&gt;
-&lt;/table&gt;</code></pre>
-<p>TR: 行の指定 TH: 見出しの指定 TD: 列（データ）の指定</p>
-<h3 data-number="1.1.10" id="その他学習に関して"><span class="header-section-number">1.1.10</span> その他：学習に関して</h3>
 <ul>
-<li>日常的に作業しない場合，全てのタグやオプションを覚えることは困難</li>
+<li>見出しは h1（大見出し） から h6（小見出し） まで．<br />
+</li>
+<li>パラグラフは&lt;p&gt; &lt;/p&gt;でくくる．</li>
+<li>希望位置で改行したい場合には&lt;br&gt;を利用（閉じタグ無し）．</li>
+</ul>
+<h3 data-number="1.2.1" id="画像を貼る"><span class="header-section-number">1.2.1</span> 画像を貼る</h3>
+<p>画像を利用する場合には事前にWebサーバにアップロードしておく必要があります．<br />
+本演習では，以下の手順でkenyaサーバに画像をアップロードしておきます．</p>
+<ol type="1">
+<li>「up」をクリックする</li>
+<li>「ファイルを選択」をクリックし，画像をアップロードする</li>
+<li>アップロードされたことを確認する</li>
+</ol>
+<p><img src="./images/image_upload.png" width=50%></p>
+<p>その後，以下のように&lt;img&gt;タグを用いて画像を貼ります．</p>
+<div class="mytable"">
+<p class="mytdh">source</p>
+<p class="mytdh">result</p>
+</div>
+<div class="mytable"">
+<div class="mytd">
+<div class="sourceCode" id="lst:1-7" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"><span id="lst:1-7-1"><a href="#lst:1-7-1"></a><span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;test.jpg&quot;</span><span class="ot"> width=</span><span class="st">&quot;180&quot;</span><span class="ot"> height=</span><span class="st">&quot;240&quot;</span><span class="ot"> alt=</span><span class="st">&quot;サンプル画像&quot;</span><span class="kw">&gt;</span></span></code></pre></div>
+</div>
+<iframe class="mytd" src="src/1-7.html" class="myiframe"></iframe>
+</div>
+<ul>
+<li>srcにファイル名を，altには画像の説明を付ける</li>
+<li>画像ファイルは，GIF, JPEG, PNGの形式</li>
+</ul>
+<h3 data-number="1.2.2" id="リンクする"><span class="header-section-number">1.2.2</span> リンクする</h3>
+<div class="mytable"">
+<p class="mytdh">source</p>
+<p class="mytdh">result</p>
+</div>
+<div class="mytable"">
+<div class="mytd">
+<div class="sourceCode" id="lst:1-3" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"><span id="lst:1-3-1"><a href="#lst:1-3-1"></a><span class="kw">&lt;p&gt;</span>Googleは<span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://google.com&quot;</span><span class="kw">&gt;</span>こちら<span class="kw">&lt;/a&gt;</span>から<span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:1-3-2"><a href="#lst:1-3-2"></a><span class="kw">&lt;p&gt;</span>別に作ったページは<span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;next.html&quot;</span><span class="kw">&gt;</span>ここ<span class="kw">&lt;/a&gt;</span>から<span class="kw">&lt;/p&gt;</span></span></code></pre></div>
+</div>
+<iframe class="mytd" src="src/1-3.html" class="myiframe"></iframe>
+</div>
+<ul>
+<li>オプション target="_blank" を付けると別ウィンドウ（タブ）で開く</li>
+</ul>
+<h3 data-number="1.2.3" id="箇条書き"><span class="header-section-number">1.2.3</span> 箇条書き</h3>
+<div class="mytable"">
+<p class="mytdh">source</p>
+<p class="mytdh">result</p>
+</div>
+<div class="mytable"">
+<div class="mytd">
+<div class="sourceCode" id="lst:1-4" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"><span id="lst:1-4-1"><a href="#lst:1-4-1"></a><span class="kw">&lt;p&gt;</span>クラウドといえば<span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:1-4-2"><a href="#lst:1-4-2"></a><span class="kw">&lt;ul&gt;</span></span>
+<span id="lst:1-4-3"><a href="#lst:1-4-3"></a>	<span class="kw">&lt;li&gt;</span>IaaS<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:1-4-4"><a href="#lst:1-4-4"></a>	<span class="kw">&lt;li&gt;</span>PaaS<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:1-4-5"><a href="#lst:1-4-5"></a>	<span class="kw">&lt;li&gt;</span>SaaS<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:1-4-6"><a href="#lst:1-4-6"></a><span class="kw">&lt;/ul&gt;</span></span></code></pre></div>
+</div>
+<iframe class="mytd" src="src/1-4.html" class="myiframe"></iframe>
+</div>
+<h3 data-number="1.2.4" id="段落番号"><span class="header-section-number">1.2.4</span> 段落番号</h3>
+<div class="mytable"">
+<p class="mytdh">source</p>
+<p class="mytdh">result</p>
+</div>
+<div class="mytable"">
+<div class="mytd">
+<div class="sourceCode" id="lst:1-5" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"><span id="lst:1-5-1"><a href="#lst:1-5-1"></a><span class="kw">&lt;p&gt;</span>信号の色の順<span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:1-5-2"><a href="#lst:1-5-2"></a><span class="kw">&lt;ol&gt;</span></span>
+<span id="lst:1-5-3"><a href="#lst:1-5-3"></a>	<span class="kw">&lt;li&gt;</span>青<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:1-5-4"><a href="#lst:1-5-4"></a>	<span class="kw">&lt;li&gt;</span>黄<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:1-5-5"><a href="#lst:1-5-5"></a>	<span class="kw">&lt;li&gt;</span>赤&lt;/li&gt;</span>
+<span id="lst:1-5-6"><a href="#lst:1-5-6"></a><span class="kw">&lt;/ol&gt;</span></span></code></pre></div>
+</div>
+<iframe class="mytd" src="src/1-5.html" class="myiframe"></iframe>
+</div>
+<ul>
+<li>ul : Unordered List (順序のないリスト) → 箇条書きリスト<br />
+</li>
+<li>ol : Ordered List (順序のあるリスト) → 番号付きリスト<br />
+</li>
+<li>li : List Item (リストの項目)</li>
+</ul>
+<h3 data-number="1.2.5" id="表"><span class="header-section-number">1.2.5</span> 表</h3>
+<div class="mytable"">
+<p class="mytdh">source</p>
+<p class="mytdh">result</p>
+</div>
+<div class="mytable"">
+<div class="mytd">
+<div class="sourceCode" id="lst:1-6" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"><span id="lst:1-6-1"><a href="#lst:1-6-1"></a><span class="kw">&lt;p&gt;</span>売り上げ<span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:1-6-2"><a href="#lst:1-6-2"></a><span class="kw">&lt;table&gt;</span></span>
+<span id="lst:1-6-3"><a href="#lst:1-6-3"></a>	<span class="kw">&lt;tr&gt;&lt;th&gt;</span>支店名<span class="kw">&lt;/th&gt;&lt;th&gt;</span>2009年<span class="kw">&lt;/th&gt;&lt;th&gt;</span>2010年<span class="kw">&lt;/th&gt;&lt;th&gt;</span>2011年<span class="kw">&lt;/th&gt;&lt;/tr&gt;</span></span>
+<span id="lst:1-6-4"><a href="#lst:1-6-4"></a>	<span class="kw">&lt;tr&gt;&lt;th&gt;</span>新宿支店&lt;/th&gt;<span class="kw">&lt;td&gt;</span>1000<span class="kw">&lt;/td&gt;&lt;td&gt;</span>1200<span class="kw">&lt;/td&gt;&lt;td&gt;</span>1500<span class="kw">&lt;/td&gt;&lt;/tr&gt;</span></span>
+<span id="lst:1-6-5"><a href="#lst:1-6-5"></a>	<span class="kw">&lt;tr&gt;&lt;th&gt;</span>渋谷支店&lt;/th&gt;<span class="kw">&lt;td&gt;</span>800<span class="kw">&lt;/td&gt;&lt;td&gt;</span>950<span class="kw">&lt;/td&gt;&lt;td&gt;</span>1300<span class="kw">&lt;/td&gt;&lt;/tr&gt;</span></span>
+<span id="lst:1-6-6"><a href="#lst:1-6-6"></a>	<span class="kw">&lt;tr&gt;&lt;th&gt;</span>横浜支店&lt;/th&gt;<span class="kw">&lt;td&gt;</span>900<span class="kw">&lt;/td&gt;&lt;td&gt;</span>1100<span class="kw">&lt;/td&gt;&lt;td&gt;</span>1200<span class="kw">&lt;/td&gt;&lt;/tr&gt;</span></span>
+<span id="lst:1-6-7"><a href="#lst:1-6-7"></a><span class="kw">&lt;/table&gt;</span></span></code></pre></div>
+</div>
+<iframe class="mytd" src="src/1-6.html" class="myiframe"></iframe>
+</div>
+<ul>
+<li>tr : 行の指定</li>
+<li>th : 見出しの指定<br />
+</li>
+<li>td : 列（データ）の指定</li>
+</ul>
+<h3 data-number="1.2.6" id="その他学習に関して"><span class="header-section-number">1.2.6</span> その他：学習に関して</h3>
+<ul>
+<li>日常的に作業しない場合，全てのタグやオプションを覚えることは困難
+<ul>
 <li>必要に応じて調べながら使えれば良い</li>
-<li>例題の多い辞書的なサイトが参考に</li>
-<li>HTMLクイックリファレンス　　　　　　　　 　http://www.htmq.com/</li>
-<li>HTML5やCSSプロパティなど -お手本となるサイトのソースを覗く</li>
+</ul></li>
+<li>例題の多い辞書的なサイトが参考に
+<ul>
+<li>HTMLクイックリファレンス　<a href="http://www.htmq.com/">http://www.htmq.com/</a></li>
+<li>HTML5やCSSプロパティなど</li>
+</ul></li>
+<li>お手本となるサイトのソースを覗く
+<ul>
 <li>実際のイメージから，どのように実現しているのか</li>
+</ul></li>
+</ul>
+<h2 data-number="1.3" id="練習問題"><span class="header-section-number">1.3</span> 練習問題</h2>
+<h3 data-number="1.3.1" id="練習問題8-1"><span class="header-section-number">1.3.1</span> 練習問題8-1</h3>
+<p>配布ファイルssi.txtの内容を使い，以下の表示例と同様の出力が可能なssi.htmlを作成せよ</p>
+<ul>
+<li>表示例（1）
+<ul>
+<li><img src="./images/example1.png" title="fig:" alt="ssi.htmlの表示例（1）" /></li>
+</ul></li>
+<li>表示例（2）
+<ul>
+<li><img src="./images/example2.png" title="fig:" alt="ssi.htmlの表示例（2）" /></li>
+</ul></li>
+<li>表示例（3）
+<ul>
+<li><img src="./images/example3.png" title="fig:" alt="ssi.htmlの表示例（3）" /></li>
+</ul></li>
+<li>表示例（4）
+<ul>
+<li><img src="./images/example4.png" title="fig:" alt="ssi.htmlの表示例（4）" /></li>
+</ul></li>
+<li>表示例（5）
+<ul>
+<li><img src="./images/example5.png" title="fig:" alt="ssi.htmlの表示例（5）" /></li>
+</ul></li>
+<li>ただし，見出しの設定と表の構成は次に従うこと
+<ul>
+<li>見出しの設定
+<ul>
+<li>h1 :「社会情報学部の教育」</li>
+<li>h2 :「学際的融合領域を学ぶ」「カリキュラムでの科目」</li>
+<li>h3 : それ以外の見出し部分</li>
+</ul></li>
+<li>表示例（4）の表の構成
+<ul>
+<li>表の周りの線や色が無いためわかりづらいので，わかりやすくするために色づけした表を以下に示す</li>
+<li>このように3行2列の表を作成する（実際には色付けは不要である）
+<ul>
+<li><img src="./images/table.png" title="fig:" alt="表の構成" /></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>表示例（5）の表も同様に2行3列である</li>
+<li>どの行にどの科目が入るのかは，ssi.txtファイルを参照すること</li>
+</ul>
+<h3 data-number="1.3.2" id="練習問題8-2"><span class="header-section-number">1.3.2</span> 練習問題8-2</h3>
+<p>3つのHTMLファイルからなる青山学院大学を説明するWebページを作成せよ</p>
+<ul>
+<li>ただし、文章はagu.txtを利用すること</li>
+<li>ページの構成は以下のようにすること
+<ul>
+<li>index.html : トップページ</li>
+<li>dept.html : 学部について書かれたページ</li>
+<li>history.html : 沿革について書かれたページ</li>
+<li>画像：test.jpgを利用する</li>
+</ul></li>
+<li>index.htmlの表示例
+<ul>
+<li><img src="./images/example6.png" width=60%></li>
+</ul></li>
+<li>history.htmlの表示例
+<ul>
+<li><img src="./images/example7.png" width=60%></li>
+</ul></li>
+<li>dept.htmlの表示例
+<ul>
+<li><img src="./images/example8.png" width=60%></li>
+</ul></li>
 </ul>
 </body>
 </html>
