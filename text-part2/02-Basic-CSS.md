@@ -88,7 +88,7 @@ CSSの基本的な構造は以下のようになっています．
 
 /* と */で囲まれた部分はHTMLと同様にコメントになり，解釈・表示されません．
 
-## 範囲指定（汎用要素）
+### 範囲指定（汎用要素）
 汎用要素とは，HTML文書のなかの「ある特定の範囲」を指定するための要素です．  
 
 - div : 汎用ブロック要素
@@ -155,20 +155,86 @@ id（bar, baz）でしている場所はそれぞれ１カ所ずつあります�
 
 ## 例題1 CSSを適用する
 kenyaにログインし、Sample02フォルダを作成してください．  
-classroomからtest.jpgをダウンロードし、Sample02フォルダにアップロードしてください．
-また，以下のようにtest01.htmlファイルを作成してください．  
+classroomからtest.jpgをダウンロードし、Sample02フォルダにアップロードしてください．  
+また，以下のようにtest01.htmlファイルを作成してください．  
 
 <div code src='2-4'></div>
 
 6行目で外部CSSファイルとして，「mystyle.css」を指定していることに注意してください．  
 これを元にスタイルを適用していきます．
 
-
-### コメント
+### mystyle.cssファイルの作成
+mystyle.cssファイルを作成し，以下の内容（左側）を作成してください．  
+<table>
+  <tr>
+  <td>
 ```
-/* これはコメントです */
-```
+/* mystyle.css */
 
+h1{
+	color: blue;
+	font-size: 40px;
+}
+```
+  </td>
+  <td>
+```
+mystyle.cssの説明
+
+h1タグに対して{
+  色を青色に
+  フォントサイズを40pxに
+}
+```
+  </td>
+  </tr>
+</table>
+
+- test01.htmlの表示例
+  - <img src="./images/8-1-1.png" width=60%>
+
+## 例題2 様々なスタイルを適用する
+以下では様々なスタイルについて説明しますが、全を解説するわけではありません．  
+詳細を知りたい人は，先週紹介したHTMLクイックリファレンス（[http://www.htmq.com/](http://www.htmq.com) ）などを参照のこと．
+
+### タグへの適用
+まず最初にh2タグにスタイルを適用します（見た目を変更します）．  
+mystyle.cssに以下を追記してください．
+
+<table>
+  <tr>
+  <td>
+```
+/* mystyle.css に追記 */
+h2{
+	color: green;
+	font-size: 25px;
+	font-weight: bold;
+	font-style: italic;
+	text-align: center;
+	text-decoration: underline;
+}
+```
+  </td>
+  <td>
+```
+mystyle.cssの説明
+
+h2タグに関して
+ 色を緑に
+ フォントサイズを25pxに
+ フォントを太字に
+ フォントをイタリックに
+ テキストの場所をセンタリング
+ テキストはアンダーラインで装飾
+
+```
+  </td>
+  </tr>
+</table>
+
+- test01.htmlの表示例
+  - <img src="./images/8-2-1.png" width=60%>
 
 ### タグ
 - 文章にタグを付けて構造を表す
