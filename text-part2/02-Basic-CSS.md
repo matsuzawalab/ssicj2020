@@ -82,7 +82,7 @@ CSSの基本的な構造は以下のようになっています．
   - body, p, table, th, ul, などなど
 - ID
   - セレクタ指定じにはIDの前に「#」をつける
-- Class
+- クラス
   - セレクタ指定時にはclass名の前に「.」 をつける
 
 
@@ -133,6 +133,15 @@ id（bar, baz）でしている場所はそれぞれ１カ所ずつあります�
 
 またclass（foo）で指定している場所は２カ所あります．  
 これらは同じスタイルが適用されます．
+
+cssファイル内でのID、クラスの指定は以下のように行います．
+
+- ID
+  - 識別子idで指定した名前の先頭に「#」をつける
+  - 例：#bar, #baz
+- クラス
+  - 識別子classで指定した名前の先頭に「.」をつける
+  - 例：.foo
 
 - divspan.css
 ```
@@ -197,7 +206,8 @@ h1タグに対して{
 以下では様々なスタイルについて説明しますが、全を解説するわけではありません．  
 詳細を知りたい人は，先週紹介したHTMLクイックリファレンス（[http://www.htmq.com/](http://www.htmq.com) ）などを参照のこと．
 
-### タグへの適用
+### テキストのスタイル：タグへの適用
+
 まず最初にh2タグにスタイルを適用します（見た目を変更します）．  
 mystyle.cssに以下を追記してください．
 
@@ -205,7 +215,8 @@ mystyle.cssに以下を追記してください．
   <tr>
   <td>
 ```
-/* mystyle.css に追記 */
+/* mystyle.cssに追記 */
+
 h2{
 	color: green;
 	font-size: 25px;
@@ -214,20 +225,21 @@ h2{
 	text-align: center;
 	text-decoration: underline;
 }
+
 ```
   </td>
   <td>
 ```
 mystyle.cssの説明
 
-h2タグに関して
+h2タグに関して{
  色を緑に
  フォントサイズを25pxに
  フォントを太字に
  フォントをイタリックに
  テキストの場所をセンタリング
  テキストはアンダーラインで装飾
-
+}
 ```
   </td>
   </tr>
@@ -236,170 +248,350 @@ h2タグに関して
 - test01.htmlの表示例
   - <img src="./images/8-2-1.png" width=60%>
 
-### タグ
-- 文章にタグを付けて構造を表す
-- タグは &lt; と &gt; でくくる
-    - ```<タグ名>ここに文章が入る</タグ名>```
-- 「開始タグ」と「終了(閉じ)タグ」で囲まれた範囲にタグが示す構造(要素)を適用
-- 終了タグが無いものも存在
+### テキストのスタイル：ID，クラスへの適用
+最初にtest01.htmlファイルにIDとクラスを設定します．
 
-- タグにはオプション指定できるものもある
-    - ```<タグ名 要素名1＝”属性A” 要素名2＝”属性B”>```
-
-### head部でよく使うタグ
+<table>
+  <tr>
+  <td>
 ```
-<meta charset="UTF-8">
-<meta name="description" content="HTML練習">
+<body>
+<p class="attention">最小限の構成</p>
 
-<title>HTMLの練習</title>
+<h1>ようこそ</h1>
+<p id="underline20">この部分に文章を書いていきます。</p>
 
-<link rel="shortcut icon" href="myfavicon.ico">
-<link rel="stylesheet" href="mystyle.css">
-<script src="myscript.js"></script>
+<h2>改行の方法</h2>
+
+<p>この文の直後で改行する。<br><span class="attention">改行</span>しました。</p>
+
+<h2>画像を貼る</h2>
 ```
-
-### コメント
-```
-<!-- これはコメントです -->
+  </td>
+  <td>
 ```
 
-- &lt;!-- と --&gt;で囲まれた部分はコメント，解釈・表示されない
+このpタグ要素に「attention」クラスを設定
 
-### 実体参照
 
-<!-- | 文字           | 実体参照       | 説明            |
-:--|:-:|--:
-| &lt; | &amp;lt;         | 小なり記号       |
-| &gt; | &amp;gt;         | 大なり記号  |
-| &amp;| &amp;amp;         | アンド記号    |
-| &quot;| &amp;quot;  | ダブルクォーテーション    |
-: 特殊記号の表示 -->
+このpタグ要素に「underline20」IDを設定
 
-<table class="mtable" style="margin-left: 100px;">
-<tr>
-    <td class="mtd">文字</td>
-    <td class="mtd">実体参照</td>
-    <td class="mtd" style="width: 200px;">説明</td>
-</tr>
-<tr>
-    <td>&lt;</td><td>&amp;lt;</td><td>小なり記号</td>
-</tr>
-<tr>
-    <td>&gt;</td><td>&amp;gt;</td><td>大なり記号</td>
-</td>
-<tr>
-    <td>&amp;</td><td>&amp;amp;</td><td>アンド記号</td>
-</tr>
-<tr>
-    <td>&quot;</td><td>&amp;quot;</td><td>ダブルクォーテーション</td>
-</tr>
+
+
+このspanで囲まれた部分に対して「attention」クラスを設定
+文章の一部のみを指定したいためspanを利用している
+
+
+```
+  </td>
+  </tr>
 </table>
 
-## body部で利用するタグ
+次に，mystyle.cssファイルに追記します．
 
-<div code src='1-2'></div>
+<table>
+  <tr>
+  <td>
+```
+#underline20{
+	font-size: 20px;
+	text-decoration: underline;
+}
 
-- 見出しは h1（大見出し） から h6（小見出し） まで．  
-- パラグラフは&lt;p> &lt;/p>でくくる．
-- 希望位置で改行したい場合には&lt;br>を利用（閉じタグ無し）．
-
-### 画像を貼る
-
-画像を利用する場合には事前にWebサーバにアップロードしておく必要があります．  
-本演習では，以下の手順でkenyaサーバに画像をアップロードしておきます．  
-
-1. 「up」をクリックする
-1. 「ファイルを選択」をクリックし，画像をアップロードする
-1. アップロードされたことを確認する
-
-<img src="./images/image_upload.png" width=50%>
-
-その後，以下のように&lt;img&gt;タグを用いて画像を貼ります．
-
-<div code src='1-7'></div>
-- srcにファイル名を，altには画像の説明を付ける
-- 画像ファイルは，GIF, JPEG, PNGの形式
+.attention{
+	color: red;
+	font-size: 24px;	
+}
+```
+  </td>
+  <td>
+```
+underline20というIDに対して
+ フォントサイズを20px
+ テキストにアンダーライン
 
 
-### リンクする
-
-<div code src='1-3'></div>
-
-- オプション target="_blank" を付けると別ウィンドウ（タブ）で開く
-
-### 箇条書き
-
-<div code src='1-4'></div>
+attentionというクラスに対して
+ 文字色を赤
+ フォントサイズを24px
 
 
-### 段落番号
+```
+  </td>
+  </tr>
+</table>
 
-<div code src='1-5'></div>
+- test01.htmlの表示例
+  - <img src="./images/8-2-3.png" width=60%>
 
-- ul : Unordered List (順序のないリスト) → 箇条書きリスト  
-- ol : Ordered List (順序のあるリスト) → 番号付きリスト  
-- li : List Item (リストの項目)
+### ブロック要素のスタイル
+段落など文章のまとまりを指定したい場合にはdivタグを用いて指定します．  
+test01.htmlに以下のように追記してください．
 
-### 表
+<table>
+  <tr>
+  <td>
+```
+<body>
+<p class="attention">最小限の構成</p>
 
-<div code src='1-6'></div>
+<h1>ようこそ</h1>
+<p id="underline20">この部分に文章を書いていきます。</p>
 
-
-- tr : 行の指定
-- th : 見出しの指定  
-- td : 列（データ）の指定  
-
-### その他：学習に関して
-- 日常的に作業しない場合，全てのタグやオプションを覚えることは困難
-  - 必要に応じて調べながら使えれば良い
-- 例題の多い辞書的なサイトが参考に
-  - HTMLクイックリファレンス　[http://www.htmq.com/](http://www.htmq.com/) 
-  - HTML5やCSSプロパティなど
-- お手本となるサイトのソースを覗く
-  - 実際のイメージから，どのように実現しているのか
-
-
-## 練習問題
-### 練習問題8-1
-配布ファイルssi.txtの内容を使い，以下の表示例と同様の出力が可能なssi.htmlを作成せよ
-
-- 表示例（1）
-  - ![ssi.htmlの表示例（1）](./images/example1.png)
-- 表示例（2）
-  - ![ssi.htmlの表示例（2）](./images/example2.png)
-- 表示例（3）
-  - ![ssi.htmlの表示例（3）](./images/example3.png)
-- 表示例（4）
-  - ![ssi.htmlの表示例（4）](./images/example4.png)
-- 表示例（5）
-  - ![ssi.htmlの表示例（5）](./images/example5.png)
-- ただし，見出しの設定と表の構成は次に従うこと
-  - 見出しの設定
-    - h1 :「社会情報学部の教育」
-    - h2 :「学際的融合領域を学ぶ」「カリキュラムでの科目」
-    - h3 : それ以外の見出し部分
-  - 表示例（4）の表の構成
-    - 表の周りの線や色が無いためわかりづらいので，わかりやすくするために色づけした表を以下に示す
-	- このように3行2列の表を作成する（実際には色付けは不要である）
-	  - ![表の構成](./images/table.png)
- - 表示例（5）の表も同様に2行3列である
- - どの行にどの科目が入るのかは，ssi.txtファイルを参照すること
-
-### 練習問題8-2
-3つのHTMLファイルからなる青山学院大学を説明するWebページを作成せよ
-
-- ただし、文章はagu.txtを利用すること
-- ページの構成は以下のようにすること
-  - index.html : トップページ
-  - dept.html : 学部について書かれたページ
-  - history.html : 沿革について書かれたページ
-  - 画像：test.jpgを利用する
-- index.htmlの表示例
-  - <img src="./images/example6.png" width=60%>
-- history.htmlの表示例
-  - <img src="./images/example7.png" width=60%>
-- dept.htmlの表示例
-  - <img src="./images/example8.png" width=60%>
+<div id="block">
+この部分はblockというIDが付けられている。
+</div>
+```
+  </td>
+  <td>
+```
 
 
 
+
+
+
+
+文章を追記し，その文章の範囲に「block」IDを設定
+
+
+```
+  </td>
+  </tr>
+</table>
+
+
+さらにmystyle.cssに以下を追記します．
+<table>
+  <tr>
+  <td>
+```
+#block{
+    background-color: aqua;
+    width: 30%;
+    height: 50px;
+    
+    border-color: grey;
+    border-width: 5px;
+    border-style: solid; 
+　/* solid の他に double; dotted; 
+　　dashed; inset; outset; が指定できる*/
+}
+
+```
+  </td>
+  <td>
+```
+ block01というIDに対して
+ 背景色を水色に
+ 横幅は，表示領域の30％
+ 高さは，50px
+
+ 範囲の枠の色を灰色に
+ 枠の幅は5px
+ 枠線は通常の線
+
+
+
+
+```
+  </td>
+  </tr>
+</table>
+
+- test01.htmlの表示例
+  - <img src="./images/8-2-4.png" width=60%>
+
+
+### 余白：マージンとパディング
+<img src="./images/8-2-5.png" width=30%>
+
+要素ごとに余白（マージン、パディング）を設定できます．
+
+- マージン
+  - 要素の【外側】の余白
+- パディング
+  - 要素の【内側】の余白
+
+test01.htmlに以下のように追記してください．
+
+<table>
+  <tr>
+  <td>
+```
+<div id="block">
+この部分はblockというIDが付けられている。
+</div>
+
+<div id="b01">
+この部分はb01
+</div>
+
+<div id="b02">
+この部分はb02
+</div>
+
+```
+  </td>
+  <td>
+```
+
+
+
+
+
+文章を追記し，その文章の範囲に「b01」IDを設定
+
+
+文章を追記し，その文章の範囲に「b02」IDを設定
+
+
+
+```
+  </td>
+  </tr>
+</table>
+
+
+さらにmystyle.cssに以下を追記します．
+<table>
+  <tr>
+  <td>
+```
+#b01{
+  background-color: #b0b9a9;
+  margin: 50px;
+  padding: 5px 0px 25px 20px;
+}
+
+#b02{
+  background-color: #89709f;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+
+
+
+
+```
+  </td>
+  <td>
+```
+ b01というIDに対して
+ 背景色を16進数で指定
+ marginは上下左右50px
+ paddingは，上5px, 右0px, 
+                   下25px, 左20px
+
+ b02というIDに対して
+ 背景色を16進数で指定
+ marginは上下左右0px
+ paddingは上下左右0px
+
+
+注： 文字周り横の余白ではない
+注： 一個値を設定：上下左右が均等
+注： 二個値を設定：上下，左右 の設定
+注： 四個値を設定：上,右,下,左の順の指定
+```
+  </td>
+  </tr>
+</table>
+
+- test01.htmlの表示例
+  - <img src="./images/8-2-6.png" width=60%>
+
+
+### リストのスタイル
+
+リストに特有のスタイルには以下があります． 
+
+- ul
+  - { list-style-type: square; } ← 四角に
+    - none マーク無し
+    - circle 白丸
+- ol
+  - { list-style-type: hiragana; } ← ひらがな
+    - lower-alpha 小文字アルファベット
+    - lower-roman 小文字のローマ数字
+
+などです（調べてみましょう）．  
+各自、どのような見た目になるかを確かめてみてください．
+
+### 擬似クラス
+指定の要素が特定の状態である場合にスタイルを適用させるセレクタを擬似クラスと呼びます．  
+もう少しわかりやすくいうと、ユーザの何かの動作をきっかけにクラスが割り当てられる仕組みといえます．  
+要素の後ろに「:」をつけ，状態を記述します．
+
+例えば以下のような使い方をします．
+
+<table>
+  <tr>
+  <td>
+```
+/* HTMLファイルの例 */
+
+<body>
+
+<h1>あいさつ</h1>
+
+<ul id="greet">
+<li>おはよう！</li>
+<li>こんにちは！/li>
+<li>こんばんは！</li>
+</ul>
+
+<span class="person">青山さん！</span>
+
+</body>
+
+
+```
+  </td>
+  <td>
+```
+/* cssファイルの例 */
+
+
+li:last-child {
+    color: green;
+}
+/*
+リストの最後の要素に色をつける
+*/
+
+.person:hover {
+    color: red;
+}
+/*
+personクラスにマウスオーバーしたら色を赤に
+*/
+```
+  </td>
+  </tr>
+</table>
+
+### セレクタの高度な指定方法
+複数のセレクタの指定の仕方にはいくつかの方法が存在します．
+例を載せておくので，一度試してみてください．
+
+- カンマで区切る　#id, .class
+  - 前のセレクタと後のセレクタの双方にスタイルを適用
+- スペースで区切る #id .class
+  - 後のセレクタが前のセレクタの下位の要素である場合にはスタイルを適用（子要素，孫要素）
+- 大なりで区切る #id>.class
+  - 後のセレクタが前のセレクタの子要素である場合には，スタイルを適用（孫要素の場合には適用されない）
+- 区切らず，つなげた場合 span.foo
+  - span要素のうち，classがfooのモノのみ適用
+
+またセレクタの優先順位は次のようになります．  
+（上の方が優先度が高い）
+
+1. importantがついているものが優先
+1. 詳細に指定した方が優先
+1. idの方がclassより優先
+1. 後から書いた方が優先
+
+### 文字の回り込みとレイアウト
