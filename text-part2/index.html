@@ -4,7 +4,8 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>02-Basic-CSS</title>
+  <meta name="author" content="社会情報学部" />
+  <title>Text-PartII</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -82,19 +83,354 @@
   <![endif]-->
 </head>
 <body>
+<header id="title-block-header">
+<h1 class="title">Text-PartII</h1>
+<p class="author">社会情報学部</p>
+<p class="date">version 0.1</p>
+</header>
 <nav id="TOC" role="doc-toc">
 <ul>
-<li><a href="#cssの基本"><span class="toc-section-number">1</span> CSSの基本</a></li>
+<li><a href="#htmlの基本"><span class="toc-section-number">1</span> HTMLの基本</a></li>
+<li><a href="#cssの基本"><span class="toc-section-number">2</span> CSSの基本</a></li>
 </ul>
 </nav>
-<h1 data-number="1" id="cssの基本"><span class="header-section-number">1</span> CSSの基本</h1>
+<h1 data-number="1" id="htmlの基本"><span class="header-section-number">1</span> HTMLの基本</h1>
+<p>本章では，HTMLファイル作成の基本について学びます．<br />
+初学者用Webページ開発環境（pikeplace - kenya）を使って学習を進めます．<br />
+基本的な使い方はsumatraに準じています．</p>
+<h2 data-number="1.1" id="最初のページ最小限の構成"><span class="header-section-number">1.1</span> 最初のページ（最小限の構成）</h2>
+<p>まずはkenyaにログインし，新しいフォルダを「Sample01」という名称で作成してください．<br />
+その後，新しいファイルを「index.html」という名称で作成してください．<br />
+HTMLファイルは「.html」という拡張子を使用します。<br />
+index.htmlを作成したら，次の「source」のように編集してください．</p>
+<div class="mytable"">
+<p class="mytdh">source</p>
+<p class="mytdh">result</p>
+</div>
+<div class="mytable"">
+<div class="mytd">
+<div class="sourceCode" id="lst:1-1" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"><span id="lst:1-1-1"><a href="#lst:1-1-1"></a><span class="kw">&lt;html&gt;</span></span>
+<span id="lst:1-1-2"><a href="#lst:1-1-2"></a></span>
+<span id="lst:1-1-3"><a href="#lst:1-1-3"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="lst:1-1-4"><a href="#lst:1-1-4"></a>    <span class="kw">&lt;title&gt;</span>HTMLの練習<span class="kw">&lt;/title&gt;</span></span>
+<span id="lst:1-1-5"><a href="#lst:1-1-5"></a><span class="kw">&lt;/head&gt;</span></span>
+<span id="lst:1-1-6"><a href="#lst:1-1-6"></a></span>
+<span id="lst:1-1-7"><a href="#lst:1-1-7"></a><span class="kw">&lt;body&gt;</span></span>
+<span id="lst:1-1-8"><a href="#lst:1-1-8"></a>    <span class="kw">&lt;p&gt;</span>最小限の構成を作ってみます<span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:1-1-9"><a href="#lst:1-1-9"></a><span class="kw">&lt;/body&gt;</span></span>
+<span id="lst:1-1-10"><a href="#lst:1-1-10"></a></span>
+<span id="lst:1-1-11"><a href="#lst:1-1-11"></a><span class="kw">&lt;/html&gt;</span></span></code></pre></div>
+</div>
+<iframe class="mytd" src="src/1-1.html" class="myiframe"></iframe>
+</div>
+<h3 data-number="1.1.1" id="タグ"><span class="header-section-number">1.1.1</span> タグ</h3>
+<ul>
+<li><p>文章にタグを付けて構造を表す</p></li>
+<li><p>タグは &lt; と &gt; でくくる</p>
+<ul>
+<li><code>&lt;タグ名&gt;ここに文章が入る&lt;/タグ名&gt;</code></li>
+</ul></li>
+<li><p>「開始タグ」と「終了(閉じ)タグ」で囲まれた範囲にタグが示す構造(要素)を適用</p></li>
+<li><p>終了タグが無いものも存在</p></li>
+<li><p>タグにはオプション指定できるものもある</p>
+<ul>
+<li><code>&lt;タグ名 要素名1＝”属性A” 要素名2＝”属性B”&gt;</code></li>
+</ul></li>
+</ul>
+<h3 data-number="1.1.2" id="head部でよく使うタグ"><span class="header-section-number">1.1.2</span> head部でよく使うタグ</h3>
+<pre><code>&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;description&quot; content=&quot;HTML練習&quot;&gt;
+
+&lt;title&gt;HTMLの練習&lt;/title&gt;
+
+&lt;link rel=&quot;shortcut icon&quot; href=&quot;myfavicon.ico&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;mystyle.css&quot;&gt;
+&lt;script src=&quot;myscript.js&quot;&gt;&lt;/script&gt;</code></pre>
+<h3 data-number="1.1.3" id="コメント"><span class="header-section-number">1.1.3</span> コメント</h3>
+<pre><code>&lt;!-- これはコメントです --&gt;</code></pre>
+<ul>
+<li>&lt;!– と –&gt;で囲まれた部分はコメント，解釈・表示されない</li>
+</ul>
+<h3 data-number="1.1.4" id="実体参照"><span class="header-section-number">1.1.4</span> 実体参照</h3>
+<!-- | 文字           | 実体参照       | 説明            |
+:--|:-:|--:
+| &lt; | &amp;lt;         | 小なり記号       |
+| &gt; | &amp;gt;         | 大なり記号  |
+| &amp;| &amp;amp;         | アンド記号    |
+| &quot;| &amp;quot;  | ダブルクォーテーション    |
+: 特殊記号の表示 -->
+<table class="mtable" style="margin-left: 100px;">
+<tr>
+<td class="mtd">
+文字
+</td>
+<td class="mtd">
+実体参照
+</td>
+<td class="mtd" style="width: 200px;">
+説明
+</td>
+</tr>
+<tr>
+<td>
+&lt;
+</td>
+<td>
+&amp;lt;
+</td>
+<td>
+小なり記号
+</td>
+</tr>
+<tr>
+<td>
+&gt;
+</td>
+<td>
+&amp;gt;
+</td>
+<td>
+大なり記号
+</td>
+</td>
+<tr>
+<td>
+&amp;
+</td>
+<td>
+&amp;amp;
+</td>
+<td>
+アンド記号
+</td>
+</tr>
+<tr>
+<td>
+"
+</td>
+<td>
+&amp;quot;
+</td>
+<td>
+ダブルクォーテーション
+</td>
+</tr>
+</table>
+<h2 data-number="1.2" id="body部で利用するタグ"><span class="header-section-number">1.2</span> body部で利用するタグ</h2>
+<div class="mytable"">
+<p class="mytdh">source</p>
+<p class="mytdh">result</p>
+</div>
+<div class="mytable"">
+<div class="mytd">
+<div class="sourceCode" id="lst:1-2" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"><span id="lst:1-2-1"><a href="#lst:1-2-1"></a><span class="kw">&lt;h1&gt;</span>ようこそ<span class="kw">&lt;/h1&gt;</span></span>
+<span id="lst:1-2-2"><a href="#lst:1-2-2"></a><span class="kw">&lt;p&gt;</span>この部分に文章を書いていきます．&lt;/p&gt;</span>
+<span id="lst:1-2-3"><a href="#lst:1-2-3"></a></span>
+<span id="lst:1-2-4"><a href="#lst:1-2-4"></a><span class="kw">&lt;h2&gt;</span>改行の方法&lt;/h2&gt;</span>
+<span id="lst:1-2-5"><a href="#lst:1-2-5"></a><span class="kw">&lt;p&gt;</span>この文の直後で改行する．&lt;br&gt;改行しました．&lt;/p&gt;</span></code></pre></div>
+</div>
+<iframe class="mytd" src="src/1-2.html" class="myiframe"></iframe>
+</div>
+<ul>
+<li>見出しは h1（大見出し） から h6（小見出し） まで．<br />
+</li>
+<li>パラグラフは&lt;p&gt; &lt;/p&gt;でくくる．</li>
+<li>希望位置で改行したい場合には&lt;br&gt;を利用（閉じタグ無し）．</li>
+</ul>
+<h3 data-number="1.2.1" id="画像を貼る"><span class="header-section-number">1.2.1</span> 画像を貼る</h3>
+<p>画像を利用する場合には事前にWebサーバにアップロードしておく必要があります．<br />
+本演習では，以下の手順でkenyaサーバに画像をアップロードしておきます．</p>
+<ol type="1">
+<li>「up」をクリックする</li>
+<li>「ファイルを選択」をクリックし，画像をアップロードする</li>
+<li>アップロードされたことを確認する</li>
+</ol>
+<p><img src="./images/image_upload.png" width=50%></p>
+<p>その後，以下のように&lt;img&gt;タグを用いて画像を貼ります．</p>
+<div class="mytable"">
+<p class="mytdh">source</p>
+<p class="mytdh">result</p>
+</div>
+<div class="mytable"">
+<div class="mytd">
+<div class="sourceCode" id="lst:1-7" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"><span id="lst:1-7-1"><a href="#lst:1-7-1"></a><span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;test.jpg&quot;</span><span class="ot"> width=</span><span class="st">&quot;180&quot;</span><span class="ot"> height=</span><span class="st">&quot;240&quot;</span><span class="ot"> alt=</span><span class="st">&quot;サンプル画像&quot;</span><span class="kw">&gt;</span></span></code></pre></div>
+</div>
+<iframe class="mytd" src="src/1-7.html" class="myiframe"></iframe>
+</div>
+<ul>
+<li>srcにファイル名を，altには画像の説明を付ける</li>
+<li>画像ファイルは，GIF, JPEG, PNGの形式</li>
+</ul>
+<h3 data-number="1.2.2" id="リンクする"><span class="header-section-number">1.2.2</span> リンクする</h3>
+<div class="mytable"">
+<p class="mytdh">source</p>
+<p class="mytdh">result</p>
+</div>
+<div class="mytable"">
+<div class="mytd">
+<div class="sourceCode" id="lst:1-3" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"><span id="lst:1-3-1"><a href="#lst:1-3-1"></a><span class="kw">&lt;p&gt;</span>Googleは<span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://google.com&quot;</span><span class="kw">&gt;</span>こちら<span class="kw">&lt;/a&gt;</span>から<span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:1-3-2"><a href="#lst:1-3-2"></a><span class="kw">&lt;p&gt;</span>別に作ったページは<span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;next.html&quot;</span><span class="kw">&gt;</span>ここ<span class="kw">&lt;/a&gt;</span>から<span class="kw">&lt;/p&gt;</span></span></code></pre></div>
+</div>
+<iframe class="mytd" src="src/1-3.html" class="myiframe"></iframe>
+</div>
+<ul>
+<li>オプション target="_blank" を付けると別ウィンドウ（タブ）で開く</li>
+</ul>
+<h3 data-number="1.2.3" id="箇条書き"><span class="header-section-number">1.2.3</span> 箇条書き</h3>
+<div class="mytable"">
+<p class="mytdh">source</p>
+<p class="mytdh">result</p>
+</div>
+<div class="mytable"">
+<div class="mytd">
+<div class="sourceCode" id="lst:1-4" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"><span id="lst:1-4-1"><a href="#lst:1-4-1"></a><span class="kw">&lt;p&gt;</span>クラウドといえば<span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:1-4-2"><a href="#lst:1-4-2"></a><span class="kw">&lt;ul&gt;</span></span>
+<span id="lst:1-4-3"><a href="#lst:1-4-3"></a>	<span class="kw">&lt;li&gt;</span>IaaS<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:1-4-4"><a href="#lst:1-4-4"></a>	<span class="kw">&lt;li&gt;</span>PaaS<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:1-4-5"><a href="#lst:1-4-5"></a>	<span class="kw">&lt;li&gt;</span>SaaS<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:1-4-6"><a href="#lst:1-4-6"></a><span class="kw">&lt;/ul&gt;</span></span></code></pre></div>
+</div>
+<iframe class="mytd" src="src/1-4.html" class="myiframe"></iframe>
+</div>
+<h3 data-number="1.2.4" id="段落番号"><span class="header-section-number">1.2.4</span> 段落番号</h3>
+<div class="mytable"">
+<p class="mytdh">source</p>
+<p class="mytdh">result</p>
+</div>
+<div class="mytable"">
+<div class="mytd">
+<div class="sourceCode" id="lst:1-5" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"><span id="lst:1-5-1"><a href="#lst:1-5-1"></a><span class="kw">&lt;p&gt;</span>信号の色の順<span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:1-5-2"><a href="#lst:1-5-2"></a><span class="kw">&lt;ol&gt;</span></span>
+<span id="lst:1-5-3"><a href="#lst:1-5-3"></a>	<span class="kw">&lt;li&gt;</span>青<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:1-5-4"><a href="#lst:1-5-4"></a>	<span class="kw">&lt;li&gt;</span>黄<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:1-5-5"><a href="#lst:1-5-5"></a>	<span class="kw">&lt;li&gt;</span>赤&lt;/li&gt;</span>
+<span id="lst:1-5-6"><a href="#lst:1-5-6"></a><span class="kw">&lt;/ol&gt;</span></span></code></pre></div>
+</div>
+<iframe class="mytd" src="src/1-5.html" class="myiframe"></iframe>
+</div>
+<ul>
+<li>ul : Unordered List (順序のないリスト) → 箇条書きリスト<br />
+</li>
+<li>ol : Ordered List (順序のあるリスト) → 番号付きリスト<br />
+</li>
+<li>li : List Item (リストの項目)</li>
+</ul>
+<h3 data-number="1.2.5" id="表"><span class="header-section-number">1.2.5</span> 表</h3>
+<div class="mytable"">
+<p class="mytdh">source</p>
+<p class="mytdh">result</p>
+</div>
+<div class="mytable"">
+<div class="mytd">
+<div class="sourceCode" id="lst:1-6" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"><span id="lst:1-6-1"><a href="#lst:1-6-1"></a><span class="kw">&lt;p&gt;</span>売り上げ<span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:1-6-2"><a href="#lst:1-6-2"></a><span class="kw">&lt;table&gt;</span></span>
+<span id="lst:1-6-3"><a href="#lst:1-6-3"></a>	<span class="kw">&lt;tr&gt;&lt;th&gt;</span>支店名<span class="kw">&lt;/th&gt;&lt;th&gt;</span>2009年<span class="kw">&lt;/th&gt;&lt;th&gt;</span>2010年<span class="kw">&lt;/th&gt;&lt;th&gt;</span>2011年<span class="kw">&lt;/th&gt;&lt;/tr&gt;</span></span>
+<span id="lst:1-6-4"><a href="#lst:1-6-4"></a>	<span class="kw">&lt;tr&gt;&lt;th&gt;</span>新宿支店&lt;/th&gt;<span class="kw">&lt;td&gt;</span>1000<span class="kw">&lt;/td&gt;&lt;td&gt;</span>1200<span class="kw">&lt;/td&gt;&lt;td&gt;</span>1500<span class="kw">&lt;/td&gt;&lt;/tr&gt;</span></span>
+<span id="lst:1-6-5"><a href="#lst:1-6-5"></a>	<span class="kw">&lt;tr&gt;&lt;th&gt;</span>渋谷支店&lt;/th&gt;<span class="kw">&lt;td&gt;</span>800<span class="kw">&lt;/td&gt;&lt;td&gt;</span>950<span class="kw">&lt;/td&gt;&lt;td&gt;</span>1300<span class="kw">&lt;/td&gt;&lt;/tr&gt;</span></span>
+<span id="lst:1-6-6"><a href="#lst:1-6-6"></a>	<span class="kw">&lt;tr&gt;&lt;th&gt;</span>横浜支店&lt;/th&gt;<span class="kw">&lt;td&gt;</span>900<span class="kw">&lt;/td&gt;&lt;td&gt;</span>1100<span class="kw">&lt;/td&gt;&lt;td&gt;</span>1200<span class="kw">&lt;/td&gt;&lt;/tr&gt;</span></span>
+<span id="lst:1-6-7"><a href="#lst:1-6-7"></a><span class="kw">&lt;/table&gt;</span></span></code></pre></div>
+</div>
+<iframe class="mytd" src="src/1-6.html" class="myiframe"></iframe>
+</div>
+<ul>
+<li>tr : 行の指定</li>
+<li>th : 見出しの指定<br />
+</li>
+<li>td : 列（データ）の指定</li>
+</ul>
+<h3 data-number="1.2.6" id="その他学習に関して"><span class="header-section-number">1.2.6</span> その他：学習に関して</h3>
+<ul>
+<li>日常的に作業しない場合，全てのタグやオプションを覚えることは困難
+<ul>
+<li>必要に応じて調べながら使えれば良い</li>
+</ul></li>
+<li>例題の多い辞書的なサイトが参考に
+<ul>
+<li>HTMLクイックリファレンス　<a href="http://www.htmq.com/">http://www.htmq.com/</a></li>
+<li>HTML5やCSSプロパティなど</li>
+</ul></li>
+<li>お手本となるサイトのソースを覗く
+<ul>
+<li>実際のイメージから，どのように実現しているのか</li>
+</ul></li>
+</ul>
+<h2 data-number="1.3" id="練習問題"><span class="header-section-number">1.3</span> 練習問題</h2>
+<h3 data-number="1.3.1" id="練習問題8-1"><span class="header-section-number">1.3.1</span> 練習問題8-1</h3>
+<p>Kadai08フォルダを作成してください．<br />
+その中に，配布ファイルssi.txtの内容を使い，以下の表示例と同様の出力が可能なssi.htmlを作成してください．</p>
+<ul>
+<li>表示例（1）
+<ul>
+<li><img src="./images/example1.png" width=60%></li>
+</ul></li>
+<li>表示例（2）
+<ul>
+<li><img src="./images/example2.png" width=60%></li>
+</ul></li>
+<li>表示例（3）
+<ul>
+<li><img src="./images/example3.png" width=60%></li>
+</ul></li>
+<li>表示例（4）
+<ul>
+<li><img src="./images/example4.png" width=60%></li>
+</ul></li>
+<li>表示例（5）
+<ul>
+<li><img src="./images/example5.png" width=60%></li>
+</ul></li>
+<li>ただし，見出しの設定と表の構成は次に従うこと
+<ul>
+<li>見出しの設定
+<ul>
+<li>h1 :「社会情報学部の教育」</li>
+<li>h2 :「学際的融合領域を学ぶ」「カリキュラムでの科目」</li>
+<li>h3 : それ以外の見出し部分</li>
+</ul></li>
+<li>表示例（4）の表の構成
+<ul>
+<li>表の周りの線や色が無いためわかりづらいので，わかりやすくするために色づけした表を以下に示す</li>
+<li>このように3行2列の表を作成する（実際には色付けは不要である）
+<ul>
+<li><img src="./images/table.png" width=60%></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>表示例（5）の表も同様に2行3列である</li>
+<li>どの行にどの科目が入るのかは，ssi.txtファイルを参照すること</li>
+</ul>
+<h3 data-number="1.3.2" id="練習問題8-2"><span class="header-section-number">1.3.2</span> 練習問題8-2</h3>
+<p>Kadai08フォルダの中に，3つのHTMLファイルからなる青山学院大学を説明するWebページを作成してください．</p>
+<ul>
+<li>ただし、文章はagu.txtを利用すること</li>
+<li>ページの構成は以下のようにすること
+<ul>
+<li>index.html : トップページ</li>
+<li>dept.html : 学部について書かれたページ</li>
+<li>history.html : 沿革について書かれたページ</li>
+<li>画像：test.jpgを利用する</li>
+</ul></li>
+<li>index.htmlの表示例
+<ul>
+<li><img src="./images/example6.png" width=60%></li>
+</ul></li>
+<li>history.htmlの表示例
+<ul>
+<li><img src="./images/example7.png" width=60%></li>
+</ul></li>
+<li>dept.htmlの表示例
+<ul>
+<li><img src="./images/example8.png" width=60%></li>
+</ul></li>
+</ul>
+<h1 data-number="2" id="cssの基本"><span class="header-section-number">2</span> CSSの基本</h1>
 <p>本章では，CSSファイル作成の基本について学びます．<br />
 初学者用Webページ開発環境（pikeplace - kenya）を使って学習を進めます．<br />
 基本的な使い方はsumatraに準じています．</p>
-<h2 data-number="1.1" id="css"><span class="header-section-number">1.1</span> CSS</h2>
+<h2 data-number="2.1" id="css"><span class="header-section-number">2.1</span> CSS</h2>
 <p>CSS（Cascading Style Sheet）はHTMLとの組み合わせでWebページを実現する仕組みです．<br />
 主にWebページの「見た目（スタイル）」を規定します。</p>
-<h3 data-number="1.1.1" id="cssを作成する場所"><span class="header-section-number">1.1.1</span> CSSを作成する場所</h3>
+<h3 data-number="2.1.1" id="cssを作成する場所"><span class="header-section-number">2.1.1</span> CSSを作成する場所</h3>
 <p>CSSを作成する（記述する）場所には以下の３種類があります。</p>
 <ul>
 <li>HTML文書中にstyleタグを使って記述</li>
@@ -104,7 +440,7 @@
 <li>今回の授業では、この手法を扱う</li>
 </ul></li>
 </ul>
-<h3 data-number="1.1.2" id="css作成時の注意"><span class="header-section-number">1.1.2</span> CSS作成時の注意</h3>
+<h3 data-number="2.1.2" id="css作成時の注意"><span class="header-section-number">2.1.2</span> CSS作成時の注意</h3>
 <p>CSSファイル作成時には以下に注意してください．</p>
 <ul>
 <li>ファイルの拡張子を「.css」にする</li>
@@ -113,7 +449,7 @@
 <li>kenyaで作成する場合は自動的にUTF-8になります．</li>
 </ul></li>
 </ul>
-<h3 data-number="1.1.3" id="最初のページ最小限の構成"><span class="header-section-number">1.1.3</span> 最初のページ（最小限の構成）</h3>
+<h3 data-number="2.1.3" id="最初のページ最小限の構成-1"><span class="header-section-number">2.1.3</span> 最初のページ（最小限の構成）</h3>
 <p>まずはkenyaにログインし，新しいフォルダを「Sample02」という名称で作成してください．<br />
 その後，新しいファイルを「index.html」という名称で作成してください．<br />
 index.htmlを作成したら，次の「source」のように編集してください．</p>
@@ -123,7 +459,21 @@ index.htmlを作成したら，次の「source」のように編集してくだ�
 </div>
 <div class="mytable"">
 <div class="mytd">
-<div class="sourceCode" id="lst:2-1" data-include="src/2-1.html" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"></code></pre></div>
+<div class="sourceCode" id="lst:2-1" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"><span id="lst:2-1-1"><a href="#lst:2-1-1"></a><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></span>
+<span id="lst:2-1-2"><a href="#lst:2-1-2"></a><span class="kw">&lt;html</span><span class="ot"> lang=</span><span class="st">&quot;ja&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:2-1-3"><a href="#lst:2-1-3"></a></span>
+<span id="lst:2-1-4"><a href="#lst:2-1-4"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="lst:2-1-5"><a href="#lst:2-1-5"></a>	<span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;UTF-8&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:2-1-6"><a href="#lst:2-1-6"></a>	<span class="kw">&lt;title&gt;</span>CSSの練習<span class="kw">&lt;/title&gt;</span></span>
+<span id="lst:2-1-7"><a href="#lst:2-1-7"></a></span>
+<span id="lst:2-1-8"><a href="#lst:2-1-8"></a><span class="kw">&lt;/head&gt;</span></span>
+<span id="lst:2-1-9"><a href="#lst:2-1-9"></a></span>
+<span id="lst:2-1-10"><a href="#lst:2-1-10"></a><span class="kw">&lt;body&gt;</span></span>
+<span id="lst:2-1-11"><a href="#lst:2-1-11"></a>	<span class="kw">&lt;h1&gt;</span>練習1<span class="kw">&lt;/h1&gt;</span></span>
+<span id="lst:2-1-12"><a href="#lst:2-1-12"></a>	<span class="kw">&lt;p&gt;</span>こんにちは<span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:2-1-13"><a href="#lst:2-1-13"></a><span class="kw">&lt;/body&gt;</span></span>
+<span id="lst:2-1-14"><a href="#lst:2-1-14"></a></span>
+<span id="lst:2-1-15"><a href="#lst:2-1-15"></a><span class="kw">&lt;/html&gt;</span></span></code></pre></div>
 </div>
 <iframe class="mytd" src="src/2-1.html" class="myiframe"></iframe>
 </div>
@@ -140,11 +490,25 @@ index.htmlを作成したら，次の「source」のように編集してくだ�
 </div>
 <div class="mytable"">
 <div class="mytd">
-<div class="sourceCode" id="lst:2-2" data-include="src/2-2.html" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"></code></pre></div>
+<div class="sourceCode" id="lst:2-2" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"><span id="lst:2-2-1"><a href="#lst:2-2-1"></a><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></span>
+<span id="lst:2-2-2"><a href="#lst:2-2-2"></a><span class="kw">&lt;html</span><span class="ot"> lang=</span><span class="st">&quot;ja&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:2-2-3"><a href="#lst:2-2-3"></a></span>
+<span id="lst:2-2-4"><a href="#lst:2-2-4"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="lst:2-2-5"><a href="#lst:2-2-5"></a>	<span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;UTF-8&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:2-2-6"><a href="#lst:2-2-6"></a>	<span class="kw">&lt;title&gt;</span>CSSの練習<span class="kw">&lt;/title&gt;</span></span>
+<span id="lst:2-2-7"><a href="#lst:2-2-7"></a>	<span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;first.css&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:2-2-8"><a href="#lst:2-2-8"></a><span class="kw">&lt;/head&gt;</span></span>
+<span id="lst:2-2-9"><a href="#lst:2-2-9"></a></span>
+<span id="lst:2-2-10"><a href="#lst:2-2-10"></a><span class="kw">&lt;body&gt;</span></span>
+<span id="lst:2-2-11"><a href="#lst:2-2-11"></a>	<span class="kw">&lt;h1&gt;</span>練習1<span class="kw">&lt;/h1&gt;</span></span>
+<span id="lst:2-2-12"><a href="#lst:2-2-12"></a>	<span class="kw">&lt;p&gt;</span>こんにちは<span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:2-2-13"><a href="#lst:2-2-13"></a><span class="kw">&lt;/body&gt;</span></span>
+<span id="lst:2-2-14"><a href="#lst:2-2-14"></a></span>
+<span id="lst:2-2-15"><a href="#lst:2-2-15"></a><span class="kw">&lt;/html&gt;</span></span></code></pre></div>
 </div>
 <iframe class="mytd" src="src/2-2.html" class="myiframe"></iframe>
 </div>
-<h3 data-number="1.1.4" id="cssの構造"><span class="header-section-number">1.1.4</span> CSSの構造</h3>
+<h3 data-number="2.1.4" id="cssの構造"><span class="header-section-number">2.1.4</span> CSSの構造</h3>
 <p>CSSの基本的な構造は以下のようになっています．</p>
 <table>
 <tr>
@@ -181,7 +545,7 @@ index.htmlを作成したら，次の「source」のように編集してくだ�
 </ul></li>
 </ul>
 <p>/* と */で囲まれた部分はHTMLと同様にコメントになり，解釈・表示されません．</p>
-<h3 data-number="1.1.5" id="範囲指定汎用要素"><span class="header-section-number">1.1.5</span> 範囲指定（汎用要素）</h3>
+<h3 data-number="2.1.5" id="範囲指定汎用要素"><span class="header-section-number">2.1.5</span> 範囲指定（汎用要素）</h3>
 <p>汎用要素とは，HTML文書のなかの「ある特定の範囲」を指定するための要素です．</p>
 <ul>
 <li>div : 汎用ブロック要素
@@ -263,11 +627,28 @@ index.htmlを作成したら，次の「source」のように編集してくだ�
 </div>
 <div class="mytable"">
 <div class="mytd">
-<div class="sourceCode" id="lst:2-3" data-include="src/2-3.html" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"></code></pre></div>
+<div class="sourceCode" id="lst:2-3" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"><span id="lst:2-3-1"><a href="#lst:2-3-1"></a><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></span>
+<span id="lst:2-3-2"><a href="#lst:2-3-2"></a><span class="kw">&lt;html</span><span class="ot"> lang=</span><span class="st">&quot;ja&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:2-3-3"><a href="#lst:2-3-3"></a></span>
+<span id="lst:2-3-4"><a href="#lst:2-3-4"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="lst:2-3-5"><a href="#lst:2-3-5"></a>	<span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;UTF-8&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:2-3-6"><a href="#lst:2-3-6"></a>	<span class="kw">&lt;title&gt;</span>CSSの練習<span class="kw">&lt;/title&gt;</span></span>
+<span id="lst:2-3-7"><a href="#lst:2-3-7"></a>	<span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;divspan.css&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:2-3-8"><a href="#lst:2-3-8"></a><span class="kw">&lt;/head&gt;</span></span>
+<span id="lst:2-3-9"><a href="#lst:2-3-9"></a></span>
+<span id="lst:2-3-10"><a href="#lst:2-3-10"></a><span class="kw">&lt;body&gt;</span></span>
+<span id="lst:2-3-11"><a href="#lst:2-3-11"></a>	<span class="kw">&lt;p&gt;</span>汎用要素の指定例&lt;/p&gt;</span>
+<span id="lst:2-3-12"><a href="#lst:2-3-12"></a>	<span class="kw">&lt;p&gt;</span>文章中の<span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;foo&quot;</span><span class="kw">&gt;</span>この場所<span class="kw">&lt;/span&gt;</span>は別のスタイル<span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:2-3-13"><a href="#lst:2-3-13"></a>	<span class="kw">&lt;p&gt;</span>文章中の<span class="kw">&lt;span</span><span class="ot"> id=</span><span class="st">&quot;bar&quot;</span><span class="kw">&gt;</span>この場所<span class="kw">&lt;/span&gt;</span>は上とは別のスタイル<span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:2-3-14"><a href="#lst:2-3-14"></a></span>
+<span id="lst:2-3-15"><a href="#lst:2-3-15"></a>	<span class="kw">&lt;p&gt;</span>次はdivの例です．&lt;div id=&quot;baz&quot;&gt;divはまとまりとしてスタイルを指定する時に使います．ただし<span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;foo&quot;</span><span class="kw">&gt;</span>ここ<span class="kw">&lt;/span&gt;</span>だけ一番上と同じスタイルとなります．divの前後は改行されます．&lt;/div&gt;ここからdivの範囲外になります．&lt;/p&gt;</span>
+<span id="lst:2-3-16"><a href="#lst:2-3-16"></a><span class="kw">&lt;/body&gt;</span></span>
+<span id="lst:2-3-17"><a href="#lst:2-3-17"></a></span>
+<span id="lst:2-3-18"><a href="#lst:2-3-18"></a><span class="kw">&lt;/html&gt;</span></span></code></pre></div>
 </div>
 <iframe class="mytd" src="src/2-3.html" class="myiframe"></iframe>
 </div>
-<h2 data-number="1.2" id="例題1-cssを適用する"><span class="header-section-number">1.2</span> 例題1 CSSを適用する</h2>
+<h2 data-number="2.2" id="例題1-cssを適用する"><span class="header-section-number">2.2</span> 例題1 CSSを適用する</h2>
 <p>kenyaにログインし、Sample02フォルダを作成してください．<br />
 classroomからtest.jpgをダウンロードし、Sample02フォルダにアップロードしてください．<br />
 また，以下のようにtest01.htmlファイルを作成してください．</p>
@@ -277,13 +658,33 @@ classroomからtest.jpgをダウンロードし、Sample02フォルダにアッ�
 </div>
 <div class="mytable"">
 <div class="mytd">
-<div class="sourceCode" id="lst:2-4" data-include="src/2-4.html" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"></code></pre></div>
+<div class="sourceCode" id="lst:2-4" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"><span id="lst:2-4-1"><a href="#lst:2-4-1"></a><span class="kw">&lt;html&gt;</span></span>
+<span id="lst:2-4-2"><a href="#lst:2-4-2"></a></span>
+<span id="lst:2-4-3"><a href="#lst:2-4-3"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="lst:2-4-4"><a href="#lst:2-4-4"></a><span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;UTF-8&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:2-4-5"><a href="#lst:2-4-5"></a><span class="kw">&lt;title&gt;</span>HTMLとCSSの練習<span class="kw">&lt;/title&gt;</span></span>
+<span id="lst:2-4-6"><a href="#lst:2-4-6"></a><span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;mystyle.css&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:2-4-7"><a href="#lst:2-4-7"></a><span class="kw">&lt;/head&gt;</span></span>
+<span id="lst:2-4-8"><a href="#lst:2-4-8"></a></span>
+<span id="lst:2-4-9"><a href="#lst:2-4-9"></a><span class="kw">&lt;body&gt;</span></span>
+<span id="lst:2-4-10"><a href="#lst:2-4-10"></a>  <span class="kw">&lt;p&gt;</span>最小限の構成<span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:2-4-11"><a href="#lst:2-4-11"></a></span>
+<span id="lst:2-4-12"><a href="#lst:2-4-12"></a>  <span class="kw">&lt;h1&gt;</span>ようこそ<span class="kw">&lt;/h1&gt;</span></span>
+<span id="lst:2-4-13"><a href="#lst:2-4-13"></a>    <span class="kw">&lt;p&gt;</span>この部分に文章を書いていきます。<span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:2-4-14"><a href="#lst:2-4-14"></a></span>
+<span id="lst:2-4-15"><a href="#lst:2-4-15"></a>  <span class="kw">&lt;h2&gt;</span>改行の方法&lt;/h2&gt;</span>
+<span id="lst:2-4-16"><a href="#lst:2-4-16"></a>  <span class="kw">&lt;p&gt;</span>この文の直後で改行する。<span class="kw">&lt;br&gt;</span>改行しました。<span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:2-4-17"><a href="#lst:2-4-17"></a></span>
+<span id="lst:2-4-18"><a href="#lst:2-4-18"></a>  <span class="kw">&lt;h2&gt;</span>画像を貼る&lt;/h2&gt;</span>
+<span id="lst:2-4-19"><a href="#lst:2-4-19"></a>  <span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;test.jpg&quot;</span><span class="ot"> width=</span><span class="st">&quot;100&quot;</span><span class="ot"> alt=</span><span class="st">&quot;サンプル画像&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:2-4-20"><a href="#lst:2-4-20"></a><span class="kw">&lt;/body&gt;</span></span>
+<span id="lst:2-4-21"><a href="#lst:2-4-21"></a><span class="kw">&lt;/html&gt;</span></span></code></pre></div>
 </div>
 <iframe class="mytd" src="src/2-4.html" class="myiframe"></iframe>
 </div>
 <p>6行目で外部CSSファイルとして，「mystyle.css」を指定していることに注意してください．<br />
 これを元にスタイルを適用していきます．</p>
-<h3 data-number="1.2.1" id="mystyle.cssファイルの作成"><span class="header-section-number">1.2.1</span> mystyle.cssファイルの作成</h3>
+<h3 data-number="2.2.1" id="mystyle.cssファイルの作成"><span class="header-section-number">2.2.1</span> mystyle.cssファイルの作成</h3>
 mystyle.cssファイルを作成し，以下の内容（左側）を作成してください．<br />
 
 <table>
@@ -312,10 +713,10 @@ h1タグに対して{
 <li><img src="./images/8-1-1.png" width=60%></li>
 </ul></li>
 </ul>
-<h2 data-number="1.3" id="例題2-様々なスタイルを適用する"><span class="header-section-number">1.3</span> 例題2 様々なスタイルを適用する</h2>
+<h2 data-number="2.3" id="例題2-様々なスタイルを適用する"><span class="header-section-number">2.3</span> 例題2 様々なスタイルを適用する</h2>
 <p>以下では様々なスタイルについて説明しますが、全を解説するわけではありません．<br />
 詳細を知りたい人は，先週紹介したHTMLクイックリファレンス（<a href="http://www.htmq.com">http://www.htmq.com/</a> ）などを参照のこと．</p>
-<h3 data-number="1.3.1" id="テキストのスタイルタグへの適用"><span class="header-section-number">1.3.1</span> テキストのスタイル：タグへの適用</h3>
+<h3 data-number="2.3.1" id="テキストのスタイルタグへの適用"><span class="header-section-number">2.3.1</span> テキストのスタイル：タグへの適用</h3>
 <p>まず最初にh2タグにスタイルを適用します（見た目を変更します）．<br />
 mystyle.cssに以下を追記してください．</p>
 <table>
@@ -353,7 +754,7 @@ h2タグに関して{
 <li><img src="./images/8-2-1.png" width=60%></li>
 </ul></li>
 </ul>
-<h3 data-number="1.3.2" id="テキストのスタイルidクラスへの適用"><span class="header-section-number">1.3.2</span> テキストのスタイル：ID，クラスへの適用</h3>
+<h3 data-number="2.3.2" id="テキストのスタイルidクラスへの適用"><span class="header-section-number">2.3.2</span> テキストのスタイル：ID，クラスへの適用</h3>
 <p>最初にtest01.htmlファイルにIDとクラスを設定します．</p>
 <table>
 <tr>
@@ -420,7 +821,7 @@ attentionというクラスに対して
 <li><img src="./images/8-2-3.png" width=60%></li>
 </ul></li>
 </ul>
-<h3 data-number="1.3.3" id="ブロック要素のスタイル"><span class="header-section-number">1.3.3</span> ブロック要素のスタイル</h3>
+<h3 data-number="2.3.3" id="ブロック要素のスタイル"><span class="header-section-number">2.3.3</span> ブロック要素のスタイル</h3>
 <p>段落など文章のまとまりを指定したい場合にはdivタグを用いて指定します．<br />
 test01.htmlに以下のように追記してください．</p>
 <table>
@@ -489,7 +890,7 @@ test01.htmlに以下のように追記してください．</p>
 <li><img src="./images/8-2-4.png" width=60%></li>
 </ul></li>
 </ul>
-<h3 data-number="1.3.4" id="余白マージンとパディング"><span class="header-section-number">1.3.4</span> 余白：マージンとパディング</h3>
+<h3 data-number="2.3.4" id="余白マージンとパディング"><span class="header-section-number">2.3.4</span> 余白：マージンとパディング</h3>
 <p><img src="./images/8-2-5.png" width=30%></p>
 <p>要素ごとに余白（マージン、パディング）を設定できます．</p>
 <ul>
@@ -583,7 +984,7 @@ test01.htmlに以下のように追記してください．</p>
 <li><img src="./images/8-2-6.png" width=60%></li>
 </ul></li>
 </ul>
-<h3 data-number="1.3.5" id="リストのスタイル"><span class="header-section-number">1.3.5</span> リストのスタイル</h3>
+<h3 data-number="2.3.5" id="リストのスタイル"><span class="header-section-number">2.3.5</span> リストのスタイル</h3>
 <p>リストに特有のスタイルには以下があります．</p>
 <ul>
 <li>ul
@@ -605,7 +1006,7 @@ test01.htmlに以下のように追記してください．</p>
 </ul>
 <p>などです（調べてみましょう）．<br />
 各自、どのような見た目になるかを確かめてみてください．</p>
-<h3 data-number="1.3.6" id="擬似クラス"><span class="header-section-number">1.3.6</span> 擬似クラス</h3>
+<h3 data-number="2.3.6" id="擬似クラス"><span class="header-section-number">2.3.6</span> 擬似クラス</h3>
 <p>指定の要素が特定の状態である場合にスタイルを適用させるセレクタを擬似クラスと呼びます．<br />
 もう少しわかりやすくいうと、ユーザの何かの動作をきっかけにクラスが割り当てられる仕組みといえます．<br />
 要素の後ろに「:」をつけ，状態を記述します．</p>
@@ -651,7 +1052,7 @@ personクラスにマウスオーバーしたら色を赤に
 </td>
 </tr>
 </table>
-<h3 data-number="1.3.7" id="セレクタの高度な指定方法"><span class="header-section-number">1.3.7</span> セレクタの高度な指定方法</h3>
+<h3 data-number="2.3.7" id="セレクタの高度な指定方法"><span class="header-section-number">2.3.7</span> セレクタの高度な指定方法</h3>
 <p>複数のセレクタの指定の仕方にはいくつかの方法が存在します． 例を載せておくので，一度試してみてください．</p>
 <ul>
 <li>カンマで区切る　#id, .class
@@ -679,7 +1080,7 @@ personクラスにマウスオーバーしたら色を赤に
 <li>idの方がclassより優先</li>
 <li>後から書いた方が優先</li>
 </ol>
-<h3 data-number="1.3.8" id="文字の回り込みとレイアウト"><span class="header-section-number">1.3.8</span> 文字の回り込みとレイアウト</h3>
+<h3 data-number="2.3.8" id="文字の回り込み"><span class="header-section-number">2.3.8</span> 文字の回り込み</h3>
 <p>文字の回り込みは以下のように記述します．</p>
 <ul>
 <li>HTML
@@ -782,5 +1183,707 @@ clrというクラス（以降）に対して
 <p>回り込み設定をすることで画像の左側に文字が回り込んでいるのがわかると思います．<br />
 また，回り込み解除後は元に戻っています．<br />
 余裕がある人は，&lt;p class=“clr”&gt;を元の&lt;p&gt;に戻してみて、文字の回り込みがどうなるかを確認してみてください．</p>
+<h3 data-number="2.3.9" id="レイアウト"><span class="header-section-number">2.3.9</span> レイアウト</h3>
+<p>文字の回り込みの応用でレイアウトの変更ができます．<br />
+新規ファイルとしてtest02.htmlを作成し，以下のように記述してください．<br />
+ここではtest02.cssを呼び出すように記述していますので，このtest02.cssファイルを作成していきます．</p>
+<div class="mytable"">
+<p class="mytdh">source</p>
+<p class="mytdh">result</p>
+</div>
+<div class="mytable"">
+<div class="mytd">
+<div class="sourceCode" id="lst:2-5" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"><span id="lst:2-5-1"><a href="#lst:2-5-1"></a><span class="kw">&lt;html&gt;</span> </span>
+<span id="lst:2-5-2"><a href="#lst:2-5-2"></a></span>
+<span id="lst:2-5-3"><a href="#lst:2-5-3"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="lst:2-5-4"><a href="#lst:2-5-4"></a><span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;UTF-8&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:2-5-5"><a href="#lst:2-5-5"></a><span class="kw">&lt;title&gt;</span>HTMLとCSSの練習<span class="kw">&lt;/title&gt;</span></span>
+<span id="lst:2-5-6"><a href="#lst:2-5-6"></a><span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;test02.css&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:2-5-7"><a href="#lst:2-5-7"></a><span class="kw">&lt;/head&gt;</span></span>
+<span id="lst:2-5-8"><a href="#lst:2-5-8"></a></span>
+<span id="lst:2-5-9"><a href="#lst:2-5-9"></a><span class="kw">&lt;body&gt;</span></span>
+<span id="lst:2-5-10"><a href="#lst:2-5-10"></a><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;all&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:2-5-11"><a href="#lst:2-5-11"></a></span>
+<span id="lst:2-5-12"><a href="#lst:2-5-12"></a><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;hdr&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:2-5-13"><a href="#lst:2-5-13"></a><span class="kw">&lt;h1&gt;</span>タイトル<span class="kw">&lt;/h1&gt;</span></span>
+<span id="lst:2-5-14"><a href="#lst:2-5-14"></a><span class="kw">&lt;p&gt;</span></span>
+<span id="lst:2-5-15"><a href="#lst:2-5-15"></a>レイアウトの練習</span>
+<span id="lst:2-5-16"><a href="#lst:2-5-16"></a><span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:2-5-17"><a href="#lst:2-5-17"></a><span class="kw">&lt;/div&gt;</span></span>
+<span id="lst:2-5-18"><a href="#lst:2-5-18"></a></span>
+<span id="lst:2-5-19"><a href="#lst:2-5-19"></a></span>
+<span id="lst:2-5-20"><a href="#lst:2-5-20"></a><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;main&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:2-5-21"><a href="#lst:2-5-21"></a><span class="kw">&lt;h2&gt;</span>表<span class="kw">&lt;/h2&gt;</span></span>
+<span id="lst:2-5-22"><a href="#lst:2-5-22"></a><span class="kw">&lt;p&gt;</span>支点別売り上げ<span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:2-5-23"><a href="#lst:2-5-23"></a><span class="kw">&lt;table&gt;</span></span>
+<span id="lst:2-5-24"><a href="#lst:2-5-24"></a>	<span class="kw">&lt;tr&gt;&lt;th&gt;</span>支店名<span class="kw">&lt;/th&gt;&lt;th&gt;</span>2009年<span class="kw">&lt;/th&gt;&lt;th&gt;</span>2010年<span class="kw">&lt;/th&gt;&lt;th&gt;</span>2011年<span class="kw">&lt;/th&gt;&lt;/tr&gt;</span></span>
+<span id="lst:2-5-25"><a href="#lst:2-5-25"></a>	<span class="kw">&lt;tr&gt;&lt;th&gt;</span>新宿支店&lt;/th&gt;<span class="kw">&lt;td&gt;</span>1000<span class="kw">&lt;/td&gt;&lt;td&gt;</span>1200<span class="kw">&lt;/td&gt;&lt;td&gt;</span>1500<span class="kw">&lt;/td&gt;&lt;/tr&gt;</span></span>
+<span id="lst:2-5-26"><a href="#lst:2-5-26"></a>	<span class="kw">&lt;tr&gt;&lt;th&gt;</span>渋谷支店&lt;/th&gt;<span class="kw">&lt;td&gt;</span>800<span class="kw">&lt;/td&gt;&lt;td&gt;</span>950<span class="kw">&lt;/td&gt;&lt;td&gt;</span>1300<span class="kw">&lt;/td&gt;&lt;/tr&gt;</span></span>
+<span id="lst:2-5-27"><a href="#lst:2-5-27"></a><span class="kw">&lt;/table&gt;</span></span>
+<span id="lst:2-5-28"><a href="#lst:2-5-28"></a><span class="kw">&lt;/div&gt;</span></span>
+<span id="lst:2-5-29"><a href="#lst:2-5-29"></a></span>
+<span id="lst:2-5-30"><a href="#lst:2-5-30"></a><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;side&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:2-5-31"><a href="#lst:2-5-31"></a><span class="kw">&lt;p&gt;</span>Menu<span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:2-5-32"><a href="#lst:2-5-32"></a><span class="kw">&lt;ul&gt;</span></span>
+<span id="lst:2-5-33"><a href="#lst:2-5-33"></a>	<span class="kw">&lt;li&gt;</span>IaaS<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:2-5-34"><a href="#lst:2-5-34"></a>	<span class="kw">&lt;li&gt;</span>PaaS<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:2-5-35"><a href="#lst:2-5-35"></a>	<span class="kw">&lt;li&gt;</span>SaaS<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:2-5-36"><a href="#lst:2-5-36"></a><span class="kw">&lt;/ul&gt;</span></span>
+<span id="lst:2-5-37"><a href="#lst:2-5-37"></a><span class="kw">&lt;/div&gt;</span></span>
+<span id="lst:2-5-38"><a href="#lst:2-5-38"></a></span>
+<span id="lst:2-5-39"><a href="#lst:2-5-39"></a></span>
+<span id="lst:2-5-40"><a href="#lst:2-5-40"></a></span>
+<span id="lst:2-5-41"><a href="#lst:2-5-41"></a><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;ftr&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:2-5-42"><a href="#lst:2-5-42"></a><span class="kw">&lt;p&gt;</span></span>
+<span id="lst:2-5-43"><a href="#lst:2-5-43"></a>青山学院大学 社会情報学部</span>
+<span id="lst:2-5-44"><a href="#lst:2-5-44"></a><span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:2-5-45"><a href="#lst:2-5-45"></a><span class="kw">&lt;/div&gt;</span></span>
+<span id="lst:2-5-46"><a href="#lst:2-5-46"></a><span class="kw">&lt;/div&gt;</span></span>
+<span id="lst:2-5-47"><a href="#lst:2-5-47"></a></span>
+<span id="lst:2-5-48"><a href="#lst:2-5-48"></a><span class="kw">&lt;/body&gt;</span></span>
+<span id="lst:2-5-49"><a href="#lst:2-5-49"></a><span class="kw">&lt;/html&gt;</span></span></code></pre></div>
+</div>
+<iframe class="mytd" src="src/2-5.html" class="myiframe"></iframe>
+</div>
+<p>test02.htmlファイルには以下のように予めIDが指定されています．<br />
+このIDを利用してレイアウトを作成します．</p>
+<table>
+<tr>
+<td>
+<pre><code>&lt;body&gt;
+ &lt;div id=&quot;all&quot;&gt;
+
+　&lt;div id=&quot;hdr&quot;&gt;
+　　&lt;h1&gt;タイトル&lt;/h1&gt;
+　&lt;/div&gt;
+
+　&lt;div id=&quot;main&quot;&gt;
+　　&lt;h2&gt;表&lt;/h2&gt;
+　&lt;/div&gt;
+
+   &lt;div id=&quot;side&quot;&gt;
+　　&lt;p&gt;Menu&lt;/p&gt;
+　&lt;/div&gt;
+
+　&lt;div id=&quot;ftr&quot;&gt;
+　　&lt;p&gt;青山学院大学 社会情報学部&lt;/p&gt;
+　&lt;/div&gt;
+
+ &lt;/div&gt;
+&lt;/body&gt;</code></pre>
+</td>
+<td>
+<pre><code>全体を「all」IDに設定
+
+
+タイトル部を「hdr」IDに設定
+
+
+メインとなる部分を「main」IDに設定
+
+
+
+Menu(箇条書き)を「side」IDに設定
+
+
+
+
+下に付ける部分を「ftr」IDに設定
+
+
+
+
+
+</code></pre>
+</td>
+</tr>
+</table>
+test02.cssファイルを以下のように作成します．
+<table>
+<tr>
+<td>
+<pre><code>*{
+    margin: 0px;
+}
+
+
+body{
+    width:100%;
+}
+
+#all{
+    margin: 0px auto;
+    width: 750px;
+}
+
+#hdr{
+    width: 100%;
+      background-color: teal;
+}
+
+#main{
+    float: left;
+    width: 500px;
+    background-color: olive;
+}
+
+#side{
+    float: right;
+    width: 250px;
+    background-color: green;
+}
+
+#ftr{
+    clear: both;
+    width: 100%;
+    background-color: lime;
+}
+</code></pre>
+</td>
+<td>
+<pre><code>全てに対して
+    marginを0pxに設定
+(レイアウトを組むとき，様々なタグのマージンが影響するため⇒無効化)
+
+
+body部に対して
+    幅をブラウザの100％幅で
+
+
+ID「all」（中身全体の範囲）に対して
+    上下のマージンを0に，左右を自動．
+    幅を750pxに
+（ブラウザの幅を変更しても中身全体の部分は750pxで固定，中央に位置され左右の空白が均等に自動で変更される）
+
+ID「hdr」部に対して
+    幅を100％に
+（hdrはallの中に含まれているので，allの幅の100%となる）
+
+
+ID「main」に対して
+    位置を左
+    幅を500px
+
+
+
+ID「side」に対して
+    位置を右
+    幅を250px
+
+
+
+ ID「ftr」部に対して
+    位置設定を解除
+    幅を100％に
+（ftrはallの中に含まれているので，allの幅の100%となる）
+
+</code></pre>
+</td>
+</tr>
+</table>
+<ul>
+<li>test02.htmlの表示例
+<ul>
+<li><img src="./images/8-2-9.png" width=60%></li>
+</ul></li>
+</ul>
+上記表示例では、すべてのマージンを0pxにしてしまったため，全体的に詰まった印象を受けます．<br />
+これはpaddingなどで調整しましょう．<br />
+また左右の要素の高さが不揃いな部分があります．<br />
+これは本質的には変えることができないので、背景色や枠線で調整します．
+<table>
+<tr>
+<td>
+<pre><code>h1, h2{
+    padding: 5px 10px;
+}
+
+table, p{
+    padding: 10px;
+}
+
+
+ul{
+    padding: 5px 0px 5px 40px;
+}
+
+</code></pre>
+</td>
+<td>
+<pre><code>h1とh2の要素に対して
+    パディング 上下 5px ，左右10px
+
+
+tableとpの要素に対して
+    パディングを上下左右10px
+
+
+
+ulに対して
+    パディングを 
+　　　上5px，右0px, 
+　　　下5px，左40pxに設定</code></pre>
+</td>
+</tr>
+</table>
+<ul>
+<li>test02.htmlの表示例
+<ul>
+<li><img src="./images/8-2-10.png" width=60%></li>
+</ul></li>
+</ul>
+最後に、全体的に色合いを調整します．<br />
+#hdrと#ftrの色を揃え，他の部分も適宜修正します．<br />
+また，中央右に空白部分が存在しますが，これは全体の背景色と#sideの色を揃えることで見えなくします．
+<table>
+<tr>
+<td>
+<pre><code>#all{
+    margin: 0px auto;
+    width: 750px;
+    background-color: #fbc7c7;
+}
+
+中略
+
+#side{
+    float: right;
+      width: 250px;
+      background-color: #fbc7c7;
+}
+
+略
+</code></pre>
+</td>
+<td>
+<pre><code>all の色を追加
+    色は，一番短い要素と同じ色
+
+この場合 side部が短いので，それと同じ色に設定
+
+
+
+
+ついでにsideの色も変更してみました．
+
+
+
+
+
+省略していますが，hdrとftrの色を揃え，body部も落ち着いた色に変更しています．
+</code></pre>
+</td>
+</tr>
+</table>
+<ul>
+<li>test02.htmlの表示例
+<ul>
+<li><img src="./images/8-2-11.png" width=60%></li>
+</ul></li>
+</ul>
+<h3 data-number="2.3.10" id="表のスタイル"><span class="header-section-number">2.3.10</span> 表のスタイル</h3>
+<p>表に対してスタイルを適用することもできます. test03.htmlを新規作成し，以下を記述してください．</p>
+<div class="mytable"">
+<p class="mytdh">source</p>
+<p class="mytdh">result</p>
+</div>
+<div class="mytable"">
+<div class="mytd">
+<div class="sourceCode" id="lst:2-6" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"><span id="lst:2-6-1"><a href="#lst:2-6-1"></a><span class="kw">&lt;html&gt;</span> </span>
+<span id="lst:2-6-2"><a href="#lst:2-6-2"></a></span>
+<span id="lst:2-6-3"><a href="#lst:2-6-3"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="lst:2-6-4"><a href="#lst:2-6-4"></a><span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;UTF-8&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:2-6-5"><a href="#lst:2-6-5"></a><span class="kw">&lt;title&gt;</span>HTMLとCSSの練習<span class="kw">&lt;/title&gt;</span></span>
+<span id="lst:2-6-6"><a href="#lst:2-6-6"></a><span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;test03.css&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:2-6-7"><a href="#lst:2-6-7"></a><span class="kw">&lt;/head&gt;</span></span>
+<span id="lst:2-6-8"><a href="#lst:2-6-8"></a></span>
+<span id="lst:2-6-9"><a href="#lst:2-6-9"></a><span class="kw">&lt;body&gt;</span></span>
+<span id="lst:2-6-10"><a href="#lst:2-6-10"></a><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;all&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:2-6-11"><a href="#lst:2-6-11"></a><span class="kw">&lt;h2&gt;</span>表<span class="kw">&lt;/h2&gt;</span></span>
+<span id="lst:2-6-12"><a href="#lst:2-6-12"></a><span class="kw">&lt;p&gt;</span>売り上げ<span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:2-6-13"><a href="#lst:2-6-13"></a><span class="kw">&lt;table&gt;</span></span>
+<span id="lst:2-6-14"><a href="#lst:2-6-14"></a>	<span class="kw">&lt;tr&gt;&lt;th&gt;</span>支店名<span class="kw">&lt;/th&gt;&lt;th&gt;</span>2009年<span class="kw">&lt;/th&gt;&lt;th&gt;</span>2010年<span class="kw">&lt;/th&gt;&lt;th&gt;</span>2011年<span class="kw">&lt;/th&gt;&lt;/tr&gt;</span></span>
+<span id="lst:2-6-15"><a href="#lst:2-6-15"></a>	<span class="kw">&lt;tr&gt;&lt;th&gt;</span>新宿支店&lt;/th&gt;<span class="kw">&lt;td&gt;</span>1000<span class="kw">&lt;/td&gt;&lt;td&gt;</span>1200<span class="kw">&lt;/td&gt;&lt;td&gt;</span>1500<span class="kw">&lt;/td&gt;&lt;/tr&gt;</span></span>
+<span id="lst:2-6-16"><a href="#lst:2-6-16"></a>	<span class="kw">&lt;tr&gt;&lt;th&gt;</span>渋谷支店&lt;/th&gt;<span class="kw">&lt;td&gt;</span>800<span class="kw">&lt;/td&gt;&lt;td&gt;</span>950<span class="kw">&lt;/td&gt;&lt;td&gt;</span>1300<span class="kw">&lt;/td&gt;&lt;/tr&gt;</span></span>
+<span id="lst:2-6-17"><a href="#lst:2-6-17"></a>	<span class="kw">&lt;tr&gt;&lt;th&gt;</span>横浜支店&lt;/th&gt;<span class="kw">&lt;td&gt;</span>900<span class="kw">&lt;/td&gt;&lt;td&gt;</span>1100<span class="kw">&lt;/td&gt;&lt;td&gt;</span>1200<span class="kw">&lt;/td&gt;&lt;/tr&gt;</span></span>
+<span id="lst:2-6-18"><a href="#lst:2-6-18"></a><span class="kw">&lt;/table&gt;</span></span>
+<span id="lst:2-6-19"><a href="#lst:2-6-19"></a><span class="kw">&lt;/div&gt;</span></span>
+<span id="lst:2-6-20"><a href="#lst:2-6-20"></a><span class="kw">&lt;/body&gt;</span></span>
+<span id="lst:2-6-21"><a href="#lst:2-6-21"></a></span>
+<span id="lst:2-6-22"><a href="#lst:2-6-22"></a><span class="kw">&lt;/html&gt;</span></span></code></pre></div>
+</div>
+<iframe class="mytd" src="src/2-6.html" class="myiframe"></iframe>
+</div>
+<p>test03.cssを以下のように作成します．</p>
+<table>
+<tr>
+<td>
+<pre><code>table{  
+    width: 500px;
+      border-collapse: collapse;
+}
+
+th{
+    border: 1px solid black;
+    background-color: #c5c5f8;
+    text-align: center;
+    vertical-align: middle;
+}
+
+td{
+    border: 1px solid black;
+    background-color: #e8e8e8;
+    text-align: right;
+    vertical-align: middle;
+    padding: 5px;
+}</code></pre>
+</td>
+<td>
+<pre><code>表に対して
+    幅は500px
+    線は重ねて表示
+
+
+
+表の見出し部について
+    線設定（太さ，種類，色）
+　　背景色設定
+　　文字の横方向位置を中央
+　　縦方向の位置を中央
+
+表の見出し部について
+    線設定（太さ，種類，色）
+　　背景色設定
+　　文字の横方向位置を右側
+　　縦方向の位置を中央
+　　パディング上下左右5px
+
+</code></pre>
+</td>
+</tr>
+</table>
+<ul>
+<li>test03.htmlの表示例
+<ul>
+<li><img src="./images/8-2-12.png" width=60%></li>
+</ul></li>
+</ul>
+<h2 data-number="2.4" id="練習問題9-1"><span class="header-section-number">2.4</span> 練習問題9-1</h2>
+<p>Kadai09フォルダを作成してください．<br />
+classroomからtest.jpgをダウンロードし，Kadai09フォルダにアップロードしてください．<br />
+また、index.html, history.html, dept.htmlの3つのファイルを作成してください．<br />
+それぞれのファイルには以下を記述してください．</p>
+<div class="mytable"">
+<p class="mytdh">source</p>
+<p class="mytdh">result</p>
+</div>
+<div class="mytable"">
+<div class="mytd">
+<div class="sourceCode" id="lst:index" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"><span id="lst:index-1"><a href="#lst:index-1"></a><span class="co">&lt;!-- index.htmlの内容は以下の通り --&gt;</span></span>
+<span id="lst:index-2"><a href="#lst:index-2"></a><span class="kw">&lt;html&gt;</span> </span>
+<span id="lst:index-3"><a href="#lst:index-3"></a> </span>
+<span id="lst:index-4"><a href="#lst:index-4"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="lst:index-5"><a href="#lst:index-5"></a><span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;UTF-8&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:index-6"><a href="#lst:index-6"></a><span class="kw">&lt;title&gt;</span>青山学院大学について<span class="kw">&lt;/title&gt;</span></span>
+<span id="lst:index-7"><a href="#lst:index-7"></a><span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;e02.css&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:index-8"><a href="#lst:index-8"></a><span class="kw">&lt;/head&gt;</span></span>
+<span id="lst:index-9"><a href="#lst:index-9"></a></span>
+<span id="lst:index-10"><a href="#lst:index-10"></a><span class="kw">&lt;body&gt;</span></span>
+<span id="lst:index-11"><a href="#lst:index-11"></a></span>
+<span id="lst:index-12"><a href="#lst:index-12"></a><span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;test.jpg&quot;</span><span class="ot"> width=</span><span class="st">&quot;60&quot;</span><span class="ot"> alt=</span><span class="st">&quot;青学校章&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:index-13"><a href="#lst:index-13"></a><span class="kw">&lt;h1&gt;</span>青山学院大学について<span class="kw">&lt;/h1&gt;</span></span>
+<span id="lst:index-14"><a href="#lst:index-14"></a><span class="kw">&lt;p&gt;</span></span>
+<span id="lst:index-15"><a href="#lst:index-15"></a>青山キャンパスと相模原キャンパスの2キャンパス制。2013年度からは人文科学系と社会科学系学部の学生は、都心の青山キャンパスに通います。理工学部と社会情報学部の学生は、広々として設備の整った相模原キャンパスに通います．</span>
+<span id="lst:index-16"><a href="#lst:index-16"></a><span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:index-17"><a href="#lst:index-17"></a><span class="kw">&lt;ul&gt;</span></span>
+<span id="lst:index-18"><a href="#lst:index-18"></a><span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;dept.html&quot;</span><span class="kw">&gt;</span>学部構成<span class="kw">&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="lst:index-19"><a href="#lst:index-19"></a><span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;history.html&quot;</span><span class="kw">&gt;</span>沿革<span class="kw">&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="lst:index-20"><a href="#lst:index-20"></a><span class="kw">&lt;/ul&gt;</span></span>
+<span id="lst:index-21"><a href="#lst:index-21"></a></span>
+<span id="lst:index-22"><a href="#lst:index-22"></a></span>
+<span id="lst:index-23"><a href="#lst:index-23"></a><span class="kw">&lt;/body&gt;</span></span>
+<span id="lst:index-24"><a href="#lst:index-24"></a><span class="kw">&lt;/html&gt;</span></span></code></pre></div>
+</div>
+<iframe class="mytd" src="src/index.html" class="myiframe"></iframe>
+</div>
+　　
+<div class="mytable"">
+<p class="mytdh">source</p>
+<p class="mytdh">result</p>
+</div>
+<div class="mytable"">
+<div class="mytd">
+<div class="sourceCode" id="lst:history" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"><span id="lst:history-1"><a href="#lst:history-1"></a><span class="co">&lt;!-- history.htmlの内容は以下の通り --&gt;</span></span>
+<span id="lst:history-2"><a href="#lst:history-2"></a><span class="kw">&lt;html&gt;</span> </span>
+<span id="lst:history-3"><a href="#lst:history-3"></a></span>
+<span id="lst:history-4"><a href="#lst:history-4"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="lst:history-5"><a href="#lst:history-5"></a><span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;UTF-8&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:history-6"><a href="#lst:history-6"></a><span class="kw">&lt;title&gt;</span>青山学院大学の沿革<span class="kw">&lt;/title&gt;</span></span>
+<span id="lst:history-7"><a href="#lst:history-7"></a><span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;e02.css&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:history-8"><a href="#lst:history-8"></a><span class="kw">&lt;/head&gt;</span></span>
+<span id="lst:history-9"><a href="#lst:history-9"></a></span>
+<span id="lst:history-10"><a href="#lst:history-10"></a><span class="kw">&lt;body&gt;</span></span>
+<span id="lst:history-11"><a href="#lst:history-11"></a><span class="kw">&lt;h1&gt;</span>沿革<span class="kw">&lt;/h1&gt;</span></span>
+<span id="lst:history-12"><a href="#lst:history-12"></a><span class="kw">&lt;p&gt;</span></span>
+<span id="lst:history-13"><a href="#lst:history-13"></a>青山学院の歴史は、米国メソジスト監督教会が日本に派遣した宣教師によって創設された3つの学校、1874年にドーラ・E・スクーンメーカー女史によって麻布に開校された「女子小学校」、1878年にジュリアス・ソーパー博士によって築地に開校された「耕教学舎」、そして1879年にロバート・S・マクレイ博士によって横浜に開校された「美會神学校」をその源流とします。</span>
+<span id="lst:history-14"><a href="#lst:history-14"></a><span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:history-15"><a href="#lst:history-15"></a><span class="kw">&lt;p&gt;</span></span>
+<span id="lst:history-16"><a href="#lst:history-16"></a>青山学院大学は、この青山学院を母体として1949年に新制大学として開設され、2009年には開学60周年を迎えました。伝統を大切にしながら、21世紀の総合大学としてあるべき姿を求めて、常に変革をしています。</span>
+<span id="lst:history-17"><a href="#lst:history-17"></a><span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:history-18"><a href="#lst:history-18"></a></span>
+<span id="lst:history-19"><a href="#lst:history-19"></a><span class="kw">&lt;h2&gt;</span>初期年表<span class="kw">&lt;/h2&gt;</span></span>
+<span id="lst:history-20"><a href="#lst:history-20"></a><span class="kw">&lt;table&gt;</span></span>
+<span id="lst:history-21"><a href="#lst:history-21"></a>	<span class="kw">&lt;tr&gt;&lt;th&gt;</span>1874年<span class="kw">&lt;/th&gt;&lt;td&gt;</span>ドーラ・Ｅ・スクーンメーカー　「女子小学校」を麻布に開校<span class="kw">&lt;/td&gt;&lt;/tr&gt;</span></span>
+<span id="lst:history-22"><a href="#lst:history-22"></a>	<span class="kw">&lt;tr&gt;&lt;th&gt;</span>1878年<span class="kw">&lt;/th&gt;&lt;td&gt;</span>ジュリアス・ソーパー　築地に「耕教学舎」開校<span class="kw">&lt;/td&gt;&lt;/tr&gt;</span></span>
+<span id="lst:history-23"><a href="#lst:history-23"></a>	<span class="kw">&lt;tr&gt;&lt;th&gt;</span>1879年<span class="kw">&lt;/th&gt;&lt;td&gt;</span>ロバート・Ｓ・マクレイ　横浜に「美會神学校」開校<span class="kw">&lt;/td&gt;&lt;/tr&gt;</span></span>
+<span id="lst:history-24"><a href="#lst:history-24"></a>	<span class="kw">&lt;tr&gt;&lt;th&gt;</span>1882年<span class="kw">&lt;/th&gt;&lt;td&gt;</span>「美會神学校」は「耕教学舎」を祖とする「東京英学校」に合同<span class="kw">&lt;/td&gt;&lt;/tr&gt;</span></span>
+<span id="lst:history-25"><a href="#lst:history-25"></a>	<span class="kw">&lt;tr&gt;&lt;th&gt;</span>1883年<span class="kw">&lt;/th&gt;&lt;td&gt;</span>「東京英学校」は現在の青山に移り「東京英和学校」と改称<span class="kw">&lt;/td&gt;&lt;/tr&gt;</span></span>
+<span id="lst:history-26"><a href="#lst:history-26"></a>	<span class="kw">&lt;tr&gt;&lt;th&gt;</span>1888年<span class="kw">&lt;/th&gt;&lt;td&gt;</span>「女子小学校」を祖とする「海岸女学校」の上級生は、現在の青山の地に移り「東京英和女学校」と称す<span class="kw">&lt;/td&gt;&lt;/tr&gt;</span></span>
+<span id="lst:history-27"><a href="#lst:history-27"></a>	<span class="kw">&lt;tr&gt;&lt;th&gt;</span>1894年<span class="kw">&lt;/th&gt;&lt;td&gt;</span>「東京英和学校」は「青山学院」と改称<span class="kw">&lt;/td&gt;&lt;/tr&gt;</span></span>
+<span id="lst:history-28"><a href="#lst:history-28"></a>	<span class="kw">&lt;tr&gt;&lt;th&gt;</span>1895年<span class="kw">&lt;/th&gt;&lt;td&gt;</span>「東京英和女学校」は「青山女学院」と改称<span class="kw">&lt;/td&gt;&lt;/tr&gt;</span></span>
+<span id="lst:history-29"><a href="#lst:history-29"></a>	<span class="kw">&lt;tr&gt;&lt;th&gt;</span>1927年<span class="kw">&lt;/th&gt;&lt;td&gt;</span>「青山学院」と「青山女学院」の合同，文部省より許可される<span class="kw">&lt;/td&gt;&lt;/tr&gt;</span></span>
+<span id="lst:history-30"><a href="#lst:history-30"></a><span class="kw">&lt;/table&gt;</span></span>
+<span id="lst:history-31"><a href="#lst:history-31"></a></span>
+<span id="lst:history-32"><a href="#lst:history-32"></a><span class="kw">&lt;/body&gt;</span></span>
+<span id="lst:history-33"><a href="#lst:history-33"></a><span class="kw">&lt;/html&gt;</span></span></code></pre></div>
+</div>
+<iframe class="mytd" src="src/history.html" class="myiframe"></iframe>
+</div>
+<div class="mytable"">
+<p class="mytdh">source</p>
+<p class="mytdh">result</p>
+</div>
+<div class="mytable"">
+<div class="mytd">
+<div class="sourceCode" id="lst:dept" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"><span id="lst:dept-1"><a href="#lst:dept-1"></a><span class="co">&lt;!-- dept.htmlの内容は以下の通り --&gt;</span></span>
+<span id="lst:dept-2"><a href="#lst:dept-2"></a><span class="kw">&lt;html&gt;</span> </span>
+<span id="lst:dept-3"><a href="#lst:dept-3"></a></span>
+<span id="lst:dept-4"><a href="#lst:dept-4"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="lst:dept-5"><a href="#lst:dept-5"></a><span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;UTF-8&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:dept-6"><a href="#lst:dept-6"></a><span class="kw">&lt;title&gt;</span>学部について<span class="kw">&lt;/title&gt;</span></span>
+<span id="lst:dept-7"><a href="#lst:dept-7"></a><span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;e02.css&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:dept-8"><a href="#lst:dept-8"></a><span class="kw">&lt;/head&gt;</span></span>
+<span id="lst:dept-9"><a href="#lst:dept-9"></a></span>
+<span id="lst:dept-10"><a href="#lst:dept-10"></a><span class="kw">&lt;body&gt;</span></span>
+<span id="lst:dept-11"><a href="#lst:dept-11"></a></span>
+<span id="lst:dept-12"><a href="#lst:dept-12"></a><span class="kw">&lt;h1&gt;</span>学部構成<span class="kw">&lt;/h1&gt;</span></span>
+<span id="lst:dept-13"><a href="#lst:dept-13"></a><span class="kw">&lt;p&gt;</span>青山学院大学は、現在9学部から構成される総合大学です。<span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:dept-14"><a href="#lst:dept-14"></a></span>
+<span id="lst:dept-15"><a href="#lst:dept-15"></a><span class="kw">&lt;ul&gt;</span></span>
+<span id="lst:dept-16"><a href="#lst:dept-16"></a><span class="kw">&lt;li&gt;</span>文学部<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:dept-17"><a href="#lst:dept-17"></a><span class="kw">&lt;li&gt;</span>教育人間科学部<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:dept-18"><a href="#lst:dept-18"></a><span class="kw">&lt;li&gt;</span>経済学部<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:dept-19"><a href="#lst:dept-19"></a><span class="kw">&lt;li&gt;</span>経営学部<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:dept-20"><a href="#lst:dept-20"></a><span class="kw">&lt;li&gt;</span>法学部<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:dept-21"><a href="#lst:dept-21"></a><span class="kw">&lt;li&gt;</span>理工学部<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:dept-22"><a href="#lst:dept-22"></a><span class="kw">&lt;li&gt;</span>国際政治経済学部<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:dept-23"><a href="#lst:dept-23"></a><span class="kw">&lt;li&gt;</span>総合文化政策学部<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:dept-24"><a href="#lst:dept-24"></a><span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;ssi.html&quot;</span><span class="kw">&gt;</span>社会情報学部<span class="kw">&lt;/a&gt;&lt;/li&gt;</span></span>
+<span id="lst:dept-25"><a href="#lst:dept-25"></a><span class="kw">&lt;/ul&gt;</span></span>
+<span id="lst:dept-26"><a href="#lst:dept-26"></a></span>
+<span id="lst:dept-27"><a href="#lst:dept-27"></a></span>
+<span id="lst:dept-28"><a href="#lst:dept-28"></a><span class="kw">&lt;/body&gt;</span></span>
+<span id="lst:dept-29"><a href="#lst:dept-29"></a><span class="kw">&lt;/html&gt;</span></span></code></pre></div>
+</div>
+<iframe class="mytd" src="src/dept.html" class="myiframe"></iframe>
+</div>
+<p>上記3つのhtmlファイルを作成後，以下の仕上がり例に近づくよう，htmlファイルの修正及びcssファイル（e02.css）の作成をして下さい．</p>
+<ul>
+<li>index.htmlの表示例
+<ul>
+<li><img src="./images/index.png" width=60%></li>
+</ul></li>
+<li>history.htmlの表示例
+<ul>
+<li><img src="./images/history.png" width=60%></li>
+</ul></li>
+<li>dept.htmlの表示例
+<ul>
+<li><img src="./images/dept.png" width=60%></li>
+</ul></li>
+</ul>
+<h2 data-number="2.5" id="練習問題9-2"><span class="header-section-number">2.5</span> 練習問題9-2</h2>
+<p>Kadai09フォルダにssi.htmlファイルを新規作成し，以下の内容を記述してください．</p>
+<div class="mytable"">
+<p class="mytdh">source</p>
+<p class="mytdh">result</p>
+</div>
+<div class="mytable"">
+<div class="mytd">
+<div class="sourceCode" id="lst:ssi" data-caption=""><pre class="sourceCode numberSource numberLines html"><code class="sourceCode html"><span id="lst:ssi-1"><a href="#lst:ssi-1"></a><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></span>
+<span id="lst:ssi-2"><a href="#lst:ssi-2"></a> </span>
+<span id="lst:ssi-3"><a href="#lst:ssi-3"></a><span class="kw">&lt;html</span><span class="ot"> lang=</span><span class="st">&quot;ja&quot;</span><span class="kw">&gt;</span> </span>
+<span id="lst:ssi-4"><a href="#lst:ssi-4"></a></span>
+<span id="lst:ssi-5"><a href="#lst:ssi-5"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="lst:ssi-6"><a href="#lst:ssi-6"></a><span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;UTF-8&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:ssi-7"><a href="#lst:ssi-7"></a><span class="kw">&lt;title&gt;</span>青山学院大学について<span class="kw">&lt;/title&gt;</span></span>
+<span id="lst:ssi-8"><a href="#lst:ssi-8"></a><span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;ssi.css&quot;</span><span class="kw">&gt;</span></span>
+<span id="lst:ssi-9"><a href="#lst:ssi-9"></a><span class="kw">&lt;/head&gt;</span></span>
+<span id="lst:ssi-10"><a href="#lst:ssi-10"></a></span>
+<span id="lst:ssi-11"><a href="#lst:ssi-11"></a><span class="kw">&lt;body&gt;</span></span>
+<span id="lst:ssi-12"><a href="#lst:ssi-12"></a></span>
+<span id="lst:ssi-13"><a href="#lst:ssi-13"></a><span class="kw">&lt;h1&gt;</span>社会情報学部の教育<span class="kw">&lt;/h1&gt;</span></span>
+<span id="lst:ssi-14"><a href="#lst:ssi-14"></a></span>
+<span id="lst:ssi-15"><a href="#lst:ssi-15"></a><span class="kw">&lt;h2&gt;</span>学際的融合領域を学ぶ<span class="kw">&lt;/h2&gt;</span></span>
+<span id="lst:ssi-16"><a href="#lst:ssi-16"></a><span class="kw">&lt;p&gt;</span></span>
+<span id="lst:ssi-17"><a href="#lst:ssi-17"></a>社会情報学部が育成するのは、広い視野を持ち、多様な背景を持つ他者とコミュニケーションをとって、実社会の複雑な問題の解決に貢献できる人材です。実社会の問題は複雑で、特定領域の専門家だけでは解決できません。多様な技能を持つ人の協力が必要です。社会情報学部では、異分野融合領域で活躍できる人材を育成します。たとえば、社会や産業の仕組みを理解したうえで情報システムを設計できる人、組織での個人特性と集団力学を理解してリーダーシップを発揮できる人、ユーザである人間の特性を理解したうえでメディアコミュニケーションをデザインできる人です。</span>
+<span id="lst:ssi-18"><a href="#lst:ssi-18"></a><span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:ssi-19"><a href="#lst:ssi-19"></a><span class="kw">&lt;p&gt;</span></span>
+<span id="lst:ssi-20"><a href="#lst:ssi-20"></a>すべての学生は、社会、情報、人間の3分野のうち、2つの分野が融合する学際領域を中心に学びます。3年次以降、「社会・情報コース」「社会・人間コース」「人間・情報コース」の、いずれか1コースに所属します。それぞれのコースにおいて、2つの分野の「エリア科目」と、異分野融合領域の「リエゾン」科目を履修します。融合領域のおもしろさと重要性を理解してもらうために、カリキュラムに工夫を凝らしました。たとえば、2人の教員が協力して作り上げるコラボレーション型授業を設計しました。現代社会での問題を取り上げ、専門の異なる教員がそれぞれの立場から講義したあと、公開ディスカッションを行います。こうした講義とディスカッションにより、学生は多角的な視点から問題を理解します。最後に、授業内容を踏まえて設定された課題に取り組みます。学んだことをよく整理して、そこからさらに考えを深めていきます。このようなコラボレーション型授業があるのは、おそらく日本でここ社会情報学部だけです。</span>
+<span id="lst:ssi-21"><a href="#lst:ssi-21"></a><span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:ssi-22"><a href="#lst:ssi-22"></a><span class="kw">&lt;p&gt;</span></span>
+<span id="lst:ssi-23"><a href="#lst:ssi-23"></a>どのコースに進む学生も、1年次と2年次には、英語、コンピュータ、数学（統計学を含む）を徹底的に鍛えます。社会情報学部の卒業生に、英語でコミュニケーションなんて無理、プログラミングは1度もやったことがない、高校数学から先はお手上げ、という人は1人もいません。「苦手」のレベルが違います。英語の1年次必修科目は、日本語を使用せず、英語だけで進められます。Visual Basicを用いたプログラミングも、1年次の必修科目です。数学を2科目以上履修し、さらに統計学を必修として学びます。</span>
+<span id="lst:ssi-24"><a href="#lst:ssi-24"></a></span>
+<span id="lst:ssi-25"><a href="#lst:ssi-25"></a>多様な背景を持つ他者とコミュニケーションをとって協働的問題解決を行う力を養成するために、グループでプロジェクトに取り組む演習科目がいくつか用意されています。協働的問題解決を行うスキルを段階的に身につけます。プロジェクトで取り組むのは、企業や自治体から与えられた、実社会での本物の問題です。数理分析のスキルを訓練された社会情報学部の学生らしく、数量的データに基づいた論理的な問題分析と解決策提案を行います。一方で、発想法の訓練を行い、論理を超えた創造的アイデアを出します。グループワークをすすめることで、コミュニケーション力が身についていきます。</span>
+<span id="lst:ssi-26"><a href="#lst:ssi-26"></a><span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:ssi-27"><a href="#lst:ssi-27"></a></span>
+<span id="lst:ssi-28"><a href="#lst:ssi-28"></a><span class="kw">&lt;h2&gt;</span>カリキュラムでの科目<span class="kw">&lt;/h2&gt;</span></span>
+<span id="lst:ssi-29"><a href="#lst:ssi-29"></a><span class="kw">&lt;p&gt;</span></span>
+<span id="lst:ssi-30"><a href="#lst:ssi-30"></a>カリキュラムで設置される具体的な科目をいくつか紹介します。</span>
+<span id="lst:ssi-31"><a href="#lst:ssi-31"></a><span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:ssi-32"><a href="#lst:ssi-32"></a></span>
+<span id="lst:ssi-33"><a href="#lst:ssi-33"></a><span class="kw">&lt;h3&gt;</span>基礎科目<span class="kw">&lt;/h3&gt;</span></span>
+<span id="lst:ssi-34"><a href="#lst:ssi-34"></a><span class="kw">&lt;ul&gt;</span></span>
+<span id="lst:ssi-35"><a href="#lst:ssi-35"></a><span class="kw">&lt;li&gt;</span>イングリッシュコミュニケーション<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:ssi-36"><a href="#lst:ssi-36"></a><span class="kw">&lt;li&gt;</span>時事英語&lt;/li&gt;</span>
+<span id="lst:ssi-37"><a href="#lst:ssi-37"></a><span class="kw">&lt;li&gt;</span>コンピュータ実習<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:ssi-38"><a href="#lst:ssi-38"></a><span class="kw">&lt;li&gt;</span>社会数理入門<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:ssi-39"><a href="#lst:ssi-39"></a><span class="kw">&lt;li&gt;</span>経済数学<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:ssi-40"><a href="#lst:ssi-40"></a><span class="kw">&lt;li&gt;</span>統計入門<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:ssi-41"><a href="#lst:ssi-41"></a><span class="kw">&lt;li&gt;</span>社会統計<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:ssi-42"><a href="#lst:ssi-42"></a><span class="kw">&lt;li&gt;</span>社会調査法&lt;/li&gt;</span>
+<span id="lst:ssi-43"><a href="#lst:ssi-43"></a><span class="kw">&lt;li&gt;</span>データ分析<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:ssi-44"><a href="#lst:ssi-44"></a><span class="kw">&lt;li&gt;</span>コミュニケーション基礎<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:ssi-45"><a href="#lst:ssi-45"></a><span class="kw">&lt;li&gt;</span>プロジェクトマネジメント<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:ssi-46"><a href="#lst:ssi-46"></a><span class="kw">&lt;/ul&gt;</span></span>
+<span id="lst:ssi-47"><a href="#lst:ssi-47"></a></span>
+<span id="lst:ssi-48"><a href="#lst:ssi-48"></a><span class="kw">&lt;p&gt;</span></span>
+<span id="lst:ssi-49"><a href="#lst:ssi-49"></a>英語、コンピュータ、数学（統計学を含む）の素養は、すべての学びの基礎となります。これらは社会に出てからも非常に有用な基礎力となりますので、いくつかの必修科目を用意して訓練します。これらを学ぶ科目に加え、社会調査やデータ分析を学ぶ科目、情報コミュニケーションの基礎を学ぶ科目、プロジェクトマネジメントを学ぶ科目などが、基礎科目として設置されています。</span>
+<span id="lst:ssi-50"><a href="#lst:ssi-50"></a><span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:ssi-51"><a href="#lst:ssi-51"></a></span>
+<span id="lst:ssi-52"><a href="#lst:ssi-52"></a><span class="kw">&lt;h3&gt;</span>異分野融合の姿を学ぶ「フルリエゾン」科目<span class="kw">&lt;/h3&gt;</span></span>
+<span id="lst:ssi-53"><a href="#lst:ssi-53"></a></span>
+<span id="lst:ssi-54"><a href="#lst:ssi-54"></a><span class="kw">&lt;ul&gt;</span></span>
+<span id="lst:ssi-55"><a href="#lst:ssi-55"></a><span class="kw">&lt;li&gt;</span>ソリューション入門<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:ssi-56"><a href="#lst:ssi-56"></a><span class="kw">&lt;li&gt;</span>社会情報体験演習<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:ssi-57"><a href="#lst:ssi-57"></a><span class="kw">&lt;li&gt;</span>ソリューション応用<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:ssi-58"><a href="#lst:ssi-58"></a><span class="kw">&lt;/ul&gt;</span></span>
+<span id="lst:ssi-59"><a href="#lst:ssi-59"></a><span class="kw">&lt;p&gt;</span></span>
+<span id="lst:ssi-60"><a href="#lst:ssi-60"></a>社会情報学部を卒業するとき、あなたはどのような人材になっているでしょうか？そのイメージを持ってもらうための科目が、１年次と２年次の必修科目として設置されています。「ソリューション入門」では講義形式で異分野融合の姿を学びます。「社会情報体験演習」では、演習を通して、４年間でどのようなことを学び、何ができるようになるのかを体感します。「ソリューション応用」では、複数の学術分野を背景にして活躍する社会人ゲストによる講演が行われます。</span>
+<span id="lst:ssi-61"><a href="#lst:ssi-61"></a><span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:ssi-62"><a href="#lst:ssi-62"></a><span class="kw">&lt;ul&gt;</span></span>
+<span id="lst:ssi-63"><a href="#lst:ssi-63"></a><span class="kw">&lt;li&gt;</span>経済学概論<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:ssi-64"><a href="#lst:ssi-64"></a><span class="kw">&lt;li&gt;</span>情報科学概論<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:ssi-65"><a href="#lst:ssi-65"></a><span class="kw">&lt;li&gt;</span>人間科学概論<span class="kw">&lt;/li&gt;</span></span>
+<span id="lst:ssi-66"><a href="#lst:ssi-66"></a><span class="kw">&lt;/ul&gt;</span></span>
+<span id="lst:ssi-67"><a href="#lst:ssi-67"></a><span class="kw">&lt;p&gt;</span></span>
+<span id="lst:ssi-68"><a href="#lst:ssi-68"></a>学際領域での学習を始める前に、それぞれの学術分野の概要を理解しておく必要があります。社会、情報、人間という３分野の基礎を１年次に学びます。</span>
+<span id="lst:ssi-69"><a href="#lst:ssi-69"></a><span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:ssi-70"><a href="#lst:ssi-70"></a></span>
+<span id="lst:ssi-71"><a href="#lst:ssi-71"></a><span class="kw">&lt;h3&gt;</span>社会、情報、人間分野の「エリア科目」<span class="kw">&lt;/h3&gt;</span></span>
+<span id="lst:ssi-72"><a href="#lst:ssi-72"></a></span>
+<span id="lst:ssi-73"><a href="#lst:ssi-73"></a><span class="kw">&lt;p&gt;</span></span>
+<span id="lst:ssi-74"><a href="#lst:ssi-74"></a>社会、情報、人間という３分野の基礎を１年次に学んだあと、それぞれの分野でさらに学習を進めるための科目が設置されています。ひとつの分野だけではなく、複数の分野の科目を履修する必要があります。知識の幅を広げ、異分野融合の基盤とします。</span>
+<span id="lst:ssi-75"><a href="#lst:ssi-75"></a><span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:ssi-76"><a href="#lst:ssi-76"></a></span>
+<span id="lst:ssi-77"><a href="#lst:ssi-77"></a><span class="kw">&lt;table&gt;</span></span>
+<span id="lst:ssi-78"><a href="#lst:ssi-78"></a><span class="kw">&lt;tr&gt;</span></span>
+<span id="lst:ssi-79"><a href="#lst:ssi-79"></a><span class="kw">&lt;th&gt;</span>社会エリア科目	<span class="kw">&lt;/th&gt;</span></span>
+<span id="lst:ssi-80"><a href="#lst:ssi-80"></a><span class="kw">&lt;td&gt;</span></span>
+<span id="lst:ssi-81"><a href="#lst:ssi-81"></a>マクロ経済学<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-82"><a href="#lst:ssi-82"></a>ミクロ経済学<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-83"><a href="#lst:ssi-83"></a>エネルギー経済論<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-84"><a href="#lst:ssi-84"></a>国際ファイナンス<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-85"><a href="#lst:ssi-85"></a>コーポレートガバナンス<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-86"><a href="#lst:ssi-86"></a><span class="kw">&lt;/td&gt;</span></span>
+<span id="lst:ssi-87"><a href="#lst:ssi-87"></a><span class="kw">&lt;/tr&gt;</span></span>
+<span id="lst:ssi-88"><a href="#lst:ssi-88"></a></span>
+<span id="lst:ssi-89"><a href="#lst:ssi-89"></a><span class="kw">&lt;tr&gt;</span></span>
+<span id="lst:ssi-90"><a href="#lst:ssi-90"></a><span class="kw">&lt;th&gt;</span>情報エリア科目<span class="kw">&lt;/th&gt;</span></span>
+<span id="lst:ssi-91"><a href="#lst:ssi-91"></a><span class="kw">&lt;td&gt;</span></span>
+<span id="lst:ssi-92"><a href="#lst:ssi-92"></a>プログラミング基礎<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-93"><a href="#lst:ssi-93"></a>データベース基礎<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-94"><a href="#lst:ssi-94"></a>情報システム計画<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-95"><a href="#lst:ssi-95"></a>ウェブコンテンツ作成演習<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-96"><a href="#lst:ssi-96"></a>ネットワーク構築演習<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-97"><a href="#lst:ssi-97"></a><span class="kw">&lt;/td&gt;</span></span>
+<span id="lst:ssi-98"><a href="#lst:ssi-98"></a><span class="kw">&lt;/tr&gt;</span></span>
+<span id="lst:ssi-99"><a href="#lst:ssi-99"></a></span>
+<span id="lst:ssi-100"><a href="#lst:ssi-100"></a><span class="kw">&lt;tr&gt;</span></span>
+<span id="lst:ssi-101"><a href="#lst:ssi-101"></a><span class="kw">&lt;th&gt;</span>人間エリア科目	<span class="kw">&lt;/th&gt;</span></span>
+<span id="lst:ssi-102"><a href="#lst:ssi-102"></a><span class="kw">&lt;td&gt;</span></span>
+<span id="lst:ssi-103"><a href="#lst:ssi-103"></a>認知心理学<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-104"><a href="#lst:ssi-104"></a>学習心理学<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-105"><a href="#lst:ssi-105"></a>文化心理学<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-106"><a href="#lst:ssi-106"></a>発達心理学<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-107"><a href="#lst:ssi-107"></a>スポーツと心の科学<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-108"><a href="#lst:ssi-108"></a><span class="kw">&lt;/td&gt;</span></span>
+<span id="lst:ssi-109"><a href="#lst:ssi-109"></a><span class="kw">&lt;/tr&gt;</span></span>
+<span id="lst:ssi-110"><a href="#lst:ssi-110"></a><span class="kw">&lt;/table&gt;</span></span>
+<span id="lst:ssi-111"><a href="#lst:ssi-111"></a></span>
+<span id="lst:ssi-112"><a href="#lst:ssi-112"></a><span class="kw">&lt;h3&gt;</span>学際領域の「リエゾン」科目<span class="kw">&lt;/h3&gt;</span></span>
+<span id="lst:ssi-113"><a href="#lst:ssi-113"></a><span class="kw">&lt;p&gt;</span></span>
+<span id="lst:ssi-114"><a href="#lst:ssi-114"></a>「社会・情報コース」「社会・人間コース」「人間・情報コース」それぞれにおいて、学際領域を学ぶ「リエゾン」科目が設置されています。</span>
+<span id="lst:ssi-115"><a href="#lst:ssi-115"></a><span class="kw">&lt;/p&gt;</span></span>
+<span id="lst:ssi-116"><a href="#lst:ssi-116"></a></span>
+<span id="lst:ssi-117"><a href="#lst:ssi-117"></a><span class="kw">&lt;table&gt;</span></span>
+<span id="lst:ssi-118"><a href="#lst:ssi-118"></a><span class="kw">&lt;tr&gt;</span></span>
+<span id="lst:ssi-119"><a href="#lst:ssi-119"></a><span class="kw">&lt;th&gt;</span>「社会・情報コース」のリエゾン科目	<span class="kw">&lt;/th&gt;</span></span>
+<span id="lst:ssi-120"><a href="#lst:ssi-120"></a><span class="kw">&lt;td&gt;</span></span>
+<span id="lst:ssi-121"><a href="#lst:ssi-121"></a>情報社会論<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-122"><a href="#lst:ssi-122"></a>情報産業論<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-123"><a href="#lst:ssi-123"></a>情報リスク論<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-124"><a href="#lst:ssi-124"></a>広報論<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-125"><a href="#lst:ssi-125"></a>リスクマネジメント論<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-126"><a href="#lst:ssi-126"></a>プロジェクトマネジメント<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-127"><a href="#lst:ssi-127"></a>システム分析・設計基礎<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-128"><a href="#lst:ssi-128"></a>情報倫理<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-129"><a href="#lst:ssi-129"></a>情報化社会と法&lt;br&gt;</span>
+<span id="lst:ssi-130"><a href="#lst:ssi-130"></a><span class="kw">&lt;/td&gt;</span></span>
+<span id="lst:ssi-131"><a href="#lst:ssi-131"></a><span class="kw">&lt;/tr&gt;</span></span>
+<span id="lst:ssi-132"><a href="#lst:ssi-132"></a><span class="kw">&lt;tr&gt;</span></span>
+<span id="lst:ssi-133"><a href="#lst:ssi-133"></a><span class="kw">&lt;th&gt;</span>「社会・人間コース」のリエゾン科目	<span class="kw">&lt;/th&gt;</span></span>
+<span id="lst:ssi-134"><a href="#lst:ssi-134"></a><span class="kw">&lt;td&gt;</span></span>
+<span id="lst:ssi-135"><a href="#lst:ssi-135"></a>合理的思考と社会行動<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-136"><a href="#lst:ssi-136"></a>社会心理学<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-137"><a href="#lst:ssi-137"></a>ワークショップデザイン<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-138"><a href="#lst:ssi-138"></a>社会学<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-139"><a href="#lst:ssi-139"></a>コミュニケーション心理学<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-140"><a href="#lst:ssi-140"></a>ジャーナリズム<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-141"><a href="#lst:ssi-141"></a>意思決定と実践<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-142"><a href="#lst:ssi-142"></a>リーダシップの理論と実践<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-143"><a href="#lst:ssi-143"></a><span class="kw">&lt;/td&gt;</span></span>
+<span id="lst:ssi-144"><a href="#lst:ssi-144"></a><span class="kw">&lt;/tr&gt;</span></span>
+<span id="lst:ssi-145"><a href="#lst:ssi-145"></a><span class="kw">&lt;tr&gt;</span></span>
+<span id="lst:ssi-146"><a href="#lst:ssi-146"></a><span class="kw">&lt;th&gt;</span>「人間・情報コース」のリエゾン科目	<span class="kw">&lt;/th&gt;</span></span>
+<span id="lst:ssi-147"><a href="#lst:ssi-147"></a><span class="kw">&lt;td&gt;</span></span>
+<span id="lst:ssi-148"><a href="#lst:ssi-148"></a>マルチメディア学習論<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-149"><a href="#lst:ssi-149"></a>ネット社会とコミュニティ<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-150"><a href="#lst:ssi-150"></a>ヒューマンインタフェース<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-151"><a href="#lst:ssi-151"></a>メディアコミュニケーション<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-152"><a href="#lst:ssi-152"></a>メディア論<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-153"><a href="#lst:ssi-153"></a>情報デザイン<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-154"><a href="#lst:ssi-154"></a>メディアコンテンツ制作&lt;br&gt;</span>
+<span id="lst:ssi-155"><a href="#lst:ssi-155"></a>コンテンツマネジメント<span class="kw">&lt;br&gt;</span></span>
+<span id="lst:ssi-156"><a href="#lst:ssi-156"></a><span class="kw">&lt;/td&gt;</span></span>
+<span id="lst:ssi-157"><a href="#lst:ssi-157"></a><span class="kw">&lt;/tr&gt;</span></span>
+<span id="lst:ssi-158"><a href="#lst:ssi-158"></a></span>
+<span id="lst:ssi-159"><a href="#lst:ssi-159"></a><span class="kw">&lt;/table&gt;</span></span>
+<span id="lst:ssi-160"><a href="#lst:ssi-160"></a></span>
+<span id="lst:ssi-161"><a href="#lst:ssi-161"></a><span class="kw">&lt;/body&gt;</span></span>
+<span id="lst:ssi-162"><a href="#lst:ssi-162"></a><span class="kw">&lt;/html&gt;</span></span></code></pre></div>
+</div>
+<iframe class="mytd" src="src/ssi.html" class="myiframe"></iframe>
+</div>
+<p>以下の仕上がりに近づくよう，ssi.cssを作成して下さい．<br />
+ただし，ssi.htmlファイルは，なにも修正しないこと．</p>
+<ul>
+<li>ssi.htmlの表示例
+<ul>
+<li><img src="./images/ssi-1.png" width=60%></li>
+<li><img src="./images/ssi-2.png" width=60%></li>
+<li><img src="./images/ssi-3.png" width=60%></li>
+</ul></li>
+</ul>
 </body>
 </html>

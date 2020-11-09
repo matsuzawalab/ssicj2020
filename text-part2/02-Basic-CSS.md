@@ -594,7 +594,7 @@ personクラスにマウスオーバーしたら色を赤に
 1. idの方がclassより優先
 1. 後から書いた方が優先
 
-### 文字の回り込みとレイアウト
+### 文字の回り込み
 文字の回り込みは以下のように記述します．
 
 - HTML
@@ -696,3 +696,362 @@ clrというクラス（以降）に対して
 回り込み設定をすることで画像の左側に文字が回り込んでいるのがわかると思います．  
 また，回り込み解除後は元に戻っています．  
 余裕がある人は，&lt;p class="clr"&gt;を元の&lt;p&gt;に戻してみて、文字の回り込みがどうなるかを確認してみてください．
+
+### レイアウト
+文字の回り込みの応用でレイアウトの変更ができます．  
+新規ファイルとしてtest02.htmlを作成し，以下のように記述してください．   
+ここではtest02.cssを呼び出すように記述していますので，このtest02.cssファイルを作成していきます．  
+
+<div code src='2-5'></div>
+
+test02.htmlファイルには以下のように予めIDが指定されています．  
+このIDを利用してレイアウトを作成します．
+
+<table>
+  <tr>
+  <td>
+```
+<body>
+ <div id="all">
+
+　<div id="hdr">
+　　<h1>タイトル</h1>
+　</div>
+
+　<div id="main">
+　　<h2>表</h2>
+　</div>
+
+   <div id="side">
+　　<p>Menu</p>
+　</div>
+
+　<div id="ftr">
+　　<p>青山学院大学 社会情報学部</p>
+　</div>
+
+ </div>
+</body>
+```
+  </td>
+  <td>
+```
+全体を「all」IDに設定
+
+
+タイトル部を「hdr」IDに設定
+
+
+メインとなる部分を「main」IDに設定
+
+
+
+Menu(箇条書き)を「side」IDに設定
+
+
+
+
+下に付ける部分を「ftr」IDに設定
+
+
+
+
+
+
+```
+  </td>
+  </tr>
+</table>
+
+
+test02.cssファイルを以下のように作成します．
+<table>
+  <tr>
+  <td>
+```
+*{
+	margin: 0px;
+}
+
+
+body{
+	width:100%;
+}
+
+#all{
+	margin: 0px auto;
+	width: 750px;
+}
+
+#hdr{
+	width: 100%;
+      background-color: teal;
+}
+
+#main{
+    float: left;
+    width: 500px;
+    background-color: olive;
+}
+
+#side{
+    float: right;
+    width: 250px;
+    background-color: green;
+}
+
+#ftr{
+    clear: both;
+    width: 100%;
+    background-color: lime;
+}
+
+```
+  </td>
+  <td>
+```
+全てに対して
+	marginを0pxに設定
+(レイアウトを組むとき，様々なタグのマージンが影響するため⇒無効化)
+
+
+body部に対して
+	幅をブラウザの100％幅で
+
+
+ID「all」（中身全体の範囲）に対して
+	上下のマージンを0に，左右を自動．
+	幅を750pxに
+（ブラウザの幅を変更しても中身全体の部分は750pxで固定，中央に位置され左右の空白が均等に自動で変更される）
+
+ID「hdr」部に対して
+ 	幅を100％に
+（hdrはallの中に含まれているので，allの幅の100%となる）
+
+
+ID「main」に対して
+	位置を左
+	幅を500px
+
+
+
+ID「side」に対して
+	位置を右
+	幅を250px
+
+
+
+ ID「ftr」部に対して
+ 	位置設定を解除
+	幅を100％に
+（ftrはallの中に含まれているので，allの幅の100%となる）
+
+
+```
+  </td>
+  </tr>
+</table>
+
+- test02.htmlの表示例
+  - <img src="./images/8-2-9.png" width=60%>
+
+
+上記表示例では、すべてのマージンを0pxにしてしまったため，全体的に詰まった印象を受けます．  
+これはpaddingなどで調整しましょう．  
+また左右の要素の高さが不揃いな部分があります．  
+これは本質的には変えることができないので、背景色や枠線で調整します．
+<table>
+  <tr>
+  <td>
+```
+h1, h2{
+	padding: 5px 10px;
+}
+
+table, p{
+	padding: 10px;
+}
+
+
+ul{
+	padding: 5px 0px 5px 40px;
+}
+
+
+```
+  </td>
+  <td>
+```
+h1とh2の要素に対して
+	パディング 上下 5px ，左右10px
+
+
+tableとpの要素に対して
+	パディングを上下左右10px
+
+
+
+ulに対して
+	パディングを 
+　　　上5px，右0px, 
+　　　下5px，左40pxに設定
+```
+  </td>
+  </tr>
+</table>
+
+- test02.htmlの表示例
+  - <img src="./images/8-2-10.png" width=60%>
+
+最後に、全体的に色合いを調整します．  
+#hdrと#ftrの色を揃え，他の部分も適宜修正します．  
+また，中央右に空白部分が存在しますが，これは全体の背景色と#sideの色を揃えることで見えなくします．
+<table>
+  <tr>
+  <td>
+```
+#all{
+	margin: 0px auto;
+	width: 750px;
+	background-color: #fbc7c7;
+}
+
+中略
+
+#side{
+	float: right;
+      width: 250px;
+      background-color: #fbc7c7;
+}
+
+略
+
+```
+  </td>
+  <td>
+```
+all の色を追加
+	色は，一番短い要素と同じ色
+
+この場合 side部が短いので，それと同じ色に設定
+
+
+
+
+ついでにsideの色も変更してみました．
+
+
+
+
+
+省略していますが，hdrとftrの色を揃え，body部も落ち着いた色に変更しています．
+
+```
+  </td>
+  </tr>
+</table>
+
+ - test02.htmlの表示例
+  - <img src="./images/8-2-11.png" width=60%>
+
+
+### 表のスタイル
+表に対してスタイルを適用することもできます.
+test03.htmlを新規作成し，以下を記述してください．
+
+<div code src='2-6'></div>
+
+
+test03.cssを以下のように作成します．
+
+<table>
+  <tr>
+  <td>
+```
+table{	
+	width: 500px;
+      border-collapse: collapse;
+}
+
+th{
+	border: 1px solid black;
+	background-color: #c5c5f8;
+	text-align: center;
+	vertical-align: middle;
+}
+
+td{
+	border: 1px solid black;
+	background-color: #e8e8e8;
+	text-align: right;
+	vertical-align: middle;
+	padding: 5px;
+}
+```
+  </td>
+  <td>
+```
+表に対して
+	幅は500px
+	線は重ねて表示
+
+
+
+表の見出し部について
+	線設定（太さ，種類，色）
+　　背景色設定
+　　文字の横方向位置を中央
+　　縦方向の位置を中央
+
+表の見出し部について
+	線設定（太さ，種類，色）
+　　背景色設定
+　　文字の横方向位置を右側
+　　縦方向の位置を中央
+　　パディング上下左右5px
+
+
+```
+  </td>
+  </tr>
+</table>
+
+ - test03.htmlの表示例
+  - <img src="./images/8-2-12.png" width=60%>
+
+
+## 練習問題9-1
+Kadai09フォルダを作成してください．  
+classroomからtest.jpgをダウンロードし，Kadai09フォルダにアップロードしてください．  
+また、index.html, history.html, dept.htmlの3つのファイルを作成してください．  
+それぞれのファイルには以下を記述してください．
+
+<div code src='index'></div>
+　　
+<div code src='history'></div>
+
+<div code src='dept'></div>
+
+上記3つのhtmlファイルを作成後，以下の仕上がり例に近づくよう，htmlファイルの修正及びcssファイル（e02.css）の作成をして下さい．
+
+- index.htmlの表示例
+  - <img src="./images/index.png" width=60%>
+
+- history.htmlの表示例
+  - <img src="./images/history.png" width=60%>
+
+- dept.htmlの表示例
+  - <img src="./images/dept.png" width=60%>
+
+## 練習問題9-2
+Kadai09フォルダにssi.htmlファイルを新規作成し，以下の内容を記述してください．
+
+<div code src='ssi'></div>
+
+以下の仕上がりに近づくよう，ssi.cssを作成して下さい．  
+ただし，ssi.htmlファイルは，なにも修正しないこと．
+
+- ssi.htmlの表示例
+  - <img src="./images/ssi-1.png" width=60%>
+  - <img src="./images/ssi-2.png" width=60%>
+  - <img src="./images/ssi-3.png" width=60%>
