@@ -109,11 +109,9 @@ CSSの基本的な構造は以下のようになっています．
 
 - divspan.html
 ```
-  <!DOCTYPE html>
-  <html lang="ja">
+  <html>
 
   <head>
-	  <meta charset="UTF-8">
 	  <title>CSSの練習</title>
 	  <link rel="stylesheet" href="divspan.css">
   </head>
