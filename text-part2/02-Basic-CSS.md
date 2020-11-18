@@ -21,7 +21,7 @@ CSSファイル作成時には以下に注意してください．
 
 - ファイルの拡張子を「.css」にする
 - ファイルの文字コード（エンコーディング）を「UTF-8」にする
-  - kenyaで作成する場合は自動的にUTF-8になります．
+  - kenyaでは不要です
 
 ### 最初のページ（最小限の構成）
 まずはkenyaにログインし，新しいフォルダを「Sample02」という名称で作成してください．  
@@ -37,7 +37,7 @@ h1{
 	color: blue;
 }
 ```
-さらに、index.htmlの7行目（	&lt;title&gt;CSSの練習&lt;/title&gt;の下）に以下を追加してください．
+さらに、index.htmlの5行目（	&lt;title&gt;CSSの練習&lt;/title&gt;の下）に以下を追加してください．
 ```
 <link rel="stylesheet" href="first.css">
 ```
@@ -168,7 +168,7 @@ classroomからtest.jpgをダウンロードし、Sample02フォルダにアッ�
 
 <div code src='2-4'></div>
 
-6行目で外部CSSファイルとして，「mystyle.css」を指定していることに注意してください．  
+5行目で外部CSSファイルとして，「mystyle.css」を指定していることに注意してください．  
 これを元にスタイルを適用していきます．
 
 ### mystyle.cssファイルの作成
