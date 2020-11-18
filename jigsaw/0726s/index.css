@@ -7,10 +7,10 @@ header {
     background-color: #e1bfe2;
     align-items: center;
     position: fixed;
-}
+} 
   
 #footer {
-    position: fixed;
+   
     background-color: #e1bfe2;
     bottom: 0;
     width: 100%;
@@ -35,7 +35,7 @@ div.vertical-line{
     float: right; 
 }
 img {
-    border: 9px solid #8b008b;
+    border: 9px solid#8b008b;
     position: fixed;
     float: right; 
 }
