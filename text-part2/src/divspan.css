@@ -1,0 +1,13 @@
+/* id要素 */
+#bar{
+	color: blue;
+}
+
+#baz{
+	color: red;
+}
+
+/* class要素 */
+.foo{
+	color: green;
+}

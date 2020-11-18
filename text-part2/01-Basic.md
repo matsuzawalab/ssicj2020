@@ -138,18 +138,19 @@ index.htmlを作成したら，次の「source」のように編集してくだ�
 
 ## 練習問題
 ### 練習問題8-1
-配布ファイルssi.txtの内容を使い，以下の表示例と同様の出力が可能なssi.htmlを作成せよ
+Kadai08フォルダを作成してください．  
+その中に，配布ファイルssi.txtの内容を使い，以下の表示例と同様の出力が可能なssi.htmlを作成してください．
 
 - 表示例（1）
-  - ![ssi.htmlの表示例（1）](./images/example1.png)
+  - <img src="./images/example1.png" width=60%>
 - 表示例（2）
-  - ![ssi.htmlの表示例（2）](./images/example2.png)
+  - <img src="./images/example2.png" width=60%>
 - 表示例（3）
-  - ![ssi.htmlの表示例（3）](./images/example3.png)
+  - <img src="./images/example3.png" width=60%>
 - 表示例（4）
-  - ![ssi.htmlの表示例（4）](./images/example4.png)
+  - <img src="./images/example4.png" width=60%>
 - 表示例（5）
-  - ![ssi.htmlの表示例（5）](./images/example5.png)
+  - <img src="./images/example5.png" width=60%>
 - ただし，見出しの設定と表の構成は次に従うこと
   - 見出しの設定
     - h1 :「社会情報学部の教育」
@@ -158,12 +159,12 @@ index.htmlを作成したら，次の「source」のように編集してくだ�
   - 表示例（4）の表の構成
     - 表の周りの線や色が無いためわかりづらいので，わかりやすくするために色づけした表を以下に示す
 	- このように3行2列の表を作成する（実際には色付けは不要である）
-	  - ![表の構成](./images/table.png)
+	  - <img src="./images/table.png" width=60%>
  - 表示例（5）の表も同様に2行3列である
  - どの行にどの科目が入るのかは，ssi.txtファイルを参照すること
 
 ### 練習問題8-2
-3つのHTMLファイルからなる青山学院大学を説明するWebページを作成せよ
+Kadai08フォルダの中に，3つのHTMLファイルからなる青山学院大学を説明するWebページを作成してください．
 
 - ただし、文章はagu.txtを利用すること
 - ページの構成は以下のようにすること
