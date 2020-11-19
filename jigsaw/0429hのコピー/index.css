@@ -1,0 +1,33 @@
+.title{
+    padding: 3px;
+    background-color: #e1bfe2;
+}
+
+.header {
+    width: 100%;
+    background-color: white;
+    position: fixed;
+}
+  
+#footer {
+    position: fixed;
+    background-color: #e1bfe2;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+}
+
+h1{
+    font-size:20px;
+}
+
+img {
+    border: 4px solid #8b008b;
+    position: fixed;
+    float: right; 
+}
+
+.margin {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
