@@ -25,6 +25,7 @@ img {
     border: 1px solid black;
     position: fixed;
     float: right; 
+    overflow: scroll;
 }
 
 .sanae1 {

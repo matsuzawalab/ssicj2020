@@ -3,18 +3,19 @@
 header {
     display: flex;
     width: 100%;
-    height: 40px;
+    height:     10px;
     background-color: #e1bfe2;
     align-items: center;
    
 }
-.title{
-    padding: 3px;
-    background-color: #e1bfe2;
-}
 h1{
     font-size:20px;
 }
+.title{
+    padding: 1px;
+    background-color: #e1bfe2;
+}
+
 #footer {
     position: fixed;
     background-color: #e1bfe2;
@@ -59,16 +60,15 @@ border-collapse: collapse;
 th{
     border: 1px solid black;
     background-color: #c5c5f8;
-    text-align: left;
-    vertical-align: middle;
+   
+    
 }
 
 td{
     border: 1px solid black;
     background-color: #e8e8e8;
-    text-align: left;
-    vertical-align: left;
-    padding: 5px;
+  
+   
 }
 
 
