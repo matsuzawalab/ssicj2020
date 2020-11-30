@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <script>
+        function buttonAPressed() {
+            var n = document.getElementById('input-count').value;
+            var x = 1;
+            var html = '';
+            for (var i = 1; i <= n; i++) {
+                x = x * i;
+                html = html + '<li>' + i + 'の階乗は' + x + 'です</li>';
+            }
+            document.getElementById('list1').innerHTML = html;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>階乗計算</h1>
+    求める回数:<input id="input-count" type="text"><br>
+    <button onclick="buttonAPressed()">A</button>
+    <hr>
+    <ul id="list1"></ul>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <script>
+        function buttonAPressed() {
+            var height = document.getElementById('textbox1').value;
+            height = Number(height);
+            height = height / 100;
+            var weight = document.getElementById('textbox2').value;
+            weight = Number(weight);
+            var bmi = weight / (height * height);
+            document.getElementById('textbox3').value = bmi;
+        }
+    </script>
+</head>
+
+<body>
+    身長：<input type="text" id="textbox1">cm
+    <br>
+    体重：<input type="text" id="textbox2">kg
+    <hr>
+    <button onclick="buttonAPressed()">計算</button>
+    <hr>
+    BMIは<input type="text" id="textbox3">です．
+</body>
+
+</html>
