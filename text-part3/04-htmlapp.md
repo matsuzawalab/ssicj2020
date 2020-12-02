@@ -1,4 +1,5 @@
 # HTML生成　応用編
+
 本章では，HTML生成に関する２つの応用プログラムを学びます．
 
 ## プルダウンメニュー
@@ -16,8 +17,7 @@ value属性は，その選択した選択されたときに取得される値（
 
 選択された選択肢の値は，Javascriptからは次のようなプログラムで取得することができます．
 ```
-var n = document
-    .getElementById('xx').value;
+var n = document.getElementById('xx').value;
 ```
 テキストフィールドと同様の方法です．
 

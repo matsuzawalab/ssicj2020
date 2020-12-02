@@ -1,4 +1,5 @@
 # JavascriptによるHTMLの生成
+
 本章では，JavascriptでHTMLを生成し，リストや表を作る方法を学びます．
 
 ## タグの中身を書き換える（innerHTML）
@@ -71,8 +72,7 @@ html = html + '<li>' + i + '</li>';
 
 先程までのプログラムでは，var html = ''で文字列を初期化して，HTMLを生成していたので，ボタンを複数回押しても，出力される文字列は同様でしたが，一行目を次のように書き換えて
 ```
-var html = document
-    .getElementById('fruits').innerHTML;
+var html = document.getElementById('fruits').innerHTML;
 ```
 ボタンを押すたびに追記されるように改造することができます．
 

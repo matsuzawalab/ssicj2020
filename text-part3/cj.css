@@ -36,3 +36,85 @@ pre code, pre tt {
     background-color: transparent;
     border: none; 
 }
+
+div.sourceCode{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.mytable{
+    /*display: table;*/
+    display: flex;
+    flex-direction: row;    
+}
+
+.mytd{
+    flex-grow: 1;
+    width: 48%;
+    padding-right: 1%;
+    /* float: left; */
+    /*display: table-cell;*/
+}
+
+.mytdl{
+    flex-grow: 1;
+    width: 58%;
+    padding-right: 1%;
+    /* float: left; */
+    /*display: table-cell;*/
+}
+
+.mytdr{
+    flex-grow: 1;
+    width: 38%;
+    padding-right: 1%;
+    /* float: left; */
+    /*display: table-cell;*/
+}
+
+.mytdh{
+    text-align: center;
+    width: 48%;    
+}
+
+.mytdhl{
+    text-align: center;
+    width: 58%;    
+}
+
+.mytdhr{
+    text-align: center;
+    width: 38%; 
+}
+
+.myiframe{
+    margin: auto;
+    width:100%;
+    /*height:300px;*/
+}
+
+.mtable{
+    border-collapse: collapse;
+}
+
+.mtable td{
+    border: 1px solid black;
+}
+
+.mtd{
+    width: 100px;
+    text-align: center;
+}
+
+.mytd{
+    width: 48%;
+    display: table-cell;
+}
+
+.CopyButton{
+    float: right;
+    cursor: pointer;
+    border: 1px darkgray solid;
+    border-radius: 5px;
+    padding: 3px;
+}

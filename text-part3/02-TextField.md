@@ -1,4 +1,5 @@
 # テキストフィールドとJavaScriptの連携
+
 本章では，テキストフィールドへの入出力を学びます．
 
 ## テキストフィールドを作る
@@ -8,11 +9,6 @@ htmlを使ってテキストフィールドを作るには，inputタグを使�
 <input type="text">
 ```
 
-### hint
-右側のオレンジの部分にテキストフィールドを作るためのタグを入力してみましょう．
-
-### main(index.html)
-
 <div code src='2-1'></div>
 
 ## テキストフィールドの初期値作る
@@ -21,8 +17,6 @@ htmlを使ってテキストフィールドを作るには，inputタグを使�
 ```
 <input type="text" value="2">
 ```
-
-### main(index.html)
 
 <div code src='2-2'></div>
 
@@ -42,8 +36,6 @@ document.getElementById('[id名]')
 ```
 で取得し，変数xに格納します．
 
-### main(index.html)
-
 <div code src='2-3'></div>
 
 ## テキストフィールドに値を入力する
@@ -53,8 +45,6 @@ document.getElementById('[id名]')
 documnet.getElementById('[id名]').value = x;
 ```
 (xは定義済みの変数)プログラムを使います．
-
-### main(index.html)
 
 <div code src='2-4'></div>
 
@@ -66,12 +56,10 @@ documnet.getElementById('[id名]').value = x;
 ```
 x = Number(x);
 ```
-(xは定義済みの変数)プログラムを使います．
+(xは事前に定義しておくこと)プログラムを使います．
 
 Number関数で，文字列を数字に変えることができます．
 さあ，足し算プログラムを作ってみましょう．
-
-### main(index.html)
 
 <div code src='2-5'></div>
 
