@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <script>
+        var apple = new Image();
+        apple.src = "apple.png";
+        var orange = new Image();
+        orange.src = "orange.png";
+
+        function buttonAPressed() {
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+
+            var word = document.getElementById('input-word').value;
+            if (word == 'りんご') {
+                ctx.drawImage(apple, 10, 10, 200, 200);
+            } else if (word == 'みかん') {
+                ctx.drawImage(orange, 10, 10, 200, 200);
+            } else {
+                ctx.font = "30px sans-serif";
+                ctx.fillText("みつかりませんでした", 20, 100, 200);
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <input id="input-word" type="text" value="">
+    <button onclick="buttonAPressed()">検索</button>
+    <hr>
+    <canvas id="canvas1" width="400" height="300" style="border: solid 1px;"></canvas>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <script>
+        var min = 1;
+        var sec = 5;
+        var timer;
+        var state = '停止中';
+
+        function buttonAPressed() {
+            if (state == '停止中') {
+                var ctx = document.getElementById('canvas1').getContext('2d');
+                ctx.clearRect(0, 0, 400, 300);
+                timer = setInterval(tick, 1000);
+                state = '動作中';
+            }
+        }
+
+        function buttonBPressed() {
+            if (state == '動作中') {
+                clearInterval(timer);
+                state = '停止中';
+            }
+        }
+
+        function buttonMinUpPressed() {
+            min++;
+            document.getElementById('min').innerHTML = min;
+        }
+
+        function buttonMinDownPressed() {
+            min--;
+            document.getElementById('min').innerHTML = min;
+        }
+
+        function tick() {
+            sec = sec - 1;
+            if (sec < 0) {
+                min--;
+                sec = 59;
+            }
+            document.getElementById('min').innerHTML = min;
+            document.getElementById('sec').innerHTML = sec;
+            if (sec <= 0 && min <= 0) {
+                var ctx = document.getElementById('canvas1').getContext('2d');
+                ctx.clearRect(0, 0, 400, 300);
+                ctx.font = "30px sans-serif";
+                ctx.fillText("時間です！", 20, 75, 200);
+                clearInterval(timer);
+                state = '停止中';
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <span id="min">1</span>:<span id="sec">5</span>
+    <button onclick="buttonAPressed()">Start</button>
+    <button onclick="buttonBPressed()">Stop</button>
+    <button onclick="buttonMinUpPressed()">Min+</button>
+    <button onclick="buttonMinDownPressed()">Min-</button>
+    <hr>
+    <canvas id="canvas1" width="400" height="300" style="border: solid 1px;"></canvas>
+</body>
+
+</html>

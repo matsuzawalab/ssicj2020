@@ -1,0 +1,20 @@
+<html>
+
+<head>
+    <script>
+        function buttonAPressed() {
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+
+        }
+    </script>
+</head>
+
+<body>
+    <input id="input-count" type="text" value="">
+    <button onclick="buttonAPressed()">A</button>
+    <hr>
+    <canvas id="canvas1" width="400" height="300" style="border: solid 1px;"></canvas>
+</body>
+
+</html>

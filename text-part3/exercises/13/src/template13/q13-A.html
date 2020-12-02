@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <script>
+        function buttonStartPressed() {
+        }
+
+        function buttonUpPressed() {
+        }
+        function buttonRightPressed() {
+        }
+        function buttonLeftPressed() {
+        }
+        function buttonDownPressed() {
+        }
+
+    </script>
+</head>
+
+<body>
+    <button onclick="buttonStartPressed()">Start</button>
+    <div style="position:relative; height:50px;">
+        <button style="position:absolute; left: 30px; top: 0px;" onclick="buttonUpPressed()">↑</button>
+        <button style="position:absolute; left: 10px; top: 15px;" onclick="buttonLeftPressed()">←</button>
+        <button style="position:absolute; left: 50px; top: 15px;" onclick="buttonRightPressed()">→</button>
+        <button style="position:absolute; left: 30px; top: 30px;" onclick="buttonDownPressed()">↓</button>
+    </div>
+    <hr>
+    <canvas id="canvas1" width="400" height="300" style="border: solid 1px;"></canvas>
+</body>
+
+</html>

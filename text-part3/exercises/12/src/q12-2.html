@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <script>
+        function buttonAPressed() {
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+
+            var x = document.getElementById('input-x').value;
+            x = Number(x);
+            var y = document.getElementById('input-y').value;
+            y = Number(y);
+
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(x, y, 70, 50);
+            ctx.fillStyle = '#FF0000';
+            ctx.fillRect(x + 20, y + 20, 30, 10);
+            ctx.fillRect(x + 30, y + 10, 10, 30);
+        }
+
+    </script>
+</head>
+
+<body>
+    X:<input id="input-x" type="text" value="0">Y:<input id="input-y" type="text" value="0">
+    <button onclick="buttonAPressed()">A</button>
+    <hr>
+    <canvas id="canvas1" width="400" height="300" style="border: solid 1px; background-color: black;"></canvas>
+</body>
+
+</html>

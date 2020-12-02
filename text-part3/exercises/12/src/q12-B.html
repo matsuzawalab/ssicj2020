@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <script>
+        var x = 100;
+        var y = 100;
+
+        var x2 = 200;
+        var y2 = 100;
+        function buttonUpPressed() {
+            y = y - 10;
+            refresh();
+        }
+        function buttonRightPressed() {
+            x = x + 10;
+            refresh();
+        }
+        function buttonLeftPressed() {
+            x = x - 10;
+            refresh();
+        }
+        function buttonDownPressed() {
+            y = y + 10;
+            refresh();
+        }
+        function refresh() {
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+
+            ctx.beginPath();
+            ctx.arc(x, y, 5, 0, Math.PI * 2);
+            ctx.stroke();
+
+            var activity = Math.floor(Math.random() * 4);
+            if (activity == 0) {
+                x2 = x2 + 10;
+            } else if (activity == 1) {
+                x2 = x2 - 10;
+            } else if (activity == 2) {
+                y2 = y2 + 10;
+            } else if (activity == 3) {
+                y2 = y2 - 10;
+            }
+            ctx.beginPath();
+            ctx.arc(x2, y2, 5, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    </script>
+</head>
+
+<body>
+    <div style="position:relative; height:50px;">
+        <button style="position:absolute; left: 30px; top: 0px;" onclick="buttonUpPressed()">↑</button>
+        <button style="position:absolute; left: 10px; top: 15px;" onclick="buttonLeftPressed()">←</button>
+        <button style="position:absolute; left: 50px; top: 15px;" onclick="buttonRightPressed()">→</button>
+        <button style="position:absolute; left: 30px; top: 30px;" onclick="buttonDownPressed()">↓</button>
+    </div>
+    <hr>
+    <canvas id="canvas1" width="400" height="300" style="border: solid 1px;"></canvas>
+</body>
+
+</html>
