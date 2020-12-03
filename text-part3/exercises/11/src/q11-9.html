@@ -2,55 +2,39 @@
 
 <head>
     <script>
-
         function buttonAPressed() {
-            document.getElementById('output-1').value = 0;
-            document.getElementById('output-2').value = 0;
-            document.getElementById('output-3').value = 0;
-            document.getElementById('output-4').value = 0;
-            document.getElementById('output-5').value = 0;
-            document.getElementById('output-6').value = 0;
-            var n = document.getElementById('input-number').value;
-            n = Number(n);
+            var n8 = Number(document.getElementById('input-8').value);
+            var n4 = Number(document.getElementById('input-4').value);
+            var n2 = Number(document.getElementById('input-2').value);
+            var n1 = Number(document.getElementById('input-1').value);
 
-            for (var i = 0; i < n; i++) {
-                var ran = Math.floor(Math.random() * 6) + 1;
-                if (ran == 1) {
-                    document.getElementById('output-1').value =
-                        Number(document.getElementById('output-1').value) + 1;
-                } else if (ran == 2) {
-                    document.getElementById('output-2').value =
-                        Number(document.getElementById('output-2').value) + 1;
-                } else if (ran == 3) {
-                    document.getElementById('output-3').value =
-                        Number(document.getElementById('output-3').value) + 1;
-                } else if (ran == 4) {
-                    document.getElementById('output-4').value =
-                        Number(document.getElementById('output-4').value) + 1;
-                } else if (ran == 5) {
-                    document.getElementById('output-5').value =
-                        Number(document.getElementById('output-5').value) + 1;
-                } else if (ran == 6) {
-                    document.getElementById('output-6').value =
-                        Number(document.getElementById('output-6').value) + 1;
-                }
-            }
+            var answer = n8 * 8 + n4 * 4 + n2 * 2 + n1;
+            document.getElementById('output').value = answer;
         }
     </script>
 </head>
 
 <body>
-    <h1>乱数の分布調査</h1>
-    試行回数:<input id="input-number" type="text" value="100">
-    <button onclick="buttonAPressed()">A</button>
+    <h1>2進数から10進数に変換</h1>
+    <select id="input-8">
+        <option value="0">0</option>
+        <option value="1">1</option>
+    </select>
+    <select id="input-4">
+        <option value="0">0</option>
+        <option value="1">1</option>
+    </select>
+    <select id="input-2">
+        <option value="0">0</option>
+        <option value="1">1</option>
+    </select>
+    <select id="input-1">
+        <option value="0">0</option>
+        <option value="1">1</option>
+    </select>
+    <button onclick="buttonAPressed()">変換</button>
     <hr>
-    1:<input id="output-1" type="text" value="0"><br>
-    2:<input id="output-2" type="text" value="0"><br>
-    3:<input id="output-3" type="text" value="0"><br>
-    4:<input id="output-4" type="text" value="0"><br>
-    5:<input id="output-5" type="text" value="0"><br>
-    6:<input id="output-6" type="text" value="0"><br>
-
+    <input id="output" type="text">
 </body>
 
 </html>

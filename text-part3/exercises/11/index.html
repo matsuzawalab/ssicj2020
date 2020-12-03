@@ -2,6 +2,12 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="../../cj.css">
+    <script>
+        function copycode(idstr) {
+            document.getSelection().selectAllChildren(document.getElementById(idstr).querySelector('code'));
+            document.execCommand('copy');
+        }
+    </script>
 </head>
 
 <body>
@@ -21,6 +27,7 @@
     <ul>
         <li>勝数と負数を入力し，計算ボタンを押すと，勝率（％）を計算し出力する．</li>
         <li>ファイル名を「winningrate.html」とすること</li>
+        <li><a href="src/q11-1_template.txt">テンプレート</a>を使って良い</li>
     </ul>
 
     <h2>課題11-2　BMI計算アプリケーション</h2>
@@ -31,6 +38,7 @@
     <ul>
         <li>身長と体重を入力し，計算ボタンを押すと，BMIを計算し出力する．</li>
         <li>ファイル名を「bmi.html」とすること</li>
+        <li><a href="src/q11-2_template.txt">テンプレート</a>を使って良い</li>
     </ul>
 
     <h2>課題11-3　乱数生成</h2>
@@ -41,6 +49,7 @@
     <ul>
         <li>ユーザがAボタンを押すと，1から6までの乱数を１０個生成し，リストに出力する</li>
         <li>ファイル名を「random10.html」とすること</li>
+        <li><a href="src/q11-3_template.txt">テンプレート</a>を使って良い</li>
     </ul>
 
     <h2>課題11-4　階乗計算</h2>
@@ -51,6 +60,7 @@
     <ul>
         <li>ユーザが求める回数を入力し，Aボタンを押すと，入力された回数までの階乗を計算し，１から順にリストに表示する</li>
         <li>ファイル名を「factorial.html」とすること</li>
+        <li><a href="src/q11-4_template.txt">テンプレート</a>を使って良い</li>
     </ul>
 
     <h2>課題11-5-1　fizz buzz(1)</h2>
@@ -61,6 +71,7 @@
     <ul>
         <li>ユーザがAボタンを押すと，１から20までを数える表を生成する</li>
         <li>ファイル名を「fizzbuzz.html」とすること</li>
+        <li><a href="src/q11-5-1_template.txt">テンプレート</a>を使って良い</li>
     </ul>
 
     <h2>課題11-5-2　fizz buzz(2)</h2>
@@ -77,7 +88,8 @@
             <li>３と５の倍数ならfizz buzz</li>
         </ul>
         <li>と表示する．</li>
-        <li>ファイル名を「fizzbuzz.html」とすること(11-5-1を書き換えてしまって良い)</li>
+        <li>ファイル名を「fizzbuzz.html」とすること</li>
+        <li>11-5-1で作ったfizzbuzz.htmlを書き換えて作って良い</li>
     </ul>
 
     <h2>課題11-6 九九の計算表</h2>
@@ -89,6 +101,7 @@
         <li>ユーザがAボタンを押すと，システムは九九の計算表を表示する</li>
         <li>HTMLを直接入力するのではなく，JavascriptプログラムでHTMLを生成すること</li>
         <li>ファイル名を「kuku.html」とすること</li>
+        <li><a href="src/q11-6_template.txt">テンプレート</a>を使って良い</li>
     </ul>
 
     <h2>課題11-7 複利計算</h2>
@@ -103,12 +116,13 @@
             元金だけでなく利子にも次期の利子がつく。”(wikipedia)のこと．
             計算方法の詳細が分からない場合はwikipedia「複利」を参考のこと</li>
         <li>ファイル名を「mortgage.html」とすること</li>
+        <li><a href="src/q11-7_template.txt">テンプレート</a>を使って良い</li>
     </ul>
 
     <h2>課題11-8 乱数の分布調査</h2>
     次の動画で示すようなアプリケーションを作りなさい．
     <h3>動作仕様（動画）</h3>
-    <video src="11-9.mov" width="400" height="300" autoplay loop muted></video>
+    <video src="11-8.mov" width="400" height="300" autoplay loop muted></video>
     <h3>仕様</h3>
     <ul>
         <li>ユーザは試行回数を入力する</li>
@@ -120,17 +134,19 @@
             <li>理論的には，試行回数が多くなるほど，割合が1/6に収束するはずです</li>
         </ul>
         <li>ファイル名を「randomaccuracy.html」とすること</li>
+        <li><a href="src/q11-8_template.txt">テンプレート</a>を使って良い</li>
     </ul>
 
     <h2>課題11-9 ２進数を１０進数に変換</h2>
     次の動画で示すようなアプリケーションを作りなさい．
     <h3>動作仕様（動画）</h3>
-    <video src="11-10.mov" width="400" height="300" autoplay loop muted></video>
+    <video src="11-9.mov" width="400" height="300" autoplay loop muted></video>
     <h3>仕様</h3>
     <ul>
         <li>ユーザはプルダウンメニューを使って２進数を入力し，変換ボタンを押す</li>
         <li>システムは入力された２進数を１０進数に変換し，出力する</li>
         <li>ファイル名を「convertbinary.html」とすること</li>
+        <li><a href="src/q11-9_template.txt">テンプレート</a>を使って良い</li>
     </ul>
 
 </body>

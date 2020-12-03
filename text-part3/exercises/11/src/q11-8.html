@@ -2,35 +2,55 @@
 
 <head>
     <script>
-        var answer;
 
-        function buttonStartPressed() {
-            answer = Math.floor(Math.random() * 20);
-            document.getElementById('output-result').innerHTML = '数あてゲームを開始しました．いくつかな？';
-        }
+        function buttonAPressed() {
+            document.getElementById('output-1').value = 0;
+            document.getElementById('output-2').value = 0;
+            document.getElementById('output-3').value = 0;
+            document.getElementById('output-4').value = 0;
+            document.getElementById('output-5').value = 0;
+            document.getElementById('output-6').value = 0;
+            var n = document.getElementById('input-number').value;
+            n = Number(n);
 
-        function buttonAnswerPressed() {
-            var number = document.getElementById('input-number').value;
-            number = Number(number);
-
-            if (number == answer) {
-                document.getElementById('output-result').innerHTML = 'あたり！';
-            } else if (number > answer) {
-                document.getElementById('output-result').innerHTML = 'はずれ．それより小さな数です';
-            } else if (number < answer) {
-                document.getElementById('output-result').innerHTML = 'はずれ．それより大きな数です';
+            for (var i = 0; i < n; i++) {
+                var ran = Math.floor(Math.random() * 6) + 1;
+                if (ran == 1) {
+                    document.getElementById('output-1').value =
+                        Number(document.getElementById('output-1').value) + 1;
+                } else if (ran == 2) {
+                    document.getElementById('output-2').value =
+                        Number(document.getElementById('output-2').value) + 1;
+                } else if (ran == 3) {
+                    document.getElementById('output-3').value =
+                        Number(document.getElementById('output-3').value) + 1;
+                } else if (ran == 4) {
+                    document.getElementById('output-4').value =
+                        Number(document.getElementById('output-4').value) + 1;
+                } else if (ran == 5) {
+                    document.getElementById('output-5').value =
+                        Number(document.getElementById('output-5').value) + 1;
+                } else if (ran == 6) {
+                    document.getElementById('output-6').value =
+                        Number(document.getElementById('output-6').value) + 1;
+                }
             }
         }
     </script>
 </head>
 
 <body>
-    <h1>数あてゲーム</h1>
-    <button onclick="buttonStartPressed()">Start</button><br>
-    回答:<input id="input-number" type="text">
-    <button onclick="buttonAnswerPressed()">回答</button>
+    <h1>乱数の分布調査</h1>
+    試行回数:<input id="input-number" type="text" value="100">
+    <button onclick="buttonAPressed()">A</button>
     <hr>
-    <p id="output-result">数あてゲームを開始するには, Startボタンを押してください</p>
+    1:<input id="output-1" type="text" value="0"><br>
+    2:<input id="output-2" type="text" value="0"><br>
+    3:<input id="output-3" type="text" value="0"><br>
+    4:<input id="output-4" type="text" value="0"><br>
+    5:<input id="output-5" type="text" value="0"><br>
+    6:<input id="output-6" type="text" value="0"><br>
+
 </body>
 
 </html>
