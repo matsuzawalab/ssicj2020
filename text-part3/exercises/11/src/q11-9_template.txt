@@ -3,19 +3,12 @@
 <head>
     <script>
         function buttonAPressed() {
-            var n8 = Number(document.getElementById('input-8').value);
-            var n4 = Number(document.getElementById('input-4').value);
-            var n2 = Number(document.getElementById('input-2').value);
-            var n1 = Number(document.getElementById('input-1').value);
-
-            var answer = n8 * 8 + n4 * 4 + n2 * 2 + n1;
-            document.getElementById('output').value = answer;
         }
     </script>
 </head>
 
 <body>
-    <h1>2進数から10進数に変換</h1>
+    <h1>課題11-9：2進数から10進数に変換</h1>
     <select id="input-8">
         <option value="0">0</option>
         <option value="1">1</option>
