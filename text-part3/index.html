@@ -205,6 +205,7 @@ Chromeでは，<a href="https://www.javadrive.jp/javascript/console/index1.html"
 <li>
 Safariでは，<a href="https://www.84kure.com/blog/2014/12/19/safari-javascript%E3%82%B3%E3%83%B3%E3%82%BD%E3%83%BC%E3%83%AB%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF/">こちら</a>のサイトが参考になる．
 </li>
+</ul>
 <h2 data-number="1.4" id="ボタンを２つ作る"><span class="header-section-number">1.4</span> ボタンを２つ作る</h2>
 <p>ボタンを２つ作ることもできます．異なる２つの機能を実現するために，２つの関数を用意して，２つのボタンそれぞれが機能に対応する関数を呼ぶように設計します．</p>
 <div class="mytable">
@@ -241,7 +242,7 @@ Safariでは，<a href="https://www.84kure.com/blog/2014/12/19/safari-javascript
 <p>したがって，例えば0〜3までの数字を生成したければ</p>
 <pre><code>var x = Math.floor(Math.random() * 4)</code></pre>
 <p>1〜6までの数字を生成したければ</p>
-<pre><code>var x = Math.floor(Math.random() * 5) + 1</code></pre>
+<pre><code>var x = Math.floor(Math.random() * 6) + 1</code></pre>
 <p>というようにプログラムします．</p>
 <div class="mytable">
 <p class="mytdhl">source <span class="CopyButton" onclick="copycode('lst:1-5')">c</span></p>
@@ -274,6 +275,29 @@ Safariでは，<a href="https://www.84kure.com/blog/2014/12/19/safari-javascript
 </div>
 <iframe class="mytdr" src="src/1-5.html" class="myiframe"></iframe>
 </div>
+<!-- ## 練習問題
+
+### 勝率計算アプリケーション
+次の動画で示すようなアプリケーションを作りなさい．
+
+#### 動作仕様（動画）{.unnumbered}
+<video src="11-1.mov" autoplay loop muted></video>
+
+#### 仕様{.unnumbered}
+<ul>
+    <li>勝数と負数を入力し，計算ボタンを押すと，勝率（％）を計算し出力する．</li>
+    <li>ファイル名を「winningrate.html」とすること</li>
+</ul>
+
+### BMI計算アプリケーション
+次の動画で示すようなアプリケーションを作りなさい．
+
+#### 動作仕様（動画）{.unnumbered}
+<video src="11-2.mov" autoplay loop muted></video>
+
+#### 仕様{.unnumbered}
+- 身長と体重を入力し，計算ボタンを押すと，BMIを計算し出力する．
+- ファイル名を「bmi.html」とすること -->
 <h1 data-number="2" id="テキストフィールドとjavascriptの連携"><span class="header-section-number">2</span> テキストフィールドとJavaScriptの連携</h1>
 <p>本章では，テキストフィールドへの入出力を学びます．</p>
 <h2 data-number="2.1" id="テキストフィールドを作る"><span class="header-section-number">2.1</span> テキストフィールドを作る</h2>
@@ -298,7 +322,7 @@ Safariでは，<a href="https://www.84kure.com/blog/2014/12/19/safari-javascript
 </div>
 <iframe class="mytdr" src="src/2-1.html" class="myiframe"></iframe>
 </div>
-<h2 data-number="2.2" id="テキストフィールドの初期値作る"><span class="header-section-number">2.2</span> テキストフィールドの初期値作る</h2>
+<h2 data-number="2.2" id="テキストフィールドの初期値を設定する"><span class="header-section-number">2.2</span> テキストフィールドの初期値を設定する</h2>
 <p>テキストフィールドの初期値を指定するには，value属性を使います．</p>
 <pre><code>&lt;input type=&quot;text&quot; value=&quot;2&quot;&gt;</code></pre>
 <div class="mytable">
@@ -356,7 +380,7 @@ Safariでは，<a href="https://www.84kure.com/blog/2014/12/19/safari-javascript
 </div>
 <h2 data-number="2.4" id="テキストフィールドに値を入力する"><span class="header-section-number">2.4</span> テキストフィールドに値を入力する</h2>
 <p>テキストフィールドに値を入力するには，</p>
-<pre><code>documnet.getElementById(&#39;[id名]&#39;).value = x;</code></pre>
+<pre><code>document.getElementById(&#39;[id名]&#39;).value = x;</code></pre>
 <p>(xは定義済みの変数)プログラムを使います．</p>
 <div class="mytable">
 <p class="mytdhl">source <span class="CopyButton" onclick="copycode('lst:2-4')">c</span></p>
@@ -573,8 +597,7 @@ Safariでは，<a href="https://www.84kure.com/blog/2014/12/19/safari-javascript
 </div>
 <h2 data-number="3.5" id="ボタンを押すたびに要素を追加する"><span class="header-section-number">3.5</span> ボタンを押すたびに要素を追加する</h2>
 <p>先程までのプログラムでは，var html = ’’で文字列を初期化して，HTMLを生成していたので，ボタンを複数回押しても，出力される文字列は同様でしたが，一行目を次のように書き換えて</p>
-<pre><code>var html = document
-    .getElementById(&#39;fruits&#39;).innerHTML;</code></pre>
+<pre><code>var html = document.getElementById(&#39;fruits&#39;).innerHTML;</code></pre>
 <p>ボタンを押すたびに追記されるように改造することができます．</p>
 <div class="mytable">
 <p class="mytdhl">source <span class="CopyButton" onclick="copycode('lst:3-5')">c</span></p>
@@ -705,8 +728,7 @@ document.getElementById(&#39;fruits&#39;).appendChild(li);</code></pre>
 &lt;/select&gt;</code></pre>
 <p>selectタグの中のoptionタグで，選択肢を指定します． value属性は，その選択した選択されたときに取得される値（.valueで取得できる属性） で，optionタグの中身（10回，15回など）は，画面に表示されるテキストです．</p>
 <p>選択された選択肢の値は，Javascriptからは次のようなプログラムで取得することができます．</p>
-<pre><code>var n = document
-    .getElementById(&#39;xx&#39;).value;</code></pre>
+<pre><code>var n = document.getElementById(&#39;xx&#39;).value;</code></pre>
 <p>テキストフィールドと同様の方法です．</p>
 <p>このプログラムは，プルダウンメニューで指定された回数分，数を数えるプログラムです．</p>
 <div class="mytable">
@@ -1156,7 +1178,7 @@ img01.src = &quot;goo.png&quot;;</code></pre>
 <h1 data-number="7" id="canvas-応用編"><span class="header-section-number">7</span> canvas 応用編</h1>
 <p>本章では，canvasを使った３つの応用プログラムを学びます．</p>
 <h2 data-number="7.1" id="繰り返し図形"><span class="header-section-number">7.1</span> 繰り返し図形</h2>
-<p>canvasを使ったdrawXXXなどという記述は，Javascriptプログラムですから，これ魔に習った基礎的なプログラミングテクニック(for文，if文)が応用できます．</p>
+<p>canvasを使ったdrawXXXなどという記述は，Javascriptプログラムですから，これまでに習った基礎的なプログラミングテクニック(for文，if文)が応用できます．</p>
 <p>例えば，四角形を横に並べて１０個書くには，x座標を工夫して</p>
 <pre><code>for (var i = 0; i &lt; 10; i++) {
     ctx.strokeRect(i * 15, 50, 10, 10);

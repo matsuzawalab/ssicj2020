@@ -75,8 +75,9 @@ console.log()命令で指定したメッセージを表示したり，エラー�
 
 コンソールを開くには，
 <ul>
- <li>Chromeでは，<a href="https://www.javadrive.jp/javascript/console/index1.html">こちら</a>のサイトが参考になる．</li>
- <li>Safariでは，<a href="https://www.84kure.com/blog/2014/12/19/safari-javascript%E3%82%B3%E3%83%B3%E3%82%BD%E3%83%BC%E3%83%AB%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF/">こちら</a>のサイトが参考になる．</li>
+    <li>Chromeでは，<a href="https://www.javadrive.jp/javascript/console/index1.html">こちら</a>のサイトが参考になる．</li>
+    <li>Safariでは，<a href="https://www.84kure.com/blog/2014/12/19/safari-javascript%E3%82%B3%E3%83%B3%E3%82%BD%E3%83%BC%E3%83%AB%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF/">こちら</a>のサイトが参考になる．</li>
+</ul>
 
 ## ボタンを２つ作る
 
@@ -98,10 +99,34 @@ var x = Math.floor(Math.random() * 4)
 ```
 1〜6までの数字を生成したければ
 ```
-var x = Math.floor(Math.random() * 5) + 1
+var x = Math.floor(Math.random() * 6) + 1
 ```
 というようにプログラムします．
 
 <div code src='1-5'></div>
+
+<!-- ## 練習問題
+
+### 勝率計算アプリケーション
+次の動画で示すようなアプリケーションを作りなさい．
+
+#### 動作仕様（動画）{.unnumbered}
+<video src="11-1.mov" autoplay loop muted></video>
+
+#### 仕様{.unnumbered}
+<ul>
+    <li>勝数と負数を入力し，計算ボタンを押すと，勝率（％）を計算し出力する．</li>
+    <li>ファイル名を「winningrate.html」とすること</li>
+</ul>
+
+### BMI計算アプリケーション
+次の動画で示すようなアプリケーションを作りなさい．
+
+#### 動作仕様（動画）{.unnumbered}
+<video src="11-2.mov" autoplay loop muted></video>
+
+#### 仕様{.unnumbered}
+- 身長と体重を入力し，計算ボタンを押すと，BMIを計算し出力する．
+- ファイル名を「bmi.html」とすること -->
 
 

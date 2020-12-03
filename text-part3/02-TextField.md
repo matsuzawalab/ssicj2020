@@ -11,7 +11,7 @@ htmlを使ってテキストフィールドを作るには，inputタグを使�
 
 <div code src='2-1'></div>
 
-## テキストフィールドの初期値作る
+## テキストフィールドの初期値を設定する
 
 テキストフィールドの初期値を指定するには，value属性を使います．
 ```
@@ -42,7 +42,7 @@ document.getElementById('[id名]')
 
 テキストフィールドに値を入力するには，
 ```
-documnet.getElementById('[id名]').value = x;
+document.getElementById('[id名]').value = x;
 ```
 (xは定義済みの変数)プログラムを使います．
 
