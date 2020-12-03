@@ -27,7 +27,7 @@ h1{
 
 
 
-p.double-bottom {
+#double-bottom {
     border-bottom: double;
     border-color: #9932cc;
     margin-top: 1px;
@@ -82,11 +82,13 @@ td{
             justify-content: space-around;
           
             padding: 5px;
+            width: 500px;
+            height: 200px;
           }
     
          
 
-          #image7{
+          .image7{
             width: 400px;
             height: 200px;
           }
