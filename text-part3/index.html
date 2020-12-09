@@ -635,7 +635,7 @@ Safariでは，<a href="https://www.84kure.com/blog/2014/12/19/safari-javascript
 </div>
 <iframe class="mytdr" src="src/3-5.html" class="myiframe"></iframe>
 </div>
-<h3 data-number="3.5.1" id="tips"><span class="header-section-number">3.5.1</span> tips</h3>
+<h3 class="unnumbered" data-number="" id="tips">tips</h3>
 <p>ボタンBが押されたときの処理では，appendChildを使った別の書き方の例を載せてあります．</p>
 <pre><code>var li = document.createElement(&#39;li&#39;);
 li.innerHTML = &#39;めろん&#39;;
@@ -822,10 +822,8 @@ document.getElementById(&#39;fruits&#39;).appendChild(li);</code></pre>
 <h1 data-number="5" id="ローカル変数とグローバル変数"><span class="header-section-number">5</span> ローカル変数とグローバル変数</h1>
 <p>本章では，ローカル変数とグローバル変数について学びます．</p>
 <h2 data-number="5.1" id="ローカル変数"><span class="header-section-number">5.1</span> ローカル変数</h2>
-<p>関数(function)内に定義された変数(var)は，関数内でのみ有効であることは，変数のスコープで習いました． 今回は，ボタンが何度も押される等で，関数が何度も呼ばれることを考えてみましょう．</p>
-<p>buttonAPressed()関数内に変数xを定義し，０で初期化します．</p>
-<pre><code>var x = 0;</code></pre>
-<p>関数内で定義されたローカル変数（局所変数）は，関数の呼び出し毎に毎回保存領域が確保され，初期化され，関数が終わると消滅する呼び出し１回限り有効な変数です．したがって，ボタンを何度も押し，関数を何度実行しても，表示されるのは１のままです．</p>
+<p>関数(function)内に定義された変数(var)が関数内でのみ有効であることは，第１部の教材「変数のスコープ」で学習しました．関数の中に定義した変数は関数ブロック内で有効です．関数を超えて</p>
+<p>ここでは，次のようなプログラムで，ボタンが何度も押され，関数がその都度呼ばれる場面を考えてみましょう．</p>
 <div class="mytable">
 <p class="mytdhl">source <span class="CopyButton" onclick="copycode('lst:5-1')">c</span></p>
 <p class="mytdhr">result</p>
@@ -855,10 +853,11 @@ document.getElementById(&#39;fruits&#39;).appendChild(li);</code></pre>
 </div>
 <iframe class="mytdr" src="src/5-1.html" class="myiframe"></iframe>
 </div>
+<p>buttonAPressed()関数内に変数xを定義し，0で初期化します．</p>
+<pre><code>var x = 0;</code></pre>
+<p>関数内で定義されたローカル変数（局所変数）は，関数の呼び出し毎に毎回保存領域が確保され，初期化され，関数が終わると消滅する呼び出し１回限り有効な変数です．したがって，ボタンを何度も押し，関数を何度実行しても，表示されるのは１のままです．</p>
 <h2 data-number="5.2" id="グローバル変数"><span class="header-section-number">5.2</span> グローバル変数</h2>
 <p>関数(function)の外側に定義された変数(var)は，すべての関数で有効なグローバル変数（広域変数）となります． グローバル変数はどの関数からもその値を読み書きすることができます．プログラムが読み込まれると同時に初期化されて，プログラムが終了するまで値を保持し続けます．</p>
-<pre><code>var x = 0;</code></pre>
-<p>今度のプログラムでは，ボタンを何度押しても，前回の値が保存されているので，１ずつカウントアップするプログラムを作ることができます．</p>
 <div class="mytable">
 <p class="mytdhl">source <span class="CopyButton" onclick="copycode('lst:5-2')">c</span></p>
 <p class="mytdhr">result</p>
@@ -889,10 +888,9 @@ document.getElementById(&#39;fruits&#39;).appendChild(li);</code></pre>
 </div>
 <iframe class="mytdr" src="src/5-2.html" class="myiframe"></iframe>
 </div>
+<p>今度のプログラムでは，ボタンを何度押しても，前回の値が保存されているので，１ずつカウントアップするプログラムを作ることができました．</p>
 <h2 data-number="5.3" id="グローバル変数２"><span class="header-section-number">5.3</span> グローバル変数（２）</h2>
 <p>グローバル変数は関数間で値を共有し，どの関数からもその値を読み書きすることができます．</p>
-<pre><code>x = 0;</code></pre>
-<p>もう一つの関数を用意して，カウントをリセットするボタンを作ることができました．</p>
 <div class="mytable">
 <p class="mytdhl">source <span class="CopyButton" onclick="copycode('lst:5-3')">c</span></p>
 <p class="mytdhr">result</p>
@@ -928,24 +926,13 @@ document.getElementById(&#39;fruits&#39;).appendChild(li);</code></pre>
 </div>
 <iframe class="mytdr" src="src/5-3.html" class="myiframe"></iframe>
 </div>
-<h3 data-number="5.3.1" id="tips-2"><span class="header-section-number">5.3.1</span> tips</h3>
+<p>もう一つの関数を用意して，カウントをリセットするボタンを作ることができました．</p>
+<h3 class="unnumbered" data-number="" id="tips-2">tips</h3>
 <p>このように，大変便利に見えるグローバル変数ですが，プログラムの保守という観点からは問題が多いので，極力控えてプログラムを作ることが推奨されています．簡単に説明すると，バグが起こったときに，ローカル変数ならばバグの範囲が限定しやすいのですが，グローバル変数が多いと，影響を与える関数（プログラム）の範囲が広大になってしまい，デバッグする範囲も広域に及びます．</p>
 <h1 data-number="6" id="canvas入門"><span class="header-section-number">6</span> canvas入門</h1>
 <p>本章では，canvasの基本的な使い方を学びます．</p>
 <h2 data-number="6.1" id="canvasをつくり四角形を書く"><span class="header-section-number">6.1</span> canvasをつくり，四角形を書く</h2>
-<p>canvasタグ（要素）は，そこにJavascriptプログラムを使って図形や文字を書いたり，画像を描画することができるHTMLの要素です． canvasタグで，キャンパスを作ります．大きさを指定し，Javascriptから読み書きできるようにidをつけ，見分けがつくようにボーダー線をつけます．</p>
-<pre><code>&lt;canvas id=&quot;canvas1&quot; width=&quot;400&quot; height=&quot;300&quot; style=&quot;border: solid 1px;&quot;&gt;&lt;/canvas&gt;</code></pre>
-<p>プログラムでは，１行目で，</p>
-<pre><code>var ctx = document.getElementById(&#39;canvas1&#39;).getContext(&#39;2d&#39;);</code></pre>
-<p>おなじみのgetElementById()関数を使い，idを指定して要素を取得し，2Dで書き込めるcontextオブジェクトを取得し，ctx変数に格納します．この行は，canvasに書き込むプログラムを作るときに毎回書くおまじないと思ってください．</p>
-<p>次の行で，背景を塗りつぶします．前回になにか書いたものがあればこの行で消されます． ボタンが押されるたびにcanvasに追記していきたい場合はこの行を削除します．</p>
-<pre><code>ctx.clearRect(0, 0, 400, 300);</code></pre>
-<p>枠線と塗りつぶしの色を決めます．</p>
-<pre><code>ctx.strokeStyle = &#39;#0000FF&#39;; //枠線の色は青
-ctx.fillStyle = &#39;#FF0000&#39;; //塗りつぶしの色は赤</code></pre>
-<p>strokeRect(x, y, w, h)関数は，x, y座標を基点に，幅w, 高さhの四角形を描画します．fillRectは塗りつぶしの四角形を描画します．</p>
-<pre><code>ctx.strokeRect(200, 80, 100, 50);
-ctx.fillRect(20, 40, 50, 100);</code></pre>
+<p>canvasタグ（要素）は，そこにJavascriptプログラムを使って図形や文字を書いたり，画像を描画することができるHTMLの要素です．</p>
 <div class="mytable">
 <p class="mytdhl">source <span class="CopyButton" onclick="copycode('lst:6-1')">c</span></p>
 <p class="mytdhr">result</p>
@@ -981,19 +968,20 @@ ctx.fillRect(20, 40, 50, 100);</code></pre>
 </div>
 <iframe class="mytdr" src="src/6-1.html" class="myiframe"></iframe>
 </div>
+<p>canvasタグで，キャンパスを作ります．大きさを指定し，Javascriptから読み書きできるようにidをつけ，見分けがつくようにボーダー線をつけます．</p>
+<pre><code>&lt;canvas id=&quot;canvas1&quot; width=&quot;400&quot; height=&quot;300&quot; style=&quot;border: solid 1px;&quot;&gt;&lt;/canvas&gt;</code></pre>
+<p>プログラムでは，１行目で，</p>
+<pre><code>var ctx = document.getElementById(&#39;canvas1&#39;).getContext(&#39;2d&#39;);</code></pre>
+<p>おなじみのgetElementById()関数を使い，idを指定して要素を取得し，2Dで書き込めるcontextオブジェクトを取得し，ctx変数に格納します．この行は，canvasに書き込むプログラムを作るときに毎回書くおまじないと思ってください．</p>
+<p>次の行で，背景を塗りつぶします．前回になにか書いたものがあればこの行で消されます． ボタンが押されるたびにcanvasに追記していきたい場合はこの行を削除します．</p>
+<pre><code>ctx.clearRect(0, 0, 400, 300);</code></pre>
+<p>枠線と塗りつぶしの色を決めます．</p>
+<pre><code>ctx.strokeStyle = &#39;#0000FF&#39;; //枠線の色は青
+ctx.fillStyle = &#39;#FF0000&#39;; //塗りつぶしの色は赤</code></pre>
+<p>strokeRect(x, y, w, h)関数は，x, y座標を基点に，幅w, 高さhの四角形を描画します．fillRectは塗りつぶしの四角形を描画します．</p>
+<pre><code>ctx.strokeRect(200, 80, 100, 50);
+ctx.fillRect(20, 40, 50, 100);</code></pre>
 <h2 data-number="6.2" id="円を書く"><span class="header-section-number">6.2</span> 円を書く</h2>
-<p>円を書くには，まず，</p>
-<pre><code>ctx.beginPath();</code></pre>
-<p>でパス（図形を描画するとき一つ一つの動作でできる要素のことをパスと呼びます）を初期化します．</p>
-<p>次に，</p>
-<pre><code>ctx.arc(100, 100, 50, 0, Math.PI * 2);</code></pre>
-<p>で，円弧を書きます．引数は(x, y, 半径, 開始角度(ラジアン), 終了角度(ラジアン))です．上記の例では，座標（100, 100）を中心に，半径50の円を書きます．</p>
-<p>最後に，</p>
-<pre><code>ctx.stroke();</code></pre>
-<p>で，パスを終了し，図形を描画します．</p>
-<p>円弧ではなく，塗りつぶすには</p>
-<pre><code>ctx.fill();</code></pre>
-<p>で，パスを終了し，図形を描画します．</p>
 <div class="mytable">
 <p class="mytdhl">source <span class="CopyButton" onclick="copycode('lst:6-2')">c</span></p>
 <p class="mytdhr">result</p>
@@ -1034,19 +1022,21 @@ ctx.fillRect(20, 40, 50, 100);</code></pre>
 </div>
 <iframe class="mytdr" src="src/6-2.html" class="myiframe"></iframe>
 </div>
-<h3 data-number="6.2.1" id="hint-2"><span class="header-section-number">6.2.1</span> hint</h3>
-<p>180°はラジアンでπ，360°はラジアンで２πとなります．</p>
-<h2 data-number="6.3" id="線を書く"><span class="header-section-number">6.3</span> 線を書く</h2>
-<p>線を書くには，まずbeginPath();でパスを初期化し，</p>
-<p>始点を</p>
-<pre><code>ctx.moveTo(100, 100);</code></pre>
-<p>で設定し，終点を</p>
-<pre><code>ctx.lineTo(200, 200);</code></pre>
-<p>で設定します．</p>
+<p>円を書くには，まず，</p>
+<pre><code>ctx.beginPath();</code></pre>
+<p>でパス（図形を描画するとき一つ一つの動作でできる要素のことをパスと呼びます）を初期化します．</p>
+<p>次に，</p>
+<pre><code>ctx.arc(100, 100, 50, 0, Math.PI * 2);</code></pre>
+<p>で，円弧を書きます．引数は(x, y, 半径, 開始角度(ラジアン), 終了角度(ラジアン))です．上記の例では，座標（100, 100）を中心に，半径50の円を書きます．</p>
 <p>最後に，</p>
 <pre><code>ctx.stroke();</code></pre>
-<p>で，パスを終了し，線を描画します．</p>
-<p>lineToを２回以上呼び出して，３角形以上の多角形ができる場合には，始点と終点をつなぎ，多角形を作ります．</p>
+<p>で，パスを終了し，図形を描画します．</p>
+<p>円弧ではなく，塗りつぶすには</p>
+<pre><code>ctx.fill();</code></pre>
+<p>で，パスを終了し，図形を描画します．</p>
+<h3 class="unnumbered" data-number="" id="hint-2">hint</h3>
+<p>180°はラジアンでπ，360°はラジアンで２πとなります．</p>
+<h2 data-number="6.3" id="線を書く"><span class="header-section-number">6.3</span> 線を書く</h2>
 <div class="mytable">
 <p class="mytdhl">source <span class="CopyButton" onclick="copycode('lst:6-3')">c</span></p>
 <p class="mytdhr">result</p>
@@ -1093,15 +1083,17 @@ ctx.fillRect(20, 40, 50, 100);</code></pre>
 </div>
 <iframe class="mytdr" src="src/6-3.html" class="myiframe"></iframe>
 </div>
+<p>線を書くには，まずbeginPath();でパスを初期化し，</p>
+<p>始点を</p>
+<pre><code>ctx.moveTo(100, 100);</code></pre>
+<p>で設定し，終点を</p>
+<pre><code>ctx.lineTo(200, 200);</code></pre>
+<p>で設定します．</p>
+<p>最後に，</p>
+<pre><code>ctx.stroke();</code></pre>
+<p>で，パスを終了し，線を描画します．</p>
+<p>lineToを２回以上呼び出して，３角形以上の多角形ができる場合には，始点と終点をつなぎ，多角形を作ります．</p>
 <h2 data-number="6.4" id="文字列を描画する"><span class="header-section-number">6.4</span> 文字列を描画する</h2>
-<p>文字列を描画するには，</p>
-<pre><code>ctx.font = &quot;30px sans-serif&quot;;</code></pre>
-<p>で，フォントとその大きさを指定した後，</p>
-<pre><code>ctx.fillText(&quot;hello, world!&quot;, 20, 75, 200);</code></pre>
-<p>で，文字列を書き込みます．引数は(表示する文字列, x座標, y座標, 最大幅)です．</p>
-<p>抜き文字を描画したい場合は，</p>
-<pre><code>ctx.strokeText(&quot;hello, world!&quot;, 20, 175, 200);</code></pre>
-<p>で描画します．</p>
 <div class="mytable">
 <p class="mytdhl">source <span class="CopyButton" onclick="copycode('lst:6-4')">c</span></p>
 <p class="mytdhr">result</p>
@@ -1135,13 +1127,15 @@ ctx.fillRect(20, 40, 50, 100);</code></pre>
 </div>
 <iframe class="mytdr" src="src/6-4.html" class="myiframe"></iframe>
 </div>
+<p>文字列を描画するには，</p>
+<pre><code>ctx.font = &quot;30px sans-serif&quot;;</code></pre>
+<p>で，フォントとその大きさを指定した後，</p>
+<pre><code>ctx.fillText(&quot;hello, world!&quot;, 20, 75, 200);</code></pre>
+<p>で，文字列を書き込みます．引数は(表示する文字列, x座標, y座標, 最大幅)です．</p>
+<p>抜き文字を描画したい場合は，</p>
+<pre><code>ctx.strokeText(&quot;hello, world!&quot;, 20, 175, 200);</code></pre>
+<p>で描画します．</p>
 <h2 data-number="6.5" id="画像を描画する"><span class="header-section-number">6.5</span> 画像を描画する</h2>
-<p>画像を描画するには，まず，グローバル変数として，画像オブジェクトを生成し，ファイル名を指定して画像を読み込みます． この書き方も，意味は完全にわからなくて構いませんので，最初はこう書くものだと覚えてください．</p>
-<pre><code>var img01 = new Image();
-img01.src = &quot;goo.png&quot;;</code></pre>
-<p>読み込んだ画像をキャンパスに描くには，buttonAPressed関数内で，</p>
-<pre><code>ctx.drawImage(img01, 10, 10, 100, 100);</code></pre>
-<p>と記述し描画します．引数は(画像オブジェクト, x座標, y座標, 幅，高さ)です．</p>
 <div class="mytable">
 <p class="mytdhl">source <span class="CopyButton" onclick="copycode('lst:6-5')">c</span></p>
 <p class="mytdhr">result</p>
@@ -1175,15 +1169,16 @@ img01.src = &quot;goo.png&quot;;</code></pre>
 </div>
 <iframe class="mytdr" src="src/6-5.html" class="myiframe"></iframe>
 </div>
+<p>画像を描画するには，まず，グローバル変数として，画像オブジェクトを生成し，ファイル名を指定して画像を読み込みます． この書き方も，意味は完全にわからなくて構いませんので，最初はこう書くものだと覚えてください．</p>
+<pre><code>var img01 = new Image();
+img01.src = &quot;goo.png&quot;;</code></pre>
+<p>読み込んだ画像をキャンパスに描くには，buttonAPressed関数内で，</p>
+<pre><code>ctx.drawImage(img01, 10, 10, 100, 100);</code></pre>
+<p>と記述し描画します．引数は(画像オブジェクト, x座標, y座標, 幅，高さ)です．</p>
 <h1 data-number="7" id="canvas-応用編"><span class="header-section-number">7</span> canvas 応用編</h1>
 <p>本章では，canvasを使った３つの応用プログラムを学びます．</p>
 <h2 data-number="7.1" id="繰り返し図形"><span class="header-section-number">7.1</span> 繰り返し図形</h2>
 <p>canvasを使ったdrawXXXなどという記述は，Javascriptプログラムですから，これまでに習った基礎的なプログラミングテクニック(for文，if文)が応用できます．</p>
-<p>例えば，四角形を横に並べて１０個書くには，x座標を工夫して</p>
-<pre><code>for (var i = 0; i &lt; 10; i++) {
-    ctx.strokeRect(i * 15, 50, 10, 10);
-}</code></pre>
-<p>というように書くと，繰り返しを使って多くの同様の図形を書くことができます．</p>
 <div class="mytable">
 <p class="mytdhl">source <span class="CopyButton" onclick="copycode('lst:7-1')">c</span></p>
 <p class="mytdhr">result</p>
@@ -1217,6 +1212,11 @@ img01.src = &quot;goo.png&quot;;</code></pre>
 </div>
 <iframe class="mytdr" src="src/7-1.html" class="myiframe"></iframe>
 </div>
+<p>上記のプログラムで，四角形を横に並べて１０個書くためには，x座標を工夫して</p>
+<pre><code>for (var i = 0; i &lt; 10; i++) {
+    ctx.strokeRect(i * 15, 50, 10, 10);
+}</code></pre>
+<p>というように書くと，繰り返しを使って多くの同様の図形を書くことができます．</p>
 <h2 data-number="7.2" id="テキストフィールドと組み合わせる"><span class="header-section-number">7.2</span> テキストフィールドと組み合わせる</h2>
 <p>canvasの外にあるテキストフィールドと組み合わせてプログラムを作ることもできます．</p>
 <p>次のプログラムでは，テキストフィールドからx座標とy座標の入力を受け取り，その場所に四角形を描いています．</p>
@@ -1311,12 +1311,7 @@ img01.src = &quot;goo.png&quot;;</code></pre>
 <h1 data-number="8" id="タイマー"><span class="header-section-number">8</span> タイマー</h1>
 <p>本章では，タイマーの使い方を学びます．</p>
 <h2 data-number="8.1" id="タイマーから一定間隔で関数を呼び出す"><span class="header-section-number">8.1</span> タイマーから一定間隔で関数を呼び出す</h2>
-<p>これまでのプログラムを動作させるには，必ずユーザがなにか操作（ボタンを押すなど）をする必要がありましたが，キッチンタイマーなど，定期的に，自動的に動作するプログラムを作るときには，時を刻むタイマーが必要になります． Javascriptでは，setInterval関数でタイマーを起動します．</p>
-<p>setIntervalの書法は，次の通りです．</p>
-<pre><code>setInterval([関数名], [呼び出す間隔(ミリ秒)]);</code></pre>
-<p>例えば，</p>
-<pre><code>setInterval(tick, 1000);</code></pre>
-<p>という行では，tickという関数（下に定義してありますね）を，1000ミリ秒ごと，つまり１秒毎に呼び出すタイマーを起動する，という意味になります．Aボタンを押すと，setInterval関数が実行され，タイマーが起動して１秒毎にtick関数が実行されるようになります．</p>
+<p>これまでのプログラムを動作させるには，必ずユーザがなにか操作（ボタンを押すなど）をする必要がありましたが，キッチンタイマーなど，定期的に，自動的に動作するプログラムを作るときには，時を刻むタイマーが必要になります．</p>
 <div class="mytable">
 <p class="mytdhl">source <span class="CopyButton" onclick="copycode('lst:8-1')">c</span></p>
 <p class="mytdhr">result</p>
@@ -1350,15 +1345,13 @@ img01.src = &quot;goo.png&quot;;</code></pre>
 </div>
 <iframe class="mytdr" src="src/8-1.html" class="myiframe"></iframe>
 </div>
+<p>Javascriptでは，setInterval関数でタイマーを起動します．</p>
+<p>setIntervalの書法は，次の通りです．</p>
+<pre><code>setInterval([関数名], [呼び出す間隔(ミリ秒)]);</code></pre>
+<p>例えば，</p>
+<pre><code>setInterval(tick, 1000);</code></pre>
+<p>という行では，tickという関数（下に定義してありますね）を，1000ミリ秒ごと，つまり１秒毎に呼び出すタイマーを起動する，という意味になります．Aボタンを押すと，setInterval関数が実行され，タイマーが起動して１秒毎にtick関数が実行されるようになります．</p>
 <h2 data-number="8.2" id="タイマーを停止する"><span class="header-section-number">8.2</span> タイマーを停止する</h2>
-<p>タイマーを停止するには，</p>
-<pre><code>clearInterval([タイマー変数]);</code></pre>
-<p>関数を呼び出します．タイマー変数を記憶しておく必要があるので，グローバル変数として，</p>
-<pre><code>var timer;</code></pre>
-<p>を定義し，タイマーが起動したときに，setInterval関数の戻り値として得られるタイマー変数を記憶しておき，</p>
-<pre><code>timer = setInterval(tick, 1000);</code></pre>
-<p>clearInterval関数でタイマーを停止します．</p>
-<pre><code>clearInterval(timer);</code></pre>
 <div class="mytable">
 <p class="mytdhl">source <span class="CopyButton" onclick="copycode('lst:8-2')">c</span></p>
 <p class="mytdhr">result</p>
@@ -1398,24 +1391,17 @@ img01.src = &quot;goo.png&quot;;</code></pre>
 </div>
 <iframe class="mytdr" src="src/8-2.html" class="myiframe"></iframe>
 </div>
+<p>タイマーを停止するには，</p>
+<pre><code>clearInterval([タイマー変数]);</code></pre>
+<p>関数を呼び出します．タイマー変数を記憶しておく必要があるので，グローバル変数として，</p>
+<pre><code>var timer;</code></pre>
+<p>を定義し，タイマーが起動したときに，setInterval関数の戻り値として得られるタイマー変数を記憶しておき，</p>
+<pre><code>timer = setInterval(tick, 1000);</code></pre>
+<p>clearInterval関数でタイマーを停止します．</p>
+<pre><code>clearInterval(timer);</code></pre>
 <h2 data-number="8.3" id="タイマーの重複起動を回避する"><span class="header-section-number">8.3</span> タイマーの重複起動を回避する</h2>
 <p>一つ前のプログラムでは，タイマーの起動と停止を行うことができるようになりましたが， 何どもAボタンを押すと，タイマーがたくさん起動してしまい，停止もできなくなります（変数は一つのため，最後に起動したものしか停止できない）．</p>
-<p>タイマーの重複起動を回避するテクニックをはいくつかあるのですが，状態変数による場合分けのプログラムを作ってみましょう． ‘停止中’, か’起動中’かを記憶しておく変数stateをグローバル変数として定義します;</p>
-<pre><code>var state = &#39;停止中&#39;;</code></pre>
-<p>buttonAPressed()関数は次のように書き換えます．</p>
-<pre><code>if (state == &#39;停止中&#39;) {
-    timer = setInterval(tick, 1000);
-    state = &#39;動作中&#39;;
-}</code></pre>
-<p>このプログラムは，stateが「停止中」のときだけ，タイマーを起動し，起動したらstateを「動作中」に切り替えます．</p>
-<p>buttonBPressed()関数は次のように書き換えます．</p>
-<pre><code>function buttonBPressed() {
-    if (state == &#39;動作中&#39;) {
-        clearInterval(timer);
-        state = &#39;停止中&#39;;
-    }
-}</code></pre>
-<p>このプログラムは，stateが「動作中」のときだけ，タイマーを停止し，停止したらstateを「停止中」に切り替えます．</p>
+<p>タイマーの重複起動を回避するテクニックをはいくつかあるのですが，状態変数による場合分けのプログラムを作ってみましょう．</p>
 <div class="mytable">
 <p class="mytdhl">source <span class="CopyButton" onclick="copycode('lst:8-3')">c</span></p>
 <p class="mytdhr">result</p>
@@ -1462,6 +1448,22 @@ img01.src = &quot;goo.png&quot;;</code></pre>
 </div>
 <iframe class="mytdr" src="src/8-3.html" class="myiframe"></iframe>
 </div>
+<p>‘停止中’, か’起動中’かを記憶しておく変数stateをグローバル変数として定義します.</p>
+<pre><code>var state = &#39;停止中&#39;;</code></pre>
+<p>buttonAPressed()関数は次のように書き換えます．</p>
+<pre><code>if (state == &#39;停止中&#39;) {
+    timer = setInterval(tick, 1000);
+    state = &#39;動作中&#39;;
+}</code></pre>
+<p>このプログラムは，stateが「停止中」のときだけ，タイマーを起動し，起動したらstateを「動作中」に切り替えます．</p>
+<p>buttonBPressed()関数は次のように書き換えます．</p>
+<pre><code>function buttonBPressed() {
+    if (state == &#39;動作中&#39;) {
+        clearInterval(timer);
+        state = &#39;停止中&#39;;
+    }
+}</code></pre>
+<p>このプログラムは，stateが「動作中」のときだけ，タイマーを停止し，停止したらstateを「停止中」に切り替えます．</p>
 <h2 data-number="8.4" id="シンプルなインターフェイスに"><span class="header-section-number">8.4</span> シンプルなインターフェイスに</h2>
 <p>state変数で状態を管理できるようになると，ボタンは一つでも同様の機能を実現できることに気づきます． AボタンとBボタンの動作について，Aボタン一つでその状態ごとに動作を分岐するようにして，Aボタンを押すたびに停止と実行を切り替えるプログラムを作ることができます．</p>
 <div class="mytable">
@@ -1507,12 +1509,6 @@ img01.src = &quot;goo.png&quot;;</code></pre>
 </div>
 <h2 data-number="8.5" id="ストップウォッチ"><span class="header-section-number">8.5</span> ストップウォッチ</h2>
 <p>タイマーのプログラムを応用して，ストップウォッチを作ってみましょう． 1/10秒の位と1秒の二桁の変数を用意して，100ミリ秒ごとに1/10秒の位をカウントアップし，1/10秒のくらいが10になったら，繰り上がりを実現します．</p>
-<p>tick()関数の次のプログラムに注目しましょう．</p>
-<pre><code>oneof10sec = oneof10sec + 1;
-if (oneof10sec == 10) {
-    sec = sec + 1;
-    oneof10sec = 0;
-}</code></pre>
 <div class="mytable">
 <p class="mytdhl">source <span class="CopyButton" onclick="copycode('lst:8-5')">c</span></p>
 <p class="mytdhr">result</p>
@@ -1560,18 +1556,16 @@ if (oneof10sec == 10) {
 </div>
 <iframe class="mytdr" src="src/8-5.html" class="myiframe"></iframe>
 </div>
+<p>tick()関数の次のプログラムに注目しましょう．</p>
+<pre><code>oneof10sec = oneof10sec + 1;
+if (oneof10sec == 10) {
+    sec = sec + 1;
+    oneof10sec = 0;
+}</code></pre>
 <h1 data-number="9" id="タイマーとcanvasを使ったアニメーションの作成"><span class="header-section-number">9</span> タイマーとcanvasを使ったアニメーションの作成</h1>
 <p>本章では，タイマーとcanvasを使って図形を動かすアニメーションを作成する方法を学びます．</p>
 <h2 data-number="9.1" id="四角形を動かすアニメーション"><span class="header-section-number">9.1</span> 四角形を動かすアニメーション</h2>
 <p>タイマーとcanvasを使って，図形を動かすアニメーションを作ることができます． tick()関数は，20ミリ秒ごとに呼ばれる関数で，この中で，毎回キャンパスを書き換えます． 毎回，少しずつ図形を動かしながら書くことで，物体が動いているように見えるアニメーションを作ることができます．</p>
-<p>アニメーションを作るには，物体の位置を記憶しておく必要があるため，座標を記憶するグローバル変数を作成します．</p>
-<pre><code>var x = 10;
-var y = 10;</code></pre>
-<p>20ミリ秒ごとに実行されるtick()関数では，毎回</p>
-<pre><code>x = x + 2;</code></pre>
-<p>というプログラムでxを2増やした後</p>
-<pre><code>ctx.strokeRect(x, y, 10, 10);</code></pre>
-<p>で，増やされたx変数の値を使ってx座標の位置に四角形を記述します．結果的に毎回，2ピクセルずつx座標を右に動かして描画します．これをタイマーで繰り返すと，物体が右に動いているように見えます．</p>
 <div class="mytable">
 <p class="mytdhl">source <span class="CopyButton" onclick="copycode('lst:9-1')">c</span></p>
 <p class="mytdhr">result</p>
@@ -1619,12 +1613,16 @@ var y = 10;</code></pre>
 </div>
 <iframe class="mytdr" src="src/9-1.html" class="myiframe"></iframe>
 </div>
+<p>アニメーションを作るには，物体の位置を記憶しておく必要があるため，座標を記憶するグローバル変数を作成します．</p>
+<pre><code>var x = 10;
+var y = 10;</code></pre>
+<p>20ミリ秒ごとに実行されるtick()関数では，毎回</p>
+<pre><code>x = x + 2;</code></pre>
+<p>というプログラムでxを2増やした後</p>
+<pre><code>ctx.strokeRect(x, y, 10, 10);</code></pre>
+<p>で，増やされたx変数の値を使ってx座標の位置に四角形を記述します．結果的に毎回，2ピクセルずつx座標を右に動かして描画します．これをタイマーで繰り返すと，物体が右に動いているように見えます．</p>
 <h2 data-number="9.2" id="四角形を動かすアニメーションキャンパス外に出てしまった場合の処理"><span class="header-section-number">9.2</span> 四角形を動かすアニメーション（キャンパス外に出てしまった場合の処理）</h2>
 <p>先のプログラムでは，四角形は右に動いていきますが，やがてキャンパス右外に出てしまいます． キャンパス右橋と左端をつないで，右外に出た場合には左から入ってくるようにしてみましょう．</p>
-<p>tick()関数で，x座標を増やしたときに，x座標がキャンバスサイズ(今回は400)より大きい場合を調べて，大きくなった場合にはx座標を0に戻すプログラムを次のように書きます．</p>
-<pre><code>if (x &gt; 400) {
-    x = 0;
-}</code></pre>
 <div class="mytable">
 <p class="mytdhl">source <span class="CopyButton" onclick="copycode('lst:9-2')">c</span></p>
 <p class="mytdhr">result</p>
@@ -1675,16 +1673,12 @@ var y = 10;</code></pre>
 </div>
 <iframe class="mytdr" src="src/9-2.html" class="myiframe"></iframe>
 </div>
+<p>tick()関数で，x座標を増やしたときに，x座標がキャンバスサイズ(今回は400)より大きい場合を調べて，大きくなった場合にはx座標を0に戻すプログラムを次のように書きます．</p>
+<pre><code>if (x &gt; 400) {
+    x = 0;
+}</code></pre>
 <h2 data-number="9.3" id="パラパラ漫画アニメーション"><span class="header-section-number">9.3</span> パラパラ漫画アニメーション</h2>
 <p>タイマーを利用して，画像を次々と書き換えることもできます．これによってパラパラ漫画の要領でアニメーションを作ることができます．このプログラム例はじゃんけんのグー，チョキ，パーを切り替えるアニメーションです．</p>
-<p>現在の画像番号を保持する変数xをグローバル変数に定義します．</p>
-<pre><code>var x = 1;</code></pre>
-<p>3枚の画像があるため，変数は1, 2, 3と書き換えるようにします．</p>
-<pre><code>if (x &lt;= 2) {
-    x = x + 1;
-} else {
-    x = 1;
-}</code></pre>
 <div class="mytable">
 <p class="mytdhl">source <span class="CopyButton" onclick="copycode('lst:9-3')">c</span></p>
 <p class="mytdhr">result</p>
@@ -1750,5 +1744,13 @@ var y = 10;</code></pre>
 </div>
 <iframe class="mytdr" src="src/9-3.html" class="myiframe"></iframe>
 </div>
+<p>現在の画像番号を保持する変数xをグローバル変数に定義します．</p>
+<pre><code>var x = 1;</code></pre>
+<p>3枚の画像があるため，変数は1, 2, 3と書き換えるようにします．</p>
+<pre><code>if (x &lt;= 2) {
+    x = x + 1;
+} else {
+    x = 1;
+}</code></pre>
 </body>
 </html>

@@ -78,7 +78,7 @@ var html = document.getElementById('fruits').innerHTML;
 
 <div code src='3-5'></div>
 
-### tips
+### tips {.unnumbered}
 ボタンBが押されたときの処理では，appendChildを使った別の書き方の例を載せてあります．
 ```
 var li = document.createElement('li');
